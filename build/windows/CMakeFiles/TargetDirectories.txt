@@ -1,0 +1,13 @@
+C:/Users/hp/flutterapps/monuite/build/windows/CMakeFiles/INSTALL.dir
+C:/Users/hp/flutterapps/monuite/build/windows/CMakeFiles/ALL_BUILD.dir
+C:/Users/hp/flutterapps/monuite/build/windows/CMakeFiles/ZERO_CHECK.dir
+C:/Users/hp/flutterapps/monuite/build/windows/flutter/CMakeFiles/flutter_wrapper_plugin.dir
+C:/Users/hp/flutterapps/monuite/build/windows/flutter/CMakeFiles/flutter_wrapper_app.dir
+C:/Users/hp/flutterapps/monuite/build/windows/flutter/CMakeFiles/flutter_assemble.dir
+C:/Users/hp/flutterapps/monuite/build/windows/flutter/CMakeFiles/INSTALL.dir
+C:/Users/hp/flutterapps/monuite/build/windows/runner/CMakeFiles/monuite.dir
+C:/Users/hp/flutterapps/monuite/build/windows/runner/CMakeFiles/INSTALL.dir
+C:/Users/hp/flutterapps/monuite/build/windows/runner/CMakeFiles/ALL_BUILD.dir
+C:/Users/hp/flutterapps/monuite/build/windows/plugins/url_launcher_windows/CMakeFiles/url_launcher_windows_plugin.dir
+C:/Users/hp/flutterapps/monuite/build/windows/plugins/url_launcher_windows/CMakeFiles/INSTALL.dir
+C:/Users/hp/flutterapps/monuite/build/windows/plugins/url_launcher_windows/CMakeFiles/ALL_BUILD.dir

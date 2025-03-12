@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "223292591394",
+    "project_id": "monuite-cbde0",
+    "storage_bucket": "monuite-cbde0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:223292591394:android:af768315460e88c25d697b",
+        "android_client_info": {
+          "package_name": "com.example.monuite"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAnjNFOLVNq03meWHhb3srDLgY7Qo-myPs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
