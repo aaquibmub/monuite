@@ -170,30 +170,6 @@
       "languageVersion": "2.12"
     },
     {
-      "name": "firebase_core",
-      "rootUri": "file:///C:/Users/hp/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/firebase_core-0.5.3",
-      "packageUri": "lib/",
-      "languageVersion": "2.1"
-    },
-    {
-      "name": "firebase_core_platform_interface",
-      "rootUri": "file:///C:/Users/hp/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/firebase_core_platform_interface-2.1.0",
-      "packageUri": "lib/",
-      "languageVersion": "2.1"
-    },
-    {
-      "name": "firebase_core_web",
-      "rootUri": "file:///C:/Users/hp/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/firebase_core_web-0.2.1+1",
-      "packageUri": "lib/",
-      "languageVersion": "2.1"
-    },
-    {
-      "name": "firebase_messaging",
-      "rootUri": "file:///C:/Users/hp/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/firebase_messaging-7.0.3",
-      "packageUri": "lib/",
-      "languageVersion": "2.0"
-    },
-    {
       "name": "fixnum",
       "rootUri": "file:///C:/Users/hp/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/fixnum-1.0.1",
       "packageUri": "lib/",
@@ -261,9 +237,9 @@
     },
     {
       "name": "http",
-      "rootUri": "file:///C:/Users/hp/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/http-0.13.5",
+      "rootUri": "file:///C:/Users/hp/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/http-0.12.2",
       "packageUri": "lib/",
-      "languageVersion": "2.14"
+      "languageVersion": "2.4"
     },
     {
       "name": "http_multi_server",
@@ -273,9 +249,9 @@
     },
     {
       "name": "http_parser",
-      "rootUri": "file:///C:/Users/hp/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/http_parser-4.0.2",
+      "rootUri": "file:///C:/Users/hp/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/http_parser-3.1.4",
       "packageUri": "lib/",
-      "languageVersion": "2.12"
+      "languageVersion": "2.3"
     },
     {
       "name": "intl",
@@ -452,12 +428,6 @@
       "languageVersion": "2.7"
     },
     {
-      "name": "quiver",
-      "rootUri": "file:///C:/Users/hp/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/quiver-2.1.5",
-      "packageUri": "lib/",
-      "languageVersion": "2.0"
-    },
-    {
       "name": "shared_preferences",
       "rootUri": "file:///C:/Users/hp/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/shared_preferences-0.5.12+4",
       "packageUri": "lib/",
@@ -495,9 +465,9 @@
     },
     {
       "name": "shelf",
-      "rootUri": "file:///C:/Users/hp/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/shelf-1.4.1",
+      "rootUri": "file:///C:/Users/hp/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/shelf-0.7.9",
       "packageUri": "lib/",
-      "languageVersion": "2.17"
+      "languageVersion": "2.1"
     },
     {
       "name": "shelf_web_socket",
@@ -680,7 +650,7 @@
       "languageVersion": "2.7"
     }
   ],
-  "generated": "2025-03-07T06:34:43.468292Z",
+  "generated": "2025-03-18T11:38:52.569803Z",
   "generator": "pub",
   "generatorVersion": "2.19.0-146.2.beta"
 }

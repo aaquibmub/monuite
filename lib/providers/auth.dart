@@ -55,7 +55,7 @@ class Auth with ChangeNotifier {
     //     '${Constants.clientID}:${Constants.clientSecret}');
     try {
       final response = await http.post(
-        url as Uri,
+        url,
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
         },

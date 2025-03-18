@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.monuite.app-mergeDebugResources-13:/values-gl/values-gl.xml",
+            "outputFile": "com.example.monuite.app-mergeDebugResources-12:/values-gl/values-gl.xml",
             "map": [
                 {
                     "source": "C:\\Users\\hp\\.gradle\\caches\\transforms-3\\ce0ea9fa8a82d6d9169daa81ce593c47\\transformed\\jetified-play-services-basement-17.0.0\\res\\values-gl\\values.xml",
@@ -21,23 +21,6 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\hp\\.gradle\\caches\\transforms-3\\032fc897b53ea931e3f0fb1c10793671\\transformed\\jetified-firebase-messaging-20.3.0\\res\\values-gl\\values.xml",
-                    "from": {
-                        "startLines": "4",
-                        "startColumns": "0",
-                        "startOffsets": "207",
-                        "endColumns": "100",
-                        "endOffsets": "307"
-                    },
-                    "to": {
-                        "startLines": "20",
-                        "startColumns": "4",
-                        "startOffsets": "2875",
-                        "endColumns": "104",
-                        "endOffsets": "2975"
-                    }
-                },
-                {
                     "source": "C:\\Users\\hp\\.gradle\\caches\\transforms-3\\5a5c44de30207de1b942c6847b06411e\\transformed\\core-1.6.0\\res\\values-gl\\values-gl.xml",
                     "from": {
                         "startLines": "2",
@@ -47,11 +30,11 @@
                         "endOffsets": "151"
                     },
                     "to": {
-                        "startLines": "21",
+                        "startLines": "20",
                         "startColumns": "4",
-                        "startOffsets": "2980",
+                        "startOffsets": "2875",
                         "endColumns": "100",
-                        "endOffsets": "3076"
+                        "endOffsets": "2971"
                     }
                 },
                 {

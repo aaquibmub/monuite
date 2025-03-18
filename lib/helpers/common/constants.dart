@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
 class Constants {
-  static const String baseUrl = 'http://37.224.48.3:8095/api/';
+  // static const String baseUrl = 'http://37.224.48.3:8095/api/';
   // static const String baseUrl = 'http://135.125.212.110:8095/api/';
-  // static const String baseUrl = 'http://10.0.2.2:9000/api/';
-  // static const String baseUrl = 'http://127.0.0.1:9000/';
+  static const String baseUrl = 'http://10.0.2.2:5000/api/';
+  // static const String baseUrl = 'http://127.0.0.1:5000/';
 
   static const String clientID = '6a582387-93d6-4b35-8ab6-ce888083c804';
   static const String clientSecret = 'abc';

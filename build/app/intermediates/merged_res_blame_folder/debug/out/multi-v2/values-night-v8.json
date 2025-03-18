@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.monuite.app-mergeDebugResources-13:/values-night-v8/values-night-v8.xml",
+            "outputFile": "com.example.monuite.app-mergeDebugResources-12:/values-night-v8/values-night-v8.xml",
             "map": [
                 {
                     "source": "C:\\Users\\hp\\flutterapps\\monuite\\android\\app\\src\\main\\res\\values-night\\styles.xml",
