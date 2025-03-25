@@ -68,14 +68,71 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     final deviceSize = MediaQuery.of(context).size;
 
-    Widget buildSignupButton() {
+    Widget buildSigninButton() {
       return ElevatedButton(
         style: ButtonStyle(
             backgroundColor: MaterialStateProperty.all<Color>(
                 Theme.of(context).primaryColor)),
         onPressed: () => _submit(context),
         child: Text(
-          'SIGN IN',
+          'Sign in',
+          style: Theme.of(context).primaryTextTheme.labelLarge,
+        ),
+        // elevation: 0,
+        // materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+      );
+    }
+
+    Widget buildSignupPrivateButton() {
+      return ElevatedButton(
+        style: ButtonStyle(
+            backgroundColor: MaterialStateProperty.all<Color>(
+                Theme.of(context).primaryColor)),
+        onPressed: () => {
+          Navigator.of(context).pushReplacementNamed(
+            Routes.registerPrivateScreen,
+          )
+        },
+        child: Text(
+          'Register as private customer',
+          style: Theme.of(context).primaryTextTheme.labelLarge,
+        ),
+        // elevation: 0,
+        // materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+      );
+    }
+
+    Widget buildSignupCorporateButton() {
+      return ElevatedButton(
+        style: ButtonStyle(
+            backgroundColor: MaterialStateProperty.all<Color>(
+                Theme.of(context).primaryColor)),
+        onPressed: () => {
+          Navigator.of(context).pushReplacementNamed(
+            Routes.registerCorporateScreen,
+          )
+        },
+        child: Text(
+          'Register as corporate customer',
+          style: Theme.of(context).primaryTextTheme.labelLarge,
+        ),
+        // elevation: 0,
+        // materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+      );
+    }
+
+    Widget buildSignupGuestButton() {
+      return ElevatedButton(
+        style: ButtonStyle(
+            backgroundColor: MaterialStateProperty.all<Color>(
+                Theme.of(context).primaryColor)),
+        onPressed: () => {
+          Navigator.of(context).pushReplacementNamed(
+            Routes.homeScreen,
+          )
+        },
+        child: Text(
+          'Order without an account',
           style: Theme.of(context).primaryTextTheme.labelLarge,
         ),
         // elevation: 0,
@@ -107,21 +164,12 @@ class _LoginScreenState extends State<LoginScreen> {
                                   height: 40,
                                 ),
                                 Text(
-                                  'Sign In',
+                                  'Sign in to your account',
                                   style:
                                       Theme.of(context).textTheme.displaySmall,
                                 ),
                                 SizedBox(
-                                  height: 40,
-                                ),
-                                Text(
-                                  'Welcome back!',
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .headlineMedium,
-                                ),
-                                SizedBox(
-                                  height: 70,
+                                  height: 10,
                                 ),
                                 LoginForm(
                                   _formKey,
@@ -130,8 +178,15 @@ class _LoginScreenState extends State<LoginScreen> {
                                   _submit,
                                   context,
                                 ),
+                                Container(
+                                  alignment: Alignment.topRight,
+                                  child: TextButton(
+                                    onPressed: () {},
+                                    child: Text('Forgot Password?'),
+                                  ),
+                                ),
                                 SizedBox(
-                                  height: 30,
+                                  height: 10,
                                 ),
                                 Row(
                                   mainAxisAlignment:
@@ -145,15 +200,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                           horizontal: 20,
                                         ),
                                         alignment: Alignment.topRight,
-                                        child: buildSignupButton(),
+                                        child: buildSigninButton(),
                                       ),
-                                    Container(
-                                      alignment: Alignment.topRight,
-                                      child: TextButton(
-                                        onPressed: () {},
-                                        child: Text('Forgot Password?'),
-                                      ),
-                                    ),
                                   ],
                                 ),
                               ],
@@ -162,10 +210,36 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                       ),
                       if (Utility.isPhone(deviceSize))
-                        Container(
-                          width: double.infinity,
-                          height: 60,
-                          child: buildSignupButton(),
+                        Column(
+                          children: [
+                            Container(
+                              width: double.infinity,
+                              height: 60,
+                              child: buildSigninButton(),
+                            ),
+                            SizedBox(
+                              width: double.infinity,
+                              height: 10,
+                              child: Center(
+                                child: Text('or'),
+                              ),
+                            ),
+                            Container(
+                              width: double.infinity,
+                              height: 60,
+                              child: buildSignupPrivateButton(),
+                            ),
+                            Container(
+                              width: double.infinity,
+                              height: 60,
+                              child: buildSignupCorporateButton(),
+                            ),
+                            Container(
+                              width: double.infinity,
+                              height: 60,
+                              child: buildSignupGuestButton(),
+                            ),
+                          ],
                         ),
                     ],
                   ),

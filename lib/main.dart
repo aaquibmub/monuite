@@ -3,6 +3,8 @@ import 'package:monuite/providers/auth.dart';
 import 'package:monuite/screens/home/home_screen.dart';
 import 'package:monuite/screens/loading_screen.dart';
 import 'package:monuite/screens/login_screen.dart';
+import 'package:monuite/screens/register_corporate_screen.dart';
+import 'package:monuite/screens/regsiter_private_screen.dart';
 import 'package:provider/provider.dart';
 
 import 'helpers/common/constants.dart';
@@ -89,6 +91,8 @@ class MyApp extends StatelessWidget {
                 ),
           routes: {
             Routes.loginScreen: (ctx) => LoginScreen(),
+            Routes.registerPrivateScreen: (ctx) => RegisterPrivateScreen(),
+            Routes.registerCorporateScreen: (ctx) => RegisterCorporateScreen(),
             Routes.homeScreen: (ctx) => HomeScreen(),
             // Routes.tripsScreen: (ctx) => TripScreen(),
             // Routes.vehicalsScreen: (ctx) => VehicalsScreen(),

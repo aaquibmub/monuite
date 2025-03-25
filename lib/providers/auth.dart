@@ -259,4 +259,110 @@ class Auth with ChangeNotifier {
       throw error;
     }
   }
+
+  Future<String> registerPrivate(
+    String email,
+    String password,
+    String telephone,
+  ) async {
+    return _registerPrivate(
+      email,
+      password,
+      telephone,
+    );
+  }
+
+  Future<String> _registerPrivate(
+    String email,
+    String password,
+    String telephone,
+  ) async {
+    final url = '${Constants.baseUrl}auth/register-private';
+    try {
+      final response = await http.post(
+        url,
+        headers: <String, String>{
+          'Content-Type': 'application/json; charset=UTF-8',
+        },
+        body: jsonEncode(<String, String>{
+          'email': email,
+          'password': password,
+          'telephone': telephone
+        }),
+      );
+      if (response != null) {
+        final responseData = json.decode(response.body);
+        ResponseModel<String> result = ResponseModel.fromJson(responseData);
+        if (result.hasError) {
+          return Future.value(result.msg);
+        }
+
+        return _authenticate(email, password);
+      }
+      return '';
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  Future<String> registerCorporate(
+    String firstName,
+    String lastName,
+    String companyName,
+    String email,
+    String password,
+    String telephone,
+    String message,
+  ) async {
+    return _registerCorporate(
+      firstName,
+      lastName,
+      companyName,
+      email,
+      password,
+      telephone,
+      message,
+    );
+  }
+
+  Future<String> _registerCorporate(
+    String firstName,
+    String lastName,
+    String companyName,
+    String email,
+    String password,
+    String telephone,
+    String message,
+  ) async {
+    final url = '${Constants.baseUrl}auth/register-corporate';
+    try {
+      final response = await http.post(
+        url,
+        headers: <String, String>{
+          'Content-Type': 'application/json; charset=UTF-8',
+        },
+        body: jsonEncode(<String, String>{
+          'firstName': firstName,
+          'lastName': lastName,
+          'companyName': companyName,
+          'email': email,
+          'password': password,
+          'telephone': telephone,
+          'message': message,
+        }),
+      );
+      if (response != null) {
+        final responseData = json.decode(response.body);
+        if (responseData['error'] != null) {
+          var error = responseData['error_description'];
+          return error;
+        }
+
+        return _authenticate(email, password);
+      }
+      return '';
+    } catch (error) {
+      throw error;
+    }
+  }
 }
