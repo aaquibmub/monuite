@@ -5,6 +5,7 @@ import 'package:monuite/screens/home/landing_screen.dart';
 import 'package:monuite/screens/home/profile_screen.dart';
 import 'package:monuite/screens/home/wishlist_screen.dart';
 
+import '../../helpers/common/constants.dart';
 import '../../helpers/common/custom_icons.dart';
 
 class TabsScreen extends StatefulWidget {
@@ -48,44 +49,60 @@ class _TabsScreenState extends State<TabsScreen> {
       body: _pages[_selectedPageIndex]['page'] as Widget,
       bottomNavigationBar: BottomNavigationBar(
         onTap: _selectPage,
-        selectedItemColor: Colors.white,
-        unselectedItemColor: Colors.white,
+        selectedItemColor: Constants.primaryColor,
+        unselectedItemColor: Constants.textColorLight,
+        showUnselectedLabels: true,
         currentIndex: _selectedPageIndex,
         items: [
           BottomNavigationBarItem(
-            backgroundColor: Theme.of(context).primaryColor,
-            icon: Icon(
-              MyFlutterApp.ico_home,
+            backgroundColor: Theme.of(context).backgroundColor,
+            icon: ImageIcon(
+              AssetImage(CustomIcons.homeIconDisabled),
             ),
-            label: '',
+            activeIcon: ImageIcon(
+              AssetImage(CustomIcons.homeIconActive),
+            ),
+            label: 'Home',
           ),
           BottomNavigationBarItem(
-            backgroundColor: Theme.of(context).primaryColor,
-            icon: Icon(
-              MyFlutterApp.ico_trip,
+            backgroundColor: Theme.of(context).backgroundColor,
+            icon: ImageIcon(
+              AssetImage(CustomIcons.catgIconDisabled),
             ),
-            label: '',
+            activeIcon: ImageIcon(
+              AssetImage(CustomIcons.catgIconActive),
+            ),
+            label: 'Categories',
           ),
           BottomNavigationBarItem(
-            backgroundColor: Theme.of(context).primaryColor,
-            icon: Icon(
-              MyFlutterApp.ico_vehicle,
+            backgroundColor: Theme.of(context).backgroundColor,
+            icon: ImageIcon(
+              AssetImage(CustomIcons.cartIconDisabled),
             ),
-            label: '',
+            activeIcon: ImageIcon(
+              AssetImage(CustomIcons.cartIconActive),
+            ),
+            label: 'Cart',
           ),
           BottomNavigationBarItem(
-            backgroundColor: Theme.of(context).primaryColor,
-            icon: Icon(
-              MyFlutterApp.ico_vehicle_inspection,
+            backgroundColor: Theme.of(context).backgroundColor,
+            icon: ImageIcon(
+              AssetImage(CustomIcons.wishlistIconDisabled),
             ),
-            label: '',
+            activeIcon: ImageIcon(
+              AssetImage(CustomIcons.wishlistIconActive),
+            ),
+            label: 'Wishlist',
           ),
           BottomNavigationBarItem(
-            backgroundColor: Theme.of(context).primaryColor,
-            icon: Icon(
-              MyFlutterApp.ico_vehicle_inspection,
+            backgroundColor: Theme.of(context).backgroundColor,
+            icon: ImageIcon(
+              AssetImage(CustomIcons.profileIconDisabled),
             ),
-            label: '',
+            activeIcon: ImageIcon(
+              AssetImage(CustomIcons.profileIconActive),
+            ),
+            label: 'Profile',
           ),
         ],
       ),

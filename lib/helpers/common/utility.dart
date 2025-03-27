@@ -155,7 +155,7 @@ class Utility {
             ),
           ),
         ),
-        onTap: () => onTap,
+        onTap: onTap,
       );
     }
 
@@ -189,7 +189,7 @@ class Utility {
                   // Name
                   Container(
                     child: Text(
-                      (_currentuser != null ? _currentuser.firstName : ''),
+                      (_currentuser != null ? _currentuser.email : ''),
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 18,
@@ -218,16 +218,6 @@ class Utility {
                         () {
                           Navigator.of(context).pushReplacementNamed(
                             Routes.homeScreen,
-                          );
-                        },
-                      ),
-                      // Support
-                      buildMenuItem(
-                        context,
-                        'Support',
-                        () {
-                          Navigator.of(context).pushReplacementNamed(
-                            Routes.supportScreen,
                           );
                         },
                       ),

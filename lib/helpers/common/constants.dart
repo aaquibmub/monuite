@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 class Constants {
   // static const String baseUrl = 'http://37.224.48.3:8095/api/';
-  // static const String baseUrl = 'http://135.125.212.110:8095/api/';
-  static const String baseUrl = 'http://10.0.2.2:5000/api/';
+  static const String baseUrl = 'http://135.125.212.109:8080/api/';
+  // static const String baseUrl = 'http://10.0.2.2:5000/api/';
   // static const String baseUrl = 'http://127.0.0.1:5000/';
 
   static const String clientID = '6a582387-93d6-4b35-8ab6-ce888083c804';
@@ -14,10 +14,10 @@ class Constants {
   static const String fontFamilyMontserrat = 'Montserrat';
   static const String fontFamilyRoboto = 'Roboto';
   // Colors
-  static const Color primaryColor = Color.fromRGBO(111, 66, 193, 1.0);
-  static const Color backgroundColor = Color.fromRGBO(230, 235, 235, 1.0);
-  static const Color textColor = Color.fromRGBO(69, 66, 101, 1.0);
-  static const Color textColorLight = Color.fromRGBO(143, 155, 166, 1.0);
+  static const Color primaryColor = Color.fromRGBO(0, 176, 185, 1.0);
+  static const Color backgroundColor = Color.fromRGBO(255, 255, 255, 1.0);
+  static const Color textColor = Color.fromRGBO(0, 0, 0, 1.0);
+  static const Color textColorLight = Color.fromRGBO(153, 153, 153, 1.0);
   static const Color textColor1 = Color.fromRGBO(79, 86, 116, 1.0);
   static const Color textFieldFillColor = Color.fromRGBO(240, 245, 248, 1.0);
   static const Color textFieldHintColor = Color.fromRGBO(167, 166, 187, 1.0);

@@ -42,11 +42,11 @@ class _LoginFormState extends State<LoginForm> {
           child: Column(
             children: <Widget>[
               FormTextField(
-                fieldLabel: 'User',
-                hintLabel: 'Type user name',
+                fieldLabel: 'Email',
+                hintLabel: 'Type email',
                 validatorFn: (value) {
                   if (value.isEmpty) {
-                    return 'User name is required';
+                    return 'Email is required';
                   }
                   return null;
                 },

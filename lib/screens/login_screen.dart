@@ -89,7 +89,7 @@ class _LoginScreenState extends State<LoginScreen> {
             backgroundColor: MaterialStateProperty.all<Color>(
                 Theme.of(context).primaryColor)),
         onPressed: () => {
-          Navigator.of(context).pushReplacementNamed(
+          Navigator.of(context).pushNamed(
             Routes.registerPrivateScreen,
           )
         },
@@ -108,7 +108,7 @@ class _LoginScreenState extends State<LoginScreen> {
             backgroundColor: MaterialStateProperty.all<Color>(
                 Theme.of(context).primaryColor)),
         onPressed: () => {
-          Navigator.of(context).pushReplacementNamed(
+          Navigator.of(context).pushNamed(
             Routes.registerCorporateScreen,
           )
         },
@@ -157,19 +157,25 @@ class _LoginScreenState extends State<LoginScreen> {
                         child: Container(
                           child: SingleChildScrollView(
                             child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.center,
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
                               children: <Widget>[
                                 SizedBox(
                                   height: 40,
                                 ),
-                                Text(
-                                  'Sign in to your account',
-                                  style:
-                                      Theme.of(context).textTheme.displaySmall,
+                                Container(
+                                  margin: EdgeInsets.symmetric(
+                                    horizontal: 20,
+                                  ),
+                                  child: Text(
+                                    'Sign in to your account',
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .displayMedium,
+                                  ),
                                 ),
                                 SizedBox(
-                                  height: 10,
+                                  height: 40,
                                 ),
                                 LoginForm(
                                   _formKey,
@@ -186,23 +192,54 @@ class _LoginScreenState extends State<LoginScreen> {
                                   ),
                                 ),
                                 SizedBox(
+                                  height: 20,
+                                ),
+                                Container(
+                                  margin: EdgeInsets.symmetric(
+                                    horizontal: 20,
+                                  ),
+                                  width: double.infinity,
+                                  height: 60,
+                                  child: buildSigninButton(),
+                                ),
+                                SizedBox(
+                                  width: double.infinity,
+                                  height: 40,
+                                  child: Center(
+                                    child: Text('or'),
+                                  ),
+                                ),
+                                Container(
+                                  margin: EdgeInsets.symmetric(
+                                    horizontal: 20,
+                                  ),
+                                  width: double.infinity,
+                                  height: 60,
+                                  child: buildSignupPrivateButton(),
+                                ),
+                                SizedBox(
+                                  width: double.infinity,
                                   height: 10,
                                 ),
-                                Row(
-                                  mainAxisAlignment:
-                                      !Utility.isPhone(deviceSize)
-                                          ? MainAxisAlignment.spaceBetween
-                                          : MainAxisAlignment.end,
-                                  children: [
-                                    if (!Utility.isPhone(deviceSize))
-                                      Container(
-                                        margin: EdgeInsets.symmetric(
-                                          horizontal: 20,
-                                        ),
-                                        alignment: Alignment.topRight,
-                                        child: buildSigninButton(),
-                                      ),
-                                  ],
+                                Container(
+                                  margin: EdgeInsets.symmetric(
+                                    horizontal: 20,
+                                  ),
+                                  width: double.infinity,
+                                  height: 60,
+                                  child: buildSignupCorporateButton(),
+                                ),
+                                SizedBox(
+                                  width: double.infinity,
+                                  height: 10,
+                                ),
+                                Container(
+                                  margin: EdgeInsets.symmetric(
+                                    horizontal: 20,
+                                  ),
+                                  width: double.infinity,
+                                  height: 60,
+                                  child: buildSignupGuestButton(),
                                 ),
                               ],
                             ),
@@ -211,35 +248,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                       if (Utility.isPhone(deviceSize))
                         Column(
-                          children: [
-                            Container(
-                              width: double.infinity,
-                              height: 60,
-                              child: buildSigninButton(),
-                            ),
-                            SizedBox(
-                              width: double.infinity,
-                              height: 10,
-                              child: Center(
-                                child: Text('or'),
-                              ),
-                            ),
-                            Container(
-                              width: double.infinity,
-                              height: 60,
-                              child: buildSignupPrivateButton(),
-                            ),
-                            Container(
-                              width: double.infinity,
-                              height: 60,
-                              child: buildSignupCorporateButton(),
-                            ),
-                            Container(
-                              width: double.infinity,
-                              height: 60,
-                              child: buildSignupGuestButton(),
-                            ),
-                          ],
+                          children: [],
                         ),
                     ],
                   ),

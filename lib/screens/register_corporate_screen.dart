@@ -128,6 +128,10 @@ class _RegisterCorporateScreenState extends State<RegisterCorporateScreen> {
     }
 
     return Scaffold(
+      appBar: AppBar(
+        bottomOpacity: 0.0,
+        elevation: 0.0,
+      ),
       backgroundColor: Colors.white,
       body: _isLoading
           ? LoadingScreen()
@@ -144,19 +148,38 @@ class _RegisterCorporateScreenState extends State<RegisterCorporateScreen> {
                         child: Container(
                           child: SingleChildScrollView(
                             child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.center,
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
                               children: <Widget>[
                                 SizedBox(
-                                  height: 40,
+                                  height: 20,
                                 ),
-                                Text(
-                                  'Sign in to your account',
-                                  style:
-                                      Theme.of(context).textTheme.displaySmall,
+                                Container(
+                                  margin: EdgeInsets.symmetric(
+                                    horizontal: 20,
+                                  ),
+                                  child: Text(
+                                    'Create an account',
+                                    style:
+                                        Theme.of(context).textTheme.bodyLarge,
+                                  ),
                                 ),
                                 SizedBox(
-                                  height: 10,
+                                  height: 20,
+                                ),
+                                Container(
+                                  margin: EdgeInsets.symmetric(
+                                    horizontal: 20,
+                                  ),
+                                  child: Text(
+                                    'Register as a corporate customer',
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .displayMedium,
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 20,
                                 ),
                                 RegisterCorporateForm(
                                   _formKey,
@@ -173,21 +196,19 @@ class _RegisterCorporateScreenState extends State<RegisterCorporateScreen> {
                                 SizedBox(
                                   height: 10,
                                 ),
+                                Container(
+                                  width: double.infinity,
+                                  margin: EdgeInsets.symmetric(
+                                    horizontal: 20,
+                                  ),
+                                  height: 60,
+                                  child: buildSigninButton(),
+                                ),
                               ],
                             ),
                           ),
                         ),
                       ),
-                      if (Utility.isPhone(deviceSize))
-                        Column(
-                          children: [
-                            Container(
-                              width: double.infinity,
-                              height: 60,
-                              child: buildSigninButton(),
-                            ),
-                          ],
-                        ),
                     ],
                   ),
                 ),

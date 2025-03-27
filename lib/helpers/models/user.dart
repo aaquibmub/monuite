@@ -6,16 +6,19 @@ class User {
   final String id;
   final String firstName;
   final String lastName;
+  final String email;
 
   User({
     @required this.id,
-    @required this.firstName,
+    @required this.email,
+    this.firstName,
     this.lastName,
   });
 
   factory User.fromJson(dynamic json) {
     return User(
       id: json['id'] as String,
+      email: json['email'] as String,
       firstName: json['firstName'] as String,
       lastName: json['lastName'] as String,
     );
@@ -27,6 +30,7 @@ class User {
   ) =>
       <String, dynamic>{
         'id': instance.id,
+        'email': instance.email,
         'firstName': instance.firstName,
         'lastName': instance.lastName,
       };

@@ -31,6 +31,7 @@ class MyApp extends StatelessWidget {
           title: 'motorpool',
           theme: ThemeData(
               primaryColor: Constants.primaryColor,
+              backgroundColor: Constants.backgroundColor,
               fontFamily: Constants.fontFamilyMontserrat,
               primaryTextTheme: Theme.of(context).primaryTextTheme.copyWith(
                     labelLarge: TextStyle(
@@ -48,17 +49,17 @@ class MyApp extends StatelessWidget {
                       ),
               textTheme: Theme.of(context).textTheme.copyWith(
                     displayLarge: TextStyle(
-                      fontSize: 62,
+                      fontSize: 40,
                       fontWeight: FontWeight.w300,
                       color: Constants.primaryColor,
                     ),
                     displayMedium: TextStyle(
-                      fontSize: 62,
+                      fontSize: 20,
                       fontWeight: FontWeight.bold,
                       color: Constants.textColor,
                     ),
                     displaySmall: TextStyle(
-                      fontSize: 40,
+                      fontSize: 10,
                       fontWeight: FontWeight.bold,
                       color: Constants.textColor,
                     ),
@@ -74,7 +75,10 @@ class MyApp extends StatelessWidget {
               visualDensity: VisualDensity.adaptivePlatformDensity,
               scaffoldBackgroundColor: Constants.backgroundColor,
               appBarTheme: AppBarTheme.of(context).copyWith(
-                backgroundColor: Constants.primaryColor,
+                backgroundColor: Constants.backgroundColor,
+                iconTheme: IconThemeData(
+                  color: Constants.primaryColor,
+                ),
               )),
           home: authData.isAuth
               ? HomeScreen()
