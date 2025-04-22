@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../helpers/common/utility.dart';
+import '../landing/landing_categories.dart';
 
 class LandingScreen extends StatelessWidget {
   @override
@@ -14,8 +15,11 @@ class LandingScreen extends StatelessWidget {
         ),
       ),
       drawer: Utility.buildDrawer(context),
-      body: Center(
-        child: Text('Home'),
+      body: SingleChildScrollView(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: <Widget>[LandingCategories()],
+        ),
       ),
     );
   }

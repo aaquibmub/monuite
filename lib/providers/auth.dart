@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:convert';
+import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
@@ -62,6 +63,7 @@ class Auth with ChangeNotifier {
         body: jsonEncode(
             <String, String>{'userName': email, 'password': password}),
       );
+      debugger();
       if (response != null) {
         final responseData = json.decode(response.body);
         if (responseData['error'] != null) {
@@ -91,6 +93,7 @@ class Auth with ChangeNotifier {
       }
       return '';
     } catch (error) {
+      debugger();
       throw error;
     }
   }

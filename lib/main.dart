@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:monuite/providers/auth.dart';
+import 'package:monuite/providers/product_provider.dart';
 import 'package:monuite/screens/home/home_screen.dart';
 import 'package:monuite/screens/loading_screen.dart';
 import 'package:monuite/screens/login_screen.dart';
@@ -23,6 +24,11 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(
           create: (ctx) {
             return Auth();
+          },
+        ),
+        ChangeNotifierProxyProvider<Auth, ProductProvider>(
+          update: (ctx, auth, _) {
+            return ProductProvider(auth.token, auth.currentUser);
           },
         ),
       ],
