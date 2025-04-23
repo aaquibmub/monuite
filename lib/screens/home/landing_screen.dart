@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:monuite/screens/home/landing/landing_categories/landing_categories.dart';
+import 'package:monuite/screens/home/landing/popular_products/popular_products.dart';
 
 import '../../helpers/common/utility.dart';
-import '../landing/landing_categories.dart';
 
 class LandingScreen extends StatelessWidget {
   @override
@@ -18,7 +19,10 @@ class LandingScreen extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
-          children: <Widget>[LandingCategories()],
+          children: <Widget>[
+            LandingCategories(),
+            PopularProducts()
+            ],
         ),
       ),
     );

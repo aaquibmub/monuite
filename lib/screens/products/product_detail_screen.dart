@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:monuite/screens/home/home_screen.dart';
 
 import '../../helpers/common/utility.dart';
+import '../home/home_screen.dart';
 
-class CategoryDetailScreen extends StatelessWidget {
+class ProductDetailScreen extends StatelessWidget {
   final String _id;
 
-  CategoryDetailScreen(
+  ProductDetailScreen(
     this._id,
   );
 
@@ -16,7 +16,7 @@ class CategoryDetailScreen extends StatelessWidget {
       appBar: AppBar(
         title: Center(
           child: Text(
-            'Category Detail',
+            'Product Detail',
           ),
         ),
       ),
@@ -25,7 +25,7 @@ class CategoryDetailScreen extends StatelessWidget {
       children: [
         Container(
           child: Center(
-            child: Text("Category Detail Screen's $_id"),
+            child: Text("Product Detail Screen's $_id"),
           ),
         ),
         SizedBox(height: 10,),
