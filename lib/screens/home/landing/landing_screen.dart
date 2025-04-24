@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:monuite/screens/home/landing/landing_categories/landing_categories.dart';
 import 'package:monuite/screens/home/landing/popular_products/popular_products.dart';
 
-import '../../helpers/common/utility.dart';
+import '../../../helpers/common/utility.dart';
 
 class LandingScreen extends StatelessWidget {
   @override
@@ -18,11 +18,9 @@ class LandingScreen extends StatelessWidget {
       drawer: Utility.buildDrawer(context),
       body: SingleChildScrollView(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: <Widget>[
-            LandingCategories(),
-            PopularProducts()
-            ],
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: <Widget>[LandingCategories(), PopularProducts()],
         ),
       ),
     );

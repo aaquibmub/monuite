@@ -1,17 +1,14 @@
-import 'package:flutter_svg/flutter_svg.dart';
-
 import 'package:flutter/material.dart';
-import 'package:monuite/helpers/models/categories/category-list-model.dart';
+import 'package:flutter_svg/svg.dart';
 
-import '../../../../categories/category_detail_screen.dart';
+import '../../../../helpers/models/categories/category-list-model.dart';
+import '../../../categories/category_detail_screen.dart';
 
-class LandingCategoryCardWidget extends StatelessWidget {
+class CategoryCardWidget extends StatelessWidget {
   final CategoryListModel _catgory;
-  final Function _updateState;
 
-  LandingCategoryCardWidget(
+  CategoryCardWidget(
     this._catgory,
-    this._updateState,
   );
 
   @override
@@ -26,9 +23,7 @@ class LandingCategoryCardWidget extends StatelessWidget {
                 builder: (context) => CategoryDetailScreen(
                       _catgory.id,
                     )),
-          ).then((value) {
-            _updateState();
-          });
+          );
         },
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -38,20 +33,23 @@ class LandingCategoryCardWidget extends StatelessWidget {
             Container(
               decoration: new BoxDecoration(
                 color: Color.fromRGBO(0, 0, 0, 0.2),
-                shape: BoxShape.circle,
               ),
-              height: 60,
-              width: 60,
+              height: 150,
+              width: 200,
               child: Center(
                 child: _catgory.imageUrl != null
                     ? (_catgory.imageUrl.endsWith('.svg')
                         ? SvgPicture.network(
                             _catgory.imageUrl,
                             fit: BoxFit.fill,
+                            height: 50,
+                            width: 50,
                           )
                         : Image.network(
                             _catgory.imageUrl,
                             fit: BoxFit.fill,
+                            height: 50,
+                            width: 50,
                           ))
                     : Text('N/A'),
               ),
@@ -60,13 +58,14 @@ class LandingCategoryCardWidget extends StatelessWidget {
               height: 10,
             ),
             Container(
-              width: 100,
-              child: Text(
-                _catgory.name ?? '',
-                overflow: TextOverflow.ellipsis,
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
+              child: Center(
+                child: Text(
+                  _catgory.name ?? '',
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ),
             ),

@@ -4,7 +4,6 @@ import 'package:monuite/screens/home/landing/landing_categories/widgets/landing_
 import 'package:provider/provider.dart';
 
 import '../../../loading_screen.dart';
-import '../../categories_screen.dart';
 import '../../tabs_screen.dart';
 
 class LandingCategories extends StatefulWidget {

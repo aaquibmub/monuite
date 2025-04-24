@@ -41,7 +41,6 @@ class _PopularProductsState extends State<PopularProducts> {
                   return LoadingScreen();
                 }
                 return Container(
-                  height: 100,
                   width: deviceSize.width,
                   child: Consumer<ProductProvider>(
                     builder: (ctx, provider, _) {

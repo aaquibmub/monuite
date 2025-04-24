@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:monuite/screens/home/cart_screen.dart';
-import 'package:monuite/screens/home/categories_screen.dart';
-import 'package:monuite/screens/home/landing_screen.dart';
+import 'package:monuite/screens/home/categories/categories_screen.dart';
+import 'package:monuite/screens/home/landing/landing_screen.dart';
 import 'package:monuite/screens/home/profile_screen.dart';
 import 'package:monuite/screens/home/wishlist_screen.dart';
 

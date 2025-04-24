@@ -63,7 +63,6 @@ class Auth with ChangeNotifier {
         body: jsonEncode(
             <String, String>{'userName': email, 'password': password}),
       );
-      debugger();
       if (response != null) {
         final responseData = json.decode(response.body);
         if (responseData['error'] != null) {
