@@ -17,10 +17,16 @@ class LandingScreen extends StatelessWidget {
       ),
       drawer: Utility.buildDrawer(context),
       body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: <Widget>[LandingCategories(), PopularProducts()],
+        child: Container(
+          margin: EdgeInsets.symmetric(
+            vertical: 20,
+            horizontal: 10,
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: <Widget>[LandingCategories(), PopularProducts()],
+          ),
         ),
       ),
     );
