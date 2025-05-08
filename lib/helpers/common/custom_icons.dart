@@ -10,4 +10,15 @@ class CustomIcons {
   static const String wishlistIconActive = 'assets/icons/wishlist-ico-act.png';
   static const String wishlistIconDisabled =
       'assets/icons/wishlist-ico-dis.png';
+
+  // Payment Icons
+
+  static const String paymentMethodCreditCard =
+      'assets/icons/payment-methods/credit_card.png';
+
+  static const String paymentMethodPayPal =
+      'assets/icons/payment-methods/PayPal-logo.png';
+
+  static const String paymentMethodTwint =
+      'assets/icons/payment-methods/twint-seeklogo.png';
 }

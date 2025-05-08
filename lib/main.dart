@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:monuite/providers/auth.dart';
+import 'package:monuite/providers/cart_provider.dart';
+import 'package:monuite/providers/common_provider.dart';
+import 'package:monuite/providers/order_provider.dart';
 import 'package:monuite/providers/product_provider.dart';
 import 'package:monuite/screens/home/home_screen.dart';
 import 'package:monuite/screens/loading_screen.dart';
@@ -24,6 +27,21 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(
           create: (ctx) {
             return Auth();
+          },
+        ),
+        ChangeNotifierProvider(
+          create: (ctx) {
+            return CommonProvider();
+          },
+        ),
+        ChangeNotifierProvider(
+          create: (ctx) {
+            return CartProvider();
+          },
+        ),
+        ChangeNotifierProvider(
+          create: (ctx) {
+            return OrderProvider();
           },
         ),
         ChangeNotifierProxyProvider<Auth, ProductProvider>(

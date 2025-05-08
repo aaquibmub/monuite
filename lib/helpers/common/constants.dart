@@ -36,4 +36,8 @@ class Constants {
   static const double deviceTypePhoneMaxWidth = 500;
   static const double deviceTypeTabletMaxWidth = 1300;
   static const double deviceTypeMonitorMaxWidth = 2000;
+
+  static const String paymentMethodCreditCard = 'Credit/Debit Card';
+  static const String paymentMethodPaypal = 'PayPal';
+  static const String paymentMethodTwint = 'Twint';
 }

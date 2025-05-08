@@ -2,10 +2,14 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:monuite/helpers/common/constants.dart';
+import 'package:monuite/helpers/models/cart/cart_item_model.dart';
+import 'package:monuite/helpers/models/products/product_detail_model.dart';
+import 'package:monuite/providers/cart_provider.dart';
 import 'package:provider/provider.dart';
 
 import '../../providers/product_provider.dart';
 import '../home/home_screen.dart';
+import '../home/tabs_screen.dart';
 import '../loading_screen.dart';
 
 class ProductDetailScreen extends StatefulWidget {
@@ -23,149 +27,168 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: EdgeInsets.symmetric(
-          vertical: 30,
-          horizontal: 20,
-        ),
-        child: Column(
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Container(
-                  child: InkWell(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => HomeScreen()),
-                      );
-                    },
-                    child: Container(
-                      width: 30,
-                      height: 30,
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: Constants.colorGrey,
-                      ),
-                      child: Icon(Icons.arrow_back),
+      body: FutureBuilder(
+          future: Provider.of<ProductProvider>(context, listen: false)
+              .populateProductDetail(widget._id),
+          builder: (ctx, data) {
+            if (data.connectionState == ConnectionState.waiting) {
+              return LoadingScreen();
+            }
+            return Consumer<ProductProvider>(builder: (ctx, provider, _) {
+              return Padding(
+                padding: EdgeInsets.symmetric(
+                  vertical: 30,
+                  horizontal: 20,
+                ),
+                child: Column(
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Container(
+                          child: InkWell(
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => HomeScreen()),
+                              );
+                            },
+                            child: Container(
+                              width: 30,
+                              height: 30,
+                              decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: Constants.colorGrey,
+                              ),
+                              child: Icon(Icons.arrow_back),
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
-                  ),
-                ),
-              ],
-            ),
-            Expanded(
-              child: Center(
-                child: FutureBuilder(
-                    future: Provider.of<ProductProvider>(context, listen: false)
-                        .populateProductDetail(widget._id),
-                    builder: (ctx, data) {
-                      if (data.connectionState == ConnectionState.waiting) {
-                        return LoadingScreen();
-                      }
-                      return Container(
-                        margin: EdgeInsets.symmetric(
-                          vertical: 20,
-                        ),
-                        child: Consumer<ProductProvider>(
-                          builder: (ctx, provider, _) {
-                            return provider.productDetail != null
-                                ? SingleChildScrollView(
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
-                                      children: <Widget>[
-                                        CarouselSlider(
-                                          options: CarouselOptions(
-                                            height: 500,
+                    Expanded(
+                      child: Center(
+                          child: Container(
+                              margin: EdgeInsets.symmetric(
+                                vertical: 20,
+                              ),
+                              child: provider.productDetail != null
+                                  ? SingleChildScrollView(
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.start,
+                                        children: <Widget>[
+                                          CarouselSlider(
+                                            options: CarouselOptions(
+                                              height: 500,
+                                            ),
+                                            items: provider.productDetail
+                                                        .imageUrls !=
+                                                    null
+                                                ? provider
+                                                    .productDetail.imageUrls
+                                                    .map((i) {
+                                                    return Builder(
+                                                      builder: (BuildContext
+                                                          context) {
+                                                        return i != null
+                                                            ? (i.endsWith(
+                                                                    '.svg')
+                                                                ? SvgPicture
+                                                                    .network(
+                                                                    i,
+                                                                    fit: BoxFit
+                                                                        .fill,
+                                                                  )
+                                                                : Image.network(
+                                                                    i,
+                                                                    fit: BoxFit
+                                                                        .fill,
+                                                                  ))
+                                                            : Text('N/A');
+                                                      },
+                                                    );
+                                                  }).toList()
+                                                : [],
                                           ),
-                                          items: provider.productDetail
-                                                      .imageUrls !=
-                                                  null
-                                              ? provider.productDetail.imageUrls
-                                                  .map((i) {
-                                                  return Builder(
-                                                    builder:
-                                                        (BuildContext context) {
-                                                      return i != null
-                                                          ? (i.endsWith('.svg')
-                                                              ? SvgPicture
-                                                                  .network(
-                                                                  i,
-                                                                  fit: BoxFit
-                                                                      .fill,
-                                                                )
-                                                              : Image.network(
-                                                                  i,
-                                                                  fit: BoxFit
-                                                                      .fill,
-                                                                ))
-                                                          : Text('N/A');
-                                                    },
-                                                  );
-                                                }).toList()
-                                              : [],
-                                        ),
-                                        Container(
-                                          margin: EdgeInsets.symmetric(
-                                            vertical: 10,
-                                          ),
-                                          child: Text(
-                                            provider.productDetail.name ?? '',
-                                            style: TextStyle(
-                                              fontSize: 20,
-                                              fontWeight: FontWeight.bold,
+                                          Container(
+                                            margin: EdgeInsets.symmetric(
+                                              vertical: 10,
+                                            ),
+                                            child: Text(
+                                              provider.productDetail.name ?? '',
+                                              style: TextStyle(
+                                                fontSize: 20,
+                                                fontWeight: FontWeight.bold,
+                                              ),
                                             ),
                                           ),
-                                        ),
-                                        Container(
-                                          margin: EdgeInsets.symmetric(
-                                            vertical: 10,
-                                          ),
-                                          child: Text(
-                                            "CHF ${provider.productDetail.price ?? ''}",
-                                            style: TextStyle(
-                                              fontSize: 20,
-                                              fontWeight: FontWeight.bold,
-                                              color: Constants.primaryColor,
+                                          Container(
+                                            margin: EdgeInsets.symmetric(
+                                              vertical: 10,
+                                            ),
+                                            child: Text(
+                                              "CHF ${provider.productDetail.price ?? ''}",
+                                              style: TextStyle(
+                                                fontSize: 20,
+                                                fontWeight: FontWeight.bold,
+                                                color: Constants.primaryColor,
+                                              ),
                                             ),
                                           ),
-                                        ),
-                                      ],
-                                    ),
-                                  )
-                                : Center(
-                                    child: Text("no product found"),
-                                  );
-                          },
+                                        ],
+                                      ),
+                                    )
+                                  : Center(
+                                      child: Text("no product found"),
+                                    ))),
+                    ),
+                    Container(
+                      width: double.infinity,
+                      height: 60,
+                      child: ElevatedButton(
+                        style: ButtonStyle(
+                            backgroundColor: MaterialStateProperty.all<Color>(
+                                Theme.of(context).primaryColor)),
+                        onPressed: () async {
+                          final ProductDetailModel product =
+                              provider.productDetail;
+                          Provider.of<CartProvider>(context, listen: false)
+                              .addItem(CartItemModel(
+                            product.id,
+                            '',
+                            product.imageUrls[0],
+                            product.name,
+                            '',
+                            product.price,
+                            1,
+                          ))
+                              .then((value) {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => TabsScreen(2)),
+                            );
+                          });
+                        },
+                        child: Text(
+                          'Add to Cart',
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                            color: Constants.backgroundColor,
+                          ),
                         ),
-                      );
-                    }),
-              ),
-            ),
-            Container(
-              width: double.infinity,
-              height: 60,
-              child: ElevatedButton(
-                style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all<Color>(
-                        Theme.of(context).primaryColor)),
-                onPressed: () => {},
-                child: Text(
-                  'Add to Cart',
-                  style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                    color: Constants.backgroundColor,
-                  ),
+                      ),
+                    ),
+                  ],
                 ),
-              ),
-            ),
-          ],
-        ),
-      ),
+              );
+            });
+          }),
     );
   }
 }
