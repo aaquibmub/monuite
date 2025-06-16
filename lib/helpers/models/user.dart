@@ -1,16 +1,15 @@
-import 'package:flutter/material.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 @JsonSerializable(fieldRename: FieldRename.pascal)
 class User {
   final String id;
-  final String firstName;
-  final String lastName;
+  final String? firstName;
+  final String? lastName;
   final String email;
 
   User({
-    @required this.id,
-    @required this.email,
+    required this.id,
+    required this.email,
     this.firstName,
     this.lastName,
   });

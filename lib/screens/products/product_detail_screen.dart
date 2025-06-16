@@ -85,11 +85,11 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                                             options: CarouselOptions(
                                               height: 500,
                                             ),
-                                            items: provider.productDetail
+                                            items: provider.productDetail!
                                                         .imageUrls !=
                                                     null
                                                 ? provider
-                                                    .productDetail.imageUrls
+                                                    .productDetail!.imageUrls!
                                                     .map((i) {
                                                     return Builder(
                                                       builder: (BuildContext
@@ -119,7 +119,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                                               vertical: 10,
                                             ),
                                             child: Text(
-                                              provider.productDetail.name ?? '',
+                                              provider.productDetail!.name,
                                               style: TextStyle(
                                                 fontSize: 20,
                                                 fontWeight: FontWeight.bold,
@@ -131,7 +131,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                                               vertical: 10,
                                             ),
                                             child: Text(
-                                              "CHF ${provider.productDetail.price ?? ''}",
+                                              "CHF ${provider.productDetail!.price}",
                                               style: TextStyle(
                                                 fontSize: 20,
                                                 fontWeight: FontWeight.bold,
@@ -151,16 +151,16 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                       height: 60,
                       child: ElevatedButton(
                         style: ButtonStyle(
-                            backgroundColor: MaterialStateProperty.all<Color>(
+                            backgroundColor: WidgetStateProperty.all<Color>(
                                 Theme.of(context).primaryColor)),
                         onPressed: () async {
                           final ProductDetailModel product =
-                              provider.productDetail;
+                              provider.productDetail!;
                           Provider.of<CartProvider>(context, listen: false)
                               .addItem(CartItemModel(
                             product.id,
                             '',
-                            product.imageUrls[0],
+                            product.imageUrls![0],
                             product.name,
                             '',
                             product.price,

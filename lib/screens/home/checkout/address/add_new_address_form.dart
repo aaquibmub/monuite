@@ -80,7 +80,7 @@ class AddNewAddressForm extends StatefulWidget {
 
 class _AddNewAddressFormState extends State<AddNewAddressForm> {
   // final _passwordFocusNode = FocusNode();
-  DropdownItem<String> _selectedCountry;
+  DropdownItem<String>? _selectedCountry;
 
   final _firstNameController = TextEditingController();
   // final _firstNameFocusNode = FocusNode();
@@ -151,20 +151,20 @@ class _AddNewAddressFormState extends State<AddNewAddressForm> {
                     height: 2,
                     color: Colors.deepPurpleAccent,
                   ),
-                  onChanged: (String value) {
+                  onChanged: (String? value) {
                     // This is called when the user selects an item.
                     setState(() {
-                      final item = provider.countryList
+                      final DropdownItem<String>? item = provider.countryList
                           .where((element) => element.value == value)
                           .first;
                       if (item != null) {
-                        String text = item.text;
+                        String? text = item.text;
                         _selectedCountry = DropdownItem(
                           value,
                           text,
                         );
                         widget.setCountryFn(
-                          _selectedCountry.text,
+                          _selectedCountry!.text!,
                         );
                       }
                     });
@@ -178,7 +178,7 @@ class _AddNewAddressFormState extends State<AddNewAddressForm> {
                           maxWidth: double.infinity,
                         ),
                         child: Text(
-                          item.text,
+                          item.text!,
                           style: const TextStyle(
                               color: Colors.blue, fontWeight: FontWeight.w600),
                         ),
@@ -189,7 +189,7 @@ class _AddNewAddressFormState extends State<AddNewAddressForm> {
                       (DropdownItem<String> value) {
                     return DropdownMenuItem<String>(
                       value: value.value,
-                      child: Text(value.text),
+                      child: Text(value.text!),
                     );
                   }).toList(),
                 );
@@ -204,7 +204,7 @@ class _AddNewAddressFormState extends State<AddNewAddressForm> {
               hintLabel: 'Type first name',
               controller: _firstNameController,
               validatorFn: (value) {
-                if (value.isEmpty) {
+                if (value!.isEmpty) {
                   return 'First name is required';
                 }
                 return null;
@@ -214,7 +214,7 @@ class _AddNewAddressFormState extends State<AddNewAddressForm> {
                 FocusScope.of(context).requestFocus(_lastNameFocusNode);
               },
               onSaveFn: (value) {
-                widget.setFirstNameFn(value);
+                widget.setFirstNameFn(value!);
               },
             ),
             SizedBox(
@@ -226,7 +226,7 @@ class _AddNewAddressFormState extends State<AddNewAddressForm> {
               hintLabel: 'Type last name',
               controller: _lastNameController,
               validatorFn: (value) {
-                if (value.isEmpty) {
+                if (value!.isEmpty) {
                   return 'Last name is required';
                 }
                 return null;
@@ -236,7 +236,7 @@ class _AddNewAddressFormState extends State<AddNewAddressForm> {
                 FocusScope.of(context).requestFocus(_companyNameFocusNode);
               },
               onSaveFn: (value) {
-                widget.setLastNameFn(value);
+                widget.setLastNameFn(value!);
               },
             ),
             SizedBox(
@@ -248,7 +248,7 @@ class _AddNewAddressFormState extends State<AddNewAddressForm> {
               hintLabel: 'Type company name',
               controller: _companyNameController,
               validatorFn: (value) {
-                if (value.isEmpty) {
+                if (value!.isEmpty) {
                   return 'Company name is required';
                 }
                 return null;
@@ -258,7 +258,7 @@ class _AddNewAddressFormState extends State<AddNewAddressForm> {
                 FocusScope.of(context).requestFocus(_phoneFocusNode);
               },
               onSaveFn: (value) {
-                widget.setCompanyNameFn(value);
+                widget.setCompanyNameFn(value!);
               },
             ),
             SizedBox(
@@ -270,7 +270,7 @@ class _AddNewAddressFormState extends State<AddNewAddressForm> {
               hintLabel: 'Type phone number',
               controller: _phoneController,
               validatorFn: (value) {
-                if (value.isEmpty) {
+                if (value!.isEmpty) {
                   return 'Phone number is required';
                 }
                 return null;
@@ -280,7 +280,7 @@ class _AddNewAddressFormState extends State<AddNewAddressForm> {
                 FocusScope.of(context).requestFocus(_address1FocusNode);
               },
               onSaveFn: (value) {
-                widget.setPhoneFn(value);
+                widget.setPhoneFn(value!);
               },
             ),
             SizedBox(
@@ -292,7 +292,7 @@ class _AddNewAddressFormState extends State<AddNewAddressForm> {
               hintLabel: 'Type address 1',
               controller: _address1Controller,
               validatorFn: (value) {
-                if (value.isEmpty) {
+                if (value!.isEmpty) {
                   return 'Address 1 is required';
                 }
                 return null;
@@ -302,7 +302,7 @@ class _AddNewAddressFormState extends State<AddNewAddressForm> {
                 FocusScope.of(context).requestFocus(_address2FocusNode);
               },
               onSaveFn: (value) {
-                widget.setAddress1Fn(value);
+                widget.setAddress1Fn(value!);
               },
             ),
             SizedBox(
@@ -314,7 +314,7 @@ class _AddNewAddressFormState extends State<AddNewAddressForm> {
               hintLabel: 'Type address 2',
               controller: _address2Controller,
               validatorFn: (value) {
-                if (value.isEmpty) {
+                if (value!.isEmpty) {
                   return 'Address 2 is required';
                 }
                 return null;
@@ -324,7 +324,7 @@ class _AddNewAddressFormState extends State<AddNewAddressForm> {
                 FocusScope.of(context).requestFocus(_cityFocusNode);
               },
               onSaveFn: (value) {
-                widget.setAddress2Fn(value);
+                widget.setAddress2Fn(value!);
               },
             ),
             SizedBox(
@@ -336,7 +336,7 @@ class _AddNewAddressFormState extends State<AddNewAddressForm> {
               hintLabel: 'Type city',
               controller: _cityController,
               validatorFn: (value) {
-                if (value.isEmpty) {
+                if (value!.isEmpty) {
                   return 'City is required';
                 }
                 return null;
@@ -346,7 +346,7 @@ class _AddNewAddressFormState extends State<AddNewAddressForm> {
                 FocusScope.of(context).requestFocus(_stateFocusNode);
               },
               onSaveFn: (value) {
-                widget.setCityFn(value);
+                widget.setCityFn(value!);
               },
             ),
             SizedBox(
@@ -358,7 +358,7 @@ class _AddNewAddressFormState extends State<AddNewAddressForm> {
               hintLabel: 'Type state',
               controller: _stateController,
               validatorFn: (value) {
-                if (value.isEmpty) {
+                if (value!.isEmpty) {
                   return 'State is required';
                 }
                 return null;
@@ -368,7 +368,7 @@ class _AddNewAddressFormState extends State<AddNewAddressForm> {
                 FocusScope.of(context).requestFocus(_zipCodeFocusNode);
               },
               onSaveFn: (value) {
-                widget.setStateFn(value);
+                widget.setStateFn(value!);
               },
             ),
             SizedBox(
@@ -380,7 +380,7 @@ class _AddNewAddressFormState extends State<AddNewAddressForm> {
               hintLabel: 'Type zip code',
               controller: _zipCodeController,
               validatorFn: (value) {
-                if (value.isEmpty) {
+                if (value!.isEmpty) {
                   return 'Zip code is required';
                 }
                 return null;
@@ -390,7 +390,7 @@ class _AddNewAddressFormState extends State<AddNewAddressForm> {
                 FocusScope.of(context).requestFocus(_emailFocusNode);
               },
               onSaveFn: (value) {
-                widget.setZipCodeFn(value);
+                widget.setZipCodeFn(value!);
               },
             ),
             SizedBox(
@@ -402,7 +402,7 @@ class _AddNewAddressFormState extends State<AddNewAddressForm> {
               hintLabel: 'Type email',
               controller: _emailController,
               validatorFn: (value) {
-                if (value.isEmpty) {
+                if (value!.isEmpty) {
                   return 'Email is required';
                 }
                 return null;
@@ -412,7 +412,7 @@ class _AddNewAddressFormState extends State<AddNewAddressForm> {
                 widget.submitFormFn(widget.parentContext);
               },
               onSaveFn: (value) {
-                widget.setEmailFn(value);
+                widget.setEmailFn(value!);
               },
             ),
           ],

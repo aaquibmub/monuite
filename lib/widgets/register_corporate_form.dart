@@ -80,7 +80,7 @@ class _RegisterCorporateFormState extends State<RegisterCorporateForm> {
                 fieldLabel: 'First Name',
                 hintLabel: 'Type first name',
                 validatorFn: (value) {
-                  if (value.isEmpty) {
+                  if (value!.isEmpty) {
                     return 'First name is required';
                   }
                   return null;
@@ -90,7 +90,7 @@ class _RegisterCorporateFormState extends State<RegisterCorporateForm> {
                   FocusScope.of(context).requestFocus(_lastNameFocusNode);
                 },
                 onSaveFn: (value) {
-                  widget.setFirstNameFn(value);
+                  widget.setFirstNameFn(value!);
                 },
               ),
               SizedBox(
@@ -109,7 +109,7 @@ class _RegisterCorporateFormState extends State<RegisterCorporateForm> {
                   FocusScope.of(context).requestFocus(_companyNameFocusNode);
                 },
                 onSaveFn: (value) {
-                  widget.setLastNameFn(value);
+                  widget.setLastNameFn(value!);
                 },
               ),
               SizedBox(
@@ -119,7 +119,7 @@ class _RegisterCorporateFormState extends State<RegisterCorporateForm> {
                 fieldLabel: 'Company Name',
                 hintLabel: 'Type company name',
                 validatorFn: (value) {
-                  if (value.isEmpty) {
+                  if (value!.isEmpty) {
                     return 'Company name is required';
                   }
                   return null;
@@ -131,7 +131,7 @@ class _RegisterCorporateFormState extends State<RegisterCorporateForm> {
                   FocusScope.of(context).requestFocus(_emailFocusNode);
                 },
                 onSaveFn: (value) {
-                  widget.setCompanyNameFn(value);
+                  widget.setCompanyNameFn(value!);
                 },
               ),
               SizedBox(
@@ -141,7 +141,7 @@ class _RegisterCorporateFormState extends State<RegisterCorporateForm> {
                 fieldLabel: 'Email',
                 hintLabel: 'Type email',
                 validatorFn: (value) {
-                  if (value.isEmpty) {
+                  if (value!.isEmpty) {
                     return 'Email is required';
                   }
                   return null;
@@ -153,7 +153,7 @@ class _RegisterCorporateFormState extends State<RegisterCorporateForm> {
                   FocusScope.of(context).requestFocus(_passwordFocusNode);
                 },
                 onSaveFn: (value) {
-                  widget.setEmailFn(value);
+                  widget.setEmailFn(value!);
                 },
               ),
               SizedBox(
@@ -170,13 +170,13 @@ class _RegisterCorporateFormState extends State<RegisterCorporateForm> {
                   FocusScope.of(context).requestFocus(_telephoneFocusNode);
                 },
                 validatorFn: (value) {
-                  if (value.isEmpty || value.length < 5) {
+                  if (value!.isEmpty || value.length < 5) {
                     return 'Password is too short!';
                   }
                   return null;
                 },
                 onSaveFn: (value) {
-                  widget.setPasswordFn(value);
+                  widget.setPasswordFn(value!);
                 },
               ),
               SizedBox(
@@ -186,7 +186,7 @@ class _RegisterCorporateFormState extends State<RegisterCorporateForm> {
                 fieldLabel: 'Telephone',
                 hintLabel: 'Type telephone',
                 validatorFn: (value) {
-                  if (value.isEmpty) {
+                  if (value!.isEmpty) {
                     return 'Telephone is required';
                   }
                   return null;
@@ -198,7 +198,7 @@ class _RegisterCorporateFormState extends State<RegisterCorporateForm> {
                   FocusScope.of(context).requestFocus(_messageFocusNode);
                 },
                 onSaveFn: (value) {
-                  widget.setTelephoneFn(value);
+                  widget.setTelephoneFn(value!);
                 },
               ),
               SizedBox(
@@ -217,7 +217,7 @@ class _RegisterCorporateFormState extends State<RegisterCorporateForm> {
                   widget.submitFormFn(widget.parentContext);
                 },
                 onSaveFn: (value) {
-                  widget.setMessageFn(value);
+                  widget.setMessageFn(value!);
                 },
               ),
             ],

@@ -1,6 +1,6 @@
 import 'dart:convert';
-import 'dart:developer';
 
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:monuite/helpers/models/cart/cart_item_model.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -9,9 +9,9 @@ import '../helpers/models/addresses/address_model.dart';
 import '../helpers/models/cart/cart_model.dart';
 
 class CartProvider with ChangeNotifier {
-  CartModel _cartModel = null;
+  CartModel? _cartModel = null;
 
-  CartModel get cartModel {
+  CartModel? get cartModel {
     return _cartModel;
   }
 
@@ -55,26 +55,26 @@ class CartProvider with ChangeNotifier {
       } else {
         _cartModel = CartModel.fromJson(json.decode(cartModelStr));
       }
-      var cartItem = _cartModel.items.firstWhere(
-        (element) => element.id == item.id,
-        orElse: () => null,
-      );
+      var cartItem = _cartModel!.items
+          .firstWhereOrNull((element) => element!.id == item.id);
       if (cartItem != null) {
-        _cartModel.items.forEach((element) {
-          if (element.id == item.id && element.variantId == item.variantId) {
+        _cartModel!.items.forEach((element) {
+          if (element!.id == item.id && element.variantId == item.variantId) {
             element.quantity = cartItem.quantity + 1;
             item.quantity = element.quantity;
           }
         });
       } else {
         item.quantity = 1;
-        _cartModel.items.add(item);
+        _cartModel!.items.add(item);
       }
-      _cartModel.total = 0;
-      _cartModel.items.forEach((element) {
-        _cartModel.total += element.price * element.quantity;
+      _cartModel!.total = 0;
+      _cartModel!.items.forEach((element) {
+        if (element != null)
+          _cartModel!.total =
+              (_cartModel!.total ?? 0) + element.price * element.quantity;
       });
-      final cartModelJson = _cartModel.toJson();
+      final cartModelJson = _cartModel!.toJson();
       final userData = json.encode(cartModelJson);
       prefs.setString('cartModel', userData);
       notifyListeners();
@@ -90,30 +90,28 @@ class CartProvider with ChangeNotifier {
       if (cartModelStr == null || cartModelStr.isEmpty) {
         _cartModel = CartModel(null, [], 0, 0);
       }
-      var cartItem = _cartModel.items.firstWhere(
-        (element) =>
-            element.id == item.id && element.variantId == item.variantId,
-        orElse: () => null,
-      );
+      var cartItem = _cartModel!.items.firstWhereOrNull((element) =>
+          element!.id == item.id && element.variantId == item.variantId);
       if (cartItem != null) {
         if (cartItem.quantity <= 1) {
-          _cartModel.items.removeWhere(
+          _cartModel!.items.removeWhere(
             (element) =>
-                element.id == item.id && element.variantId == item.variantId,
+                element!.id == item.id && element.variantId == item.variantId,
           );
         } else {
-          _cartModel.items.forEach((element) {
-            if (element.id == item.id && element.variantId == item.variantId) {
+          _cartModel!.items.forEach((element) {
+            if (element!.id == item.id && element.variantId == item.variantId) {
               element.quantity = cartItem.quantity - 1;
             }
           });
         }
       }
-      _cartModel.total = 0;
-      _cartModel.items.forEach((element) {
-        _cartModel.total += element.price * element.quantity;
+      _cartModel!.total = 0;
+      _cartModel!.items.forEach((element) {
+        _cartModel!.total =
+            (_cartModel!.total ?? 0) + element!.price * element.quantity;
       });
-      final cartModelJson = _cartModel.toJson();
+      final cartModelJson = _cartModel!.toJson();
       final userData = json.encode(cartModelJson);
       prefs.setString('cartModel', userData);
       notifyListeners();
@@ -129,23 +127,21 @@ class CartProvider with ChangeNotifier {
       if (cartModelStr == null || cartModelStr.isEmpty) {
         _cartModel = CartModel(null, [], 0, 0);
       }
-      var cartItem = _cartModel.items.firstWhere(
-        (element) =>
-            element.id == item.id && element.variantId == item.variantId,
-        orElse: () => null,
-      );
+      var cartItem = _cartModel!.items.firstWhereOrNull((element) =>
+          element!.id == item.id && element.variantId == item.variantId);
       if (cartItem != null) {
-        _cartModel.items.forEach((element) {
-          if (element.id == item.id && element.variantId == item.variantId) {
+        _cartModel!.items.forEach((element) {
+          if (element!.id == item.id && element.variantId == item.variantId) {
             element.quantity = cartItem.quantity + 1;
           }
         });
       }
-      _cartModel.total = 0;
-      _cartModel.items.forEach((element) {
-        _cartModel.total += element.price * element.quantity;
+      _cartModel!.total = 0;
+      _cartModel!.items.forEach((element) {
+        _cartModel!.total =
+            (_cartModel!.total ?? 0) + element!.price * element.quantity;
       });
-      final cartModelJson = _cartModel.toJson();
+      final cartModelJson = _cartModel!.toJson();
       final userData = json.encode(cartModelJson);
       prefs.setString('cartModel', userData);
       notifyListeners();
@@ -161,8 +157,8 @@ class CartProvider with ChangeNotifier {
       if (cartModelStr == null || cartModelStr.isEmpty) {
         _cartModel = CartModel(null, [], 0, 0);
       }
-      _cartModel.address = address;
-      final cartModelJson = _cartModel.toJson();
+      _cartModel!.address = address;
+      final cartModelJson = _cartModel!.toJson();
       final userData = json.encode(cartModelJson);
       prefs.setString('cartModel', userData);
       notifyListeners();
@@ -175,7 +171,7 @@ class CartProvider with ChangeNotifier {
     try {
       _cartModel = CartModel(null, [], 0, 0);
       final prefs = await SharedPreferences.getInstance();
-      final userData = json.encode(_cartModel.toJson());
+      final userData = json.encode(_cartModel!.toJson());
       prefs.setString('cartModel', userData);
       notifyListeners();
     } catch (error) {

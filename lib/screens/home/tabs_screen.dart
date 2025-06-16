@@ -20,7 +20,7 @@ class TabsScreen extends StatefulWidget {
 }
 
 class _TabsScreenState extends State<TabsScreen> {
-  List<Map<String, Object>> _pages;
+  List<Map<String, Object>>? _pages;
 
   int _selectedPageIndex = 0;
   void _selectPage(int index) {
@@ -46,7 +46,7 @@ class _TabsScreenState extends State<TabsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: _pages[_selectedPageIndex]['page'] as Widget,
+      body: _pages![_selectedPageIndex]['page'] as Widget,
       bottomNavigationBar: BottomNavigationBar(
         onTap: _selectPage,
         selectedItemColor: Constants.primaryColor,
@@ -55,7 +55,7 @@ class _TabsScreenState extends State<TabsScreen> {
         currentIndex: _selectedPageIndex,
         items: [
           BottomNavigationBarItem(
-            backgroundColor: Theme.of(context).backgroundColor,
+            // backgroundColor: Theme.of(context).backgroundColor,
             icon: ImageIcon(
               AssetImage(CustomIcons.homeIconDisabled),
             ),
@@ -65,7 +65,7 @@ class _TabsScreenState extends State<TabsScreen> {
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            backgroundColor: Theme.of(context).backgroundColor,
+            // backgroundColor: Theme.of(context).backgroundColor,
             icon: ImageIcon(
               AssetImage(CustomIcons.catgIconDisabled),
             ),
@@ -75,7 +75,7 @@ class _TabsScreenState extends State<TabsScreen> {
             label: 'Categories',
           ),
           BottomNavigationBarItem(
-            backgroundColor: Theme.of(context).backgroundColor,
+            // backgroundColor: Theme.of(context).backgroundColor,
             icon: ImageIcon(
               AssetImage(CustomIcons.cartIconDisabled),
             ),
@@ -85,7 +85,7 @@ class _TabsScreenState extends State<TabsScreen> {
             label: 'Cart',
           ),
           BottomNavigationBarItem(
-            backgroundColor: Theme.of(context).backgroundColor,
+            // backgroundColor: Theme.of(context).backgroundColor,
             icon: ImageIcon(
               AssetImage(CustomIcons.wishlistIconDisabled),
             ),
@@ -95,7 +95,7 @@ class _TabsScreenState extends State<TabsScreen> {
             label: 'Wishlist',
           ),
           BottomNavigationBarItem(
-            backgroundColor: Theme.of(context).backgroundColor,
+            // backgroundColor: Theme.of(context).backgroundColor,
             icon: ImageIcon(
               AssetImage(CustomIcons.profileIconDisabled),
             ),

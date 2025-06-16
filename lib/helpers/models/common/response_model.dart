@@ -1,5 +1,5 @@
 class ResponseModel<T> {
-  final T result;
+  final T? result;
   final String msg;
   final bool hasError;
 

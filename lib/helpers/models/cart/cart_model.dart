@@ -1,14 +1,12 @@
-import 'dart:developer';
-
 import '../addresses/address_model.dart';
 import 'cart_item_model.dart';
 
 class CartModel {
-  AddressModel address;
-  final List<CartItemModel> items;
-  double total;
+  AddressModel? address;
+  final List<CartItemModel?> items;
+  double? total;
   double shippingCost;
-  double couponDiscount;
+  double? couponDiscount;
   double get grandTotal {
     return (total ?? 0) + shippingCost - (couponDiscount ?? 0);
   }
@@ -22,7 +20,8 @@ class CartModel {
 
   factory CartModel.fromJson(dynamic json) {
     final List<CartItemModel> items = [];
-    final exPickups = json['items'] as List<dynamic>;
+    final exPickups =
+        json['items'] != null ? json['items'] as List<dynamic> : null;
     if (exPickups != null) {
       exPickups.forEach((value) {
         CartItemModel prod = CartItemModel.fromJson((value));
@@ -42,7 +41,7 @@ class CartModel {
   Map<String, dynamic> toJson() {
     return {
       'address': address?.toJson(),
-      'items': items.map((item) => item.toJson()).toList(),
+      'items': items.map((item) => item!.toJson()).toList(),
       'shippingCost': shippingCost,
       'price': total,
     };

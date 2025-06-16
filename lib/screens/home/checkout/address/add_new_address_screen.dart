@@ -3,7 +3,6 @@ import 'package:monuite/helpers/models/addresses/address_model.dart';
 import 'package:monuite/screens/home/checkout/checkout_screen.dart';
 import 'package:provider/provider.dart';
 
-import '../../../../helpers/models/common/dropdown_item.dart';
 import '../../../../providers/cart_provider.dart';
 import '../../../loading_screen.dart';
 import '../../cart/cart_screen.dart';
@@ -11,7 +10,7 @@ import 'add_new_address_form.dart';
 
 class AddNewAddressScreen extends StatefulWidget {
   final int _returnToScreen;
-  const AddNewAddressScreen(this._returnToScreen, {Key key}) : super(key: key);
+  const AddNewAddressScreen(this._returnToScreen, {Key? key}) : super(key: key);
 
   @override
   State<AddNewAddressScreen> createState() => _AddNewAddressScreenState();
@@ -22,17 +21,17 @@ class _AddNewAddressScreenState extends State<AddNewAddressScreen> {
 
   bool _isLoading = false;
 
-  String _country;
-  String _firstName;
-  String _lastName;
-  String _companyName;
-  String _phone;
-  String _address1;
-  String _address2;
-  String _city;
-  String _state;
-  String _zipCode;
-  String _email;
+  String _country = 'Switzerland'; // Default country
+  String _firstName = '';
+  String _lastName = '';
+  String _companyName = '';
+  String _phone = '';
+  String _address1 = '';
+  String _address2 = '';
+  String _city = '';
+  String _state = '';
+  String _zipCode = '';
+  String _email = '';
 
   void _setCountry(
     String country,
@@ -119,16 +118,16 @@ class _AddNewAddressScreenState extends State<AddNewAddressScreen> {
   }
 
   Future<void> _submit(BuildContext context) async {
-    if (!_formKey.currentState.validate()) {
+    if (!_formKey.currentState!.validate()) {
       // Invalid!
       return;
     }
-    _formKey.currentState.save();
+    _formKey.currentState!.save();
     setState(() {
       _isLoading = true;
     });
     try {
-      var response = await Provider.of<CartProvider>(
+      await Provider.of<CartProvider>(
         context,
         listen: false,
       ).addAddress(
@@ -161,7 +160,7 @@ class _AddNewAddressScreenState extends State<AddNewAddressScreen> {
           MaterialPageRoute(builder: (context) => CheckoutScreen()),
         );
       } else {
-        Navigator.pop(context, response);
+        Navigator.pop(context);
       }
     } catch (error) {
       setState(() {
@@ -179,8 +178,8 @@ class _AddNewAddressScreenState extends State<AddNewAddressScreen> {
     Widget buildAddButton() {
       return ElevatedButton(
         style: ButtonStyle(
-            backgroundColor: MaterialStateProperty.all<Color>(
-                Theme.of(context).primaryColor)),
+            backgroundColor:
+                WidgetStateProperty.all<Color>(Theme.of(context).primaryColor)),
         onPressed: () => _submit(context),
         child: Text(
           'ADD ADDRESS',

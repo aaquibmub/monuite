@@ -48,6 +48,9 @@ class MyApp extends StatelessWidget {
           update: (ctx, auth, _) {
             return ProductProvider(auth.token, auth.currentUser);
           },
+          create: (ctx) {
+            return ProductProvider(null, null);
+          },
         ),
       ],
       child: Consumer<Auth>(
@@ -55,7 +58,7 @@ class MyApp extends StatelessWidget {
           title: 'motorpool',
           theme: ThemeData(
               primaryColor: Constants.primaryColor,
-              backgroundColor: Constants.backgroundColor,
+              // backgroundColor: Constants.backgroundColor,
               fontFamily: Constants.fontFamilyMontserrat,
               primaryTextTheme: Theme.of(context).primaryTextTheme.copyWith(
                     labelLarge: TextStyle(

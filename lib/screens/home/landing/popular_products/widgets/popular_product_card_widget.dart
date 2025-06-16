@@ -15,7 +15,7 @@ class PopularProductCardWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 410,
+      height: 420,
       width: 200,
       padding: EdgeInsets.all(5),
       decoration: new BoxDecoration(
@@ -43,13 +43,13 @@ class PopularProductCardWidget extends StatelessWidget {
               width: 200,
               child: Center(
                 child: _product.imageUrl != null
-                    ? (_product.imageUrl.endsWith('.svg')
+                    ? (_product.imageUrl!.endsWith('.svg')
                         ? SvgPicture.network(
-                            _product.imageUrl,
+                            _product.imageUrl!,
                             fit: BoxFit.fill,
                           )
                         : Image.network(
-                            _product.imageUrl,
+                            _product.imageUrl!,
                             fit: BoxFit.fill,
                           ))
                     : Text('N/A'),
@@ -59,7 +59,7 @@ class PopularProductCardWidget extends StatelessWidget {
               height: 10,
             ),
             Text(
-              _product.name ?? '',
+              _product.name,
               style: TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.bold,
@@ -72,7 +72,7 @@ class PopularProductCardWidget extends StatelessWidget {
             Container(
               height: 30,
               child: Text(
-                _product.desc ?? '',
+                _product.desc,
                 style: TextStyle(
                   fontSize: 12,
                   overflow: TextOverflow.ellipsis,
@@ -83,7 +83,7 @@ class PopularProductCardWidget extends StatelessWidget {
               height: 10,
             ),
             Text(
-              "CHF ${_product.price ?? ''}",
+              "CHF ${_product.price}",
               style: TextStyle(
                 fontSize: 14,
                 fontWeight: FontWeight.bold,

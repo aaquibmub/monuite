@@ -16,34 +16,34 @@ class _RegisterPrivateScreenState extends State<RegisterPrivateScreen> {
   final GlobalKey<FormState> _formKey = GlobalKey();
   bool _isLoading = false;
 
-  String _email;
-  String _password;
-  String _telephone;
+  String? _email;
+  String? _password;
+  String? _telephone;
 
   void _setEmail(
-    String email,
+    String? email,
   ) {
     _email = email;
   }
 
   void _setPassword(
-    String password,
+    String? password,
   ) {
     _password = password;
   }
 
   void _setTelephone(
-    String telephone,
+    String? telephone,
   ) {
     _telephone = telephone;
   }
 
   Future<void> _submit(BuildContext context) async {
-    if (!_formKey.currentState.validate()) {
+    if (!_formKey.currentState!.validate()) {
       // Invalid!
       return;
     }
-    _formKey.currentState.save();
+    _formKey.currentState!.save();
     setState(() {
       _isLoading = true;
     });
@@ -51,7 +51,7 @@ class _RegisterPrivateScreenState extends State<RegisterPrivateScreen> {
       var error = await Provider.of<Auth>(
         context,
         listen: false,
-      ).registerPrivate(_email, _password, _telephone);
+      ).registerPrivate(_email!, _password!, _telephone!);
 
       setState(() {
         _isLoading = false;
@@ -78,8 +78,8 @@ class _RegisterPrivateScreenState extends State<RegisterPrivateScreen> {
     Widget buildSigninButton() {
       return ElevatedButton(
         style: ButtonStyle(
-            backgroundColor: MaterialStateProperty.all<Color>(
-                Theme.of(context).primaryColor)),
+            backgroundColor:
+                WidgetStateProperty.all<Color>(Theme.of(context).primaryColor)),
         onPressed: () => _submit(context),
         child: Text(
           'Create an account',

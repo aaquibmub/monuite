@@ -1,7 +1,7 @@
 class CategoryListModel {
   final String id;
   final String name;
-  final String imageUrl;
+  final String? imageUrl;
 
   CategoryListModel(
     this.id,

@@ -6,12 +6,8 @@ import '../../../../helpers/common/constants.dart';
 
 class CheckoutItemWidget extends StatelessWidget {
   final CartItemModel _model;
-  final Function _updateState;
 
-  CheckoutItemWidget(
-    this._model,
-    this._updateState,
-  );
+  CheckoutItemWidget(this._model);
 
   @override
   Widget build(BuildContext context) {
@@ -34,15 +30,15 @@ class CheckoutItemWidget extends StatelessWidget {
                 width: 200,
                 child: Center(
                   child: _model.imageUrl != null
-                      ? _model.imageUrl.endsWith('.svg')
+                      ? _model.imageUrl!.endsWith('.svg')
                           ? SvgPicture.network(
-                              _model.imageUrl,
+                              _model.imageUrl!,
                               fit: BoxFit.fill,
                               height: 150,
                               width: 150,
                             )
                           : Image.network(
-                              _model.imageUrl,
+                              _model.imageUrl!,
                               fit: BoxFit.fill,
                               height: 150,
                               width: 200,
@@ -65,7 +61,7 @@ class CheckoutItemWidget extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            _model.name ?? '',
+                            _model.name,
                             style: TextStyle(
                               fontSize: 16,
                               fontWeight: FontWeight.bold,

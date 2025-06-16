@@ -1,8 +1,6 @@
-import 'dart:developer';
-
 class DropdownItem<T> {
-  T value;
-  final String text;
+  T? value;
+  final String? text;
 
   DropdownItem(
     this.value,

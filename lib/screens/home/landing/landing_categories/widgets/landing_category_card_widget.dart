@@ -44,13 +44,13 @@ class LandingCategoryCardWidget extends StatelessWidget {
               width: 60,
               child: Center(
                 child: _catgory.imageUrl != null
-                    ? (_catgory.imageUrl.endsWith('.svg')
+                    ? (_catgory.imageUrl!.endsWith('.svg')
                         ? SvgPicture.network(
-                            _catgory.imageUrl,
+                            _catgory.imageUrl!,
                             fit: BoxFit.fill,
                           )
                         : Image.network(
-                            _catgory.imageUrl,
+                            _catgory.imageUrl!,
                             fit: BoxFit.fill,
                           ))
                     : Text('N/A'),
@@ -62,7 +62,7 @@ class LandingCategoryCardWidget extends StatelessWidget {
             Container(
               width: 100,
               child: Text(
-                _catgory.name ?? '',
+                _catgory.name,
                 overflow: TextOverflow.ellipsis,
                 style: TextStyle(
                   fontSize: 16,

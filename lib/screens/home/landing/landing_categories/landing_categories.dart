@@ -7,7 +7,7 @@ import '../../../loading_screen.dart';
 import '../../tabs_screen.dart';
 
 class LandingCategories extends StatefulWidget {
-  const LandingCategories({Key key}) : super(key: key);
+  const LandingCategories({Key? key}) : super(key: key);
 
   @override
   State<LandingCategories> createState() => _LandingCategoriesState();
@@ -57,7 +57,7 @@ class _LandingCategoriesState extends State<LandingCategories> {
                   return LoadingScreen();
                 }
                 return Container(
-                  height: 100,
+                  height: 110,
                   width: deviceSize.width,
                   child: Consumer<ProductProvider>(
                     builder: (ctx, provider, _) {

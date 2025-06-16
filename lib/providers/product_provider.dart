@@ -11,8 +11,8 @@ import '../helpers/models/products/product_detail_model.dart';
 import '../helpers/models/products/product_list_model.dart';
 
 class ProductProvider with ChangeNotifier {
-  final String authToken;
-  final User user;
+  final String? authToken;
+  final User? user;
 
   ProductProvider(this.authToken, this.user);
 
@@ -23,7 +23,8 @@ class ProductProvider with ChangeNotifier {
   }
 
   Future<void> populateCategoryList({int take = 0}) async {
-    var url = '${Constants.baseUrl}product/get-categories-list?take=${take}';
+    var url = Uri.parse(
+        '${Constants.baseUrl}product/get-categories-list?take=${take}');
     try {
       final response = await http.get(
         url,
@@ -35,7 +36,8 @@ class ProductProvider with ChangeNotifier {
 
       switch (response.statusCode) {
         case HttpStatus.ok:
-          final extractedData = json.decode(response.body) as List<dynamic>;
+          final List<dynamic>? extractedData =
+              json.decode(response.body) as List<dynamic>;
           final List<CategoryListModel> loadedProducts = [];
           if (extractedData != null) {
             extractedData.forEach((value) {
@@ -62,8 +64,8 @@ class ProductProvider with ChangeNotifier {
   }
 
   Future<void> populatePopularProductList({int take = 0}) async {
-    var url =
-        '${Constants.baseUrl}product/get-popular-product-list?take=${take}';
+    var url = Uri.parse(
+        '${Constants.baseUrl}product/get-popular-product-list?take=${take}');
     try {
       final response = await http.get(
         url,
@@ -75,7 +77,8 @@ class ProductProvider with ChangeNotifier {
 
       switch (response.statusCode) {
         case HttpStatus.ok:
-          final extractedData = json.decode(response.body) as List<dynamic>;
+          final List<dynamic>? extractedData =
+              json.decode(response.body) as List<dynamic>;
           final List<ProductListModel> loadedProducts = [];
           if (extractedData != null) {
             extractedData.forEach((value) {
@@ -95,14 +98,15 @@ class ProductProvider with ChangeNotifier {
     }
   }
 
-  ProductDetailModel _productDetailMpdel = null;
+  ProductDetailModel? _productDetailModel = null;
 
-  ProductDetailModel get productDetail {
-    return _productDetailMpdel;
+  ProductDetailModel? get productDetail {
+    return _productDetailModel;
   }
 
   Future<void> populateProductDetail(String id) async {
-    var url = '${Constants.baseUrl}product/get-product-detail-model/${id}';
+    var url =
+        Uri.parse('${Constants.baseUrl}product/get-product-detail-model/${id}');
     try {
       final response = await http.get(
         url,
@@ -115,7 +119,7 @@ class ProductProvider with ChangeNotifier {
       switch (response.statusCode) {
         case HttpStatus.ok:
           final value = json.decode(response.body) as dynamic;
-          _productDetailMpdel = ProductDetailModel.fromJson((value));
+          _productDetailModel = ProductDetailModel.fromJson((value));
           break;
         case HttpStatus.forbidden:
           break;

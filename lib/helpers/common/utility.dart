@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:monuite/helpers/common/constants.dart';
 import 'package:monuite/helpers/common/routes.dart';
 import 'package:provider/provider.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 import '../../providers/auth.dart';
 import '../models/user.dart';
@@ -70,7 +69,7 @@ class Utility {
         });
   }
 
-  static void errorAlert(BuildContext context, String title, String msg) {
+  static void errorAlert(BuildContext context, String? title, String msg) {
     showDialog(
         context: context,
         builder: (ctx) {
@@ -89,7 +88,7 @@ class Utility {
   }
 
   static Future notificationAlert(
-      BuildContext context, String title, String msg) {
+      BuildContext context, String? title, String msg) {
     return showDialog(
         context: context,
         builder: (ctx) {
@@ -133,7 +132,7 @@ class Utility {
   }
 
   static Drawer buildDrawer(BuildContext context) {
-    final User _currentuser = Provider.of<Auth>(context).currentUser;
+    final User? _currentuser = Provider.of<Auth>(context).currentUser;
 
     Widget buildMenuItem(
       BuildContext context,
@@ -155,7 +154,7 @@ class Utility {
             ),
           ),
         ),
-        onTap: onTap,
+        onTap: () => {onTap},
       );
     }
 
@@ -250,7 +249,7 @@ class Utility {
   }
 
   static void showErrorDialogue(BuildContext context, String message,
-      [String title]) {
+      [String? title]) {
     showDialog(
         context: context,
         builder: (ctx) {
@@ -268,11 +267,11 @@ class Utility {
         });
   }
 
-  static Future<void> makePhoneCall(String phoneNumber) async {
-    await launch("tel://$phoneNumber");
-  }
+  // static Future<void> makePhoneCall(String phoneNumber) async {
+  //   await launch("tel://$phoneNumber");
+  // }
 
-  static Color getColorFromHex(String hexColor) {
+  static Color getColorFromHex(String? hexColor) {
     return hexColor != null
         ? Color(int.parse(hexColor.substring(1, 7), radix: 16) + 0x80000000)
         : Colors.black;

@@ -52,7 +52,7 @@ class _RegisterPrivateFormState extends State<RegisterPrivateForm> {
                 fieldLabel: 'Email',
                 hintLabel: 'Type email',
                 validatorFn: (value) {
-                  if (value.isEmpty) {
+                  if (value!.isEmpty) {
                     return 'Email is required';
                   }
                   return null;
@@ -62,7 +62,7 @@ class _RegisterPrivateFormState extends State<RegisterPrivateForm> {
                   FocusScope.of(context).requestFocus(_passwordFocusNode);
                 },
                 onSaveFn: (value) {
-                  widget.setEmailFn(value);
+                  widget.setEmailFn(value!);
                 },
               ),
               SizedBox(
@@ -79,13 +79,13 @@ class _RegisterPrivateFormState extends State<RegisterPrivateForm> {
                   FocusScope.of(context).requestFocus(_telephoneFocusNode);
                 },
                 validatorFn: (value) {
-                  if (value.isEmpty || value.length < 5) {
+                  if (value!.isEmpty || value.length < 5) {
                     return 'Password is too short!';
                   }
                   return null;
                 },
                 onSaveFn: (value) {
-                  widget.setPasswordFn(value);
+                  widget.setPasswordFn(value!);
                 },
               ),
               SizedBox(
@@ -97,7 +97,7 @@ class _RegisterPrivateFormState extends State<RegisterPrivateForm> {
                 controller: _telephoneController,
                 focusNode: _telephoneFocusNode,
                 validatorFn: (value) {
-                  if (value.isEmpty) {
+                  if (value!.isEmpty) {
                     return 'Telephone is required';
                   }
                   return null;
@@ -107,7 +107,7 @@ class _RegisterPrivateFormState extends State<RegisterPrivateForm> {
                   widget.submitFormFn(widget.parentContext);
                 },
                 onSaveFn: (value) {
-                  widget.setTelephoneFn(value);
+                  widget.setTelephoneFn(value!);
                 },
               ),
             ],

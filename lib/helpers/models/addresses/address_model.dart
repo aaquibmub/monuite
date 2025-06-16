@@ -26,22 +26,36 @@ class AddressModel {
   );
 
   factory AddressModel.fromJson(dynamic json) {
-    if (json == null || json.isEmpty) {
-      return null;
-    }
-    return AddressModel(
-      json['country'] as String,
-      json['first_name'] as String,
-      json['last_name'] as String,
-      json['company'] as String,
-      json['address_1'] as String,
-      json['address_2'] as String,
-      json['city'] as String,
-      json['state'] as String,
-      json['postcode'] as String,
-      json['phone'] as String,
-      json['email'] as String,
-    );
+    // if (json == null || json.isEmpty) {
+    //   return null;
+    // }
+    return json == null || json.isEmpty
+        ? AddressModel(
+            '',
+            '',
+            '',
+            '',
+            '',
+            '',
+            '',
+            '',
+            '',
+            '',
+            '',
+          )
+        : AddressModel(
+            json['country'] as String,
+            json['first_name'] as String,
+            json['last_name'] as String,
+            json['company'] as String,
+            json['address_1'] as String,
+            json['address_2'] as String,
+            json['city'] as String,
+            json['state'] as String,
+            json['postcode'] as String,
+            json['phone'] as String,
+            json['email'] as String,
+          );
   }
   Map<String, dynamic> toJson() {
     return {

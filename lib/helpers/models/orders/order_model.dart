@@ -5,9 +5,9 @@ class OrderModel {
   AddressModel address;
   final List<OrderItemModel> items;
   String paymentMethod;
-  double total;
+  double? total;
   double shippingCost;
-  double couponDiscount;
+  double? couponDiscount;
   double get grandTotal {
     return (total ?? 0) + shippingCost - (couponDiscount ?? 0);
   }
@@ -23,7 +23,7 @@ class OrderModel {
 
   factory OrderModel.fromJson(dynamic json) {
     final List<OrderItemModel> items = [];
-    final exPickups = json['items'] as List<dynamic>;
+    final List<dynamic>? exPickups = json['items'] as List<dynamic>;
     if (exPickups != null) {
       exPickups.forEach((value) {
         OrderItemModel prod = OrderItemModel.fromJson((value));

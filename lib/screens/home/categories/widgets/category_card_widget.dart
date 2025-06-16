@@ -34,19 +34,19 @@ class CategoryCardWidget extends StatelessWidget {
               decoration: new BoxDecoration(
                 color: Color.fromRGBO(0, 0, 0, 0.2),
               ),
-              height: 150,
+              height: 140,
               width: 200,
               child: Center(
                 child: _catgory.imageUrl != null
-                    ? (_catgory.imageUrl.endsWith('.svg')
+                    ? (_catgory.imageUrl!.endsWith('.svg')
                         ? SvgPicture.network(
-                            _catgory.imageUrl,
+                            _catgory.imageUrl!,
                             fit: BoxFit.fill,
                             height: 50,
                             width: 50,
                           )
                         : Image.network(
-                            _catgory.imageUrl,
+                            _catgory.imageUrl!,
                             fit: BoxFit.fill,
                             height: 50,
                             width: 50,
@@ -60,7 +60,7 @@ class CategoryCardWidget extends StatelessWidget {
             Container(
               child: Center(
                 child: Text(
-                  _catgory.name ?? '',
+                  _catgory.name,
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
                     fontSize: 16,

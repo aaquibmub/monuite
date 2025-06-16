@@ -15,10 +15,6 @@ class CheckoutScreen extends StatefulWidget {
 }
 
 class _CheckoutScreenState extends State<CheckoutScreen> {
-  _updateState() {
-    setState(() {});
-  }
-
   @override
   Widget build(BuildContext context) {
     final deviceSize = MediaQuery.of(context).size;
@@ -91,8 +87,8 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                               margin: EdgeInsets.symmetric(
                                 vertical: 10,
                               ),
-                              child: provider.cartModel.address != null &&
-                                      provider.cartModel.address != ""
+                              child: provider.cartModel!.address != null &&
+                                      provider.cartModel!.address != ""
                                   ? Container(
                                       padding: EdgeInsets.all(20),
                                       decoration: BoxDecoration(
@@ -120,7 +116,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                                             height: 10,
                                           ),
                                           Text(
-                                            "${provider.cartModel.address.first_name + " " + provider.cartModel.address.last_name + ", " + provider.cartModel.address.country ?? 'No Address'}",
+                                            "${provider.cartModel!.address!.first_name + " " + provider.cartModel!.address!.last_name + ", " + provider.cartModel!.address!.country}",
                                             style: TextStyle(
                                               fontSize: 20,
                                               fontWeight: FontWeight.bold,
@@ -166,7 +162,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                                 child: Column(
                                   children: [
                                     // Cart Items
-                                    provider.cartModel.items.length == 0
+                                    provider.cartModel!.items.length == 0
                                         ? Center(
                                             child: Text("cart is empty"),
                                           )
@@ -175,13 +171,10 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                                             physics:
                                                 NeverScrollableScrollPhysics(),
                                             itemCount: provider
-                                                    .cartModel.items.length ??
-                                                0,
+                                                .cartModel!.items.length,
                                             itemBuilder: (ctx, index) {
-                                              return CheckoutItemWidget(
-                                                provider.cartModel.items[index],
-                                                _updateState,
-                                              );
+                                              return CheckoutItemWidget(provider
+                                                  .cartModel!.items[index]!);
                                             },
                                           ),
                                   ],
@@ -200,7 +193,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                                     mainAxisAlignment: MainAxisAlignment.end,
                                     children: [
                                       Text(
-                                        "Total: CHF ${provider.cartModel.total}",
+                                        "Total: CHF ${provider.cartModel!.total}",
                                         style: TextStyle(
                                           fontSize: 20,
                                           fontWeight: FontWeight.bold,
@@ -247,7 +240,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                                         child: ElevatedButton(
                                           style: ButtonStyle(
                                               backgroundColor:
-                                                  MaterialStateProperty.all<
+                                                  WidgetStateProperty.all<
                                                           Color>(
                                                       Theme.of(context)
                                                           .primaryColor)),
@@ -307,13 +300,13 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                                               MainAxisAlignment.spaceBetween,
                                           children: [
                                             Text(
-                                              "Subtotal (${provider.cartModel.items.length} items)",
+                                              "Subtotal (${provider.cartModel!.items.length} items)",
                                               style: TextStyle(
                                                 fontSize: 20,
                                               ),
                                             ),
                                             Text(
-                                              "CHF ${provider.cartModel.total}",
+                                              "CHF ${provider.cartModel!.total}",
                                               style: TextStyle(
                                                 fontSize: 20,
                                                 fontWeight: FontWeight.bold,
@@ -339,7 +332,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                                               ),
                                             ),
                                             Text(
-                                              "CHF ${provider.cartModel.shippingCost}",
+                                              "CHF ${provider.cartModel!.shippingCost}",
                                               style: TextStyle(
                                                 fontSize: 20,
                                                 fontWeight: FontWeight.bold,
@@ -365,7 +358,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                                               ),
                                             ),
                                             Text(
-                                              "CHF ${provider.cartModel.couponDiscount ?? 0}",
+                                              "CHF ${provider.cartModel!.couponDiscount ?? 0}",
                                               style: TextStyle(
                                                 fontSize: 20,
                                                 fontWeight: FontWeight.bold,
@@ -391,7 +384,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                                               ),
                                             ),
                                             Text(
-                                              "CHF ${provider.cartModel.grandTotal ?? 0}",
+                                              "CHF ${provider.cartModel!.grandTotal}",
                                               style: TextStyle(
                                                 fontSize: 20,
                                                 fontWeight: FontWeight.bold,
@@ -417,13 +410,13 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                                     child: ElevatedButton(
                                       style: ButtonStyle(
                                           backgroundColor:
-                                              MaterialStateProperty.all<Color>(
+                                              WidgetStateProperty.all<Color>(
                                                   Theme.of(context)
                                                       .primaryColor)),
                                       onPressed: () async {
-                                        if (provider.cartModel.address ==
+                                        if (provider.cartModel!.address ==
                                                 null ||
-                                            provider.cartModel.address == "") {
+                                            provider.cartModel!.address == "") {
                                           ScaffoldMessenger.of(context)
                                               .showSnackBar(SnackBar(
                                             content: Text(
@@ -431,7 +424,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                                           ));
                                           return;
                                         }
-                                        if (provider.cartModel.items.length ==
+                                        if (provider.cartModel!.items.length ==
                                             0) {
                                           ScaffoldMessenger.of(context)
                                               .showSnackBar(SnackBar(

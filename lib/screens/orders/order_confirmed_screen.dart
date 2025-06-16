@@ -1,7 +1,4 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
-import 'package:monuite/screens/home/payment/payment_screen.dart';
 import 'package:monuite/screens/orders/widgets/order_item_widget.dart';
 import 'package:provider/provider.dart';
 
@@ -12,7 +9,7 @@ import '../loading_screen.dart';
 
 class OrderConfirmedScreen extends StatefulWidget {
   final String _orderId;
-  const OrderConfirmedScreen(this._orderId, {Key key}) : super(key: key);
+  const OrderConfirmedScreen(this._orderId, {Key? key}) : super(key: key);
 
   @override
   State<OrderConfirmedScreen> createState() => _OrderConfirmedScreenState();
@@ -126,7 +123,7 @@ class _OrderConfirmedScreenState extends State<OrderConfirmedScreen> {
                                         child: Column(
                                           children: [
                                             // Cart Items
-                                            provider.orderModel.items.length ==
+                                            provider.orderModel!.items.length ==
                                                     0
                                                 ? Center(
                                                     child:
@@ -137,13 +134,12 @@ class _OrderConfirmedScreenState extends State<OrderConfirmedScreen> {
                                                     physics:
                                                         NeverScrollableScrollPhysics(),
                                                     itemCount: provider
-                                                            .orderModel
-                                                            .items
-                                                            .length ??
-                                                        0,
+                                                        .orderModel!
+                                                        .items
+                                                        .length,
                                                     itemBuilder: (ctx, index) {
                                                       return OrderItemWidget(
-                                                        provider.orderModel
+                                                        provider.orderModel!
                                                             .items[index],
                                                       );
                                                     },
@@ -165,7 +161,7 @@ class _OrderConfirmedScreenState extends State<OrderConfirmedScreen> {
                                                 MainAxisAlignment.end,
                                             children: [
                                               Text(
-                                                "Total: CHF ${provider.orderModel.total}",
+                                                "Total: CHF ${provider.orderModel!.total}",
                                                 style: TextStyle(
                                                   fontSize: 20,
                                                   fontWeight: FontWeight.bold,
@@ -213,13 +209,13 @@ class _OrderConfirmedScreenState extends State<OrderConfirmedScreen> {
                                                           .spaceBetween,
                                                   children: [
                                                     Text(
-                                                      "Subtotal (${provider.orderModel.items.length} items)",
+                                                      "Subtotal (${provider.orderModel!.items.length} items)",
                                                       style: TextStyle(
                                                         fontSize: 20,
                                                       ),
                                                     ),
                                                     Text(
-                                                      "CHF ${provider.orderModel.total}",
+                                                      "CHF ${provider.orderModel!.total}",
                                                       style: TextStyle(
                                                         fontSize: 20,
                                                         fontWeight:
@@ -248,7 +244,7 @@ class _OrderConfirmedScreenState extends State<OrderConfirmedScreen> {
                                                       ),
                                                     ),
                                                     Text(
-                                                      "CHF ${provider.orderModel.shippingCost}",
+                                                      "CHF ${provider.orderModel!.shippingCost}",
                                                       style: TextStyle(
                                                         fontSize: 20,
                                                         fontWeight:
@@ -277,7 +273,7 @@ class _OrderConfirmedScreenState extends State<OrderConfirmedScreen> {
                                                       ),
                                                     ),
                                                     Text(
-                                                      "CHF ${provider.orderModel.couponDiscount ?? 0}",
+                                                      "CHF ${provider.orderModel!.couponDiscount ?? 0}",
                                                       style: TextStyle(
                                                         fontSize: 20,
                                                         fontWeight:
@@ -306,7 +302,7 @@ class _OrderConfirmedScreenState extends State<OrderConfirmedScreen> {
                                                       ),
                                                     ),
                                                     Text(
-                                                      "CHF ${provider.orderModel.grandTotal ?? 0}",
+                                                      "CHF ${provider.orderModel!.grandTotal}",
                                                       style: TextStyle(
                                                         fontSize: 20,
                                                         fontWeight:
@@ -348,7 +344,7 @@ class _OrderConfirmedScreenState extends State<OrderConfirmedScreen> {
                         height: 60,
                         child: ElevatedButton(
                           style: ButtonStyle(
-                              backgroundColor: MaterialStateProperty.all<Color>(
+                              backgroundColor: WidgetStateProperty.all<Color>(
                                   Theme.of(context).primaryColor)),
                           onPressed: () async {
                             Navigator.push(

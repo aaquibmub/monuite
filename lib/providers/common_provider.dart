@@ -15,7 +15,7 @@ class CommonProvider extends ChangeNotifier {
   }
 
   Future<void> getCountryDropDownList() async {
-    var url = '${Constants.baseUrl}common/get-country-dropdown-list';
+    var url = Uri.parse('${Constants.baseUrl}common/get-country-dropdown-list');
     try {
       final response = await http.get(
         url,
@@ -23,7 +23,8 @@ class CommonProvider extends ChangeNotifier {
 
       switch (response.statusCode) {
         case HttpStatus.ok:
-          final extractedData = json.decode(response.body) as List<dynamic>;
+          final List<dynamic>? extractedData =
+              json.decode(response.body) as List<dynamic>;
           final List<DropdownItem<String>> loadedProducts = [];
           if (extractedData != null) {
             extractedData.forEach((value) {
@@ -37,7 +38,6 @@ class CommonProvider extends ChangeNotifier {
           break;
         case HttpStatus.forbidden:
           break;
-          return [];
       }
     } catch (error) {
       throw error;

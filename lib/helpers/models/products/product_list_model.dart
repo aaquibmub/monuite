@@ -1,10 +1,9 @@
-
 class ProductListModel {
   final String id;
   final String name;
   final String desc;
   final double price;
-  final String imageUrl;
+  final String? imageUrl;
 
   ProductListModel(
     this.id,

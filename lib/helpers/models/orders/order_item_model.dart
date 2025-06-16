@@ -1,7 +1,7 @@
 class OrderItemModel {
   final String id;
-  final String variantId;
-  final String imageUrl;
+  final String? variantId;
+  final String? imageUrl;
   final String name;
   final String variantName;
   final double price;

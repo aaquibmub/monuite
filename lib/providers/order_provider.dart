@@ -11,14 +11,14 @@ import '../helpers/models/common/response_model.dart';
 import '../helpers/models/orders/order_model.dart';
 
 class OrderProvider with ChangeNotifier {
-  OrderModel _orderModel = null;
+  OrderModel? _orderModel = null;
 
-  OrderModel get orderModel {
+  OrderModel? get orderModel {
     return _orderModel;
   }
 
   Future<void> getOrderModel(String id) async {
-    var url = '${Constants.baseUrl}order/get-model/${id}';
+    var url = Uri.parse('${Constants.baseUrl}order/get-model/${id}');
     try {
       final response = await http.get(
         url,
@@ -44,7 +44,7 @@ class OrderProvider with ChangeNotifier {
   }
 
   Future<ResponseModel<String>> createOrder(
-    CartModel cartModel,
+    CartModel? cartModel,
     String paymentMethod,
   ) async {
     try {
@@ -53,10 +53,10 @@ class OrderProvider with ChangeNotifier {
       }
 
       var orderModel = OrderModel(
-        cartModel.address,
+        cartModel.address!,
         cartModel.items
             .map((e) => OrderItemModel(
-                  e.id,
+                  e!.id,
                   e.variantId.isEmpty ? null : e.variantId,
                   e.imageUrl,
                   e.name,
@@ -70,7 +70,7 @@ class OrderProvider with ChangeNotifier {
         paymentMethod,
         cartModel.total,
       );
-      final url = '${Constants.baseUrl}order/create';
+      final url = Uri.parse('${Constants.baseUrl}order/create');
       var orderModelJson = orderModel.toJson();
       var body = jsonEncode(orderModelJson);
       print(body);
@@ -85,7 +85,7 @@ class OrderProvider with ChangeNotifier {
       )
           .then((response) {
         if (response.statusCode == HttpStatus.forbidden) {
-          return ResponseModel(null, 'Operation not allowed', true);
+          return ResponseModel<String>(null, 'Operation not allowed', true);
         }
         final responseData = json.decode(response.body);
         print(responseData);
@@ -93,7 +93,7 @@ class OrderProvider with ChangeNotifier {
             ResponseModel<String>.fromJson(responseData);
         return result;
       }).onError((error, stackTrace) {
-        throw error;
+        throw error!;
       });
     } catch (error) {
       throw error;

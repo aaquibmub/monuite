@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -25,7 +23,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
     Widget _buildPaymentMethod(
       String imageUrl,
       String title,
-      Function onTap,
+      Function? onTap,
     ) {
       return InkWell(
         child: Container(
@@ -70,7 +68,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
             ],
           ),
         ),
-        onTap: onTap,
+        onTap: () => {onTap},
       );
     }
 
@@ -175,7 +173,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
                                             Provider.of<OrderProvider>(context,
                                                     listen: false)
                                                 .createOrder(
-                                              provider.cartModel,
+                                              provider.cartModel!,
                                               Constants.paymentMethodPaypal,
                                             )
                                                 .then((value) {
@@ -196,7 +194,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
                                                     MaterialPageRoute(
                                                         builder: (context) =>
                                                             OrderConfirmedScreen(
-                                                              value.result,
+                                                              value.result!,
                                                             )),
                                                   );
                                                 });
@@ -212,7 +210,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
                                             Provider.of<OrderProvider>(context,
                                                     listen: false)
                                                 .createOrder(
-                                              provider.cartModel,
+                                              provider.cartModel!,
                                               Constants.paymentMethodTwint,
                                             )
                                                 .then((value) {
@@ -233,7 +231,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
                                                     MaterialPageRoute(
                                                         builder: (context) =>
                                                             OrderConfirmedScreen(
-                                                              value.result,
+                                                              value.result!,
                                                             )),
                                                   );
                                                 });
@@ -251,7 +249,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
                                             Provider.of<OrderProvider>(context,
                                                     listen: false)
                                                 .createOrder(
-                                              provider.cartModel,
+                                              provider.cartModel!,
                                               Constants.paymentMethodCreditCard,
                                             )
                                                 .then((value) {
@@ -272,7 +270,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
                                                     MaterialPageRoute(
                                                         builder: (context) =>
                                                             OrderConfirmedScreen(
-                                                              value.result,
+                                                              value.result!,
                                                             )),
                                                   );
                                                 });
@@ -308,13 +306,13 @@ class _PaymentScreenState extends State<PaymentScreen> {
                                                         .spaceBetween,
                                                 children: [
                                                   Text(
-                                                    "Subtotal (${provider.cartModel.items.length} items)",
+                                                    "Subtotal (${provider.cartModel!.items.length} items)",
                                                     style: TextStyle(
                                                       fontSize: 20,
                                                     ),
                                                   ),
                                                   Text(
-                                                    "CHF ${provider.cartModel.total}",
+                                                    "CHF ${provider.cartModel!.total}",
                                                     style: TextStyle(
                                                       fontSize: 20,
                                                       fontWeight:
@@ -343,7 +341,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
                                                     ),
                                                   ),
                                                   Text(
-                                                    "CHF ${provider.cartModel.grandTotal ?? 0}",
+                                                    "CHF ${provider.cartModel!.grandTotal}",
                                                     style: TextStyle(
                                                       fontSize: 20,
                                                       fontWeight:
@@ -370,7 +368,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
                                           child: ElevatedButton(
                                             style: ButtonStyle(
                                                 backgroundColor:
-                                                    MaterialStateProperty.all<
+                                                    WidgetStateProperty.all<
                                                             Color>(
                                                         Theme.of(context)
                                                             .primaryColor)),
@@ -383,7 +381,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
                                               //   );
                                             },
                                             child: Text(
-                                              "Pay CHF ${provider.cartModel.grandTotal ?? 0}",
+                                              "Pay CHF ${provider.cartModel!.grandTotal}",
                                               style: TextStyle(
                                                 fontSize: 16,
                                                 fontWeight: FontWeight.bold,

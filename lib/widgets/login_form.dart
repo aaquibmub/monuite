@@ -45,7 +45,7 @@ class _LoginFormState extends State<LoginForm> {
                 fieldLabel: 'Email',
                 hintLabel: 'Type email',
                 validatorFn: (value) {
-                  if (value.isEmpty) {
+                  if (value!.isEmpty) {
                     return 'Email is required';
                   }
                   return null;
@@ -55,7 +55,7 @@ class _LoginFormState extends State<LoginForm> {
                   FocusScope.of(context).requestFocus(_passwordFocusNode);
                 },
                 onSaveFn: (value) {
-                  widget.setUserNameFn(value);
+                  widget.setUserNameFn(value!);
                 },
               ),
               SizedBox(
@@ -72,13 +72,13 @@ class _LoginFormState extends State<LoginForm> {
                   widget.submitFormFn(widget.parentContext);
                 },
                 validatorFn: (value) {
-                  if (value.isEmpty || value.length < 5) {
+                  if (value!.isEmpty || value.length < 5) {
                     return 'Password is too short!';
                   }
                   return null;
                 },
                 onSaveFn: (value) {
-                  widget.setPasswordFn(value);
+                  widget.setPasswordFn(value!);
                 },
               ),
             ],

@@ -17,13 +17,13 @@ class _RegisterCorporateScreenState extends State<RegisterCorporateScreen> {
   final GlobalKey<FormState> _formKey = GlobalKey();
   bool _isLoading = false;
 
-  String _firstName;
-  String _lastName;
-  String _companyName;
-  String _email;
-  String _password;
-  String _telephone;
-  String _message;
+  String _firstName = '';
+  String _lastName = '';
+  String _companyName = '';
+  String _email = '';
+  String _password = '';
+  String _telephone = '';
+  String _message = '';
 
   void _setFistName(
     String firstName,
@@ -68,11 +68,11 @@ class _RegisterCorporateScreenState extends State<RegisterCorporateScreen> {
   }
 
   Future<void> _submit(BuildContext context) async {
-    if (!_formKey.currentState.validate()) {
+    if (!_formKey.currentState!.validate()) {
       // Invalid!
       return;
     }
-    _formKey.currentState.save();
+    _formKey.currentState!.save();
     setState(() {
       _isLoading = true;
     });
@@ -115,8 +115,8 @@ class _RegisterCorporateScreenState extends State<RegisterCorporateScreen> {
     Widget buildSigninButton() {
       return ElevatedButton(
         style: ButtonStyle(
-            backgroundColor: MaterialStateProperty.all<Color>(
-                Theme.of(context).primaryColor)),
+            backgroundColor:
+                WidgetStateProperty.all<Color>(Theme.of(context).primaryColor)),
         onPressed: () => _submit(context),
         child: Text(
           'Create an account',

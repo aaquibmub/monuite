@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -17,8 +16,8 @@ class _LoginScreenState extends State<LoginScreen> {
   final GlobalKey<FormState> _formKey = GlobalKey();
   bool _isLoading = false;
 
-  String _userName;
-  String _password;
+  String _userName = '';
+  String _password = '';
 
   void _setUserName(
     String userName,
@@ -33,11 +32,11 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
   Future<void> _submit(BuildContext context) async {
-    if (!_formKey.currentState.validate()) {
+    if (!_formKey.currentState!.validate()) {
       // Invalid!
       return;
     }
-    _formKey.currentState.save();
+    _formKey.currentState!.save();
     setState(() {
       _isLoading = true;
     });
@@ -72,8 +71,8 @@ class _LoginScreenState extends State<LoginScreen> {
     Widget buildSigninButton() {
       return ElevatedButton(
         style: ButtonStyle(
-            backgroundColor: MaterialStateProperty.all<Color>(
-                Theme.of(context).primaryColor)),
+            backgroundColor:
+                WidgetStateProperty.all<Color>(Theme.of(context).primaryColor)),
         onPressed: () => _submit(context),
         child: Text(
           'Sign in',
@@ -87,8 +86,8 @@ class _LoginScreenState extends State<LoginScreen> {
     Widget buildSignupPrivateButton() {
       return ElevatedButton(
         style: ButtonStyle(
-            backgroundColor: MaterialStateProperty.all<Color>(
-                Theme.of(context).primaryColor)),
+            backgroundColor:
+                WidgetStateProperty.all<Color>(Theme.of(context).primaryColor)),
         onPressed: () => {
           Navigator.of(context).pushNamed(
             Routes.registerPrivateScreen,
@@ -106,8 +105,8 @@ class _LoginScreenState extends State<LoginScreen> {
     Widget buildSignupCorporateButton() {
       return ElevatedButton(
         style: ButtonStyle(
-            backgroundColor: MaterialStateProperty.all<Color>(
-                Theme.of(context).primaryColor)),
+            backgroundColor:
+                WidgetStateProperty.all<Color>(Theme.of(context).primaryColor)),
         onPressed: () => {
           Navigator.of(context).pushNamed(
             Routes.registerCorporateScreen,
@@ -125,8 +124,8 @@ class _LoginScreenState extends State<LoginScreen> {
     Widget buildSignupGuestButton() {
       return ElevatedButton(
         style: ButtonStyle(
-            backgroundColor: MaterialStateProperty.all<Color>(
-                Theme.of(context).primaryColor)),
+            backgroundColor:
+                WidgetStateProperty.all<Color>(Theme.of(context).primaryColor)),
         onPressed: () => {
           Navigator.of(context).pushReplacementNamed(
             Routes.homeScreen,

@@ -85,13 +85,12 @@ class _CartScreenState extends State<CartScreen> {
                                       margin: EdgeInsets.symmetric(
                                         vertical: 10,
                                       ),
-                                      child: provider.cartModel.address !=
+                                      child: provider.cartModel!.address !=
                                                   null &&
-                                              provider.cartModel.address != ""
+                                              provider.cartModel!.address != ""
                                           ? Text(
-                                              provider.cartModel.address
-                                                      .address_1 ??
-                                                  'No Address',
+                                              provider.cartModel!.address!
+                                                  .address_1,
                                               style: TextStyle(
                                                 fontSize: 20,
                                                 fontWeight: FontWeight.bold,
@@ -132,7 +131,7 @@ class _CartScreenState extends State<CartScreen> {
                                             ),
                                     ),
                                     // Cart Items
-                                    provider.cartModel.items.length == 0
+                                    provider.cartModel!.items.length == 0
                                         ? Center(
                                             child: Text("cart is empty"),
                                           )
@@ -141,11 +140,11 @@ class _CartScreenState extends State<CartScreen> {
                                             physics:
                                                 NeverScrollableScrollPhysics(),
                                             itemCount: provider
-                                                    .cartModel.items.length ??
-                                                0,
+                                                .cartModel!.items.length,
                                             itemBuilder: (ctx, index) {
                                               return CartItemWidget(
-                                                provider.cartModel.items[index],
+                                                provider
+                                                    .cartModel!.items[index]!,
                                                 _updateState,
                                               );
                                             },
@@ -165,7 +164,7 @@ class _CartScreenState extends State<CartScreen> {
                                 child: ElevatedButton(
                                   style: ButtonStyle(
                                       backgroundColor:
-                                          MaterialStateProperty.all<Color>(
+                                          WidgetStateProperty.all<Color>(
                                               Theme.of(context).primaryColor)),
                                   onPressed: () async {
                                     Navigator.push(
@@ -197,7 +196,7 @@ class _CartScreenState extends State<CartScreen> {
                                     // });
                                   },
                                   child: Text(
-                                    "CHF ${provider.cartModel.total}",
+                                    "CHF ${provider.cartModel!.total}",
                                     style: TextStyle(
                                       fontSize: 16,
                                       fontWeight: FontWeight.bold,

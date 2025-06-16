@@ -4,6 +4,7 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:http/http.dart';
 import 'package:monuite/helpers/common/utility.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -12,35 +13,35 @@ import '../helpers/models/common/response_model.dart';
 import '../helpers/models/user.dart';
 
 class Auth with ChangeNotifier {
-  String _token;
-  String _refreshToken;
-  DateTime _expiryDate;
-  User _user;
-  Timer _authTimer;
+  String? _token;
+  String? _refreshToken;
+  DateTime? _expiryDate;
+  User? _user;
+  Timer? _authTimer;
 
   bool get isAuth {
     return token != null;
   }
 
-  User get currentUser {
+  User? get currentUser {
     return _user;
   }
 
   String get userName {
     String username = '';
     if (_user != null) {
-      username = _user.firstName;
-      if (_user.lastName != null && _user.lastName.isNotEmpty) {
-        username += ' ${_user.lastName}';
+      username = _user!.firstName!;
+      if (_user!.lastName != null && _user!.lastName!.isNotEmpty) {
+        username += ' ${_user!.lastName}';
       }
     }
     return username;
   }
 
-  String get token {
+  String? get token {
     if (_token != null &&
         _expiryDate != null &&
-        _expiryDate.isAfter(DateTime.now())) {
+        _expiryDate!.isAfter(DateTime.now())) {
       return _token;
     }
     return null;
@@ -50,12 +51,12 @@ class Auth with ChangeNotifier {
     String email,
     String password,
   ) async {
-    final url = '${Constants.baseUrl}auth/login';
+    final url = Uri.parse('${Constants.baseUrl}auth/login');
     // final loginInfo = 'UserName=$email&Password=$password&grant_type=password';
     // final base64Str = Utility.convertStringToBase64String(
     //     '${Constants.clientID}:${Constants.clientSecret}');
     try {
-      final response = await http.post(
+      final Response? response = await http.post(
         url,
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
@@ -85,8 +86,8 @@ class Auth with ChangeNotifier {
         final userData = json.encode({
           'token': _token,
           // 'refresh_token': _refreshToken,
-          'user': jsonEncode(_user.toJson()),
-          'expiryDate': _expiryDate.toIso8601String(),
+          'user': jsonEncode(_user!.toJson()),
+          'expiryDate': _expiryDate!.toIso8601String(),
         });
         prefs.setString('userData', userData);
       }
@@ -109,7 +110,7 @@ class Auth with ChangeNotifier {
     if (!prefs.containsKey('userData')) {
       return false;
     }
-    final extractedUserData = json.decode(prefs.getString('userData'));
+    final extractedUserData = json.decode(prefs.getString('userData')!);
     final expiryDate = DateTime.parse(extractedUserData['expiryDate']);
 
     _token = extractedUserData['token'];
@@ -132,7 +133,7 @@ class Auth with ChangeNotifier {
     _user = null;
     _expiryDate = null;
     if (_authTimer != null) {
-      _authTimer.cancel();
+      _authTimer!.cancel();
       _authTimer = null;
     }
     notifyListeners();
@@ -141,13 +142,13 @@ class Auth with ChangeNotifier {
   }
 
   Future<void> refreshToken() async {
-    final url = '${Constants.baseUrl}token';
+    final url = Uri.parse('${Constants.baseUrl}token');
     final loginInfo = 'refresh_token=$_refreshToken&grant_type=refresh_token';
     final base64Str = Utility.convertStringToBase64String(
         '${Constants.clientID}:${Constants.clientSecret}');
     try {
-      final response = await http.post(
-        url as Uri,
+      final Response? response = await http.post(
+        url,
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded',
           'Authorization': 'Basic $base64Str'
@@ -177,11 +178,11 @@ class Auth with ChangeNotifier {
           'token': _token,
           'refresh_token': _refreshToken,
           'user': jsonEncode(_user),
-          'expiryDate': _expiryDate.toIso8601String(),
+          'expiryDate': _expiryDate!.toIso8601String(),
         });
         prefs.setString('userData', userData);
       }
-      return '';
+      return;
     } catch (error) {
       throw error;
     }
@@ -189,9 +190,9 @@ class Auth with ChangeNotifier {
 
   void _autoLogout() {
     if (_authTimer != null) {
-      _authTimer.cancel();
+      _authTimer!.cancel();
     }
-    final timeToExpiry = _expiryDate.difference(DateTime.now()).inSeconds;
+    final timeToExpiry = _expiryDate!.difference(DateTime.now()).inSeconds;
     _authTimer = Timer(Duration(seconds: timeToExpiry), refreshToken);
   }
 
@@ -199,11 +200,11 @@ class Auth with ChangeNotifier {
     String id,
     bool onDuty,
   ) async {
-    final url =
-        '${Constants.baseUrl}driver/${onDuty ? 'on-duty' : 'off-duty'}/$id';
+    final url = Uri.parse(
+        '${Constants.baseUrl}driver/${onDuty ? 'on-duty' : 'off-duty'}/$id');
     try {
-      final response = await http.delete(
-        url as Uri,
+      final Response? response = await http.delete(
+        url,
         headers: {
           'Authorization': 'Bearer $_token',
         },
@@ -222,7 +223,7 @@ class Auth with ChangeNotifier {
           'token': _token,
           'refresh_token': _refreshToken,
           'user': jsonEncode(_user),
-          'expiryDate': _expiryDate.toIso8601String(),
+          'expiryDate': _expiryDate!.toIso8601String(),
         });
         prefs.setString('userData', userData);
         notifyListeners();
@@ -233,11 +234,11 @@ class Auth with ChangeNotifier {
     }
   }
 
-  Future<User> refreshUserData() async {
-    final url = '${Constants.baseUrl}user/get-current-user';
+  Future<User?> refreshUserData() async {
+    final url = Uri.parse('${Constants.baseUrl}user/get-current-user');
     try {
-      final response = await http.get(
-        url as Uri,
+      final Response? response = await http.get(
+        url,
         headers: {
           'Authorization': 'Bearer $_token',
         },
@@ -251,7 +252,7 @@ class Auth with ChangeNotifier {
           'token': _token,
           'refresh_token': _refreshToken,
           'user': jsonEncode(_user),
-          'expiryDate': _expiryDate.toIso8601String(),
+          'expiryDate': _expiryDate!.toIso8601String(),
         });
         prefs.setString('userData', userData);
         return _user;
@@ -279,9 +280,9 @@ class Auth with ChangeNotifier {
     String password,
     String telephone,
   ) async {
-    final url = '${Constants.baseUrl}auth/register-private';
+    final url = Uri.parse('${Constants.baseUrl}auth/register-private');
     try {
-      final response = await http.post(
+      final Response? response = await http.post(
         url,
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
@@ -336,9 +337,9 @@ class Auth with ChangeNotifier {
     String telephone,
     String message,
   ) async {
-    final url = '${Constants.baseUrl}auth/register-corporate';
+    final url = Uri.parse('${Constants.baseUrl}auth/register-corporate');
     try {
-      final response = await http.post(
+      final Response? response = await http.post(
         url,
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
