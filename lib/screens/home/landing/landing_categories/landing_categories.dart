@@ -57,7 +57,7 @@ class _LandingCategoriesState extends State<LandingCategories> {
                   return LoadingScreen();
                 }
                 return Container(
-                  height: 110,
+                  height: 200,
                   width: deviceSize.width,
                   child: Consumer<ProductProvider>(
                     builder: (ctx, provider, _) {

@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:monuite/helpers/common/constants.dart';
@@ -231,6 +232,7 @@ class Utility {
                     context,
                     'Logout',
                     () {
+                      debugger();
                       Navigator.of(context)
                           .pushReplacementNamed(Routes.loginScreen);
                       Provider.of<Auth>(

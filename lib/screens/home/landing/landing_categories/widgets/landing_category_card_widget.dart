@@ -17,7 +17,7 @@ class LandingCategoryCardWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.all(5),
+      margin: EdgeInsets.all(10),
       child: InkWell(
         onTap: () {
           Navigator.push(
@@ -40,9 +40,10 @@ class LandingCategoryCardWidget extends StatelessWidget {
                 color: Color.fromRGBO(0, 0, 0, 0.2),
                 shape: BoxShape.circle,
               ),
-              height: 60,
-              width: 60,
-              child: Center(
+              height: 120,
+              width: 120,
+              child: Container(
+                padding: EdgeInsets.all(15),
                 child: _catgory.imageUrl != null
                     ? (_catgory.imageUrl!.endsWith('.svg')
                         ? SvgPicture.network(
@@ -60,13 +61,15 @@ class LandingCategoryCardWidget extends StatelessWidget {
               height: 10,
             ),
             Container(
-              width: 100,
-              child: Text(
-                _catgory.name,
-                overflow: TextOverflow.ellipsis,
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
+              width: 120,
+              child: Center(
+                child: Text(
+                  _catgory.name,
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ),
             ),

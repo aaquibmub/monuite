@@ -161,7 +161,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: <Widget>[
                                 SizedBox(
-                                  height: 40,
+                                  height: 60,
                                 ),
                                 Container(
                                   margin: EdgeInsets.symmetric(
