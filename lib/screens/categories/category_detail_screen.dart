@@ -1,46 +1,111 @@
 import 'package:flutter/material.dart';
-import 'package:monuite/screens/home/home_screen.dart';
+import 'package:monuite/providers/product_provider.dart';
+import 'package:monuite/screens/categories/product_by_category_card_widget.dart';
+import 'package:monuite/screens/loading_screen.dart';
+import 'package:provider/provider.dart';
 
 import '../../helpers/common/utility.dart';
 
 class CategoryDetailScreen extends StatelessWidget {
   final String _id;
+  final String _name;
 
   CategoryDetailScreen(
     this._id,
+    this._name,
   );
 
   @override
   Widget build(BuildContext context) {
+    var deviceSize = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
         title: Center(
           child: Text(
-            'Category Detail',
+            _name,
           ),
         ),
       ),
       drawer: Utility.buildDrawer(context),
       body: Column(
-      children: [
-        Container(
-          child: Center(
-            child: Text("Category Detail Screen's $_id"),
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Container(
+            margin: EdgeInsets.symmetric(
+              vertical: 20,
+              horizontal: 10,
+            ),
+            child: Row(mainAxisAlignment: MainAxisAlignment.start, children: [
+              Text(
+                "Products",
+                style: TextStyle(
+                  fontSize: 20,
+                ),
+              ),
+            ]),
           ),
-        ),
-        SizedBox(height: 10,),
-        Container(child: InkWell(
-          onTap: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                  builder: (context) => HomeScreen()),
-            );
-          },
-          child: Text("Go Back"),
-        ),) ,
+          Expanded(
+            child: SingleChildScrollView(
+              child: FutureBuilder(
+                  future: Provider.of<ProductProvider>(context, listen: false)
+                      .populateProductByCategoryList(_id),
+                  builder: (ctx, data) {
+                    if (data.connectionState == ConnectionState.waiting) {
+                      return LoadingScreen();
+                    }
+                    return Container(
+                      height: deviceSize.height,
+                      width: deviceSize.width,
+                      child: Consumer<ProductProvider>(
+                        builder: (ctx, provider, _) {
+                          return provider.productsByCategory.length > 0
+                              ? SingleChildScrollView(
+                                  child: GridView(
+                                    padding: EdgeInsets.symmetric(
+                                      horizontal: 8,
+                                    ),
+                                    gridDelegate:
+                                        SliverGridDelegateWithFixedCrossAxisCount(
+                                      crossAxisCount:
+                                          (Utility.getValuebyDeviceSize(
+                                              deviceSize, 1, 2, 4) as int),
+                                      // childAspectRatio: 3 / 2,
+                                      crossAxisSpacing:
+                                          (Utility.getValuebyDeviceSize(
+                                                  deviceSize, 10.0, 20.0, 40.0)
+                                              as double),
+                                      mainAxisSpacing:
+                                          (Utility.getValuebyDeviceSize(
+                                                  deviceSize, 10.0, 40.0, 80.0)
+                                              as double),
+                                    ),
+                                    physics: ScrollPhysics(),
+                                    scrollDirection: Axis.vertical,
+                                    shrinkWrap: true,
+                                    children: provider.productsByCategory
+                                        .map((e) =>
+                                            ProductByCategoryCardWidget(e))
+                                        .toList(),
+                                  ),
+                                )
+                              // Column(children: <Widget>[
+                              //   ...provider.categories.map(
+                              //     (e) => CategoryCardWidget(e),
+                              //   ),
+                              // ]),
 
-      ],
-    ) ,);
+                              : Center(
+                                  child: Text("no products found"),
+                                );
+                        },
+                      ),
+                    );
+                  }),
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }

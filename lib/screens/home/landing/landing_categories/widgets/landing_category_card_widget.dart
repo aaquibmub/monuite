@@ -25,6 +25,7 @@ class LandingCategoryCardWidget extends StatelessWidget {
             MaterialPageRoute(
                 builder: (context) => CategoryDetailScreen(
                       _catgory.id,
+                      _catgory.name,
                     )),
           ).then((value) {
             _updateState();

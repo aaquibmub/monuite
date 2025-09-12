@@ -98,6 +98,47 @@ class ProductProvider with ChangeNotifier {
     }
   }
 
+  List<ProductListModel> _productsByCategory = [];
+
+  List<ProductListModel> get productsByCategory {
+    return [..._productsByCategory];
+  }
+
+  Future<void> populateProductByCategoryList(String categoryId,
+      {int take = 0}) async {
+    var url = Uri.parse(
+        '${Constants.baseUrl}product/get-product-by-category-list?categoryId=$categoryId&take=${take}');
+    try {
+      final response = await http.get(
+        url,
+        headers: {
+          'Authorization': 'Bearer $authToken',
+        },
+      );
+
+      switch (response.statusCode) {
+        case HttpStatus.ok:
+          final List<dynamic>? extractedData =
+              json.decode(response.body) as List<dynamic>;
+          final List<ProductListModel> loadedProducts = [];
+          if (extractedData != null) {
+            extractedData.forEach((value) {
+              ProductListModel prod = ProductListModel.fromJson((value));
+              loadedProducts.add(prod);
+            });
+          }
+          _productsByCategory = loadedProducts;
+          break;
+        case HttpStatus.forbidden:
+          break;
+      }
+
+      notifyListeners();
+    } catch (error) {
+      throw error;
+    }
+  }
+
   ProductDetailModel? _productDetailModel = null;
 
   ProductDetailModel? get productDetail {

@@ -22,6 +22,7 @@ class CategoryCardWidget extends StatelessWidget {
             MaterialPageRoute(
                 builder: (context) => CategoryDetailScreen(
                       _catgory.id,
+                      _catgory.name,
                     )),
           );
         },

@@ -81,6 +81,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                                         mainAxisAlignment:
                                             MainAxisAlignment.start,
                                         children: <Widget>[
+                                          // Images
                                           CarouselSlider(
                                             options: CarouselOptions(
                                               height: 500,
@@ -114,6 +115,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                                                   }).toList()
                                                 : [],
                                           ),
+                                          // Name
                                           Container(
                                             margin: EdgeInsets.symmetric(
                                               vertical: 10,
@@ -126,6 +128,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                                               ),
                                             ),
                                           ),
+                                          // Price
                                           Container(
                                             margin: EdgeInsets.symmetric(
                                               vertical: 10,
@@ -139,6 +142,18 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                                               ),
                                             ),
                                           ),
+                                          // Description
+                                          Container(
+                                            margin: EdgeInsets.symmetric(
+                                              vertical: 10,
+                                            ),
+                                            child: Text(
+                                              provider.productDetail!.desc,
+                                              style: TextStyle(
+                                                fontSize: 16,
+                                              ),
+                                            ),
+                                          ),
                                         ],
                                       ),
                                     )
@@ -146,6 +161,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                                       child: Text("no product found"),
                                     ))),
                     ),
+                    // Add to Cart
                     Container(
                       width: double.infinity,
                       height: 60,
