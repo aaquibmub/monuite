@@ -51,7 +51,7 @@ class CategoriesScreen extends StatelessWidget {
                       width: deviceSize.width,
                       child: Consumer<ProductProvider>(
                         builder: (ctx, provider, _) {
-                          return provider.categories.length > 0
+                          return provider.allCategories.length > 0
                               ? SingleChildScrollView(
                                   child: GridView(
                                     padding: EdgeInsets.symmetric(
@@ -75,7 +75,7 @@ class CategoriesScreen extends StatelessWidget {
                                     physics: ScrollPhysics(),
                                     scrollDirection: Axis.vertical,
                                     shrinkWrap: true,
-                                    children: provider.categories
+                                    children: provider.allCategories
                                         .map((e) => CategoryCardWidget(e))
                                         .toList(),
                                   ),

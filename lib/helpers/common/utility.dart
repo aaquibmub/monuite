@@ -1,9 +1,11 @@
 import 'dart:convert';
-import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:monuite/helpers/common/constants.dart';
 import 'package:monuite/helpers/common/routes.dart';
+import 'package:monuite/providers/product_provider.dart';
+import 'package:monuite/screens/categories/category_detail_screen.dart';
+import 'package:monuite/screens/loading_screen.dart';
 import 'package:provider/provider.dart';
 
 import '../../providers/auth.dart';
@@ -143,8 +145,8 @@ class Utility {
       return InkWell(
         child: Container(
           padding: EdgeInsets.symmetric(
-            vertical: 16,
-            horizontal: 32,
+            vertical: 8,
+            horizontal: 16,
           ),
           child: Text(
             title,
@@ -155,7 +157,9 @@ class Utility {
             ),
           ),
         ),
-        onTap: () => {onTap},
+        onTap: () {
+          onTap();
+        },
       );
     }
 
@@ -221,6 +225,54 @@ class Utility {
                           );
                         },
                       ),
+                      Container(
+                        height: 507,
+                        child: FutureBuilder(
+                            future: Provider.of<ProductProvider>(context,
+                                    listen: false)
+                                .populateCategoryList(),
+                            builder: (ctx, data) {
+                              if (data.connectionState ==
+                                  ConnectionState.waiting) {
+                                return LoadingScreen();
+                              }
+                              return Container(
+                                child: Consumer<ProductProvider>(
+                                  builder: (ctx, provider, _) {
+                                    return provider.allCategories.length > 0
+                                        ? SingleChildScrollView(
+                                            scrollDirection: Axis.horizontal,
+                                            child: Column(
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.start,
+                                                children: <Widget>[
+                                                  ...provider.allCategories.map(
+                                                    (e) => buildMenuItem(
+                                                        context, e.name, () {
+                                                      Navigator.push(
+                                                        context,
+                                                        MaterialPageRoute(
+                                                            builder: (context) =>
+                                                                CategoryDetailScreen(
+                                                                  e.id,
+                                                                  e.name,
+                                                                )),
+                                                      );
+                                                      ;
+                                                    }),
+                                                  ),
+                                                ]),
+                                          )
+                                        : Center(
+                                            child: Text("no categories found"),
+                                          );
+                                  },
+                                ),
+                              );
+                            }),
+                      ),
                     ],
                   ),
                 ),
@@ -232,7 +284,6 @@ class Utility {
                     context,
                     'Logout',
                     () {
-                      debugger();
                       Navigator.of(context)
                           .pushReplacementNamed(Routes.loginScreen);
                       Provider.of<Auth>(

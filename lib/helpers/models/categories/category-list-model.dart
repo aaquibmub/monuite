@@ -9,9 +9,11 @@ class CategoryListModel {
     this.imageUrl,
   );
 
-  factory CategoryListModel.fromJson(dynamic json) => CategoryListModel(
-        json['id'] as String,
-        json['name'] as String,
-        json['imageUrl'] as String,
-      );
+  factory CategoryListModel.fromJson(dynamic json) {
+    return CategoryListModel(
+      json['id'] as String,
+      json['name'] as String,
+      json['imageUrl'] != null ? json['imageUrl'] as String : null,
+    );
+  }
 }

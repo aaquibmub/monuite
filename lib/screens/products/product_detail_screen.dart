@@ -8,7 +8,6 @@ import 'package:monuite/providers/cart_provider.dart';
 import 'package:provider/provider.dart';
 
 import '../../providers/product_provider.dart';
-import '../home/home_screen.dart';
 import '../home/tabs_screen.dart';
 import '../loading_screen.dart';
 
@@ -45,14 +44,16 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
+                        // Back Button
                         Container(
                           child: InkWell(
                             onTap: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => HomeScreen()),
-                              );
+                              // Navigator.push(
+                              //   context,
+                              //   MaterialPageRoute(
+                              //       builder: (context) => HomeScreen()),
+                              // );
+                              Navigator.of(context).pop();
                             },
                             child: Container(
                               width: 30,

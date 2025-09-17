@@ -22,9 +22,19 @@ class ProductProvider with ChangeNotifier {
     return [..._categories];
   }
 
-  Future<void> populateCategoryList({int take = 0}) async {
-    var url = Uri.parse(
-        '${Constants.baseUrl}product/get-categories-list?take=${take}');
+  List<CategoryListModel> _allCategories = [];
+
+  List<CategoryListModel> get allCategories {
+    return [..._allCategories];
+  }
+
+  Future<void> populateCategoryList({int? take = 0}) async {
+    var urlString = '${Constants.baseUrl}product/get-categories-list';
+    if (take != null && take > 0) {
+      urlString = '${urlString}?take=$take';
+    }
+
+    var url = Uri.parse(urlString);
     try {
       final response = await http.get(
         url,
@@ -45,7 +55,11 @@ class ProductProvider with ChangeNotifier {
               loadedProducts.add(prod);
             });
           }
-          _categories = loadedProducts;
+          if (take == null || take == 0) {
+            _allCategories = loadedProducts;
+          } else {
+            _categories = loadedProducts;
+          }
           break;
         case HttpStatus.forbidden:
           break;

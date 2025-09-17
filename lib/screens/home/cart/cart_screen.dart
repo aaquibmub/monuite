@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:monuite/helpers/common/routes.dart';
 import 'package:monuite/screens/home/cart/widgets/cart_item_widget.dart';
 import 'package:monuite/screens/home/checkout/checkout_screen.dart';
 import 'package:provider/provider.dart';
@@ -52,6 +53,26 @@ class _CartScreenState extends State<CartScreen> {
                                         mainAxisAlignment:
                                             MainAxisAlignment.spaceBetween,
                                         children: [
+                                          // Back Button
+                                          Container(
+                                            child: InkWell(
+                                              onTap: () {
+                                                Navigator.of(context)
+                                                    .pushReplacementNamed(
+                                                  Routes.homeScreen,
+                                                );
+                                              },
+                                              child: Container(
+                                                width: 30,
+                                                height: 30,
+                                                decoration: BoxDecoration(
+                                                  shape: BoxShape.circle,
+                                                  color: Constants.colorGrey,
+                                                ),
+                                                child: Icon(Icons.home),
+                                              ),
+                                            ),
+                                          ),
                                           Text(
                                             'Cart',
                                             style: TextStyle(
@@ -69,8 +90,7 @@ class _CartScreenState extends State<CartScreen> {
                                               right: 10,
                                             ),
                                             child: IconButton(
-                                              icon:
-                                                  Icon(Icons.clear_all_rounded),
+                                              icon: Icon(Icons.clear),
                                               // icon: Icon(Icons.more_horiz_rounded),
                                               onPressed: () {
                                                 provider.clear();
@@ -89,8 +109,9 @@ class _CartScreenState extends State<CartScreen> {
                                                   null &&
                                               provider.cartModel!.address != ""
                                           ? Text(
-                                              provider.cartModel!.address!
-                                                  .address_1,
+                                              'Address: ' +
+                                                  provider.cartModel!.address!
+                                                      .address_1,
                                               style: TextStyle(
                                                 fontSize: 20,
                                                 fontWeight: FontWeight.bold,

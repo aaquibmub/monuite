@@ -99,8 +99,8 @@ class _PaymentScreenState extends State<PaymentScreen> {
             }
             return Container(
               margin: EdgeInsets.symmetric(
-                vertical: 20,
-                horizontal: 10,
+                vertical: 32,
+                horizontal: 8,
               ),
               width: deviceSize.width,
               child: _isLoading
@@ -112,6 +112,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 children: <Widget>[
+                                  SizedBox(height: 16),
                                   Row(
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceBetween,
@@ -139,6 +140,8 @@ class _PaymentScreenState extends State<PaymentScreen> {
                                       ),
                                     ],
                                   ),
+
+                                  SizedBox(height: 16),
                                   // Top Bar
                                   Container(
                                     margin: EdgeInsets.symmetric(

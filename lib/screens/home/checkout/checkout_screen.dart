@@ -28,8 +28,8 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
             }
             return Container(
               margin: EdgeInsets.symmetric(
-                vertical: 20,
-                horizontal: 10,
+                vertical: 32,
+                horizontal: 8,
               ),
               child: Consumer<CartProvider>(
                 builder: (ctx, provider, _) {
@@ -38,6 +38,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: <Widget>[
+                            SizedBox(height: 16),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
@@ -63,6 +64,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                                 ),
                               ],
                             ),
+                            SizedBox(height: 16),
                             // Top Bar
                             Container(
                               margin: EdgeInsets.symmetric(
@@ -88,7 +90,8 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                                 vertical: 10,
                               ),
                               child: provider.cartModel!.address != null &&
-                                      provider.cartModel!.address != ""
+                                      provider.cartModel!.address!.address_1 !=
+                                          ""
                                   ? Container(
                                       padding: EdgeInsets.all(20),
                                       decoration: BoxDecoration(
