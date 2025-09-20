@@ -26,7 +26,7 @@ class CategoryDetailScreen extends StatelessWidget {
           ),
         ),
       ),
-      drawer: Utility.buildDrawer(context),
+      // drawer: Utility.buildDrawer(context),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         crossAxisAlignment: CrossAxisAlignment.start,

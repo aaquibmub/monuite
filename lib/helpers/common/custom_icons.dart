@@ -51,6 +51,9 @@ class CustomIcons {
   static const String paymentMethodPayPal =
       'assets/icons/payment-methods/PayPal-logo.png';
 
+  static const String paymentMethodInvoice =
+      'assets/icons/payment-methods/PayPal-logo.png';
+
   static const String paymentMethodTwint =
       'assets/icons/payment-methods/twint-seeklogo.png';
 }

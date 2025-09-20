@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:monuite/helpers/common/routes.dart';
+import 'package:monuite/helpers/common/utility.dart';
 import 'package:monuite/screens/home/cart/widgets/cart_item_widget.dart';
 import 'package:monuite/screens/home/checkout/checkout_screen.dart';
 import 'package:provider/provider.dart';
@@ -217,7 +218,7 @@ class _CartScreenState extends State<CartScreen> {
                                     // });
                                   },
                                   child: Text(
-                                    "CHF ${provider.cartModel!.total}",
+                                    "CHF ${Utility.formatNumber(provider.cartModel!.total)}",
                                     style: TextStyle(
                                       fontSize: 16,
                                       fontWeight: FontWeight.bold,

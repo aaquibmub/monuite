@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:monuite/helpers/common/utility.dart';
 import 'package:monuite/screens/home/cart/cart_screen.dart';
 import 'package:monuite/screens/home/checkout/address/add_new_address_screen.dart';
 import 'package:monuite/screens/home/checkout/widgets/checkout_item_widget.dart';
@@ -196,7 +197,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                                     mainAxisAlignment: MainAxisAlignment.end,
                                     children: [
                                       Text(
-                                        "Total: CHF ${provider.cartModel!.total}",
+                                        "Total: CHF ${Utility.formatNumber(provider.cartModel!.total)}",
                                         style: TextStyle(
                                           fontSize: 20,
                                           fontWeight: FontWeight.bold,
@@ -309,7 +310,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                                               ),
                                             ),
                                             Text(
-                                              "CHF ${provider.cartModel!.total}",
+                                              "CHF ${Utility.formatNumber(provider.cartModel!.total)}",
                                               style: TextStyle(
                                                 fontSize: 20,
                                                 fontWeight: FontWeight.bold,
@@ -335,7 +336,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                                               ),
                                             ),
                                             Text(
-                                              "CHF ${provider.cartModel!.shippingCost}",
+                                              "CHF ${Utility.formatNumber(provider.cartModel!.shippingCost)}",
                                               style: TextStyle(
                                                 fontSize: 20,
                                                 fontWeight: FontWeight.bold,
@@ -361,7 +362,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                                               ),
                                             ),
                                             Text(
-                                              "CHF ${provider.cartModel!.couponDiscount ?? 0}",
+                                              "CHF ${Utility.formatNumber(provider.cartModel!.couponDiscount ?? 0)}",
                                               style: TextStyle(
                                                 fontSize: 20,
                                                 fontWeight: FontWeight.bold,
@@ -387,7 +388,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                                               ),
                                             ),
                                             Text(
-                                              "CHF ${provider.cartModel!.grandTotal}",
+                                              "CHF ${Utility.formatNumber(provider.cartModel!.grandTotal)}",
                                               style: TextStyle(
                                                 fontSize: 20,
                                                 fontWeight: FontWeight.bold,

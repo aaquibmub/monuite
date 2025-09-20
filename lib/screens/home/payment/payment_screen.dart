@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:monuite/helpers/common/utility.dart';
 import 'package:provider/provider.dart';
 
 import '../../../helpers/common/constants.dart';
@@ -167,6 +168,44 @@ class _PaymentScreenState extends State<PaymentScreen> {
                                       child: Column(
                                         children: [
                                           _buildPaymentMethod(
+                                              CustomIcons.paymentMethodInvoice,
+                                              Constants.paymentMethodInvoice,
+                                              () {
+                                            setState(() {
+                                              _isLoading = true;
+                                            });
+                                            Provider.of<OrderProvider>(context,
+                                                    listen: false)
+                                                .createOrder(
+                                              provider.cartModel!,
+                                              Constants.paymentMethodInvoice,
+                                            )
+                                                .then((value) {
+                                              setState(() {
+                                                _isLoading = false;
+                                              });
+                                              if (value.hasError) {
+                                                _showErrorDialogue(
+                                                    context, value.msg);
+                                              } else {
+                                                Provider.of<CartProvider>(
+                                                        context,
+                                                        listen: false)
+                                                    .clear()
+                                                    .then((_) {
+                                                  Navigator.pushReplacement(
+                                                    context,
+                                                    MaterialPageRoute(
+                                                        builder: (context) =>
+                                                            OrderConfirmedScreen(
+                                                              value.result!,
+                                                            )),
+                                                  );
+                                                });
+                                              }
+                                            });
+                                          }),
+                                          _buildPaymentMethod(
                                               CustomIcons.paymentMethodPayPal,
                                               Constants.paymentMethodPaypal,
                                               () {
@@ -315,7 +354,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
                                                     ),
                                                   ),
                                                   Text(
-                                                    "CHF ${provider.cartModel!.total}",
+                                                    "CHF ${Utility.formatNumber(provider.cartModel!.total)}",
                                                     style: TextStyle(
                                                       fontSize: 20,
                                                       fontWeight:
@@ -344,7 +383,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
                                                     ),
                                                   ),
                                                   Text(
-                                                    "CHF ${provider.cartModel!.grandTotal}",
+                                                    "CHF ${Utility.formatNumber(provider.cartModel!.grandTotal)}",
                                                     style: TextStyle(
                                                       fontSize: 20,
                                                       fontWeight:
@@ -384,7 +423,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
                                               //   );
                                             },
                                             child: Text(
-                                              "Pay CHF ${provider.cartModel!.grandTotal}",
+                                              "Pay CHF ${Utility.formatNumber(provider.cartModel!.grandTotal)}",
                                               style: TextStyle(
                                                 fontSize: 16,
                                                 fontWeight: FontWeight.bold,

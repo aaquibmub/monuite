@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:monuite/helpers/common/constants.dart';
 import 'package:monuite/helpers/common/routes.dart';
 import 'package:monuite/providers/product_provider.dart';
@@ -323,6 +324,11 @@ class Utility {
   // static Future<void> makePhoneCall(String phoneNumber) async {
   //   await launch("tel://$phoneNumber");
   // }
+
+  static String formatNumber(double? number) {
+    final formatter = NumberFormat('#,##0.00', 'en_US');
+    return formatter.format(number);
+  }
 
   static Color getColorFromHex(String? hexColor) {
     return hexColor != null

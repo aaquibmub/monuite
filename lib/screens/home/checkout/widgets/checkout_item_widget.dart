@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:monuite/helpers/common/utility.dart';
 import 'package:monuite/helpers/models/cart/cart_item_model.dart';
 
 import '../../../../helpers/common/constants.dart';
@@ -73,7 +74,7 @@ class CheckoutItemWidget extends StatelessWidget {
                           ),
                           Container(
                             child: Text(
-                              'CHF ${_model.price}',
+                              'CHF ${Utility.formatNumber(_model.price)}',
                               style: TextStyle(
                                 fontSize: 14,
                                 fontWeight: FontWeight.bold,
