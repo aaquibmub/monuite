@@ -18,8 +18,8 @@ class User {
     return User(
       id: json['id'] as String,
       email: json['email'] as String,
-      firstName: json['firstName'] as String,
-      lastName: json['lastName'] as String,
+      firstName: json['firstName'] as String?,
+      lastName: json['lastName'] as String?,
     );
   }
   Map<String, dynamic> toJson() => userToJson(this);

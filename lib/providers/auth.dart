@@ -93,7 +93,6 @@ class Auth with ChangeNotifier {
       }
       return '';
     } catch (error) {
-      debugger();
       throw error;
     }
   }

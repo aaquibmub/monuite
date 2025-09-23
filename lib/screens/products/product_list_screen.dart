@@ -6,7 +6,7 @@ import 'package:monuite/screens/loading_screen.dart';
 import 'package:provider/provider.dart';
 
 class ProductListScreen extends StatefulWidget {
-  String _query;
+  final String _query;
 
   ProductListScreen(
     this._query,
