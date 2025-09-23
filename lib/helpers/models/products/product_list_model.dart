@@ -18,6 +18,6 @@ class ProductListModel {
         json['name'] as String,
         json['desc'] as String,
         json['price'] as double,
-        json['imageUrl'] as String,
+        json['imageUrl'] as String?,
       );
 }
