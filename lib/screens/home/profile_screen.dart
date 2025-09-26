@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:monuite/helpers/common/constants.dart';
 import 'package:monuite/helpers/common/custom_icons.dart';
+import 'package:monuite/helpers/common/routes.dart';
 import 'package:monuite/helpers/models/user.dart';
 import 'package:monuite/providers/auth.dart';
 import 'package:provider/provider.dart';
@@ -11,7 +12,7 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
-  Widget buildItem(String icon, String label) {
+  Widget buildItem(String icon, String label, Function()? onTap) {
     return Container(
       width: double.infinity,
       padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 8.0),
@@ -23,24 +24,27 @@ class _ProfileScreenState extends State<ProfileScreen> {
           ),
         ),
       ),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          Container(
-            padding: const EdgeInsets.all(8.0),
-            child: ImageIcon(
-              AssetImage(icon),
-              color: Constants.primaryColor,
+      child: InkWell(
+        onTap: onTap,
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Container(
+              padding: const EdgeInsets.all(8.0),
+              child: ImageIcon(
+                AssetImage(icon),
+                color: Constants.primaryColor,
+              ),
             ),
-          ),
-          Text(
-            label,
-            style: TextStyle(
-              fontSize: 16,
-            ),
-          )
-        ],
+            Text(
+              label,
+              style: TextStyle(
+                fontSize: 16,
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
@@ -79,7 +83,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
             ),
           ),
           // ORDERS - My Orders
-          buildItem(CustomIcons.myOrdersIcon, 'My Orders'),
+          buildItem(CustomIcons.myOrdersIcon, 'My Orders', () {
+            Navigator.of(context).pushNamed(Routes.ordersScreen);
+          }),
           // SETTINGS
           Container(
             width: double.infinity,
@@ -96,23 +102,43 @@ class _ProfileScreenState extends State<ProfileScreen> {
             ),
           ),
           // SETTINGS - Profile
-          buildItem(CustomIcons.profileIcon, 'Profile'),
+          buildItem(CustomIcons.profileIcon, 'Profile', () {
+            Navigator.of(context).pushNamed(Routes.userProfileScreen);
+          }),
           // SETTINGS - Address Book
-          buildItem(CustomIcons.addressBookIcon, 'Address Book'),
+          buildItem(CustomIcons.addressBookIcon, 'Address Book', () {
+            Navigator.of(context).pushNamed(Routes.addressBookScreen);
+          }),
           // SETTINGS - Cards
-          buildItem(CustomIcons.cardsIcon, 'Cards'),
+          buildItem(CustomIcons.cardsIcon, 'Cards', () {
+            Navigator.of(context).pushNamed(Routes.cardsScreen);
+          }),
           // SETTINGS - Language
-          buildItem(CustomIcons.languageIcon, 'Language'),
+          buildItem(CustomIcons.languageIcon, 'Language', () {
+            Navigator.of(context).pushNamed(Routes.languageScreen);
+          }),
           // SETTINGS - Push Notifications
-          buildItem(CustomIcons.pushNotificationsIcon, 'Push Notifications'),
+          buildItem(CustomIcons.pushNotificationsIcon, 'Push Notifications',
+              () {
+            Navigator.of(context).pushNamed(Routes.pushNotificationScreen);
+          }),
           // SETTINGS - Privacy Policy
-          buildItem(CustomIcons.privacyPlicyIcon, 'Privacy Policy'),
+          buildItem(CustomIcons.privacyPlicyIcon, 'Privacy Policy', () {
+            Navigator.of(context).pushNamed(Routes.privacyPolicyScreen);
+          }),
           // SETTINGS - About
-          buildItem(CustomIcons.aboutIcon, 'About'),
+          buildItem(CustomIcons.aboutIcon, 'About', () {
+            Navigator.of(context).pushNamed(Routes.aboutScreen);
+          }),
           // SETTINGS - Version
-          buildItem(CustomIcons.VersionIcon, 'Version'),
+          buildItem(CustomIcons.VersionIcon, 'Version', () {
+            Navigator.of(context).pushNamed(Routes.versionScreen);
+          }),
           // SETTINGS - Sign out
-          buildItem(CustomIcons.signOutIcon, 'Sign out'),
+          buildItem(CustomIcons.signOutIcon, 'Sign out', () {
+            Provider.of<Auth>(context, listen: false).logout();
+            Navigator.of(context).pushReplacementNamed(Routes.loginScreen);
+          }),
         ],
       ),
     );

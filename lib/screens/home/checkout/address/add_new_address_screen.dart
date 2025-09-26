@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:monuite/helpers/models/addresses/address_model.dart';
+import 'package:monuite/providers/auth.dart';
 import 'package:monuite/screens/home/checkout/checkout_screen.dart';
 import 'package:provider/provider.dart';
 
@@ -9,7 +10,8 @@ import '../../cart/cart_screen.dart';
 import 'add_new_address_form.dart';
 
 class AddNewAddressScreen extends StatefulWidget {
-  final int _returnToScreen;
+  final int
+      _returnToScreen; // 1. Cart Screen, 2. Checkout Screen, 3. Address Book Screen
   const AddNewAddressScreen(this._returnToScreen, {Key? key}) : super(key: key);
 
   @override
@@ -127,24 +129,46 @@ class _AddNewAddressScreenState extends State<AddNewAddressScreen> {
       _isLoading = true;
     });
     try {
-      await Provider.of<CartProvider>(
-        context,
-        listen: false,
-      ).addAddress(
-        AddressModel(
-          _country,
-          _firstName,
-          _lastName,
-          _companyName,
-          _address1,
-          _address2,
-          _city,
-          _state,
-          _zipCode,
-          _phone,
-          _email,
-        ),
-      );
+      // Add address to Auth or Cart Provider based on return screen
+      if (widget._returnToScreen == 3) {
+        await Provider.of<Auth>(
+          context,
+          listen: false,
+        ).addAddress(
+          AddressModel(
+            _country,
+            _firstName,
+            _lastName,
+            _companyName,
+            _address1,
+            _address2,
+            _city,
+            _state,
+            _zipCode,
+            _phone,
+            _email,
+          ),
+        );
+      } else {
+        await Provider.of<CartProvider>(
+          context,
+          listen: false,
+        ).addAddress(
+          AddressModel(
+            _country,
+            _firstName,
+            _lastName,
+            _companyName,
+            _address1,
+            _address2,
+            _city,
+            _state,
+            _zipCode,
+            _phone,
+            _email,
+          ),
+        );
+      }
 
       setState(() {
         _isLoading = false;

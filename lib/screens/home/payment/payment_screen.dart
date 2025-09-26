@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:monuite/helpers/common/utility.dart';
 import 'package:provider/provider.dart';
@@ -24,7 +26,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
     Widget _buildPaymentMethod(
       String imageUrl,
       String title,
-      Function? onTap,
+      Function onTap,
     ) {
       return InkWell(
         child: Container(
@@ -69,17 +71,17 @@ class _PaymentScreenState extends State<PaymentScreen> {
             ],
           ),
         ),
-        onTap: () => {onTap},
+        onTap: () => {onTap()},
       );
     }
 
-    void _showErrorDialogue(BuildContext context, String message) {
+    void _showErrorDialogue(BuildContext context, String? message) {
       showDialog(
           context: context,
           builder: (ctx) {
             return AlertDialog(
               title: Text('An error occured'),
-              content: Text(message),
+              content: Text(message ?? 'Unknown error'),
               actions: [
                 TextButton(
                     onPressed: () {
@@ -193,6 +195,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
                                                         listen: false)
                                                     .clear()
                                                     .then((_) {
+                                                  debugger();
                                                   Navigator.pushReplacement(
                                                     context,
                                                     MaterialPageRoute(

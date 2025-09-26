@@ -2,13 +2,21 @@ import 'dart:convert';
 
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
+import 'package:monuite/helpers/common/utility.dart';
+import 'package:monuite/helpers/models/addresses/address_book_nodel.dart';
 import 'package:monuite/helpers/models/cart/cart_item_model.dart';
+import 'package:monuite/helpers/models/user.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../helpers/models/addresses/address_model.dart';
 import '../helpers/models/cart/cart_model.dart';
 
 class CartProvider with ChangeNotifier {
+  final String? authToken;
+  final User? user;
+
+  CartProvider(this.authToken, this.user);
+
   CartModel? _cartModel = null;
 
   CartModel? get cartModel {
@@ -31,14 +39,24 @@ class CartProvider with ChangeNotifier {
     try {
       final prefs = await SharedPreferences.getInstance();
       final cartModelStr = prefs.getString('cartModel');
-      if (cartModelStr == null) {
-        _cartModel = CartModel(null, [], 0, 0);
+      if (cartModelStr == null || cartModelStr.isEmpty) {
+        if (user == null) {
+          final List<AddressBookModel> addressBook =
+              Utility.getAddressBook(prefs);
+          _cartModel = CartModel(
+              addressBook.where((element) => element.isDefault).first.address,
+              [],
+              0,
+              0);
+        } else {
+          _cartModel = CartModel(user!.shipping, [], 0, 0);
+        }
         return;
       }
-      if (cartModelStr.isEmpty) {
-        _cartModel = CartModel(null, [], 0, 0);
-        return;
-      }
+      // if (cartModelStr.isEmpty) {
+      //   _cartModel = CartModel(user!.shipping, [], 0, 0);
+      //   return;
+      // }
       _cartModel = CartModel.fromJson(json.decode(cartModelStr));
       notifyListeners();
     } catch (error) {
@@ -51,7 +69,17 @@ class CartProvider with ChangeNotifier {
       final prefs = await SharedPreferences.getInstance();
       final cartModelStr = prefs.getString('cartModel');
       if (cartModelStr == null || cartModelStr.isEmpty) {
-        _cartModel = CartModel(null, [], 0, 0);
+        if (user == null) {
+          final List<AddressBookModel> addressBook =
+              Utility.getAddressBook(prefs);
+          _cartModel = CartModel(
+              addressBook.where((element) => element.isDefault).first.address,
+              [],
+              0,
+              0);
+        } else {
+          _cartModel = CartModel(user!.shipping, [], 0, 0);
+        }
       } else {
         _cartModel = CartModel.fromJson(json.decode(cartModelStr));
       }
@@ -155,7 +183,17 @@ class CartProvider with ChangeNotifier {
       final prefs = await SharedPreferences.getInstance();
       final cartModelStr = prefs.getString('cartModel');
       if (cartModelStr == null || cartModelStr.isEmpty) {
-        _cartModel = CartModel(null, [], 0, 0);
+        if (user == null) {
+          final List<AddressBookModel> addressBook =
+              Utility.getAddressBook(prefs);
+          _cartModel = CartModel(
+              addressBook.where((element) => element.isDefault).first.address,
+              [],
+              0,
+              0);
+        } else {
+          _cartModel = CartModel(user!.shipping, [], 0, 0);
+        }
       }
       _cartModel!.address = address;
       final cartModelJson = _cartModel!.toJson();
@@ -169,8 +207,15 @@ class CartProvider with ChangeNotifier {
 
   Future<void> clear() async {
     try {
-      _cartModel = CartModel(null, [], 0, 0);
       final prefs = await SharedPreferences.getInstance();
+      final List<AddressBookModel> addressBook = Utility.getAddressBook(prefs);
+      _cartModel = CartModel(
+          addressBook.isNotEmpty
+              ? addressBook.where((element) => element.isDefault).first.address
+              : null,
+          [],
+          0,
+          0);
       final userData = json.encode(_cartModel!.toJson());
       prefs.setString('cartModel', userData);
       notifyListeners();

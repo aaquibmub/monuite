@@ -4,10 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:monuite/helpers/common/constants.dart';
 import 'package:monuite/helpers/common/routes.dart';
+import 'package:monuite/helpers/models/addresses/address_book_nodel.dart';
 import 'package:monuite/providers/product_provider.dart';
 import 'package:monuite/screens/categories/category_detail_screen.dart';
 import 'package:monuite/screens/loading_screen.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../providers/auth.dart';
 import '../models/user.dart';
@@ -226,6 +228,7 @@ class Utility {
                           );
                         },
                       ),
+                      // Categories
                       Container(
                         height: 507,
                         child: FutureBuilder(
@@ -334,5 +337,19 @@ class Utility {
     return hexColor != null
         ? Color(int.parse(hexColor.substring(1, 7), radix: 16) + 0x80000000)
         : Colors.black;
+  }
+
+  static List<AddressBookModel> getAddressBook(SharedPreferences prefs) {
+    List<AddressBookModel> addressBook = [];
+    final addressBookStr = prefs.getString('addressBook');
+    if (addressBookStr == null || addressBookStr.isEmpty) {
+      addressBook = [];
+    } else {
+      final List<dynamic> addressList = json.decode(addressBookStr);
+      addressBook = addressList
+          .map((address) => AddressBookModel.fromJson(address))
+          .toList();
+    }
+    return addressBook;
   }
 }

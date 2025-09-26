@@ -1,23 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:monuite/helpers/common/constants.dart';
-import 'package:monuite/helpers/common/utility.dart';
-import 'package:monuite/providers/product_provider.dart';
-import 'package:monuite/screens/categories/product_by_category_card_widget.dart';
+import 'package:monuite/helpers/common/routes.dart';
+import 'package:monuite/providers/order_provider.dart';
 import 'package:monuite/screens/loading_screen.dart';
+import 'package:monuite/screens/orders/widgets/order_list_card_widget.dart';
 import 'package:provider/provider.dart';
 
-class ProductListScreen extends StatefulWidget {
+class OrderListScreen extends StatefulWidget {
   final String _query;
 
-  ProductListScreen(
+  OrderListScreen(
     this._query,
   );
 
   @override
-  State<ProductListScreen> createState() => _ProductListScreenState();
+  State<OrderListScreen> createState() => _OrderListScreenState();
 }
 
-class _ProductListScreenState extends State<ProductListScreen> {
+class _OrderListScreenState extends State<OrderListScreen> {
   @override
   Widget build(BuildContext context) {
     var deviceSize = MediaQuery.of(context).size;
@@ -41,7 +41,7 @@ class _ProductListScreenState extends State<ProductListScreen> {
                 Container(
                   child: InkWell(
                     onTap: () {
-                      Navigator.pop(context);
+                      Navigator.of(context).pop(Routes.profileScreen);
                     },
                     child: Container(
                       width: 30,
@@ -55,7 +55,7 @@ class _ProductListScreenState extends State<ProductListScreen> {
                   ),
                 ),
                 Text(
-                  'Products',
+                  'Orders',
                   style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
@@ -66,7 +66,6 @@ class _ProductListScreenState extends State<ProductListScreen> {
             ),
           ),
           // Body
-
           Container(
             width: double.infinity,
             margin: EdgeInsets.symmetric(
@@ -77,7 +76,7 @@ class _ProductListScreenState extends State<ProductListScreen> {
               autofocus: true,
               controller: _myController,
               decoration: InputDecoration(
-                hintText: 'Search products...',
+                hintText: 'Search orders...',
                 border: OutlineInputBorder(),
                 suffixIcon: Icon(Icons.search),
               ),
@@ -88,7 +87,7 @@ class _ProductListScreenState extends State<ProductListScreen> {
                 Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(
-                      builder: (context) => ProductListScreen(
+                      builder: (context) => OrderListScreen(
                             value,
                           )),
                 );
@@ -98,8 +97,8 @@ class _ProductListScreenState extends State<ProductListScreen> {
           Expanded(
             child: SingleChildScrollView(
               child: FutureBuilder(
-                  future: Provider.of<ProductProvider>(context, listen: false)
-                      .populateProductList(widget._query),
+                  future: Provider.of<OrderProvider>(context, listen: false)
+                      .populateOrderList(widget._query),
                   builder: (ctx, data) {
                     if (data.connectionState == ConnectionState.waiting) {
                       return LoadingScreen();
@@ -107,46 +106,18 @@ class _ProductListScreenState extends State<ProductListScreen> {
                     return Container(
                       height: deviceSize.height,
                       width: deviceSize.width,
-                      child: Consumer<ProductProvider>(
+                      child: Consumer<OrderProvider>(
                         builder: (ctx, provider, _) {
-                          return provider.productList.length > 0
+                          return provider.orderList.length > 0
                               ? SingleChildScrollView(
-                                  child: GridView(
-                                    padding: EdgeInsets.symmetric(
-                                      horizontal: 8,
-                                    ),
-                                    gridDelegate:
-                                        SliverGridDelegateWithFixedCrossAxisCount(
-                                      crossAxisCount:
-                                          (Utility.getValuebyDeviceSize(
-                                              deviceSize, 1, 2, 4) as int),
-                                      // childAspectRatio: 3 / 2,
-                                      crossAxisSpacing:
-                                          (Utility.getValuebyDeviceSize(
-                                                  deviceSize, 10.0, 20.0, 40.0)
-                                              as double),
-                                      mainAxisSpacing:
-                                          (Utility.getValuebyDeviceSize(
-                                                  deviceSize, 10.0, 40.0, 80.0)
-                                              as double),
-                                    ),
-                                    physics: ScrollPhysics(),
-                                    scrollDirection: Axis.vertical,
-                                    shrinkWrap: true,
-                                    children: provider.productList
-                                        .map((e) =>
-                                            ProductByCategoryCardWidget(e))
+                                  child: Column(
+                                    children: provider.orderList
+                                        .map((e) => OrderListCardWidget(e))
                                         .toList(),
                                   ),
                                 )
-                              // Column(children: <Widget>[
-                              //   ...provider.categories.map(
-                              //     (e) => CategoryCardWidget(e),
-                              //   ),
-                              // ]),
-
                               : Center(
-                                  child: Text("no products found"),
+                                  child: Text("no orders found"),
                                 );
                         },
                       ),

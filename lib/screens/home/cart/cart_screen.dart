@@ -108,7 +108,11 @@ class _CartScreenState extends State<CartScreen> {
                                       ),
                                       child: provider.cartModel!.address !=
                                                   null &&
-                                              provider.cartModel!.address != ""
+                                              provider.cartModel!.address !=
+                                                  "" &&
+                                              provider.cartModel!.address!
+                                                      .address_1 !=
+                                                  ""
                                           ? Text(
                                               'Address: ' +
                                                   provider.cartModel!.address!

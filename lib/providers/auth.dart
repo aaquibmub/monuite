@@ -1,11 +1,12 @@
 import 'dart:async';
 import 'dart:convert';
-import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:http/http.dart';
 import 'package:monuite/helpers/common/utility.dart';
+import 'package:monuite/helpers/models/addresses/address_book_nodel.dart';
+import 'package:monuite/helpers/models/addresses/address_model.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../helpers/common/constants.dart';
@@ -17,6 +18,7 @@ class Auth with ChangeNotifier {
   String? _refreshToken;
   DateTime? _expiryDate;
   User? _user;
+  List<AddressBookModel> _addressBook = [];
   Timer? _authTimer;
 
   bool get isAuth {
@@ -25,6 +27,10 @@ class Auth with ChangeNotifier {
 
   User? get currentUser {
     return _user;
+  }
+
+  List<AddressBookModel> get addressBook {
+    return _addressBook;
   }
 
   String get userName {
@@ -90,6 +96,22 @@ class Auth with ChangeNotifier {
           'expiryDate': _expiryDate!.toIso8601String(),
         });
         prefs.setString('userData', userData);
+
+        final addressBook = <AddressBookModel>[];
+        if (userObj.shipping != null) {
+          addressBook.add(AddressBookModel(
+            isDefault: true,
+            address: AddressModel.fromJson(userObj.shipping),
+          ));
+        }
+        if (userObj.billing != null) {
+          addressBook.add(AddressBookModel(
+            isDefault: false,
+            address: AddressModel.fromJson(userObj.billing),
+          ));
+        }
+        _addressBook = addressBook;
+        prefs.setString('addressBook', jsonEncode(addressBook));
       }
       return '';
     } catch (error) {
@@ -130,14 +152,15 @@ class Auth with ChangeNotifier {
   void logout() async {
     _token = null;
     _user = null;
+    _addressBook = [];
     _expiryDate = null;
     if (_authTimer != null) {
       _authTimer!.cancel();
       _authTimer = null;
     }
-    notifyListeners();
     final prefs = await SharedPreferences.getInstance();
     prefs.clear();
+    notifyListeners();
   }
 
   Future<void> refreshToken() async {
@@ -214,7 +237,7 @@ class Auth with ChangeNotifier {
             ResponseModel<String>.fromJson(responseData);
         if (result.hasError) {
           var error = result.msg;
-          return error;
+          return error ?? 'Error';
         }
 
         final prefs = await SharedPreferences.getInstance();
@@ -254,6 +277,23 @@ class Auth with ChangeNotifier {
           'expiryDate': _expiryDate!.toIso8601String(),
         });
         prefs.setString('userData', userData);
+
+        final addressBook = <AddressBookModel>[];
+        if (userObj.shipping != null) {
+          addressBook.add(AddressBookModel(
+            isDefault: true,
+            address: AddressModel.fromJson(userObj.shipping),
+          ));
+        }
+        if (userObj.billing != null) {
+          addressBook.add(AddressBookModel(
+            isDefault: false,
+            address: AddressModel.fromJson(userObj.billing),
+          ));
+        }
+        _addressBook = addressBook;
+        prefs.setString('addressBook', jsonEncode(addressBook));
+
         return _user;
       }
       return null;
@@ -363,6 +403,45 @@ class Auth with ChangeNotifier {
         return _authenticate(email, password);
       }
       return '';
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  Future<void> addAddress(AddressModel address) async {
+    try {
+      final prefs = await SharedPreferences.getInstance();
+      // final addressBookStr = prefs.getString('addressBook');
+      // if (addressBookStr == null || addressBookStr.isEmpty) {
+      //   _addressBook = [];
+      // } else {
+      //   final List<dynamic> addressList = json.decode(addressBookStr);
+      //   _addressBook = addressList
+      //       .map((address) => AddressBookModel.fromJson(address))
+      //       .toList();
+      // }
+
+      _addressBook = Utility.getAddressBook(prefs);
+
+      // if (!_addressBook.isEmpty) {
+      //   _addressBook.forEach((element) {
+      //     element.isDefault = false;
+      //   });
+      // }
+
+      _addressBook.add(AddressBookModel(
+        isDefault: _addressBook.isEmpty,
+        address: address,
+      ));
+
+      // if (_user == null) {
+      //   _user!.shipping =
+      //       _addressBook.where((element) => element.isDefault).first.address;
+      // }
+
+      final addressBookJson = json.encode(_addressBook);
+      prefs.setString('addressBook', addressBookJson);
+      notifyListeners();
     } catch (error) {
       throw error;
     }

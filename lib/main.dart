@@ -5,10 +5,21 @@ import 'package:monuite/providers/common_provider.dart';
 import 'package:monuite/providers/order_provider.dart';
 import 'package:monuite/providers/product_provider.dart';
 import 'package:monuite/screens/home/home_screen.dart';
+import 'package:monuite/screens/home/profile_screen.dart';
 import 'package:monuite/screens/loading_screen.dart';
 import 'package:monuite/screens/login_screen.dart';
+import 'package:monuite/screens/orders/order_list_screen.dart';
+import 'package:monuite/screens/products/product_list_screen.dart';
+import 'package:monuite/screens/profile/about/about_screen.dart';
+import 'package:monuite/screens/profile/address-book/address-book-screen.dart';
+import 'package:monuite/screens/profile/cards/cards_screen.dart';
+import 'package:monuite/screens/profile/language/language_screen.dart';
+import 'package:monuite/screens/profile/privacy_policy/privacy_policy_screen.dart';
+import 'package:monuite/screens/profile/push_notifications/push_notification_screen.dart';
+import 'package:monuite/screens/profile/version/version_screen.dart';
 import 'package:monuite/screens/register_corporate_screen.dart';
 import 'package:monuite/screens/regsiter_private_screen.dart';
+import 'package:monuite/screens/profile/user-profile/user-profile-screen.dart';
 import 'package:provider/provider.dart';
 
 import 'helpers/common/constants.dart';
@@ -34,14 +45,20 @@ class MyApp extends StatelessWidget {
             return CommonProvider();
           },
         ),
-        ChangeNotifierProvider(
+        ChangeNotifierProxyProvider<Auth, CartProvider>(
+          update: (ctx, auth, _) {
+            return CartProvider(auth.token, auth.currentUser);
+          },
           create: (ctx) {
-            return CartProvider();
+            return CartProvider(null, null);
           },
         ),
-        ChangeNotifierProvider(
+        ChangeNotifierProxyProvider<Auth, OrderProvider>(
+          update: (ctx, auth, _) {
+            return OrderProvider(auth.token, auth.currentUser);
+          },
           create: (ctx) {
-            return OrderProvider();
+            return OrderProvider(null, null);
           },
         ),
         ChangeNotifierProxyProvider<Auth, ProductProvider>(
@@ -125,11 +142,17 @@ class MyApp extends StatelessWidget {
             Routes.registerPrivateScreen: (ctx) => RegisterPrivateScreen(),
             Routes.registerCorporateScreen: (ctx) => RegisterCorporateScreen(),
             Routes.homeScreen: (ctx) => HomeScreen(),
-            // Routes.tripsScreen: (ctx) => TripScreen(),
-            // Routes.vehicalsScreen: (ctx) => VehicalsScreen(),
-            // Routes.newIncidentScreen: (ctx) => NewIncidentScreen(),
-            // Routes.cartDesktopScreen: (ctx) => CartDesktopScreen(),
-            // Routes.supportScreen: (ctx) => SupportScreen(),
+            Routes.ordersScreen: (ctx) => OrderListScreen(''),
+            Routes.productsScreen: (ctx) => ProductListScreen(''),
+            Routes.profileScreen: (ctx) => ProfileScreen(),
+            Routes.userProfileScreen: (ctx) => UserProfileScreen(),
+            Routes.addressBookScreen: (ctx) => AddressBookScreen(),
+            Routes.cardsScreen: (ctx) => CardsScreen(),
+            Routes.languageScreen: (ctx) => LanguageScreen(),
+            Routes.pushNotificationScreen: (ctx) => PushNotificationScreen(),
+            Routes.aboutScreen: (ctx) => AboutScreen(),
+            Routes.privacyPolicyScreen: (ctx) => PrivacyPolicyScreen(),
+            Routes.versionScreen: (ctx) => VersionScreen(),
           },
         ),
       ),

@@ -1,11 +1,11 @@
 class ResponseModel<T> {
   final T? result;
-  final String msg;
+  final String? msg;
   final bool hasError;
 
-  int errorAction;
-  String id;
-  String label;
+  int? errorAction;
+  String? id;
+  String? label;
 
   ResponseModel(
     this.result,
@@ -32,11 +32,11 @@ class ResponseModel<T> {
 
     return ResponseModel<T>(
       json['result'] as T,
-      json['msg'] as String,
+      json['msg'] as String?,
       json['hasError'] as bool,
-      errorAction: json['errorAction'] as int,
-      id: json['id'] as String,
-      label: json['label'] as String,
+      errorAction: json['errorAction'] as int?,
+      id: json['id'] as String?,
+      label: json['label'] as String?,
     );
   }
 }
