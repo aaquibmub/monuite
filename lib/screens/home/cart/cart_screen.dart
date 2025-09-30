@@ -108,15 +108,11 @@ class _CartScreenState extends State<CartScreen> {
                                       ),
                                       child: provider.cartModel!.address !=
                                                   null &&
-                                              provider.cartModel!.address !=
-                                                  "" &&
-                                              provider.cartModel!.address!
-                                                      .address_1 !=
-                                                  ""
+                                              provider.cartModel!.address != ""
                                           ? Text(
                                               'Address: ' +
-                                                  provider.cartModel!.address!
-                                                      .address_1,
+                                                  (provider.cartModel!.address!
+                                                      .fullAddress),
                                               style: TextStyle(
                                                 fontSize: 20,
                                                 fontWeight: FontWeight.bold,

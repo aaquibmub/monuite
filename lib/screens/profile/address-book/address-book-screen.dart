@@ -5,84 +5,140 @@ import 'package:monuite/helpers/models/addresses/address_book_nodel.dart';
 import 'package:monuite/helpers/models/addresses/address_model.dart';
 import 'package:monuite/providers/auth.dart';
 import 'package:monuite/screens/home/checkout/address/add_new_address_screen.dart';
+import 'package:monuite/screens/profile/address-book/edit_address_book_entry_screen.dart';
 import 'package:provider/provider.dart';
 
 class AddressBookScreen extends StatelessWidget {
   const AddressBookScreen({Key? key}) : super(key: key);
 
-  Widget buildItem(AddressModel address, {bool isDefault = false}) {
-    return Container(
-      width: double.infinity,
-      height: 120,
-      decoration: BoxDecoration(
-        border: Border.all(
-          width: 1,
-          color: Color.fromRGBO(0, 0, 0, 0.2),
-        ),
-        borderRadius: BorderRadius.circular(8),
-      ),
-      margin: EdgeInsets.symmetric(
-        vertical: 10,
-        horizontal: 16,
-      ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          if (isDefault)
-            Container(
-              padding: EdgeInsets.symmetric(
-                vertical: 4,
-                horizontal: 8,
-              ),
-              margin: EdgeInsets.only(
-                bottom: 8,
-                left: 16,
-              ),
-              decoration: BoxDecoration(
-                color: Constants.primaryColor,
-                borderRadius: BorderRadius.circular(4),
-              ),
-              child: Text(
-                'Default',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
-          Container(
-            padding: EdgeInsets.symmetric(
-              horizontal: 16,
-            ),
-            child: Text(
-              address.city + ', ' + address.state + ', ' + address.country,
-              style: TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ),
-          Container(
-            padding: EdgeInsets.symmetric(
-              horizontal: 16,
-            ),
-            child: Text(
-              address.address_1,
-              style: TextStyle(
-                fontSize: 12,
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     final List<AddressBookModel>? _addressBook =
         Provider.of<Auth>(context).addressBook;
+
+    Widget buildItem(String id, AddressModel address,
+        {bool isDefault = false}) {
+      return Container(
+        width: double.infinity,
+        height: 140,
+        decoration: BoxDecoration(
+          border: Border.all(
+            width: 1,
+            color: Color.fromRGBO(0, 0, 0, 0.2),
+          ),
+          borderRadius: BorderRadius.circular(8),
+        ),
+        margin: EdgeInsets.symmetric(
+          vertical: 10,
+          horizontal: 16,
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            // Default Badge
+            if (isDefault)
+              Container(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Container(
+                      width: 64,
+                      padding: EdgeInsets.symmetric(
+                        vertical: 4,
+                        horizontal: 8,
+                      ),
+                      decoration: BoxDecoration(
+                        color: Constants.primaryColor,
+                        borderRadius: BorderRadius.circular(4),
+                      ),
+                      child: Text(
+                        'Default',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+
+            Container(
+              padding: EdgeInsets.symmetric(
+                vertical: isDefault ? 16 : 42,
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  // Address
+                  Expanded(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Container(
+                          padding: EdgeInsets.symmetric(
+                            horizontal: 16,
+                          ),
+                          child: Text(
+                            address.city +
+                                ', ' +
+                                address.state +
+                                ', ' +
+                                address.country,
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                        // Address 1 + Address 2
+                        Container(
+                          padding: EdgeInsets.symmetric(
+                            horizontal: 16,
+                          ),
+                          child: Text(
+                            address.address_1 + ' ' + address.address_2,
+                            style: TextStyle(
+                              fontSize: 12,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  // Edit Button
+                  Container(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: 16,
+                    ),
+                    child: InkWell(
+                      onTap: () {
+                        // Navigate to Edit Address Screen
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) =>
+                                EditAddressBookEntryScreen(AddressBookModel(
+                              id: id,
+                              address: address,
+                              isDefault: isDefault,
+                            )),
+                          ),
+                        );
+                      },
+                      child: Icon(Icons.edit),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      );
+    }
 
     Widget buildAddButton() {
       return ElevatedButton(
@@ -152,6 +208,7 @@ class AddressBookScreen extends StatelessWidget {
                 ? Column(
                     children: [
                       ..._addressBook.map((e) => buildItem(
+                            e.id,
                             e.address,
                             isDefault: e.isDefault,
                           )),

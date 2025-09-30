@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_guid/flutter_guid.dart';
 import 'package:http/http.dart' as http;
 import 'package:http/http.dart';
 import 'package:monuite/helpers/common/utility.dart';
@@ -98,18 +99,16 @@ class Auth with ChangeNotifier {
         prefs.setString('userData', userData);
 
         final addressBook = <AddressBookModel>[];
-        if (userObj.shipping != null) {
-          addressBook.add(AddressBookModel(
-            isDefault: true,
-            address: AddressModel.fromJson(userObj.shipping),
-          ));
-        }
-        if (userObj.billing != null) {
-          addressBook.add(AddressBookModel(
-            isDefault: false,
-            address: AddressModel.fromJson(userObj.billing),
-          ));
-        }
+        addressBook.add(AddressBookModel(
+          id: Guid.generate().toString(),
+          isDefault: true,
+          address: _user!.shipping,
+        ));
+        addressBook.add(AddressBookModel(
+          id: Guid.generate().toString(),
+          isDefault: false,
+          address: _user!.billing,
+        ));
         _addressBook = addressBook;
         prefs.setString('addressBook', jsonEncode(addressBook));
       }
@@ -279,18 +278,17 @@ class Auth with ChangeNotifier {
         prefs.setString('userData', userData);
 
         final addressBook = <AddressBookModel>[];
-        if (userObj.shipping != null) {
-          addressBook.add(AddressBookModel(
-            isDefault: true,
-            address: AddressModel.fromJson(userObj.shipping),
-          ));
-        }
-        if (userObj.billing != null) {
-          addressBook.add(AddressBookModel(
-            isDefault: false,
-            address: AddressModel.fromJson(userObj.billing),
-          ));
-        }
+
+        addressBook.add(AddressBookModel(
+          id: Guid.generate().toString(),
+          isDefault: true,
+          address: _user!.shipping,
+        ));
+        addressBook.add(AddressBookModel(
+          id: Guid.generate().toString(),
+          isDefault: false,
+          address: _user!.billing,
+        ));
         _addressBook = addressBook;
         prefs.setString('addressBook', jsonEncode(addressBook));
 
@@ -411,33 +409,14 @@ class Auth with ChangeNotifier {
   Future<void> addAddress(AddressModel address) async {
     try {
       final prefs = await SharedPreferences.getInstance();
-      // final addressBookStr = prefs.getString('addressBook');
-      // if (addressBookStr == null || addressBookStr.isEmpty) {
-      //   _addressBook = [];
-      // } else {
-      //   final List<dynamic> addressList = json.decode(addressBookStr);
-      //   _addressBook = addressList
-      //       .map((address) => AddressBookModel.fromJson(address))
-      //       .toList();
-      // }
 
       _addressBook = Utility.getAddressBook(prefs);
 
-      // if (!_addressBook.isEmpty) {
-      //   _addressBook.forEach((element) {
-      //     element.isDefault = false;
-      //   });
-      // }
-
       _addressBook.add(AddressBookModel(
+        id: Guid.generate().toString(),
         isDefault: _addressBook.isEmpty,
         address: address,
       ));
-
-      // if (_user == null) {
-      //   _user!.shipping =
-      //       _addressBook.where((element) => element.isDefault).first.address;
-      // }
 
       final addressBookJson = json.encode(_addressBook);
       prefs.setString('addressBook', addressBookJson);
@@ -445,5 +424,43 @@ class Auth with ChangeNotifier {
     } catch (error) {
       throw error;
     }
+  }
+
+  Future<void> updateAddressBookEntry(AddressBookModel address) async {
+    try {
+      final prefs = await SharedPreferences.getInstance();
+      _addressBook = Utility.getAddressBook(prefs);
+
+      _addressBook.removeWhere((element) => element.id == address.id);
+
+      _addressBook.add(address);
+
+      final addressBookJson = json.encode(_addressBook);
+      prefs.setString('addressBook', addressBookJson);
+      notifyListeners();
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  void refreshAddressBook() async {
+    final prefs = await SharedPreferences.getInstance();
+
+    final addressBook = <AddressBookModel>[];
+    if (_user != null) {
+      addressBook.add(AddressBookModel(
+        id: Guid.generate().toString(),
+        isDefault: true,
+        address: _user!.shipping,
+      ));
+      addressBook.add(AddressBookModel(
+        id: Guid.generate().toString(),
+        isDefault: false,
+        address: _user!.billing,
+      ));
+    }
+    _addressBook = addressBook;
+    prefs.setString('addressBook', jsonEncode(addressBook));
+    // notifyListeners();
   }
 }

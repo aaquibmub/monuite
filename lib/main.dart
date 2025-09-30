@@ -70,8 +70,9 @@ class MyApp extends StatelessWidget {
           },
         ),
       ],
-      child: Consumer<Auth>(
-        builder: (ctx, authData, child) => MaterialApp(
+      child: Consumer<Auth>(builder: (ctx, authData, child) {
+        authData.refreshAddressBook();
+        return MaterialApp(
           title: 'motorpool',
           theme: ThemeData(
               primaryColor: Constants.primaryColor,
@@ -154,8 +155,8 @@ class MyApp extends StatelessWidget {
             Routes.privacyPolicyScreen: (ctx) => PrivacyPolicyScreen(),
             Routes.versionScreen: (ctx) => VersionScreen(),
           },
-        ),
-      ),
+        );
+      }),
     );
   }
 }

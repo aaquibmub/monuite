@@ -90,9 +90,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                               margin: EdgeInsets.symmetric(
                                 vertical: 10,
                               ),
-                              child: provider.cartModel!.address != null &&
-                                      provider.cartModel!.address!.address_1 !=
-                                          ""
+                              child: provider.cartModel!.address != null
                                   ? Container(
                                       padding: EdgeInsets.all(20),
                                       decoration: BoxDecoration(
@@ -120,7 +118,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                                             height: 10,
                                           ),
                                           Text(
-                                            "${provider.cartModel!.address!.first_name + " " + provider.cartModel!.address!.last_name + ", " + provider.cartModel!.address!.country}",
+                                            "${provider.cartModel!.address!.fullAddress}",
                                             style: TextStyle(
                                               fontSize: 20,
                                               fontWeight: FontWeight.bold,

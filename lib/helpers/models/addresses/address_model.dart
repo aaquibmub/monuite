@@ -11,6 +11,19 @@ class AddressModel {
   final String phone;
   final String email;
 
+  String get fullAddress =>
+      address_1 +
+      ' ' +
+      address_2 +
+      ' ' +
+      city +
+      ' ' +
+      state +
+      ' ' +
+      postcode +
+      ' ' +
+      country;
+
   AddressModel(
     this.country,
     this.first_name,
@@ -29,7 +42,7 @@ class AddressModel {
     // if (json == null || json.isEmpty) {
     //   return null;
     // }
-    return json == null || json.isEmpty
+    return json == null
         ? AddressModel(
             '',
             '',
