@@ -71,7 +71,7 @@ class MyApp extends StatelessWidget {
         ),
       ],
       child: Consumer<Auth>(builder: (ctx, authData, child) {
-        authData.refreshAddressBook();
+        // authData.refreshAddressBook();
         return MaterialApp(
           title: 'motorpool',
           theme: ThemeData(

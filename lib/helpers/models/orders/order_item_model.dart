@@ -22,7 +22,7 @@ class OrderItemModel {
   factory OrderItemModel.fromJson(dynamic json) {
     return OrderItemModel(
       json['id'] as String,
-      json['variantId'] as String,
+      json['variantId'] as String?,
       json['imageUrl'] as String,
       json['name'] as String,
       json['variantName'] as String,

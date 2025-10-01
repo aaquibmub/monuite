@@ -1,21 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:monuite/helpers/common/constants.dart';
 import 'package:monuite/helpers/common/routes.dart';
+import 'package:monuite/helpers/common/utility.dart';
 import 'package:monuite/helpers/models/addresses/address_book_nodel.dart';
 import 'package:monuite/helpers/models/addresses/address_model.dart';
-import 'package:monuite/providers/auth.dart';
 import 'package:monuite/screens/home/checkout/address/add_new_address_screen.dart';
+import 'package:monuite/screens/loading_screen.dart';
 import 'package:monuite/screens/profile/address-book/edit_address_book_entry_screen.dart';
-import 'package:provider/provider.dart';
 
 class AddressBookScreen extends StatelessWidget {
   const AddressBookScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final List<AddressBookModel>? _addressBook =
-        Provider.of<Auth>(context).addressBook;
-
     Widget buildItem(String id, AddressModel address,
         {bool isDefault = false}) {
       return Container(
@@ -161,74 +158,80 @@ class AddressBookScreen extends StatelessWidget {
     }
 
     return Scaffold(
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          // Header
-          Container(
-            width: double.infinity,
-            padding: EdgeInsets.symmetric(
-              vertical: 32,
-              horizontal: 8,
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Container(
-                  child: InkWell(
-                    onTap: () {
-                      Navigator.of(context).pop(Routes.profileScreen);
-                    },
-                    child: Container(
-                      width: 30,
-                      height: 30,
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: Constants.colorGrey,
-                      ),
-                      child: Icon(Icons.arrow_back),
+        body: FutureBuilder<List<AddressBookModel>>(
+            future: Utility.getAddressBook(),
+            builder: (ctx, data) {
+              if (data.connectionState == ConnectionState.waiting) {
+                return LoadingScreen();
+              }
+              return Column(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  // Header
+                  Container(
+                    width: double.infinity,
+                    padding: EdgeInsets.symmetric(
+                      vertical: 32,
+                      horizontal: 8,
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Container(
+                          child: InkWell(
+                            onTap: () {
+                              Navigator.of(context).pop(Routes.profileScreen);
+                            },
+                            child: Container(
+                              width: 30,
+                              height: 30,
+                              decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: Constants.colorGrey,
+                              ),
+                              child: Icon(Icons.arrow_back),
+                            ),
+                          ),
+                        ),
+                        Text(
+                          'Address Book',
+                          style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        Text(''),
+                      ],
                     ),
                   ),
-                ),
-                Text(
-                  'Address Book',
-                  style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
+                  // Body
+                  Expanded(
+                    child: data.data != null && data.data!.isNotEmpty
+                        ? Column(
+                            children: [
+                              ...data.data!.map((e) => buildItem(
+                                    e.id,
+                                    e.address,
+                                    isDefault: e.isDefault,
+                                  )),
+                            ],
+                          )
+                        : Center(
+                            child: Text('No addresses found'),
+                          ),
                   ),
-                ),
-                Text(''),
-              ],
-            ),
-          ),
-          // Body
-          Expanded(
-            child: _addressBook != null && _addressBook.isNotEmpty
-                ? Column(
-                    children: [
-                      ..._addressBook.map((e) => buildItem(
-                            e.id,
-                            e.address,
-                            isDefault: e.isDefault,
-                          )),
-                    ],
-                  )
-                : Center(
-                    child: Text('No addresses found'),
+                  Container(
+                    width: double.infinity,
+                    height: 50,
+                    margin: EdgeInsets.symmetric(
+                      horizontal: 20,
+                      vertical: 20,
+                    ),
+                    child: buildAddButton(),
                   ),
-          ),
-          Container(
-            width: double.infinity,
-            height: 50,
-            margin: EdgeInsets.symmetric(
-              horizontal: 20,
-              vertical: 20,
-            ),
-            child: buildAddButton(),
-          ),
-        ],
-      ),
-    );
+                ],
+              );
+            }));
   }
 }

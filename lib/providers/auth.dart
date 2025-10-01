@@ -409,8 +409,7 @@ class Auth with ChangeNotifier {
   Future<void> addAddress(AddressModel address) async {
     try {
       final prefs = await SharedPreferences.getInstance();
-
-      _addressBook = Utility.getAddressBook(prefs);
+      _addressBook = await Utility.getAddressBook();
 
       _addressBook.add(AddressBookModel(
         id: Guid.generate().toString(),
@@ -429,7 +428,7 @@ class Auth with ChangeNotifier {
   Future<void> updateAddressBookEntry(AddressBookModel address) async {
     try {
       final prefs = await SharedPreferences.getInstance();
-      _addressBook = Utility.getAddressBook(prefs);
+      _addressBook = await Utility.getAddressBook();
 
       _addressBook.removeWhere((element) => element.id == address.id);
 

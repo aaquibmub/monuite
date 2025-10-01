@@ -4,6 +4,7 @@ import 'order_item_model.dart';
 class OrderModel {
   AddressModel address;
   final List<OrderItemModel> items;
+  int? customerId;
   String paymentMethod;
   double? total;
   double shippingCost;
@@ -15,6 +16,7 @@ class OrderModel {
   OrderModel(
     this.address,
     this.items,
+    this.customerId,
     this.shippingCost,
     this.couponDiscount,
     this.paymentMethod,
@@ -35,6 +37,7 @@ class OrderModel {
     return OrderModel(
       address,
       items,
+      json['customerId'] as int?,
       json['shippingCost'] as double,
       json['couponDiscount'] as double,
       json['paymentMethod'] as String,
@@ -46,6 +49,7 @@ class OrderModel {
     return {
       'address': address.toJson(),
       'items': items.map((item) => item.toJson()).toList(),
+      'customerId': customerId,
       'shippingCost': shippingCost,
       'couponDiscount': couponDiscount ?? 0,
       'paymentMethod': paymentMethod,

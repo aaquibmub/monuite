@@ -5,9 +5,6 @@ import 'package:intl/intl.dart';
 import 'package:monuite/helpers/common/constants.dart';
 import 'package:monuite/helpers/common/routes.dart';
 import 'package:monuite/helpers/models/addresses/address_book_nodel.dart';
-import 'package:monuite/providers/product_provider.dart';
-import 'package:monuite/screens/categories/category_detail_screen.dart';
-import 'package:monuite/screens/loading_screen.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -228,55 +225,135 @@ class Utility {
                           );
                         },
                       ),
-                      // Categories
-                      Container(
-                        height: 507,
-                        child: FutureBuilder(
-                            future: Provider.of<ProductProvider>(context,
-                                    listen: false)
-                                .populateCategoryList(),
-                            builder: (ctx, data) {
-                              if (data.connectionState ==
-                                  ConnectionState.waiting) {
-                                return LoadingScreen();
-                              }
-                              return Container(
-                                child: Consumer<ProductProvider>(
-                                  builder: (ctx, provider, _) {
-                                    return provider.allCategories.length > 0
-                                        ? SingleChildScrollView(
-                                            scrollDirection: Axis.horizontal,
-                                            child: Column(
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.start,
-                                                children: <Widget>[
-                                                  ...provider.allCategories.map(
-                                                    (e) => buildMenuItem(
-                                                        context, e.name, () {
-                                                      Navigator.push(
-                                                        context,
-                                                        MaterialPageRoute(
-                                                            builder: (context) =>
-                                                                CategoryDetailScreen(
-                                                                  e.id,
-                                                                  e.name,
-                                                                )),
-                                                      );
-                                                      ;
-                                                    }),
-                                                  ),
-                                                ]),
-                                          )
-                                        : Center(
-                                            child: Text("no categories found"),
-                                          );
-                                  },
-                                ),
-                              );
-                            }),
+                      // My Orders
+                      buildMenuItem(
+                        context,
+                        'My Orders',
+                        () {
+                          Navigator.of(context).pushNamed(
+                            Routes.ordersScreen,
+                          );
+                        },
                       ),
+                      // Address Book
+                      buildMenuItem(
+                        context,
+                        'Address Book',
+                        () {
+                          Navigator.of(context).pushNamed(
+                            Routes.addressBookScreen,
+                          );
+                        },
+                      ),
+                      // Cards
+                      buildMenuItem(
+                        context,
+                        'Cards',
+                        () {
+                          Navigator.of(context).pushNamed(
+                            Routes.cardsScreen,
+                          );
+                        },
+                      ),
+                      // Language
+                      buildMenuItem(
+                        context,
+                        'Language',
+                        () {
+                          Navigator.of(context).pushNamed(
+                            Routes.languageScreen,
+                          );
+                        },
+                      ),
+                      // Push Notifications
+                      buildMenuItem(
+                        context,
+                        'Push Notifications',
+                        () {
+                          Navigator.of(context).pushNamed(
+                            Routes.pushNotificationScreen,
+                          );
+                        },
+                      ),
+                      // Privacy Policy
+                      buildMenuItem(
+                        context,
+                        'Privacy Policy',
+                        () {
+                          Navigator.of(context).pushNamed(
+                            Routes.privacyPolicyScreen,
+                          );
+                        },
+                      ),
+                      // About
+                      buildMenuItem(
+                        context,
+                        'About',
+                        () {
+                          Navigator.of(context).pushNamed(
+                            Routes.aboutScreen,
+                          );
+                        },
+                      ),
+                      // Version
+                      buildMenuItem(
+                        context,
+                        'Version',
+                        () {
+                          Navigator.of(context).pushNamed(
+                            Routes.versionScreen,
+                          );
+                        },
+                      ),
+                      // // Categories
+                      // Container(
+                      //   height: 507,
+                      //   child: FutureBuilder(
+                      //       future: Provider.of<ProductProvider>(context,
+                      //               listen: false)
+                      //           .populateCategoryList(),
+                      //       builder: (ctx, data) {
+                      //         if (data.connectionState ==
+                      //             ConnectionState.waiting) {
+                      //           return LoadingScreen();
+                      //         }
+                      //         return Container(
+                      //           child: Consumer<ProductProvider>(
+                      //             builder: (ctx, provider, _) {
+                      //               return provider.allCategories.length > 0
+                      //                   ? SingleChildScrollView(
+                      //                       scrollDirection: Axis.horizontal,
+                      //                       child: Column(
+                      //                           crossAxisAlignment:
+                      //                               CrossAxisAlignment.start,
+                      //                           mainAxisAlignment:
+                      //                               MainAxisAlignment.start,
+                      //                           children: <Widget>[
+                      //                             ...provider.allCategories.map(
+                      //                               (e) => buildMenuItem(
+                      //                                   context, e.name, () {
+                      //                                 Navigator.push(
+                      //                                   context,
+                      //                                   MaterialPageRoute(
+                      //                                       builder: (context) =>
+                      //                                           CategoryDetailScreen(
+                      //                                             e.id,
+                      //                                             e.name,
+                      //                                           )),
+                      //                                 );
+                      //                                 ;
+                      //                               }),
+                      //                             ),
+                      //                           ]),
+                      //                     )
+                      //                   : Center(
+                      //                       child: Text("no categories found"),
+                      //                     );
+                      //             },
+                      //           ),
+                      //         );
+                      //       }),
+                      // ),
                     ],
                   ),
                 ),
@@ -339,7 +416,8 @@ class Utility {
         : Colors.black;
   }
 
-  static List<AddressBookModel> getAddressBook(SharedPreferences prefs) {
+  static Future<List<AddressBookModel>> getAddressBook() async {
+    final prefs = await SharedPreferences.getInstance();
     List<AddressBookModel> addressBook = [];
     final addressBookStr = prefs.getString('addressBook');
     if (addressBookStr == null || addressBookStr.isEmpty) {

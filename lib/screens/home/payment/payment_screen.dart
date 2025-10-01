@@ -195,7 +195,6 @@ class _PaymentScreenState extends State<PaymentScreen> {
                                                         listen: false)
                                                     .clear()
                                                     .then((_) {
-                                                  debugger();
                                                   Navigator.pushReplacement(
                                                     context,
                                                     MaterialPageRoute(

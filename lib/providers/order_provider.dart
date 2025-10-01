@@ -70,8 +70,8 @@ class OrderProvider with ChangeNotifier {
       final response = await http.get(
         url,
         headers: {
-          // 'Authorization': 'Bearer $authToken',
-          // 'Content-Type': 'application/json'
+          'Authorization': 'Bearer $authToken',
+          'Content-Type': 'application/json'
         },
       );
 
@@ -112,6 +112,7 @@ class OrderProvider with ChangeNotifier {
                   e.quantity,
                 ))
             .toList(),
+        user?.wpId,
         cartModel.shippingCost,
         cartModel.couponDiscount,
         paymentMethod,

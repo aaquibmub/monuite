@@ -10,6 +10,7 @@ class User {
   final String userName;
   final AddressModel billing;
   AddressModel shipping;
+  int? wpId;
 
   User({
     required this.id,
@@ -19,6 +20,7 @@ class User {
     required this.shipping,
     this.firstName,
     this.lastName,
+    this.wpId,
   });
 
   factory User.fromJson(dynamic json) {
@@ -30,6 +32,7 @@ class User {
       shipping: AddressModel.fromJson(json['shipping'] as Map<String, dynamic>),
       firstName: json['firstName'] as String?,
       lastName: json['lastName'] as String?,
+      wpId: json['wpId'] as int?,
     );
   }
   Map<String, dynamic> toJson() => userToJson(this);
@@ -45,5 +48,6 @@ class User {
         'shipping': instance.shipping.toJson(),
         'firstName': instance.firstName,
         'lastName': instance.lastName,
+        'wpId': instance.wpId,
       };
 }
