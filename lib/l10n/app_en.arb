@@ -1,0 +1,7 @@
+{
+  "@@locale": "en",
+  "home": "Home",
+  "@home": {
+    "description": "The conventional newborn programmer greeting"
+  }
+}

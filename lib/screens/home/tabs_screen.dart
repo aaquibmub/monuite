@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:monuite/l10n/app_localizations.dart';
 import 'package:monuite/screens/home/cart/cart_screen.dart';
 import 'package:monuite/screens/home/categories/categories_screen.dart';
 import 'package:monuite/screens/home/landing/landing_screen.dart';
@@ -62,7 +63,7 @@ class _TabsScreenState extends State<TabsScreen> {
             activeIcon: ImageIcon(
               AssetImage(CustomIcons.homeIconActive),
             ),
-            label: 'Home',
+            label: AppLocalizations.of(context)!.home,
           ),
           BottomNavigationBarItem(
             // backgroundColor: Theme.of(context).backgroundColor,

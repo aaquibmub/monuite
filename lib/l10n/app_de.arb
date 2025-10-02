@@ -1,0 +1,7 @@
+{
+    "@@locale": "de",
+    "home": "heim",
+    "@home": {
+        "description": "Die konventionelle Begrüßung für Programmierer"
+    }
+}

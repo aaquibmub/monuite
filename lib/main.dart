@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:monuite/l10n/app_localizations.dart';
 import 'package:monuite/providers/auth.dart';
 import 'package:monuite/providers/cart_provider.dart';
 import 'package:monuite/providers/common_provider.dart';
@@ -74,6 +75,9 @@ class MyApp extends StatelessWidget {
         // authData.refreshAddressBook();
         return MaterialApp(
           title: 'motorpool',
+          locale: authData.locale,
+          supportedLocales: AppLocalizations.supportedLocales,
+          localizationsDelegates: AppLocalizations.localizationsDelegates,
           theme: ThemeData(
               primaryColor: Constants.primaryColor,
               // backgroundColor: Constants.backgroundColor,

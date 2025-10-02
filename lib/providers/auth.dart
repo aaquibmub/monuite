@@ -21,6 +21,11 @@ class Auth with ChangeNotifier {
   User? _user;
   List<AddressBookModel> _addressBook = [];
   Timer? _authTimer;
+  Locale? _locale;
+
+  Locale? get locale {
+    return _locale ?? Locale('en');
+  }
 
   bool get isAuth {
     return token != null;
@@ -461,5 +466,12 @@ class Auth with ChangeNotifier {
     _addressBook = addressBook;
     prefs.setString('addressBook', jsonEncode(addressBook));
     // notifyListeners();
+  }
+
+  void setLocale(Locale locale) async {
+    _locale = locale;
+    notifyListeners();
+    final prefs = await SharedPreferences.getInstance();
+    prefs.setString('user-locale', locale.languageCode);
   }
 }
