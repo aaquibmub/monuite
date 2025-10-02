@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:monuite/helpers/common/constants.dart';
 import 'package:monuite/helpers/common/utility.dart';
+import 'package:monuite/l10n/app_localizations.dart';
 import 'package:monuite/providers/product_provider.dart';
 import 'package:monuite/screens/categories/product_by_category_card_widget.dart';
 import 'package:monuite/screens/loading_screen.dart';
@@ -55,7 +56,7 @@ class _ProductListScreenState extends State<ProductListScreen> {
                   ),
                 ),
                 Text(
-                  'Products',
+                  AppLocalizations.of(context)!.products,
                   style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
@@ -77,7 +78,7 @@ class _ProductListScreenState extends State<ProductListScreen> {
               autofocus: true,
               controller: _myController,
               decoration: InputDecoration(
-                hintText: 'Search products...',
+                hintText: AppLocalizations.of(context)!.searchProducts,
                 border: OutlineInputBorder(),
                 suffixIcon: Icon(Icons.search),
               ),
@@ -146,7 +147,8 @@ class _ProductListScreenState extends State<ProductListScreen> {
                               // ]),
 
                               : Center(
-                                  child: Text("no products found"),
+                                  child: Text(AppLocalizations.of(context)!
+                                      .noProductsFound),
                                 );
                         },
                       ),

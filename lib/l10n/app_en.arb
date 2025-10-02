@@ -3,5 +3,405 @@
   "home": "Home",
   "@home": {
     "description": "The conventional newborn programmer greeting"
+  },
+  "guest": "Guest",
+  "@guest": {
+    "description": "Label for guest user"
+  },
+  "orders": "Orders",
+  "@orders": {
+    "description": "Label for orders section"
+  },
+  "myOrders": "My Orders",
+  "@myOrders": {
+    "description": "Label for My Orders item in profile screen"
+  },
+  "settings": "Settings",
+  "@settings": {
+    "description": "Label for settings section"
+  },
+  "language": "Language",
+  "@language": {  
+    "description": "Label for language selection"
+  },
+  "theme": "Theme",
+  "@theme": {
+    "description": "Label for theme selection"
+  },
+  "signOut": "Sign Out",
+  "@signOut": { 
+    "description": "Label for sign out button"
+  },
+  "version": "Version",
+  "@version": {
+    "description": "Label for app version"
+  },
+  "about": "About",
+  "@about": {
+    "description": "Label for about section"
+  },
+  "privacyPolicy": "Privacy Policy",
+  "@privacyPolicy": {
+    "description": "Label for privacy policy section"
+  },
+  "pushNotifications": "Push Notifications",
+  "@pushNotifications": {
+    "description": "Label for push notifications section"
+  },
+  "cards": "Cards",
+  "@cards": {
+    "description": "Label for cards section"
+  },
+  "addressBook": "Address Book",
+  "@addressBook": { 
+    "description": "Label for address book section"
+  },
+  "profile": "Profile",
+  "@profile": {
+    "description": "Label for profile section"
+  },
+  "wishlistScreenTitle": "Wishlist",
+  "@wishlistScreenTitle": { 
+    "description": "Title for the wishlist screen"
+  },
+  "cartScreenTitle": "Cart",
+  "@cartScreenTitle": { 
+    "description": "Title for the cart screen"
+  },
+  "addressWithColon": "Address:",
+  "@addressWithColon": { 
+    "description": "Label for address with a colon"
+  },
+  "addAddress": "Add Address",
+  "@addAddress": { 
+    "description": "Label for add address button"
+  },
+  "cartEmptyMessage": "Your cart is empty",
+  "@cartEmptyMessage": { 
+    "description": "Message displayed when the cart is empty"
+  },
+  "categoriesScreenTitle": "Categories",
+  "@categoriesScreenTitle": { 
+    "description": "Title for the categories screen"
+  },
+  "noCategoriesFound": "No categories found",
+  "@noCategoriesFound": { 
+    "description": "Message displayed when no categories are found"
+  },
+  "checkoutScreenTitle": "Checkout",
+  "@checkoutScreenTitle": { 
+    "description": "Title for the checkout screen"
+  },
+  "shippingAddress": "Shipping Address",
+  "@shippingAddress": { 
+    "description": "Label for shipping address section"
+  },
+  "totalWithColon": "Total:",
+  "@totalWithColon": { 
+    "description": "Label for total with a colon"
+  },
+  "enterCouponCode": "have a coupon?",
+  "@enterCouponCode": { 
+    "description": "Hint text for entering a coupon code"
+  },
+  "apply": "Apply",
+  "@apply": { 
+    "description": "Label for apply button"
+  },
+  "orderSummary": "Order Summary",
+  "@orderSummary": { 
+    "description": "Title for order summary section"
+  },
+  "subtotal": "Subtotal",
+  "@subtotal": { 
+    "description": "Label for subtotal amount"
+  },
+  "items": "items",
+  "@items": { 
+    "description": "Label for number of items"
+  },
+  "shippingFee": "Shipping Fee",
+  "@shippingFee": { 
+    "description": "Label for shipping fee amount"
+  },
+  "coupon": "Coupon",
+  "@coupon": { 
+    "description": "Label for coupon amount"
+  },
+  "total": "Total",
+  "@total": { 
+    "description": "Label for total amount"
+  },
+  "addAddressBeforeCheckout": "Please add address before checkout",
+  "@addAddressBeforeCheckout": { 
+    "description": "Message displayed when user tries to checkout without an address"
+  },
+  "confirmAndPay": "Confirm & Pay",
+  "@confirmAndPay": { 
+    "description": "Label for confirm and pay button"
+  },
+  "countryRegion": "Country/Region",
+  "@countryRegion": { 
+    "description": "Label for country/region field"
+  },
+  "firstName": "First Name",
+  "@firstName": { 
+    "description": "Label for first name field"
+  },
+  "firstNameHint": "Type first name",
+  "@firstNameHint": { 
+    "description": "Hint text for first name field"
+  },
+  "firstNameRequired": "First name is required",
+  "@firstNameRequired": { 
+    "description": "Validation message when first name is not provided"
+  },
+  "lastName": "Last Name",
+  "@lastName": { 
+    "description": "Label for last name field"
+  },
+  "lastNameHint": "Type last name",
+  "@lastNameHint": { 
+    "description": "Hint text for last name field"
+  },
+  "lastNameRequired": "Last name is required",
+  "@lastNameRequired": { 
+    "description": "Validation message when last name is not provided"
+  },
+  "companyName": "Company Name",
+  "@companyName": { 
+    "description": "Label for company name field"
+  },
+  "companyNameHint": "Type company name",
+  "@companyNameHint": {
+    "description": "Hint text for company name field"
+  },
+  "companyNameRequired": "Company name is required",
+  "@companyNameRequired": {
+    "description": "Validation message when company name is not provided"
+  },
+  "phone": "Phone",
+  "@phone": { 
+    "description": "Label for phone number field"
+  },
+  "phoneHint": "Type phone number",
+  "@phoneHint": {
+    "description": "Hint text for phone number field"
+  },
+  "phoneRequired": "Phone number is required",
+  "@phoneRequired": {
+    "description": "Validation message when phone number is not provided"
+  },
+  "address1": "Address 1",
+  "@address1": { 
+    "description": "Label for address line 1 field"
+  },
+  "address1Hint": "Type address 1",
+  "@address1Hint": {
+    "description": "Hint text for address line 1 field"
+  },
+  "address1Required": "Address 1 is required",
+  "@address1Required": {
+    "description": "Validation message when address line 1 is not provided"
+  },
+  "address2": "Address 2",
+  "@address2": { 
+    "description": "Label for address line 2 field"
+  },
+  "address2Hint": "Type address 2",
+  "@address2Hint": {
+    "description": "Hint text for address line 2 field"
+  },
+  "address2Required": "Address 2 is required",
+  "@address2Required": {
+    "description": "Validation message when address line 2 is not provided"
+  },
+  "city": "City",
+  "@city": { 
+    "description": "Label for city field"
+  },
+  "cityHint": "Type city",
+  "@cityHint": {
+    "description": "Hint text for city field"
+  },
+  "cityRequired": "City is required",
+  "@cityRequired": {
+    "description": "Validation message when city is not provided"
+  },
+  "state": "State",
+  "@state": { 
+    "description": "Label for state field"
+  },
+  "stateHint": "Type state",
+  "@stateHint": {
+    "description": "Hint text for state field"
+  },
+  "stateRequired": "State is required",
+  "@stateRequired": {
+    "description": "Validation message when state is not provided"
+  },
+  "zipCode": "Zip Code",
+  "@zipCode": { 
+    "description": "Label for zip code field"
+  },
+  "zipCodeHint": "Type zip code",
+  "@zipCodeHint": {
+    "description": "Hint text for zip code field"
+  },
+  "zipCodeRequired": "Zip code is required",
+  "@zipCodeRequired": {
+    "description": "Validation message when zip code is not provided"
+  },
+  "email": "Email",
+  "@email": { 
+    "description": "Label for email field"
+  },
+  "emailHint": "Type email",
+  "@emailHint": {
+    "description": "Hint text for email field"
+  },
+  "emailRequired": "Email is required",
+  "@emailRequired": {
+    "description": "Validation message when email is not provided"
+  },
+  "anErrorOccurred": "An error occurred",
+  "@anErrorOccurred": { 
+    "description": "Title for error dialog"
+  },
+  "okay": "Okay",
+  "@okay": { 
+    "description": "Label for okay button in dialogs"
+  },
+  "couldNotAddAddress": "Could not add address. Please try again.",
+  "@couldNotAddAddress": { 
+    "description": "Error message displayed when adding an address fails"
+  },
+  "addAddressInCapital": "ADD ADDRESS",
+  "@addAddressInCapital": { 
+    "description": "Label for add address button in capital letters"
+  },
+  "searchTheEntireShop": "Search the entire shop",
+  "@searchTheEntireShop": { 
+    "description": "Hint text for global search button"
+  },
+  "categories": "Categories",
+  "@categories": { 
+    "description": "Label for categories section"
+  },
+  "seeAll": "See All",
+  "@seeAll": { 
+    "description": "Label for see all button"
+  },
+  "popularProducts": "Popular Products",
+  "@popularProducts": { 
+    "description": "Label for popular products section"
+  },
+  "noProductsFound": "No products found",
+  "@noProductsFound": { 
+    "description": "Message displayed when no products are found"
+  },
+  "unknownError": "Unknown error",
+  "@unknownError": { 
+    "description": "Message displayed for an unknown error"
+  },
+  "selectPaymentMethod": "Select Payment Method",
+  "@selectPaymentMethod": { 
+    "description": "Title for selecting payment method section"
+  },
+  "pay": "Pay",
+  "@pay": { 
+    "description": "Label for pay button"
+  },
+  "products": "Products",
+  "@products": { 
+    "description": "Label for products section"
+  },
+  "orderConfirmed": "Order Confirmed",
+  "@orderConfirmed": { 
+    "description": "Title for order confirmed screen"
+  },
+  "confirmed": "Confirmed",
+  "@confirmed": { 
+    "description": "Label indicating the order is confirmed"
+  },
+  "thankYouForOrdering": "Thank you for your order. You will receive an email confirmation shortly.",
+  "@thankYouForOrdering": { 
+    "description": "Message displayed to thank the user for their order"
+  },
+  "orderNotFound": "Order not found",
+  "@orderNotFound": { 
+    "description": "Message displayed when the order is not found"
+  },
+  "backToHome": "Back to Home",
+  "@backToHome": { 
+    "description": "Label for back to home button"
+  },
+  "searchOrders": "Search orders...",
+  "@searchOrders": { 
+    "description": "Hint text for searching orders"
+  },
+  "noOrdersFound": "No orders found",
+  "@noOrdersFound": { 
+    "description": "Message displayed when no orders are found"
+  },
+  "noProductFound": "No product found",
+  "@noProductFound": { 
+    "description": "Message displayed when no product is found"
+  },
+  "addToCart": "Add to Cart",
+  "@addToCart": { 
+    "description": "Label for add to cart button"
+  },
+  "searchProducts": "Search products...",
+  "@searchProducts": { 
+    "description": "Hint text for searching products"
+  },
+  "defaultLabel": "Default",
+  "@defaultLabel": { 
+    "description": "Label indicating the default option"
+  },
+  "noAddressFound": "No address found",
+  "@noAddressFound": { 
+    "description": "Message displayed when no address is found"
+  },
+  "setAsDefaultAddress": "Set as default address",
+  "@setAsDefaultAddress": { 
+    "description": "Label for setting an address as the default"
+  },
+  "couldNotUpdateAddress": "Could not update address. Please try again.",
+  "@couldNotUpdateAddress": { 
+    "description": "Error message displayed when updating an address fails"
+  },
+  "updateAddressInCapitalLetters": "UPDATE ADDRESS",
+  "@updateAddressInCapitalLetters": { 
+    "description": "Label for update address button in capital letters"
+  },
+  "updateAddress": "Update Address",
+  "@updateAddress": { 
+    "description": "Title for update address screen"
+  },
+  "userProfile": "User Profile",
+  "@userProfile": { 
+    "description": "Title for user profile screen"
+  },
+  "name": "Name",
+  "@name": { 
+    "description": "Label for name field"
+  },
+  "country": "Country",
+  "@country": { 
+    "description": "Label for country field"
+  },
+  "logout": "Logout",
+  "@logout": { 
+    "description": "Label for logout button"
+  },
+  "cart": "Cart",
+  "@cart": { 
+    "description": "Label for cart section"
+  },
+  "wishlist": "Wishlist",
+  "@wishlist": { 
+    "description": "Label for wishlist section"
   }
 }

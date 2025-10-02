@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:monuite/l10n/app_localizations.dart';
 import 'package:monuite/screens/home/landing/popular_products/widgets/popular_product_card_widget.dart';
 import 'package:provider/provider.dart';
 
@@ -25,7 +26,7 @@ class _PopularProductsState extends State<PopularProducts> {
           child:
               Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
             Text(
-              "Popular Products",
+              AppLocalizations.of(context)!.popularProducts,
               style: TextStyle(
                 fontSize: 20,
               ),
@@ -54,7 +55,8 @@ class _PopularProductsState extends State<PopularProducts> {
                               ]),
                             )
                           : Center(
-                              child: Text("no products found"),
+                              child: Text(AppLocalizations.of(context)!
+                                  .noProductsFound),
                             );
                     },
                   ),

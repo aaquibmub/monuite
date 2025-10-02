@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:monuite/helpers/common/constants.dart';
 import 'package:monuite/helpers/common/routes.dart';
+import 'package:monuite/l10n/app_localizations.dart';
 
 class AboutScreen extends StatelessWidget {
   const AboutScreen({Key? key}) : super(key: key);
@@ -39,7 +40,7 @@ class AboutScreen extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  'About',
+                  AppLocalizations.of(context)!.about,
                   style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,

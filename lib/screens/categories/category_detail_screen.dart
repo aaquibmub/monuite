@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:monuite/l10n/app_localizations.dart';
 import 'package:monuite/providers/product_provider.dart';
 import 'package:monuite/screens/categories/product_by_category_card_widget.dart';
 import 'package:monuite/screens/loading_screen.dart';
@@ -38,7 +39,7 @@ class CategoryDetailScreen extends StatelessWidget {
             ),
             child: Row(mainAxisAlignment: MainAxisAlignment.start, children: [
               Text(
-                "Products",
+                AppLocalizations.of(context)!.products,
                 style: TextStyle(
                   fontSize: 20,
                 ),
@@ -96,7 +97,8 @@ class CategoryDetailScreen extends StatelessWidget {
                               // ]),
 
                               : Center(
-                                  child: Text("no products found"),
+                                  child: Text(AppLocalizations.of(context)!
+                                      .noProductsFound),
                                 );
                         },
                       ),

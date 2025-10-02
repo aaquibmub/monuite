@@ -4,6 +4,7 @@ import 'package:monuite/helpers/common/routes.dart';
 import 'package:monuite/helpers/common/utility.dart';
 import 'package:monuite/helpers/models/addresses/address_book_nodel.dart';
 import 'package:monuite/helpers/models/addresses/address_model.dart';
+import 'package:monuite/l10n/app_localizations.dart';
 import 'package:monuite/screens/home/checkout/address/add_new_address_screen.dart';
 import 'package:monuite/screens/loading_screen.dart';
 import 'package:monuite/screens/profile/address-book/edit_address_book_entry_screen.dart';
@@ -50,7 +51,7 @@ class AddressBookScreen extends StatelessWidget {
                         borderRadius: BorderRadius.circular(4),
                       ),
                       child: Text(
-                        'Default',
+                        AppLocalizations.of(context)!.defaultLabel,
                         style: TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.bold,
@@ -149,7 +150,7 @@ class AddressBookScreen extends StatelessWidget {
           );
         },
         child: Text(
-          'ADD ADDRESS',
+          AppLocalizations.of(context)!.addAddressInCapital,
           style: Theme.of(context).primaryTextTheme.labelLarge,
         ),
         // elevation: 0,
@@ -195,7 +196,7 @@ class AddressBookScreen extends StatelessWidget {
                           ),
                         ),
                         Text(
-                          'Address Book',
+                          AppLocalizations.of(context)!.addressBook,
                           style: TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.bold,
@@ -218,7 +219,8 @@ class AddressBookScreen extends StatelessWidget {
                             ],
                           )
                         : Center(
-                            child: Text('No addresses found'),
+                            child: Text(
+                                AppLocalizations.of(context)!.noAddressFound),
                           ),
                   ),
                   Container(

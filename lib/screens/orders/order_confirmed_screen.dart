@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:monuite/l10n/app_localizations.dart';
 import 'package:monuite/screens/orders/widgets/order_item_widget.dart';
 import 'package:provider/provider.dart';
 
@@ -78,7 +79,8 @@ class _OrderConfirmedScreenState extends State<OrderConfirmedScreen> {
                                             MainAxisAlignment.spaceBetween,
                                         children: [
                                           Text(
-                                            'Order Confirmed',
+                                            AppLocalizations.of(context)!
+                                                .orderConfirmed,
                                             style: TextStyle(
                                               fontSize: 20,
                                               fontWeight: FontWeight.bold,
@@ -99,7 +101,8 @@ class _OrderConfirmedScreenState extends State<OrderConfirmedScreen> {
                                             CrossAxisAlignment.start,
                                         children: [
                                           Text(
-                                            'Confirmed',
+                                            AppLocalizations.of(context)!
+                                                .confirmed,
                                             style: TextStyle(
                                               fontSize: 20,
                                               fontWeight: FontWeight.bold,
@@ -109,7 +112,8 @@ class _OrderConfirmedScreenState extends State<OrderConfirmedScreen> {
                                             height: 10,
                                           ),
                                           Text(
-                                            'Thank you for your order. You will receive an email confirmation shortly.',
+                                            AppLocalizations.of(context)!
+                                                .thankYouForOrdering,
                                             style: TextStyle(
                                               fontSize: 16,
                                               color: Constants.colorGrey,
@@ -126,8 +130,10 @@ class _OrderConfirmedScreenState extends State<OrderConfirmedScreen> {
                                             provider.orderModel!.items.length ==
                                                     0
                                                 ? Center(
-                                                    child:
-                                                        Text("cart is empty"),
+                                                    child: Text(
+                                                        AppLocalizations.of(
+                                                                context)!
+                                                            .cartEmptyMessage),
                                                   )
                                                 : ListView.builder(
                                                     shrinkWrap: true,
@@ -161,7 +167,7 @@ class _OrderConfirmedScreenState extends State<OrderConfirmedScreen> {
                                                 MainAxisAlignment.end,
                                             children: [
                                               Text(
-                                                "Total: CHF ${provider.orderModel!.total}",
+                                                "${AppLocalizations.of(context)!.totalWithColon} CHF ${provider.orderModel!.total}",
                                                 style: TextStyle(
                                                   fontSize: 20,
                                                   fontWeight: FontWeight.bold,
@@ -188,7 +194,9 @@ class _OrderConfirmedScreenState extends State<OrderConfirmedScreen> {
                                                           .spaceBetween,
                                                   children: [
                                                     Text(
-                                                      "Order Summary",
+                                                      AppLocalizations.of(
+                                                              context)!
+                                                          .orderSummary,
                                                       style: TextStyle(
                                                         fontSize: 20,
                                                         fontWeight:
@@ -209,7 +217,7 @@ class _OrderConfirmedScreenState extends State<OrderConfirmedScreen> {
                                                           .spaceBetween,
                                                   children: [
                                                     Text(
-                                                      "Subtotal (${provider.orderModel!.items.length} items)",
+                                                      "${AppLocalizations.of(context)!.subtotal} (${provider.orderModel!.items.length} ${AppLocalizations.of(context)!.items})",
                                                       style: TextStyle(
                                                         fontSize: 20,
                                                       ),
@@ -238,7 +246,9 @@ class _OrderConfirmedScreenState extends State<OrderConfirmedScreen> {
                                                           .spaceBetween,
                                                   children: [
                                                     Text(
-                                                      "Shipping Free",
+                                                      AppLocalizations.of(
+                                                              context)!
+                                                          .shippingFee,
                                                       style: TextStyle(
                                                         fontSize: 20,
                                                       ),
@@ -267,7 +277,9 @@ class _OrderConfirmedScreenState extends State<OrderConfirmedScreen> {
                                                           .spaceBetween,
                                                   children: [
                                                     Text(
-                                                      "Coupon",
+                                                      AppLocalizations.of(
+                                                              context)!
+                                                          .coupon,
                                                       style: TextStyle(
                                                         fontSize: 20,
                                                       ),
@@ -296,7 +308,9 @@ class _OrderConfirmedScreenState extends State<OrderConfirmedScreen> {
                                                           .spaceBetween,
                                                   children: [
                                                     Text(
-                                                      "Total",
+                                                      AppLocalizations.of(
+                                                              context)!
+                                                          .total,
                                                       style: TextStyle(
                                                         fontSize: 20,
                                                       ),
@@ -328,7 +342,10 @@ class _OrderConfirmedScreenState extends State<OrderConfirmedScreen> {
                                   children: <Widget>[
                                       // Top Bar
                                       Center(
-                                        child: Text("Order not found"),
+                                        child: Text(
+                                          AppLocalizations.of(context)!
+                                              .orderNotFound,
+                                        ),
                                       ),
                                     ]);
                         },
@@ -354,7 +371,7 @@ class _OrderConfirmedScreenState extends State<OrderConfirmedScreen> {
                             );
                           },
                           child: Text(
-                            "Continue to explore",
+                            AppLocalizations.of(context)!.backToHome,
                             style: TextStyle(
                               fontSize: 16,
                               fontWeight: FontWeight.bold,

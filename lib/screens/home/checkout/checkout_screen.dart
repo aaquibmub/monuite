@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:monuite/helpers/common/utility.dart';
+import 'package:monuite/l10n/app_localizations.dart';
 import 'package:monuite/screens/home/cart/cart_screen.dart';
 import 'package:monuite/screens/home/checkout/address/add_new_address_screen.dart';
 import 'package:monuite/screens/home/checkout/widgets/checkout_item_widget.dart';
@@ -76,7 +77,8 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                                     MainAxisAlignment.spaceBetween,
                                 children: [
                                   Text(
-                                    'Checkout',
+                                    AppLocalizations.of(context)!
+                                        .checkoutScreenTitle,
                                     style: TextStyle(
                                       fontSize: 20,
                                       fontWeight: FontWeight.bold,
@@ -108,7 +110,8 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                                             CrossAxisAlignment.start,
                                         children: [
                                           Text(
-                                            'Shipping Address',
+                                            AppLocalizations.of(context)!
+                                                .shippingAddress,
                                             style: TextStyle(
                                               fontSize: 20,
                                               fontWeight: FontWeight.bold,
@@ -141,7 +144,8 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                                         width: double.infinity,
                                         child: Center(
                                           child: Text(
-                                            'Add Address',
+                                            AppLocalizations.of(context)!
+                                                .addAddress,
                                             style: TextStyle(
                                               fontSize: 20,
                                               fontWeight: FontWeight.bold,
@@ -166,7 +170,9 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                                     // Cart Items
                                     provider.cartModel!.items.length == 0
                                         ? Center(
-                                            child: Text("cart is empty"),
+                                            child: Text(
+                                                AppLocalizations.of(context)!
+                                                    .cartEmptyMessage),
                                           )
                                         : ListView.builder(
                                             shrinkWrap: true,
@@ -195,7 +201,9 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                                     mainAxisAlignment: MainAxisAlignment.end,
                                     children: [
                                       Text(
-                                        "Total: CHF ${Utility.formatNumber(provider.cartModel!.total)}",
+                                        AppLocalizations.of(context)!
+                                                .totalWithColon +
+                                            " CHF ${Utility.formatNumber(provider.cartModel!.total)}",
                                         style: TextStyle(
                                           fontSize: 20,
                                           fontWeight: FontWeight.bold,
@@ -224,7 +232,9 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                                             fontWeight: FontWeight.bold,
                                           ),
                                           decoration: InputDecoration(
-                                            hintText: 'Have a coupon?',
+                                            hintText:
+                                                AppLocalizations.of(context)!
+                                                    .enterCouponCode,
                                             border: OutlineInputBorder(
                                               borderRadius:
                                                   BorderRadius.circular(10),
@@ -255,7 +265,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                                             //   );
                                           },
                                           child: Text(
-                                            "Apply",
+                                            AppLocalizations.of(context)!.apply,
                                             style: TextStyle(
                                               fontSize: 16,
                                               fontWeight: FontWeight.bold,
@@ -283,7 +293,8 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                                               MainAxisAlignment.spaceBetween,
                                           children: [
                                             Text(
-                                              "Order Summary",
+                                              AppLocalizations.of(context)!
+                                                  .orderSummary,
                                               style: TextStyle(
                                                 fontSize: 20,
                                                 fontWeight: FontWeight.bold,
@@ -302,7 +313,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                                               MainAxisAlignment.spaceBetween,
                                           children: [
                                             Text(
-                                              "Subtotal (${provider.cartModel!.items.length} items)",
+                                              "${AppLocalizations.of(context)!.subtotal} (${provider.cartModel!.items.length} ${AppLocalizations.of(context)!.items})",
                                               style: TextStyle(
                                                 fontSize: 20,
                                               ),
@@ -328,7 +339,8 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                                               MainAxisAlignment.spaceBetween,
                                           children: [
                                             Text(
-                                              "Shipping Free",
+                                              AppLocalizations.of(context)!
+                                                  .shippingFee,
                                               style: TextStyle(
                                                 fontSize: 20,
                                               ),
@@ -354,7 +366,8 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                                               MainAxisAlignment.spaceBetween,
                                           children: [
                                             Text(
-                                              "Coupon",
+                                              AppLocalizations.of(context)!
+                                                  .coupon,
                                               style: TextStyle(
                                                 fontSize: 20,
                                               ),
@@ -380,7 +393,8 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                                               MainAxisAlignment.spaceBetween,
                                           children: [
                                             Text(
-                                              "Total",
+                                              AppLocalizations.of(context)!
+                                                  .total,
                                               style: TextStyle(
                                                 fontSize: 20,
                                               ),
@@ -422,7 +436,8 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                                           ScaffoldMessenger.of(context)
                                               .showSnackBar(SnackBar(
                                             content: Text(
-                                                "Please add address before checkout"),
+                                                AppLocalizations.of(context)!
+                                                    .addAddressBeforeCheckout),
                                           ));
                                           return;
                                         }
@@ -431,7 +446,8 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                                           ScaffoldMessenger.of(context)
                                               .showSnackBar(SnackBar(
                                             content: Text(
-                                                "Please add items to cart before checkout"),
+                                                AppLocalizations.of(context)!
+                                                    .cartEmptyMessage),
                                           ));
                                           return;
                                         }
@@ -443,7 +459,8 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                                         );
                                       },
                                       child: Text(
-                                        "Confirm & Pay",
+                                        AppLocalizations.of(context)!
+                                            .confirmAndPay,
                                         style: TextStyle(
                                           fontSize: 16,
                                           fontWeight: FontWeight.bold,
@@ -458,7 +475,8 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                           ],
                         )
                       : Center(
-                          child: Text("cart is empty"),
+                          child: Text(
+                              AppLocalizations.of(context)!.cartEmptyMessage),
                         );
                 },
               ),

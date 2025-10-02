@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:monuite/helpers/models/addresses/address_model.dart';
+import 'package:monuite/l10n/app_localizations.dart';
 import 'package:monuite/providers/auth.dart';
 import 'package:monuite/screens/home/checkout/checkout_screen.dart';
 import 'package:provider/provider.dart';
@@ -106,14 +107,14 @@ class _AddNewAddressScreenState extends State<AddNewAddressScreen> {
         context: context,
         builder: (ctx) {
           return AlertDialog(
-            title: Text('An error occured'),
+            title: Text(AppLocalizations.of(context)!.anErrorOccurred),
             content: Text(message),
             actions: [
               TextButton(
                   onPressed: () {
                     Navigator.of(ctx).pop();
                   },
-                  child: Text('Okay'))
+                  child: Text(AppLocalizations.of(context)!.okay))
             ],
           );
         });
@@ -190,7 +191,7 @@ class _AddNewAddressScreenState extends State<AddNewAddressScreen> {
       setState(() {
         _isLoading = false;
       });
-      const errorMessage = 'Unable to add';
+      final errorMessage = AppLocalizations.of(context)!.couldNotAddAddress;
       _showErrorDialogue(context, errorMessage);
     }
   }
@@ -206,7 +207,7 @@ class _AddNewAddressScreenState extends State<AddNewAddressScreen> {
                 WidgetStateProperty.all<Color>(Theme.of(context).primaryColor)),
         onPressed: () => _submit(context),
         child: Text(
-          'ADD ADDRESS',
+          AppLocalizations.of(context)!.addAddressInCapital,
           style: Theme.of(context).primaryTextTheme.labelLarge,
         ),
         // elevation: 0,
@@ -216,7 +217,7 @@ class _AddNewAddressScreenState extends State<AddNewAddressScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Add Address'),
+        title: Text(AppLocalizations.of(context)!.addAddress),
       ),
       body: _isLoading
           ? LoadingScreen()
@@ -237,7 +238,7 @@ class _AddNewAddressScreenState extends State<AddNewAddressScreen> {
                             height: 20,
                           ),
                           Text(
-                            'Add Address',
+                            AppLocalizations.of(context)!.addAddress,
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
                             ),

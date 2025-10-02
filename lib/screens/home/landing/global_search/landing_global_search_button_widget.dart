@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:monuite/l10n/app_localizations.dart';
 import 'package:monuite/screens/products/product_list_screen.dart';
 
 class LandingGlobalSearchButtonWidget extends StatelessWidget {
@@ -33,7 +34,7 @@ class LandingGlobalSearchButtonWidget extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Text(
-                'Search the entire shop',
+                AppLocalizations.of(context)!.searchTheEntireShop,
               ),
             ),
           ],

@@ -73,7 +73,7 @@ class _TabsScreenState extends State<TabsScreen> {
             activeIcon: ImageIcon(
               AssetImage(CustomIcons.catgIconActive),
             ),
-            label: 'Categories',
+            label: AppLocalizations.of(context)!.categories,
           ),
           BottomNavigationBarItem(
             // backgroundColor: Theme.of(context).backgroundColor,
@@ -83,7 +83,7 @@ class _TabsScreenState extends State<TabsScreen> {
             activeIcon: ImageIcon(
               AssetImage(CustomIcons.cartIconActive),
             ),
-            label: 'Cart',
+            label: AppLocalizations.of(context)!.cart,
           ),
           BottomNavigationBarItem(
             // backgroundColor: Theme.of(context).backgroundColor,
@@ -93,7 +93,7 @@ class _TabsScreenState extends State<TabsScreen> {
             activeIcon: ImageIcon(
               AssetImage(CustomIcons.wishlistIconActive),
             ),
-            label: 'Wishlist',
+            label: AppLocalizations.of(context)!.wishlist,
           ),
           BottomNavigationBarItem(
             // backgroundColor: Theme.of(context).backgroundColor,
@@ -103,7 +103,7 @@ class _TabsScreenState extends State<TabsScreen> {
             activeIcon: ImageIcon(
               AssetImage(CustomIcons.profileIconActive),
             ),
-            label: 'Profile',
+            label: AppLocalizations.of(context)!.profile,
           ),
         ],
       ),

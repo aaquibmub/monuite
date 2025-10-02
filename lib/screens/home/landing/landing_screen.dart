@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:monuite/l10n/app_localizations.dart';
 import 'package:monuite/screens/home/landing/global_search/landing_global_search_button_widget.dart';
 import 'package:monuite/screens/home/landing/landing_categories/landing_categories.dart';
 import 'package:monuite/screens/home/landing/popular_products/popular_products.dart';
@@ -12,7 +13,7 @@ class LandingScreen extends StatelessWidget {
       appBar: AppBar(
         title: Center(
           child: Text(
-            'Home',
+            AppLocalizations.of(context)!.home,
           ),
         ),
       ),

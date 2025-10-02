@@ -4,6 +4,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:monuite/helpers/common/constants.dart';
 import 'package:monuite/helpers/models/cart/cart_item_model.dart';
 import 'package:monuite/helpers/models/products/product_detail_model.dart';
+import 'package:monuite/l10n/app_localizations.dart';
 import 'package:monuite/providers/cart_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -159,7 +160,8 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                                       ),
                                     )
                                   : Center(
-                                      child: Text("no product found"),
+                                      child: Text(AppLocalizations.of(context)!
+                                          .noProductFound),
                                     ))),
                     ),
                     // Add to Cart
@@ -192,7 +194,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                           });
                         },
                         child: Text(
-                          'Add to Cart',
+                          AppLocalizations.of(context)!.addToCart,
                           style: TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.bold,

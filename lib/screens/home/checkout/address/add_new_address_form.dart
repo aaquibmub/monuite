@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:monuite/l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 
 import '../../../../helpers/models/common/dropdown_item.dart';
@@ -136,7 +137,7 @@ class _AddNewAddressFormState extends State<AddNewAddressForm> {
           children: <Widget>[
             // Country/Region
             Text(
-              'Country/Region',
+              AppLocalizations.of(context)!.countryRegion,
               style: Theme.of(context).textTheme.bodyLarge,
             ),
             Container(
@@ -200,12 +201,12 @@ class _AddNewAddressFormState extends State<AddNewAddressForm> {
             ),
             // First Name
             FormTextField(
-              fieldLabel: 'First Name',
-              hintLabel: 'Type first name',
+              fieldLabel: AppLocalizations.of(context)!.firstName,
+              hintLabel: AppLocalizations.of(context)!.firstNameHint,
               controller: _firstNameController,
               validatorFn: (value) {
                 if (value!.isEmpty) {
-                  return 'First name is required';
+                  return AppLocalizations.of(context)!.firstNameRequired;
                 }
                 return null;
               },
@@ -222,12 +223,12 @@ class _AddNewAddressFormState extends State<AddNewAddressForm> {
             ),
             // Last Name
             FormTextField(
-              fieldLabel: 'Last Name',
-              hintLabel: 'Type last name',
+              fieldLabel: AppLocalizations.of(context)!.lastName,
+              hintLabel: AppLocalizations.of(context)!.lastNameHint,
               controller: _lastNameController,
               validatorFn: (value) {
                 if (value!.isEmpty) {
-                  return 'Last name is required';
+                  return AppLocalizations.of(context)!.lastNameRequired;
                 }
                 return null;
               },
@@ -244,12 +245,12 @@ class _AddNewAddressFormState extends State<AddNewAddressForm> {
             ),
             // Company Name
             FormTextField(
-              fieldLabel: 'Company Name',
-              hintLabel: 'Type company name',
+              fieldLabel: AppLocalizations.of(context)!.companyName,
+              hintLabel: AppLocalizations.of(context)!.companyNameHint,
               controller: _companyNameController,
               validatorFn: (value) {
                 if (value!.isEmpty) {
-                  return 'Company name is required';
+                  return AppLocalizations.of(context)!.companyNameRequired;
                 }
                 return null;
               },
@@ -266,12 +267,12 @@ class _AddNewAddressFormState extends State<AddNewAddressForm> {
             ),
             // Phone
             FormTextField(
-              fieldLabel: 'Phone',
-              hintLabel: 'Type phone number',
+              fieldLabel: AppLocalizations.of(context)!.phone,
+              hintLabel: AppLocalizations.of(context)!.phoneHint,
               controller: _phoneController,
               validatorFn: (value) {
                 if (value!.isEmpty) {
-                  return 'Phone number is required';
+                  return AppLocalizations.of(context)!.phoneRequired;
                 }
                 return null;
               },
@@ -288,12 +289,12 @@ class _AddNewAddressFormState extends State<AddNewAddressForm> {
             ),
             // Address 1
             FormTextField(
-              fieldLabel: 'Address 1',
-              hintLabel: 'Type address 1',
+              fieldLabel: AppLocalizations.of(context)!.address1,
+              hintLabel: AppLocalizations.of(context)!.address1Hint,
               controller: _address1Controller,
               validatorFn: (value) {
                 if (value!.isEmpty) {
-                  return 'Address 1 is required';
+                  return AppLocalizations.of(context)!.address1Required;
                 }
                 return null;
               },
@@ -310,12 +311,12 @@ class _AddNewAddressFormState extends State<AddNewAddressForm> {
             ),
             // Address 2
             FormTextField(
-              fieldLabel: 'Address 2',
-              hintLabel: 'Type address 2',
+              fieldLabel: AppLocalizations.of(context)!.address2,
+              hintLabel: AppLocalizations.of(context)!.address2Hint,
               controller: _address2Controller,
               validatorFn: (value) {
                 if (value!.isEmpty) {
-                  return 'Address 2 is required';
+                  return AppLocalizations.of(context)!.address2Required;
                 }
                 return null;
               },
@@ -332,12 +333,12 @@ class _AddNewAddressFormState extends State<AddNewAddressForm> {
             ),
             // City
             FormTextField(
-              fieldLabel: 'City',
-              hintLabel: 'Type city',
+              fieldLabel: AppLocalizations.of(context)!.city,
+              hintLabel: AppLocalizations.of(context)!.cityHint,
               controller: _cityController,
               validatorFn: (value) {
                 if (value!.isEmpty) {
-                  return 'City is required';
+                  return AppLocalizations.of(context)!.cityRequired;
                 }
                 return null;
               },
@@ -354,12 +355,12 @@ class _AddNewAddressFormState extends State<AddNewAddressForm> {
             ),
             // State
             FormTextField(
-              fieldLabel: 'State',
-              hintLabel: 'Type state',
+              fieldLabel: AppLocalizations.of(context)!.state,
+              hintLabel: AppLocalizations.of(context)!.stateHint,
               controller: _stateController,
               validatorFn: (value) {
                 if (value!.isEmpty) {
-                  return 'State is required';
+                  return AppLocalizations.of(context)!.stateRequired;
                 }
                 return null;
               },
@@ -376,12 +377,12 @@ class _AddNewAddressFormState extends State<AddNewAddressForm> {
             ),
             // Zip Code
             FormTextField(
-              fieldLabel: 'Zip Code',
-              hintLabel: 'Type zip code',
+              fieldLabel: AppLocalizations.of(context)!.zipCode,
+              hintLabel: AppLocalizations.of(context)!.zipCodeHint,
               controller: _zipCodeController,
               validatorFn: (value) {
                 if (value!.isEmpty) {
-                  return 'Zip code is required';
+                  return AppLocalizations.of(context)!.zipCodeRequired;
                 }
                 return null;
               },
@@ -398,12 +399,12 @@ class _AddNewAddressFormState extends State<AddNewAddressForm> {
             ),
             // Email
             FormTextField(
-              fieldLabel: 'Email',
-              hintLabel: 'Type email',
+              fieldLabel: AppLocalizations.of(context)!.email,
+              hintLabel: AppLocalizations.of(context)!.emailHint,
               controller: _emailController,
               validatorFn: (value) {
                 if (value!.isEmpty) {
-                  return 'Email is required';
+                  return AppLocalizations.of(context)!.emailRequired;
                 }
                 return null;
               },

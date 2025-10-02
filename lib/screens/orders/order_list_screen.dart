@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:monuite/helpers/common/constants.dart';
 import 'package:monuite/helpers/common/routes.dart';
+import 'package:monuite/l10n/app_localizations.dart';
 import 'package:monuite/providers/order_provider.dart';
 import 'package:monuite/screens/loading_screen.dart';
 import 'package:monuite/screens/orders/widgets/order_list_card_widget.dart';
@@ -55,7 +56,7 @@ class _OrderListScreenState extends State<OrderListScreen> {
                   ),
                 ),
                 Text(
-                  'Orders',
+                  AppLocalizations.of(context)!.orders,
                   style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
@@ -76,7 +77,7 @@ class _OrderListScreenState extends State<OrderListScreen> {
               autofocus: true,
               controller: _myController,
               decoration: InputDecoration(
-                hintText: 'Search orders...',
+                hintText: AppLocalizations.of(context)!.searchOrders,
                 border: OutlineInputBorder(),
                 suffixIcon: Icon(Icons.search),
               ),
@@ -117,7 +118,8 @@ class _OrderListScreenState extends State<OrderListScreen> {
                                   ),
                                 )
                               : Center(
-                                  child: Text("no orders found"),
+                                  child: Text(AppLocalizations.of(context)!
+                                      .noOrdersFound),
                                 );
                         },
                       ),

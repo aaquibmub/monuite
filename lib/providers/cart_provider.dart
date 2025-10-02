@@ -42,8 +42,9 @@ class CartProvider with ChangeNotifier {
       if (cartModelStr == null || cartModelStr.isEmpty) {
         final List<AddressBookModel> addressBook =
             await Utility.getAddressBook();
-        final defaultAddress =
-            addressBook.where((element) => element.isDefault).first.address;
+        final defaultAddress = addressBook.isEmpty
+            ? null
+            : addressBook.where((element) => element.isDefault).first.address;
         _cartModel = CartModel(defaultAddress, [], 0, 0);
         return;
       }
@@ -65,8 +66,9 @@ class CartProvider with ChangeNotifier {
       if (cartModelStr == null || cartModelStr.isEmpty) {
         final List<AddressBookModel> addressBook =
             await Utility.getAddressBook();
-        final defaultAddress =
-            addressBook.where((element) => element.isDefault).first.address;
+        final defaultAddress = addressBook.isEmpty
+            ? null
+            : addressBook.where((element) => element.isDefault).first.address;
         _cartModel = CartModel(defaultAddress, [], 0, 0);
       } else {
         _cartModel = CartModel.fromJson(json.decode(cartModelStr));
@@ -106,8 +108,9 @@ class CartProvider with ChangeNotifier {
       if (cartModelStr == null || cartModelStr.isEmpty) {
         final List<AddressBookModel> addressBook =
             await Utility.getAddressBook();
-        final defaultAddress =
-            addressBook.where((element) => element.isDefault).first.address;
+        final defaultAddress = addressBook.isEmpty
+            ? null
+            : addressBook.where((element) => element.isDefault).first.address;
         _cartModel = CartModel(defaultAddress, [], 0, 0);
       }
       var cartItem = _cartModel!.items.firstWhereOrNull((element) =>
@@ -147,8 +150,9 @@ class CartProvider with ChangeNotifier {
       if (cartModelStr == null || cartModelStr.isEmpty) {
         final List<AddressBookModel> addressBook =
             await Utility.getAddressBook();
-        final defaultAddress =
-            addressBook.where((element) => element.isDefault).first.address;
+        final defaultAddress = addressBook.isEmpty
+            ? null
+            : addressBook.where((element) => element.isDefault).first.address;
         _cartModel = CartModel(defaultAddress, [], 0, 0);
       }
       var cartItem = _cartModel!.items.firstWhereOrNull((element) =>
@@ -181,8 +185,9 @@ class CartProvider with ChangeNotifier {
       if (cartModelStr == null || cartModelStr.isEmpty) {
         final List<AddressBookModel> addressBook =
             await Utility.getAddressBook();
-        final defaultAddress =
-            addressBook.where((element) => element.isDefault).first.address;
+        final defaultAddress = addressBook.isEmpty
+            ? null
+            : addressBook.where((element) => element.isDefault).first.address;
         _cartModel = CartModel(defaultAddress, [], 0, 0);
       }
       _cartModel!.address = address;
@@ -199,8 +204,9 @@ class CartProvider with ChangeNotifier {
     try {
       final prefs = await SharedPreferences.getInstance();
       final List<AddressBookModel> addressBook = await Utility.getAddressBook();
-      final defaultAddress =
-          addressBook.where((element) => element.isDefault).first.address;
+      final defaultAddress = addressBook.isEmpty
+          ? null
+          : addressBook.where((element) => element.isDefault).first.address;
       _cartModel = CartModel(defaultAddress, [], 0, 0);
       final userData = json.encode(_cartModel!.toJson());
       prefs.setString('cartModel', userData);

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:monuite/helpers/common/constants.dart';
 import 'package:monuite/helpers/common/routes.dart';
+import 'package:monuite/l10n/app_localizations.dart';
 
 class PushNotificationScreen extends StatelessWidget {
   const PushNotificationScreen({Key? key}) : super(key: key);
@@ -39,7 +40,7 @@ class PushNotificationScreen extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  'Push Notifications',
+                  AppLocalizations.of(context)!.pushNotifications,
                   style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,

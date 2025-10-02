@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:monuite/l10n/app_localizations.dart';
 import 'package:monuite/providers/product_provider.dart';
 import 'package:monuite/screens/home/landing/landing_categories/widgets/landing_category_card_widget.dart';
 import 'package:provider/provider.dart';
@@ -32,7 +33,7 @@ class _LandingCategoriesState extends State<LandingCategories> {
           child:
               Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
             Text(
-              "Categories",
+              AppLocalizations.of(context)!.categories,
               style: TextStyle(
                 fontSize: 20,
               ),
@@ -44,7 +45,7 @@ class _LandingCategoriesState extends State<LandingCategories> {
                   MaterialPageRoute(builder: (context) => TabsScreen(1)),
                 );
               },
-              child: Text("See All"),
+              child: Text(AppLocalizations.of(context)!.seeAll),
             ),
           ]),
         ),
@@ -74,7 +75,8 @@ class _LandingCategoriesState extends State<LandingCategories> {
                               ]),
                             )
                           : Center(
-                              child: Text("no categories found"),
+                              child: Text(AppLocalizations.of(context)!
+                                  .noCategoriesFound),
                             );
                     },
                   ),

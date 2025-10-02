@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:monuite/helpers/common/constants.dart';
 import 'package:monuite/helpers/common/custom_icons.dart';
 import 'package:monuite/helpers/common/routes.dart';
+import 'package:monuite/l10n/app_localizations.dart';
 import 'package:monuite/providers/auth.dart';
 import 'package:provider/provider.dart';
 
@@ -99,7 +100,7 @@ class _LanguageScreenState extends State<LanguageScreen> {
                   ),
                 ),
                 Text(
-                  'Language',
+                  AppLocalizations.of(context)!.language,
                   style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,

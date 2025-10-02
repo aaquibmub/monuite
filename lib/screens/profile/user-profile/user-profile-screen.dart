@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:monuite/helpers/common/constants.dart';
 import 'package:monuite/helpers/common/routes.dart';
 import 'package:monuite/helpers/models/user.dart';
+import 'package:monuite/l10n/app_localizations.dart';
 import 'package:monuite/providers/auth.dart';
 import 'package:provider/provider.dart';
 
@@ -64,7 +65,7 @@ class UserProfileScreen extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  'User Profile',
+                  AppLocalizations.of(context)!.userProfile,
                   style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
@@ -85,15 +86,20 @@ class UserProfileScreen extends StatelessWidget {
               child: Column(
                 children: [
                   buildItem(
-                      'Name',
+                      AppLocalizations.of(context)!.name,
                       _currentuser != null
                           ? _currentuser.firstName! +
                               ' ' +
                               _currentuser.lastName!
-                          : 'Guest'),
-                  buildItem('Email', _currentuser?.email ?? 'Guest'),
+                          : AppLocalizations.of(context)!.guest),
                   buildItem(
-                      'Country', _currentuser?.shipping.country ?? 'Guest')
+                      AppLocalizations.of(context)!.email,
+                      _currentuser?.email ??
+                          AppLocalizations.of(context)!.guest),
+                  buildItem(
+                      AppLocalizations.of(context)!.country,
+                      _currentuser?.shipping.country ??
+                          AppLocalizations.of(context)!.guest)
                 ],
               ),
             ),

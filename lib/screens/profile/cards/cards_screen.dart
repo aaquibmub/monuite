@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:monuite/helpers/common/constants.dart';
 import 'package:monuite/helpers/common/routes.dart';
+import 'package:monuite/l10n/app_localizations.dart';
 
 class CardsScreen extends StatelessWidget {
   const CardsScreen({Key? key}) : super(key: key);
@@ -39,7 +40,7 @@ class CardsScreen extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  'Cards',
+                  AppLocalizations.of(context)!.cards,
                   style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,

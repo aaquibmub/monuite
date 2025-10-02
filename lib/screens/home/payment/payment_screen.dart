@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:monuite/helpers/common/utility.dart';
+import 'package:monuite/l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 
 import '../../../helpers/common/constants.dart';
@@ -78,14 +79,15 @@ class _PaymentScreenState extends State<PaymentScreen> {
           context: context,
           builder: (ctx) {
             return AlertDialog(
-              title: Text('An error occured'),
-              content: Text(message ?? 'Unknown error'),
+              title: Text(AppLocalizations.of(context)!.anErrorOccurred),
+              content:
+                  Text(message ?? AppLocalizations.of(context)!.unknownError),
               actions: [
                 TextButton(
                     onPressed: () {
                       Navigator.of(ctx).pop();
                     },
-                    child: Text('Okay'))
+                    child: Text(AppLocalizations.of(context)!.okay))
               ],
             );
           });
@@ -153,7 +155,8 @@ class _PaymentScreenState extends State<PaymentScreen> {
                                           MainAxisAlignment.spaceBetween,
                                       children: [
                                         Text(
-                                          'Select Payment Method',
+                                          AppLocalizations.of(context)!
+                                              .selectPaymentMethod,
                                           style: TextStyle(
                                             fontSize: 20,
                                             fontWeight: FontWeight.bold,
@@ -348,7 +351,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
                                                         .spaceBetween,
                                                 children: [
                                                   Text(
-                                                    "Subtotal (${provider.cartModel!.items.length} items)",
+                                                    "${AppLocalizations.of(context)!.subtotal} (${provider.cartModel!.items.length} ${AppLocalizations.of(context)!.items})",
                                                     style: TextStyle(
                                                       fontSize: 20,
                                                     ),
@@ -377,7 +380,9 @@ class _PaymentScreenState extends State<PaymentScreen> {
                                                         .spaceBetween,
                                                 children: [
                                                   Text(
-                                                    "Total",
+                                                    AppLocalizations.of(
+                                                            context)!
+                                                        .total,
                                                     style: TextStyle(
                                                       fontSize: 20,
                                                     ),
@@ -423,7 +428,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
                                               //   );
                                             },
                                             child: Text(
-                                              "Pay CHF ${Utility.formatNumber(provider.cartModel!.grandTotal)}",
+                                              "${AppLocalizations.of(context)!.pay} CHF ${Utility.formatNumber(provider.cartModel!.grandTotal)}",
                                               style: TextStyle(
                                                 fontSize: 16,
                                                 fontWeight: FontWeight.bold,

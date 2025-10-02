@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:monuite/helpers/models/addresses/address_book_nodel.dart';
 import 'package:monuite/helpers/models/addresses/address_model.dart';
+import 'package:monuite/l10n/app_localizations.dart';
 import 'package:monuite/providers/auth.dart';
 import 'package:monuite/screens/loading_screen.dart';
 import 'package:monuite/screens/profile/address-book/edit_address_book_entry_form.dart';
@@ -113,14 +114,14 @@ class _EditAddressBookEntryScreenState
         context: context,
         builder: (ctx) {
           return AlertDialog(
-            title: Text('An error occured'),
+            title: Text(AppLocalizations.of(context)!.anErrorOccurred),
             content: Text(message),
             actions: [
               TextButton(
                   onPressed: () {
                     Navigator.of(ctx).pop();
                   },
-                  child: Text('Okay'))
+                  child: Text(AppLocalizations.of(context)!.okay))
             ],
           );
         });
@@ -168,7 +169,7 @@ class _EditAddressBookEntryScreenState
       setState(() {
         _isLoading = false;
       });
-      const errorMessage = 'Unable to update address entry.';
+      final errorMessage = AppLocalizations.of(context)!.couldNotUpdateAddress;
       _showErrorDialogue(context, errorMessage);
     }
   }
@@ -184,7 +185,7 @@ class _EditAddressBookEntryScreenState
                 WidgetStateProperty.all<Color>(Theme.of(context).primaryColor)),
         onPressed: () => _submit(context),
         child: Text(
-          'UPDATE ADDRESS',
+          AppLocalizations.of(context)!.updateAddressInCapitalLetters,
           style: Theme.of(context).primaryTextTheme.labelLarge,
         ),
         // elevation: 0,
@@ -194,7 +195,7 @@ class _EditAddressBookEntryScreenState
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Update Address'),
+        title: Text(AppLocalizations.of(context)!.updateAddress),
       ),
       body: _isLoading
           ? LoadingScreen()

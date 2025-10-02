@@ -5,6 +5,7 @@ import 'package:intl/intl.dart';
 import 'package:monuite/helpers/common/constants.dart';
 import 'package:monuite/helpers/common/routes.dart';
 import 'package:monuite/helpers/models/addresses/address_book_nodel.dart';
+import 'package:monuite/l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -218,7 +219,7 @@ class Utility {
                       // Home
                       buildMenuItem(
                         context,
-                        'Home',
+                        AppLocalizations.of(context)!.home,
                         () {
                           Navigator.of(context).pushReplacementNamed(
                             Routes.homeScreen,
@@ -228,7 +229,7 @@ class Utility {
                       // My Orders
                       buildMenuItem(
                         context,
-                        'My Orders',
+                        AppLocalizations.of(context)!.myOrders,
                         () {
                           Navigator.of(context).pushNamed(
                             Routes.ordersScreen,
@@ -238,7 +239,7 @@ class Utility {
                       // Address Book
                       buildMenuItem(
                         context,
-                        'Address Book',
+                        AppLocalizations.of(context)!.addressBook,
                         () {
                           Navigator.of(context).pushNamed(
                             Routes.addressBookScreen,
@@ -248,7 +249,7 @@ class Utility {
                       // Cards
                       buildMenuItem(
                         context,
-                        'Cards',
+                        AppLocalizations.of(context)!.cards,
                         () {
                           Navigator.of(context).pushNamed(
                             Routes.cardsScreen,
@@ -258,7 +259,7 @@ class Utility {
                       // Language
                       buildMenuItem(
                         context,
-                        'Language',
+                        AppLocalizations.of(context)!.language,
                         () {
                           Navigator.of(context).pushNamed(
                             Routes.languageScreen,
@@ -268,7 +269,7 @@ class Utility {
                       // Push Notifications
                       buildMenuItem(
                         context,
-                        'Push Notifications',
+                        AppLocalizations.of(context)!.pushNotifications,
                         () {
                           Navigator.of(context).pushNamed(
                             Routes.pushNotificationScreen,
@@ -278,7 +279,7 @@ class Utility {
                       // Privacy Policy
                       buildMenuItem(
                         context,
-                        'Privacy Policy',
+                        AppLocalizations.of(context)!.privacyPolicy,
                         () {
                           Navigator.of(context).pushNamed(
                             Routes.privacyPolicyScreen,
@@ -288,7 +289,7 @@ class Utility {
                       // About
                       buildMenuItem(
                         context,
-                        'About',
+                        AppLocalizations.of(context)!.about,
                         () {
                           Navigator.of(context).pushNamed(
                             Routes.aboutScreen,
@@ -298,7 +299,7 @@ class Utility {
                       // Version
                       buildMenuItem(
                         context,
-                        'Version',
+                        AppLocalizations.of(context)!.version,
                         () {
                           Navigator.of(context).pushNamed(
                             Routes.versionScreen,
@@ -363,7 +364,7 @@ class Utility {
                   ),
                   child: buildMenuItem(
                     context,
-                    'Logout',
+                    AppLocalizations.of(context)!.logout,
                     () {
                       Navigator.of(context)
                           .pushReplacementNamed(Routes.loginScreen);
@@ -388,14 +389,14 @@ class Utility {
         context: context,
         builder: (ctx) {
           return AlertDialog(
-            title: Text(title ?? 'An error occured'),
+            title: Text(title ?? AppLocalizations.of(context)!.anErrorOccurred),
             content: Text(message),
             actions: [
               TextButton(
                   onPressed: () {
                     Navigator.of(ctx).pop();
                   },
-                  child: Text('Okay'))
+                  child: Text(AppLocalizations.of(context)!.okay))
             ],
           );
         });

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:monuite/helpers/common/routes.dart';
 import 'package:monuite/helpers/common/utility.dart';
+import 'package:monuite/l10n/app_localizations.dart';
 import 'package:monuite/screens/home/cart/widgets/cart_item_widget.dart';
 import 'package:monuite/screens/home/checkout/checkout_screen.dart';
 import 'package:provider/provider.dart';
@@ -75,7 +76,8 @@ class _CartScreenState extends State<CartScreen> {
                                             ),
                                           ),
                                           Text(
-                                            'Cart',
+                                            AppLocalizations.of(context)!
+                                                .cartScreenTitle,
                                             style: TextStyle(
                                               fontSize: 20,
                                               fontWeight: FontWeight.bold,
@@ -106,11 +108,11 @@ class _CartScreenState extends State<CartScreen> {
                                       margin: EdgeInsets.symmetric(
                                         vertical: 10,
                                       ),
-                                      child: provider.cartModel!.address !=
-                                                  null &&
-                                              provider.cartModel!.address != ""
+                                      child: provider.cartModel!.address != null
                                           ? Text(
-                                              'Address: ' +
+                                              AppLocalizations.of(context)!
+                                                      .addressWithColon +
+                                                  ' ' +
                                                   (provider.cartModel!.address!
                                                       .fullAddress),
                                               style: TextStyle(
@@ -132,7 +134,9 @@ class _CartScreenState extends State<CartScreen> {
                                                 width: double.infinity,
                                                 child: Center(
                                                   child: Text(
-                                                    'Add Address',
+                                                    AppLocalizations.of(
+                                                            context)!
+                                                        .addAddress,
                                                     style: TextStyle(
                                                       fontSize: 20,
                                                       fontWeight:
@@ -155,7 +159,9 @@ class _CartScreenState extends State<CartScreen> {
                                     // Cart Items
                                     provider.cartModel!.items.length == 0
                                         ? Center(
-                                            child: Text("cart is empty"),
+                                            child: Text(
+                                                AppLocalizations.of(context)!
+                                                    .cartEmptyMessage),
                                           )
                                         : ListView.builder(
                                             shrinkWrap: true,
@@ -231,7 +237,8 @@ class _CartScreenState extends State<CartScreen> {
                           ],
                         )
                       : Center(
-                          child: Text("cart is empty"),
+                          child: Text(
+                              AppLocalizations.of(context)!.cartEmptyMessage),
                         );
                 },
               ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:monuite/l10n/app_localizations.dart';
 import 'package:monuite/screens/home/categories/widgets/category_card_widget.dart';
 import 'package:provider/provider.dart';
 
@@ -14,7 +15,7 @@ class CategoriesScreen extends StatelessWidget {
       appBar: AppBar(
         title: Center(
           child: Text(
-            'Catgories',
+            AppLocalizations.of(context)!.categoriesScreenTitle,
           ),
         ),
       ),
@@ -30,7 +31,7 @@ class CategoriesScreen extends StatelessWidget {
             ),
             child: Row(mainAxisAlignment: MainAxisAlignment.start, children: [
               Text(
-                "Categories",
+                AppLocalizations.of(context)!.categoriesScreenTitle,
                 style: TextStyle(
                   fontSize: 20,
                 ),
@@ -87,7 +88,8 @@ class CategoriesScreen extends StatelessWidget {
                               // ]),
 
                               : Center(
-                                  child: Text("no categories found"),
+                                  child: Text(AppLocalizations.of(context)!
+                                      .noCategoriesFound),
                                 );
                         },
                       ),
