@@ -49,11 +49,6 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                         Container(
                           child: InkWell(
                             onTap: () {
-                              // Navigator.push(
-                              //   context,
-                              //   MaterialPageRoute(
-                              //       builder: (context) => HomeScreen()),
-                              // );
                               Navigator.of(context).pop();
                             },
                             child: Container(

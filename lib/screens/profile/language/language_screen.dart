@@ -121,7 +121,7 @@ class _LanguageScreenState extends State<LanguageScreen> {
               child: Column(
                 children: [
                   _buildLanguageOption(
-                    CustomIcons.languageIcon,
+                    CustomIcons.englishFlagIcon2x,
                     'English',
                     () {
                       Provider.of<Auth>(context, listen: false).setLocale(
@@ -131,11 +131,31 @@ class _LanguageScreenState extends State<LanguageScreen> {
                     },
                   ),
                   _buildLanguageOption(
-                    CustomIcons.languageIcon,
-                    'German',
+                    CustomIcons.germanyFlagIcon2x,
+                    'Deutsch',
                     () {
                       Provider.of<Auth>(context, listen: false).setLocale(
                         Locale('de'),
+                      );
+                      Navigator.of(context).pop();
+                    },
+                  ),
+                  _buildLanguageOption(
+                    CustomIcons.italyFlagIcon2x,
+                    'Italiano',
+                    () {
+                      Provider.of<Auth>(context, listen: false).setLocale(
+                        Locale('it'),
+                      );
+                      Navigator.of(context).pop();
+                    },
+                  ),
+                  _buildLanguageOption(
+                    CustomIcons.franceFlagIcon2x,
+                    'Français',
+                    () {
+                      Provider.of<Auth>(context, listen: false).setLocale(
+                        Locale('fr'),
                       );
                       Navigator.of(context).pop();
                     },

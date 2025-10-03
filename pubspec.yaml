@@ -83,6 +83,14 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
+    - assets/icons/account-settings/languages/english-flag.png
+    - assets/icons/account-settings/languages/english-flag@2x.png
+    - assets/icons/account-settings/languages/germany-flag-icon.png
+    - assets/icons/account-settings/languages/germany-flag-icon@2x.png
+    - assets/icons/account-settings/languages/france-flag-icon.png
+    - assets/icons/account-settings/languages/france-flag-icon@2x.png
+    - assets/icons/account-settings/languages/italy-flag-icon.png
+    - assets/icons/account-settings/languages/italy-flag-icon@2x.png
     - assets/icons/account-settings/ico-myorders.png
     - assets/icons/account-settings/icon-About.png
     - assets/icons/account-settings/icon-addressbook.png
@@ -104,6 +112,7 @@ flutter:
     - assets/icons/bottom-navbar/wishlist-ico-act.png
     - assets/icons/bottom-navbar/wishlist-ico-dis.png
     - assets/icons/payment-methods/credit_card.png
+    - assets/icons/payment-methods/invoice.png
     - assets/icons/payment-methods/PayPal-logo.png
     - assets/icons/payment-methods/twint-seeklogo.png
 

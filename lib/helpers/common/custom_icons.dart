@@ -1,5 +1,23 @@
 class CustomIcons {
   // Account Settings
+  static const String englishFlagIcon =
+      'assets/icons/account-settings/languages/english-flag.png';
+
+  static const String englishFlagIcon2x =
+      'assets/icons/account-settings/languages/english-flag@2x.png';
+
+  static const String germanyFlagIcon =
+      'assets/icons/account-settings/languages/germany-flag-icon.png';
+  static const String germanyFlagIcon2x =
+      'assets/icons/account-settings/languages/germany-flag-icon@2x.png';
+  static const String italyFlagIcon =
+      'assets/icons/account-settings/languages/italy-flag-icon.png';
+  static const String italyFlagIcon2x =
+      'assets/icons/account-settings/languages/italy-flag-icon@2x.png';
+  static const String franceFlagIcon =
+      'assets/icons/account-settings/languages/france-flag-icon.png';
+  static const String franceFlagIcon2x =
+      'assets/icons/account-settings/languages/france-flag-icon@2x.png';
   static const String myOrdersIcon =
       'assets/icons/account-settings/ico-myorders.png';
   static const String aboutIcon =
@@ -48,10 +66,10 @@ class CustomIcons {
   static const String paymentMethodCreditCard =
       'assets/icons/payment-methods/credit_card.png';
 
-  static const String paymentMethodPayPal =
-      'assets/icons/payment-methods/PayPal-logo.png';
-
   static const String paymentMethodInvoice =
+      'assets/icons/payment-methods/invoice.png';
+
+  static const String paymentMethodPayPal =
       'assets/icons/payment-methods/PayPal-logo.png';
 
   static const String paymentMethodTwint =

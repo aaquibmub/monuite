@@ -13,7 +13,8 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
-  Widget buildItem(String icon, String label, Function()? onTap) {
+  Widget buildItem(String icon, String label, Function()? onTap,
+      {Widget? trailing}) {
     return Container(
       width: double.infinity,
       padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 8.0),
@@ -43,7 +44,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
               style: TextStyle(
                 fontSize: 16,
               ),
-            )
+            ),
+            if (trailing != null) Expanded(child: trailing),
           ],
         ),
       ),
@@ -53,6 +55,33 @@ class _ProfileScreenState extends State<ProfileScreen> {
   @override
   Widget build(BuildContext context) {
     final User? _currentuser = Provider.of<Auth>(context).currentUser;
+
+    String getLanguageIcon() {
+      final langcode = Provider.of<Auth>(context).locale!.languageCode;
+      if (langcode == 'fr') {
+        return CustomIcons.franceFlagIcon;
+      } else if (langcode == 'it') {
+        return CustomIcons.italyFlagIcon;
+      } else if (langcode == 'de') {
+        return CustomIcons.germanyFlagIcon;
+      } else {
+        return CustomIcons.englishFlagIcon;
+      }
+    }
+
+    String getLanguageTitle() {
+      final langcode = Provider.of<Auth>(context).locale!.languageCode;
+      if (langcode == 'de') {
+        return 'Deutsch';
+      } else if (langcode == 'fr') {
+        return 'Français';
+      } else if (langcode == 'it') {
+        return 'Italiano';
+      } else {
+        return 'English';
+      }
+    }
+
     return SingleChildScrollView(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -125,7 +154,28 @@ class _ProfileScreenState extends State<ProfileScreen> {
               CustomIcons.languageIcon, AppLocalizations.of(context)!.language,
               () {
             Navigator.of(context).pushNamed(Routes.languageScreen);
-          }),
+          },
+              trailing: Row(
+                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Container(
+                    child: Image.asset(
+                      getLanguageIcon(),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(16),
+                    child: Text(
+                      getLanguageTitle(),
+                      style: TextStyle(
+                        fontSize: 16,
+                        color: Constants.textColorLight,
+                      ),
+                    ),
+                  )
+                ],
+              )),
           // SETTINGS - Push Notifications
           buildItem(CustomIcons.pushNotificationsIcon,
               AppLocalizations.of(context)!.pushNotifications, () {
