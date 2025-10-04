@@ -13,10 +13,8 @@ class CategoriesScreen extends StatelessWidget {
     var deviceSize = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
-        title: Center(
-          child: Text(
-            AppLocalizations.of(context)!.categoriesScreenTitle,
-          ),
+        title: Text(
+          AppLocalizations.of(context)!.categoriesScreenTitle,
         ),
       ),
       drawer: Utility.buildDrawer(context),

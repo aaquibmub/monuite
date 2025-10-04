@@ -30,22 +30,22 @@ class AppLocalizationsFr extends AppLocalizations {
   String get theme => 'Thema';
 
   @override
-  String get signOut => 'Abmelden';
+  String get signOut => 'Se déconnecter';
 
   @override
-  String get version => 'Versione';
+  String get version => 'Version';
 
   @override
-  String get about => 'Über';
+  String get about => 'À propos';
 
   @override
-  String get privacyPolicy => 'Datenschutz-Bestimmungen';
+  String get privacyPolicy => 'Politique de confidentialité';
 
   @override
-  String get pushNotifications => 'Push-Benachrichtigungen';
+  String get pushNotifications => 'Notifications push';
 
   @override
-  String get cards => 'Karten';
+  String get cards => 'Cartes';
 
   @override
   String get addressBook => 'Adressbuch';

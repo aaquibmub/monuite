@@ -2,6 +2,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:monuite/helpers/common/constants.dart';
+import 'package:monuite/helpers/common/utility.dart';
 import 'package:monuite/helpers/models/cart/cart_item_model.dart';
 import 'package:monuite/helpers/models/products/product_detail_model.dart';
 import 'package:monuite/l10n/app_localizations.dart';
@@ -37,33 +38,12 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
             return Consumer<ProductProvider>(builder: (ctx, provider, _) {
               return Padding(
                 padding: EdgeInsets.symmetric(
-                  vertical: 30,
-                  horizontal: 20,
+                  vertical: 32,
+                  horizontal: 8,
                 ),
                 child: Column(
                   children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        // Back Button
-                        Container(
-                          child: InkWell(
-                            onTap: () {
-                              Navigator.of(context).pop();
-                            },
-                            child: Container(
-                              width: 30,
-                              height: 30,
-                              decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                color: Constants.colorGrey,
-                              ),
-                              child: Icon(Icons.arrow_back),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
+                    Utility.screenHeader(context, ''),
                     Expanded(
                       child: Center(
                           child: Container(

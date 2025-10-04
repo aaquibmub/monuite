@@ -11,10 +11,8 @@ class LandingScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Center(
-          child: Text(
-            AppLocalizations.of(context)!.home,
-          ),
+        title: Text(
+          AppLocalizations.of(context)!.home,
         ),
       ),
       drawer: Utility.buildDrawer(context),
