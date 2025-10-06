@@ -32,8 +32,8 @@ class _CartScreenState extends State<CartScreen> {
             }
             return Container(
               margin: EdgeInsets.symmetric(
-                vertical: 20,
-                horizontal: 10,
+                vertical: 32,
+                horizontal: 8,
               ),
               child: Consumer<CartProvider>(
                 builder: (ctx, provider, _) {

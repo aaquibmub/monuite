@@ -9,7 +9,7 @@ class AppLocalizationsIt extends AppLocalizations {
   AppLocalizationsIt([String locale = 'it']) : super(locale);
 
   @override
-  String get home => 'Casa';
+  String get home => 'Home';
 
   @override
   String get guest => 'Ospite';
@@ -18,7 +18,7 @@ class AppLocalizationsIt extends AppLocalizations {
   String get orders => 'Ordini';
 
   @override
-  String get myOrders => 'I miei ordini';
+  String get myOrders => 'I Miei Ordini';
 
   @override
   String get settings => 'Impostazioni';
@@ -27,290 +27,294 @@ class AppLocalizationsIt extends AppLocalizations {
   String get language => 'Lingua';
 
   @override
-  String get theme => 'Thema';
+  String get theme => 'Tema';
 
   @override
-  String get signOut => 'Abmelden';
+  String get signOut => 'Esci';
 
   @override
   String get version => 'Versione';
 
   @override
-  String get about => 'Über';
+  String get about => 'Info';
 
   @override
-  String get privacyPolicy => 'Datenschutz-Bestimmungen';
+  String get privacyPolicy => 'Privacy Policy';
 
   @override
-  String get pushNotifications => 'Push-Benachrichtigungen';
+  String get pushNotifications => 'Notifiche Push';
 
   @override
-  String get cards => 'Karten';
+  String get cards => 'Carte';
 
   @override
-  String get addressBook => 'Adressbuch';
+  String get addressBook => 'Rubrica indirizzi';
 
   @override
-  String get profile => 'Profil';
+  String get profile => 'Profilo';
 
   @override
-  String get wishlistScreenTitle => 'Wunschzettel';
+  String get wishlistScreenTitle => 'Lista dei desideri';
 
   @override
-  String get cartScreenTitle => 'Warenkorb';
+  String get cartScreenTitle => 'Carrello';
 
   @override
-  String get addressWithColon => 'Adresse:';
+  String get addressWithColon => 'Indirizzo:';
 
   @override
-  String get addAddress => 'Adresse hinzufügen';
+  String get addAddress => 'Aggiungi Indirizzo';
 
   @override
-  String get cartEmptyMessage => 'Ihr Warenkorb ist leer';
+  String get cartEmptyMessage => 'Il tuo carrello è vuoto';
 
   @override
-  String get categoriesScreenTitle => 'Kategorien';
+  String get categoriesScreenTitle => 'Categorie';
 
   @override
-  String get noCategoriesFound => 'Keine Kategorien gefunden';
+  String get noCategoriesFound => 'Categoria trovata';
 
   @override
-  String get checkoutScreenTitle => 'Kasse';
+  String get checkoutScreenTitle => 'Cassa';
 
   @override
-  String get shippingAddress => 'Lieferadresse';
+  String get shippingAddress => 'Indirizzo di spedizione';
 
   @override
-  String get totalWithColon => 'Total:';
+  String get totalWithColon => 'Totale:';
 
   @override
-  String get enterCouponCode => 'Gutscheincode eingeben';
+  String get enterCouponCode => 'ha un coupon?';
 
   @override
-  String get apply => 'Anwenden';
+  String get apply => 'Applica';
 
   @override
-  String get orderSummary => 'Bestellübersicht';
+  String get orderSummary => 'Riepilogo ordine';
 
   @override
-  String get subtotal => 'Zwischensumme';
+  String get subtotal => 'Subtotale';
 
   @override
-  String get items => 'Artikel';
+  String get items => 'oggetti';
 
   @override
-  String get shippingFee => 'Versandkosten';
+  String get shippingFee => 'Costo di spedizione';
 
   @override
-  String get coupon => 'Gutschein';
+  String get coupon => 'Coupon';
 
   @override
-  String get total => 'Gesamt';
+  String get total => 'Totale';
 
   @override
   String get addAddressBeforeCheckout =>
-      'Bitte Adresse hinzufügen, bevor Sie zur Kasse gehen';
+      'Si prega di aggiungere l\'indirizzo prima del checkout';
 
   @override
-  String get confirmAndPay => 'Bestätigen & Bezahlen';
+  String get confirmAndPay => 'Conferma e Paga';
 
   @override
-  String get countryRegion => 'Land/Region';
+  String get countryRegion => 'Paese';
 
   @override
-  String get firstName => 'Vorname';
+  String get firstName => 'Nome';
 
   @override
-  String get firstNameHint => 'Geben Sie den Vornamen ein';
+  String get firstNameHint => 'Digiti il nome di battesimo';
 
   @override
-  String get firstNameRequired => 'Vorname ist erforderlich';
+  String get firstNameRequired => 'Il nome è obbligatorio';
 
   @override
-  String get lastName => 'Nachname';
+  String get lastName => 'Cognome';
 
   @override
-  String get lastNameHint => 'Geben Sie den Nachnamen ein';
+  String get lastNameHint => 'Digiti il cognome';
 
   @override
-  String get lastNameRequired => 'Nachname ist erforderlich';
+  String get lastNameRequired => 'Cognome è richiesto';
 
   @override
-  String get companyName => 'Firmenname';
+  String get companyName => 'Nome Azienda';
 
   @override
-  String get companyNameHint => 'Geben Sie den Firmennamen ein';
+  String get companyNameHint => 'Digiti il nome dell\'azienda';
 
   @override
-  String get companyNameRequired => 'Firmenname ist erforderlich';
+  String get companyNameRequired => 'Il nome della società è obbligatorio';
 
   @override
-  String get phone => 'Telefon';
+  String get phone => 'Telefono';
 
   @override
-  String get phoneHint => 'Geben Sie die Telefonnummer ein';
+  String get phoneHint => 'Digiti il numero di telefono';
 
   @override
-  String get phoneRequired => 'Telefonnummer ist erforderlich';
+  String get phoneRequired => 'Il numero di telefono è obbligatorio';
 
   @override
-  String get address1 => 'Adresse 1';
+  String get address1 => 'Indirizzo 1';
 
   @override
-  String get address1Hint => 'Geben Sie Adresse 1 ein';
+  String get address1Hint => 'Indirizzo di tipo 1';
 
   @override
-  String get address1Required => 'Adresse 1 ist erforderlich';
+  String get address1Required => 'L\'indirizzo 1 è richiesto';
 
   @override
-  String get address2 => 'Adresse 2';
+  String get address2 => 'Indirizzo 2';
 
   @override
-  String get address2Hint => 'Geben Sie Adresse 2 ein';
+  String get address2Hint => 'Indirizzo tipo 2';
 
   @override
-  String get address2Required => 'Adresse 2 ist erforderlich';
+  String get address2Required => 'L\'indirizzo 2 è necessario';
 
   @override
-  String get city => 'Stadt';
+  String get city => 'Città';
 
   @override
-  String get cityHint => 'Geben Sie die Stadt ein';
+  String get cityHint => 'Città tipo';
 
   @override
-  String get cityRequired => 'Stadt ist erforderlich';
+  String get cityRequired => 'Città obbligatoria';
 
   @override
-  String get state => 'Bundesland';
+  String get state => 'Stato';
 
   @override
-  String get stateHint => 'Geben Sie das Bundesland ein';
+  String get stateHint => 'Stato tipo';
 
   @override
-  String get stateRequired => 'Bundesland ist erforderlich';
+  String get stateRequired => 'Compilare il campo Nazione';
 
   @override
-  String get zipCode => 'Postleitzahl';
+  String get zipCode => 'CAP';
 
   @override
-  String get zipCodeHint => 'Geben Sie die Postleitzahl ein';
+  String get zipCodeHint => 'Digiti il codice postale';
 
   @override
-  String get zipCodeRequired => 'Postleitzahl ist erforderlich';
+  String get zipCodeRequired => 'Il codice postale è richiesto';
 
   @override
-  String get email => 'E-Mail';
+  String get email => 'Email';
 
   @override
-  String get emailHint => 'Geben Sie die E-Mail ein';
+  String get emailHint => 'Tipo e-mail';
 
   @override
-  String get emailRequired => 'E-Mail ist erforderlich';
+  String get emailRequired => 'L\'Email è richiesta';
 
   @override
-  String get anErrorOccurred => 'Ein Fehler ist aufgetreten';
+  String get anErrorOccurred => 'Si è verificato un errore';
 
   @override
-  String get okay => 'Okay';
+  String get okay => 'Ok';
 
   @override
-  String get couldNotAddAddress => 'Adresse konnte nicht hinzugefügt werden';
+  String get couldNotAddAddress =>
+      'Impossibile aggiungere l\'indirizzo. La preghiamo di riprovare.';
 
   @override
-  String get addAddressInCapital => 'ADRESSE HINZUFÜGEN';
+  String get addAddressInCapital => 'ADD INDIRIZZO';
 
   @override
-  String get searchTheEntireShop => 'Durchsuchen Sie den gesamten Shop';
+  String get searchTheEntireShop => 'Cerchi nell\'intero negozio';
 
   @override
-  String get categories => 'Kategorien';
+  String get categories => 'Categorie';
 
   @override
-  String get seeAll => 'Alle ansehen';
+  String get seeAll => 'Vedi tutti';
 
   @override
-  String get popularProducts => 'Beliebte Produkte';
+  String get popularProducts => 'Prodotti popolari';
 
   @override
-  String get noProductsFound => 'Keine Produkte gefunden';
+  String get noProductsFound => 'Nessun prodotto trovato';
 
   @override
-  String get unknownError => 'Unbekannter Fehler';
+  String get unknownError => 'Errore Sconosciuto';
 
   @override
-  String get selectPaymentMethod => 'Zahlungsmethode auswählen';
+  String get selectPaymentMethod => 'Seleziona Metodo di Pagamento';
 
   @override
-  String get pay => 'Bezahlen';
+  String get pay => 'Paga';
 
   @override
-  String get products => 'Produkte';
+  String get products => 'Prodotti';
 
   @override
-  String get orderConfirmed => 'Bestellung bestätigt';
+  String get orderConfirmed => 'Ordine Confermato';
 
   @override
-  String get confirmed => 'Bestätigt';
+  String get confirmed => 'Confermato';
 
   @override
   String get thankYouForOrdering =>
-      'Vielen Dank für Ihre Bestellung. Sie erhalten in Kürze eine Bestätigungs-E-Mail.';
+      'Grazie per il suo ordine. Riceverà a breve un\'e-mail di conferma.';
 
   @override
-  String get orderNotFound => 'Bestellung nicht gefunden';
+  String get orderNotFound => 'Ordine non trovato';
 
   @override
-  String get backToHome => 'Zurück zur Startseite';
+  String get backToHome => 'Torna alla Home';
 
   @override
-  String get searchOrders => 'Bestellungen suchen';
+  String get searchOrders => 'Ordini di ricerca.....';
 
   @override
-  String get noOrdersFound => 'Keine Bestellungen gefunden';
+  String get noOrdersFound => 'Nessun ordine trovato';
 
   @override
-  String get noProductFound => 'Kein Produkt gefunden';
+  String get noProductFound => 'Nessun prodotto trovato';
 
   @override
-  String get addToCart => 'In den Warenkorb';
+  String get addToCart => 'Aggiungi al Carrello';
 
   @override
-  String get searchProducts => 'Produkte suchen';
+  String get searchProducts => 'Ricerca prodotti…';
 
   @override
-  String get defaultLabel => 'Standard';
+  String get defaultLabel => 'Predefinito';
 
   @override
-  String get noAddressFound => 'Keine Adressen gefunden';
+  String get noAddressFound => 'Nessun indirizzo trovato';
 
   @override
-  String get setAsDefaultAddress => 'Als Standardadresse festlegen';
+  String get setAsDefaultAddress => 'Impostare come indirizzo predefinito';
 
   @override
   String get couldNotUpdateAddress =>
-      'Adresse konnte nicht aktualisiert werden';
+      'Impossibile aggiornare l\'indirizzo. La preghiamo di riprovare.';
 
   @override
-  String get updateAddressInCapitalLetters => 'ADRESSE AKTUALISIEREN';
+  String get updateAddressInCapitalLetters => 'AGGIORNARE L\'INDIRIZZO';
 
   @override
-  String get updateAddress => 'Adresse aktualisieren';
+  String get updateAddress => 'Aggiorna Indirizzo Utile';
 
   @override
-  String get userProfile => 'Benutzerprofil';
+  String get userProfile => 'Profilo utente';
 
   @override
-  String get name => 'Name';
+  String get name => 'Nome';
 
   @override
-  String get country => 'Land';
+  String get country => 'Nazione';
 
   @override
-  String get logout => 'Abmelden';
+  String get logout => 'Esci';
 
   @override
-  String get cart => 'Warenkorb';
+  String get cart => 'Carrello';
 
   @override
-  String get wishlist => 'Wunschzettel';
+  String get wishlist => 'Lista dei desideri';
+
+  @override
+  String get itemAddedToCart => 'Articolo aggiunto al carrello';
 }

@@ -707,6 +707,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Wishlist'**
   String get wishlist;
+
+  /// Message displayed when an item is added to the cart
+  ///
+  /// In en, this message translates to:
+  /// **'Item added to cart'**
+  String get itemAddedToCart;
 }
 
 class _AppLocalizationsDelegate

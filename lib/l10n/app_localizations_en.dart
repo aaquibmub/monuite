@@ -312,4 +312,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get wishlist => 'Wishlist';
+
+  @override
+  String get itemAddedToCart => 'Item added to cart';
 }

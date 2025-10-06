@@ -10,7 +10,6 @@ import 'package:monuite/providers/cart_provider.dart';
 import 'package:provider/provider.dart';
 
 import '../../providers/product_provider.dart';
-import '../home/tabs_screen.dart';
 import '../loading_screen.dart';
 
 class ProductDetailScreen extends StatefulWidget {
@@ -161,11 +160,15 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                             1,
                           ))
                               .then((value) {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => TabsScreen(2)),
-                            );
+                            // Navigator.push(
+                            //   context,
+                            //   MaterialPageRoute(
+                            //       builder: (context) => TabsScreen(2)),
+                            // );
+                            ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                              content: Text(AppLocalizations.of(context)!
+                                  .itemAddedToCart),
+                            ));
                           });
                         },
                         child: Text(

@@ -1,18 +1,18 @@
 {
     "@@locale": "fr",
-    "home": "Maison",
+    "home": "Accueil",
     "@home": {
         "description": "La tradizionale accoglienza per i programmatori"
     },
-    "guest": "Invité",
+    "guest": "Anonyme",
     "@guest": {
         "description": "Riferimento per un utente non autenticato"
     },
-    "orders": "Ordres",
+    "orders": "Commandes",
     "@orders": {
         "description": "Riferimento alla schermata degli ordini"
     },
-    "myOrders": "Mes ordres",
+    "myOrders": "Mes commandes",
     "@myOrders": {
         "description": "Riferimento alla schermata dei miei ordini"
     },
@@ -20,15 +20,15 @@
     "@settings": {
         "description": "Bezeichnung für den Einstellungsbereich"
     },
-    "language": "Lingua",
-    "@language": {  
+    "language": "Langue",
+    "@language": {
         "description": "Bezeichnung für die Sprachauswahl"
     },
-    "theme": "Thema",
+    "theme": "Thème",
     "@theme": {
         "description": "Bezeichnung für die Themenauswahl"
     },
-    "signOut": "Se déconnecter",
+    "signOut": "Déconnexion",
     "@signOut": {
         "description": "Bezeichnung für die Schaltfläche 'Se déconnecter'"
     },
@@ -52,155 +52,155 @@
     "@cards": {
         "description": "Bezeichnung für den Kartenabschnitt"
     },
-    "addressBook": "Adressbuch",
-    "@addressBook": { 
+    "addressBook": "Mes Adresses",
+    "@addressBook": {
         "description": "Bezeichnung für den Adressbuchabschnitt"
     },
-    "profile": "Profil",
+    "profile": "Options du profil",
     "@profile": {
         "description": "Bezeichnung für den Profilabschnitt"
     },
-    "wishlistScreenTitle": "Wunschzettel",
-    "@wishlistScreenTitle": { 
+    "wishlistScreenTitle": "Liste de souhaits",
+    "@wishlistScreenTitle": {
         "description": "Titel für den Wunschzettelbildschirm"
     },
-    "cartScreenTitle": "Warenkorb",
-    "@cartScreenTitle": { 
+    "cartScreenTitle": "Panier",
+    "@cartScreenTitle": {
         "description": "Titel für den Warenkorbbildschirm"
     },
-    "addressWithColon": "Adresse:",
-    "@addressWithColon": { 
+    "addressWithColon": "Adresse :",
+    "@addressWithColon": {
         "description": "Bezeichnung für Adresse mit Doppelpunkt"
     },
-    "addAddress": "Adresse hinzufügen",
-    "@addAddress": { 
+    "addAddress": "Ajouter une adresse",
+    "@addAddress": {
         "description": "Bezeichnung für die Schaltfläche 'Adresse hinzufügen'"
     },
-    "cartEmptyMessage": "Ihr Warenkorb ist leer",
+    "cartEmptyMessage": "Votre panier est vide",
     "@cartEmptyMessage": {
         "description": "Nachricht, die angezeigt wird, wenn der Warenkorb leer ist"
     },
-    "categoriesScreenTitle": "Kategorien",
-    "@categoriesScreenTitle": { 
+    "categoriesScreenTitle": "Catégorie",
+    "@categoriesScreenTitle": {
         "description": "Titel für den Kategoriescreen"
     },
-    "noCategoriesFound": "Keine Kategorien gefunden",
-    "@noCategoriesFound": { 
+    "noCategoriesFound": "Aucune catégorie trouvée",
+    "@noCategoriesFound": {
         "description": "Nachricht, die angezeigt wird, wenn keine Kategorien gefunden werden"
     },
-    "checkoutScreenTitle": "Kasse",
-    "@checkoutScreenTitle": { 
+    "checkoutScreenTitle": "Commander",
+    "@checkoutScreenTitle": {
         "description": "Titel für den Kassenscreen"
     },
-    "shippingAddress": "Lieferadresse",
-    "@shippingAddress": { 
+    "shippingAddress": "Adresse de livraison",
+    "@shippingAddress": {
         "description": "Bezeichnung für den Abschnitt Lieferadresse"
     },
-    "totalWithColon": "Total:",
+    "totalWithColon": "Total :",
     "@totalWithColon": {
         "description": "Bezeichnung für den Gesamtbetrag mit Doppelpunkt"
     },
-    "enterCouponCode": "Gutscheincode eingeben",
-    "@enterCouponCode": { 
+    "enterCouponCode": "avez-vous un code promo?",
+    "@enterCouponCode": {
         "description": "Platzhaltertext für das Eingabefeld 'Gutscheincode eingeben'"
     },
-    "apply": "Anwenden",
+    "apply": "Appliquer",
     "@apply": {
         "description": "Bezeichnung für die Schaltfläche 'Anwenden'"
     },
-    "orderSummary": "Bestellübersicht",
+    "orderSummary": "Récapitulatif de la commande",
     "@orderSummary": {
         "description": "Titel für den Abschnitt Bestellübersicht"
     },
-    "subtotal": "Zwischensumme",
+    "subtotal": "Sous-total",
     "@subtotal": {
         "description": "Bezeichnung für die Zwischensumme"
     },
-    "items": "Artikel",
-    "@items": { 
+    "items": "articles",
+    "@items": {
         "description": "Bezeichnung für die Anzahl der Artikel"
     },
-    "shippingFee": "Versandkosten",
-    "@shippingFee": { 
+    "shippingFee": "Frais d'expédition",
+    "@shippingFee": {
         "description": "Bezeichnung für die Versandkosten"
     },
-    "coupon": "Gutschein",
-    "@coupon": { 
+    "coupon": "Coupon",
+    "@coupon": {
         "description": "Bezeichnung für den Gutscheinabschnitt"
     },
-    "total": "Gesamt",
-    "@total": { 
+    "total": "Total",
+    "@total": {
         "description": "Bezeichnung für den Gesamtbetrag"
     },
-    "addAddressBeforeCheckout": "Bitte Adresse hinzufügen, bevor Sie zur Kasse gehen",
+    "addAddressBeforeCheckout": "Veuillez ajouter l'adresse avant de passer à la caisse",
     "@addAddressBeforeCheckout": {
         "description": "Nachricht, die angezeigt wird, wenn der Benutzer versucht, ohne Adresse zur Kasse zu gehen"
     },
-    "confirmAndPay": "Bestätigen & Bezahlen",
-    "@confirmAndPay": { 
+    "confirmAndPay": "Confirmer & payer",
+    "@confirmAndPay": {
         "description": "Bezeichnung für die Schaltfläche 'Bestätigen & Bezahlen'"
     },
-    "countryRegion": "Land/Region",
-    "@countryRegion": { 
+    "countryRegion": "Pays/Région",
+    "@countryRegion": {
         "description": "Bezeichnung für das Land/Region-Auswahlfeld"
     },
-    "firstName": "Vorname",
-    "@firstName": { 
+    "firstName": "Prénom",
+    "@firstName": {
         "description": "Bezeichnung für das Vornamensfeld"
     },
-    "firstNameHint": "Geben Sie den Vornamen ein",
-    "@firstNameHint": { 
+    "firstNameHint": "Tapez votre prénom",
+    "@firstNameHint": {
         "description": "Platzhaltertext für das Vornamensfeld"
     },
-    "firstNameRequired": "Vorname ist erforderlich",
-    "@firstNameRequired": { 
+    "firstNameRequired": "Le prénom est requis",
+    "@firstNameRequired": {
         "description": "Fehlermeldung, die angezeigt wird, wenn das Vornamensfeld leer ist"
     },
-    "lastName": "Nachname",
+    "lastName": "Nom de famille",
     "@lastName": {
         "description": "Bezeichnung für das Nachnamefeld"
     },
-    "lastNameHint": "Geben Sie den Nachnamen ein",
+    "lastNameHint": "Tapez votre nom de famille",
     "@lastNameHint": {
         "description": "Platzhaltertext für das Nachnamefeld"
     },
-    "lastNameRequired": "Nachname ist erforderlich",
+    "lastNameRequired": "Le nom de famille est requis",
     "@lastNameRequired": {
         "description": "Fehlermeldung, die angezeigt wird, wenn das Nachnamefeld leer ist"
     },
-    "companyName": "Firmenname",
-    "@companyName": { 
+    "companyName": "Nom de la société",
+    "@companyName": {
         "description": "Bezeichnung für das Firmennamefeld"
     },
-    "companyNameHint": "Geben Sie den Firmennamen ein",
+    "companyNameHint": "Tapez le nom de l'entreprise",
     "@companyNameHint": {
         "description": "Platzhaltertext für das Firmennamefeld"
     },
-    "companyNameRequired": "Firmenname ist erforderlich",
+    "companyNameRequired": "Le nom de l'entreprise est requis",
     "@companyNameRequired": {
         "description": "Fehlermeldung, die angezeigt wird, wenn das Firmennamefeld leer ist"
     },
-    "phone": "Telefon",
-    "@phone": { 
+    "phone": "Téléphone",
+    "@phone": {
         "description": "Bezeichnung für das Telefonfeld"
     },
-    "phoneHint": "Geben Sie die Telefonnummer ein",
-    "@phoneHint": { 
+    "phoneHint": "Tapez votre numéro de téléphone",
+    "@phoneHint": {
         "description": "Platzhaltertext für das Telefonfeld"
     },
-    "phoneRequired": "Telefonnummer ist erforderlich",
+    "phoneRequired": "Numéro de téléphone requis",
     "@phoneRequired": {
         "description": "Fehlermeldung, die angezeigt wird, wenn das Telefonfeld leer ist"
     },
     "address1": "Adresse 1",
-    "@address1": { 
+    "@address1": {
         "description": "Bezeichnung für das Adresszeile 1 Feld"
     },
-    "address1Hint": "Geben Sie Adresse 1 ein",
+    "address1Hint": "Type d'adresse 1",
     "@address1Hint": {
         "description": "Platzhaltertext für das Adresszeile 1 Feld"
     },
-    "address1Required": "Adresse 1 ist erforderlich",
+    "address1Required": "L’adresse 1 est requise",
     "@address1Required": {
         "description": "Fehlermeldung, die angezeigt wird, wenn das Adresszeile 1 Feld leer ist"
     },
@@ -208,200 +208,204 @@
     "@address2": {
         "description": "Bezeichnung für das Adresszeile 2 Feld"
     },
-    "address2Hint": "Geben Sie Adresse 2 ein",
+    "address2Hint": "Tapez l'adresse 2",
     "@address2Hint": {
         "description": "Platzhaltertext für das Adresszeile 2 Feld"
     },
-    "address2Required": "Adresse 2 ist erforderlich",
+    "address2Required": "L'adresse 2 est requise",
     "@address2Required": {
         "description": "Fehlermeldung, die angezeigt wird, wenn das Adresszeile 2 Feld leer ist"
     },
-    "city": "Stadt",
-    "@city": { 
+    "city": "Ville",
+    "@city": {
         "description": "Bezeichnung für das Stadtfeld"
     },
-    "cityHint": "Geben Sie die Stadt ein",
+    "cityHint": "Type ville",
     "@cityHint": {
         "description": "Platzhaltertext für das Stadtfeld"
     },
-    "cityRequired": "Stadt ist erforderlich",
+    "cityRequired": "La ville est obligatoire",
     "@cityRequired": {
         "description": "Fehlermeldung, die angezeigt wird, wenn das Stadtfeld leer ist"
     },
-    "state": "Bundesland",
-    "@state": { 
+    "state": "État",
+    "@state": {
         "description": "Bezeichnung für das Bundesland Feld"
     },
-    "stateHint": "Geben Sie das Bundesland ein",
+    "stateHint": "Type d'état",
     "@stateHint": {
         "description": "Platzhaltertext für das Bundesland Feld"
     },
-    "stateRequired": "Bundesland ist erforderlich",
+    "stateRequired": "La région est obligatoire",
     "@stateRequired": {
         "description": "Fehlermeldung, die angezeigt wird, wenn das Bundesland Feld leer ist"
     },
-    "zipCode": "Postleitzahl",
-    "@zipCode": { 
+    "zipCode": "Code postal",
+    "@zipCode": {
         "description": "Bezeichnung für das Postleitzahl Feld"
     },
-    "zipCodeHint": "Geben Sie die Postleitzahl ein",
+    "zipCodeHint": "Saisissez le code postal",
     "@zipCodeHint": {
         "description": "Platzhaltertext für das Postleitzahl Feld"
     },
-    "zipCodeRequired": "Postleitzahl ist erforderlich",
+    "zipCodeRequired": "Code postal requis",
     "@zipCodeRequired": {
         "description": "Fehlermeldung, die angezeigt wird, wenn das Postleitzahl Feld leer ist"
     },
-    "email": "E-Mail",
-    "@email": { 
+    "email": "Email",
+    "@email": {
         "description": "Bezeichnung für das E-Mail Feld"
     },
-    "emailHint": "Geben Sie die E-Mail ein",
+    "emailHint": "Type d'email",
     "@emailHint": {
         "description": "Platzhaltertext für das E-Mail Feld"
     },
-    "emailRequired": "E-Mail ist erforderlich",
+    "emailRequired": "Une adresse est requise",
     "@emailRequired": {
         "description": "Fehlermeldung, die angezeigt wird, wenn das E-Mail Feld leer ist"
     },
-    "anErrorOccurred": "Ein Fehler ist aufgetreten",
+    "anErrorOccurred": "Une erreur est survenue",
     "@anErrorOccurred": {
         "description": "Fehlermeldung, die angezeigt wird, wenn ein unerwarteter Fehler auftritt"
     },
-    "okay": "Okay",
+    "okay": "Ok",
     "@okay": {
         "description": "Bezeichnung für die Schaltfläche 'Okay' in einem Dialog"
     },
-    "couldNotAddAddress": "Adresse konnte nicht hinzugefügt werden",
+    "couldNotAddAddress": "Impossible d'ajouter une adresse. Veuillez réessayer.",
     "@couldNotAddAddress": {
         "description": "Fehlermeldung, die angezeigt wird, wenn das Hinzufügen einer Adresse fehlschlägt"
     },
-    "addAddressInCapital": "ADRESSE HINZUFÜGEN",
+    "addAddressInCapital": "ADD ADDRESS",
     "@addAddressInCapital": {
         "description": "Bezeichnung für die Schaltfläche 'ADRESSE HINZUFÜGEN' in Großbuchstaben"
     },
-    "searchTheEntireShop": "Durchsuchen Sie den gesamten Shop",
+    "searchTheEntireShop": "Rechercher dans l'ensemble de la boutique",
     "@searchTheEntireShop": {
         "description": "Platzhaltertext für die globale Suchschaltfläche"
     },
-    "categories": "Kategorien",
-    "@categories": { 
+    "categories": "Catégorie",
+    "@categories": {
         "description": "Bezeichnung für den Kategorienabschnitt"
     },
-    "seeAll": "Alle ansehen",
-    "@seeAll": { 
+    "seeAll": "Tout afficher",
+    "@seeAll": {
         "description": "Bezeichnung für die Schaltfläche 'Alle ansehen'"
     },
-    "popularProducts": "Beliebte Produkte",
-    "@popularProducts": { 
+    "popularProducts": "Produits Populaires",
+    "@popularProducts": {
         "description": "Bezeichnung für den Abschnitt 'Beliebte Produkte'"
     },
-    "noProductsFound": "Keine Produkte gefunden",
-    "@noProductsFound": { 
+    "noProductsFound": "Aucun produit trouvé",
+    "@noProductsFound": {
         "description": "Nachricht, die angezeigt wird, wenn keine Produkte gefunden werden"
     },
-    "unknownError": "Unbekannter Fehler",
+    "unknownError": "Erreur inconnue",
     "@unknownError": {
         "description": "Nachricht, die angezeigt wird, wenn ein unbekannter Fehler auftritt"
     },
-    "selectPaymentMethod": "Zahlungsmethode auswählen",
-    "@selectPaymentMethod": { 
+    "selectPaymentMethod": "Sélectionnez un moyen de paiement",
+    "@selectPaymentMethod": {
         "description": "Bezeichnung für die Auswahl der Zahlungsmethode"
     },
-    "pay": "Bezahlen",
-    "@pay": { 
+    "pay": "Payer",
+    "@pay": {
         "description": "Bezeichnung für die Schaltfläche 'Bezahlen'"
     },
-    "products": "Produkte",
+    "products": "Produits",
     "@products": {
         "description": "Bezeichnung für den Produkte Abschnitt"
     },
-    "orderConfirmed": "Bestellung bestätigt",
-    "@orderConfirmed": { 
+    "orderConfirmed": "Commande confirmée",
+    "@orderConfirmed": {
         "description": "Titel für den Bildschirm 'Bestellung bestätigt'"
     },
-    "confirmed": "Bestätigt",
-    "@confirmed": { 
+    "confirmed": "Confirmée",
+    "@confirmed": {
         "description": "Bezeichnung, die anzeigt, dass die Bestellung bestätigt wurde"
     },
-    "thankYouForOrdering": "Vielen Dank für Ihre Bestellung. Sie erhalten in Kürze eine Bestätigungs-E-Mail.",
-    "@thankYouForOrdering": { 
+    "thankYouForOrdering": "Nous vous remercions pour votre commande. Vous recevrez un courriel de confirmation dans les plus brefs délais.",
+    "@thankYouForOrdering": {
         "description": "Nachricht, die dem Benutzer nach der Bestellung angezeigt wird"
     },
-    "orderNotFound": "Bestellung nicht gefunden",
+    "orderNotFound": "Commande introuvable",
     "@orderNotFound": {
         "description": "Nachricht, die angezeigt wird, wenn die Bestellung nicht gefunden wird"
     },
-    "backToHome": "Zurück zur Startseite",
-    "@backToHome": { 
+    "backToHome": "Retour à l'accueil",
+    "@backToHome": {
         "description": "Bezeichnung für die Schaltfläche 'Zurück zur Startseite'"
     },
-    "searchOrders": "Bestellungen suchen",
-    "@searchOrders": { 
+    "searchOrders": "Rechercher des commandes...",
+    "@searchOrders": {
         "description": "Platzhaltertext für das Suchfeld 'Bestellungen suchen'"
     },
-    "noOrdersFound": "Keine Bestellungen gefunden",
-    "@noOrdersFound": { 
+    "noOrdersFound": "Pas de commandes trouvées",
+    "@noOrdersFound": {
         "description": "Nachricht, die angezeigt wird, wenn keine Bestellungen gefunden werden"
     },
-    "noProductFound": "Kein Produkt gefunden",
-    "@noProductFound": { 
+    "noProductFound": "Aucun produit trouvé",
+    "@noProductFound": {
         "description": "Nachricht, die angezeigt wird, wenn kein Produkt gefunden wird"
     },
-    "addToCart": "In den Warenkorb",
-    "@addToCart": { 
+    "addToCart": "Ajouter au panier",
+    "@addToCart": {
         "description": "Bezeichnung für die Schaltfläche 'In den Warenkorb'"
     },
-    "searchProducts": "Produkte suchen",
-    "@searchProducts": { 
+    "searchProducts": "Recherche de produits...",
+    "@searchProducts": {
         "description": "Platzhaltertext für das Suchfeld 'Produkte suchen'"
     },
-    "defaultLabel": "Standard",
-    "@defaultLabel": { 
+    "defaultLabel": "Défaut",
+    "@defaultLabel": {
         "description": "Bezeichnung für das Standardetikett"
     },
-    "noAddressFound": "Keine Adressen gefunden",
-    "@noAddressFound": { 
+    "noAddressFound": "Aucune adresse trouvée",
+    "@noAddressFound": {
         "description": "Nachricht, die angezeigt wird, wenn keine Adressen im Adressbuch gefunden werden"
     },
-    "setAsDefaultAddress": "Als Standardadresse festlegen",
-    "@setAsDefaultAddress": { 
+    "setAsDefaultAddress": "Définir comme adresse par défaut",
+    "@setAsDefaultAddress": {
         "description": "Bezeichnung für die Option 'Als Standardadresse festlegen'"
     },
-    "couldNotUpdateAddress": "Adresse konnte nicht aktualisiert werden",
-    "@couldNotUpdateAddress": { 
+    "couldNotUpdateAddress": "Impossible de mettre à jour l'adresse. Veuillez réessayer.",
+    "@couldNotUpdateAddress": {
         "description": "Fehlermeldung, die angezeigt wird, wenn das Aktualisieren einer Adresse fehlschlägt"
     },
-    "updateAddressInCapitalLetters": "ADRESSE AKTUALISIEREN",
-    "@updateAddressInCapitalLetters": { 
+    "updateAddressInCapitalLetters": "METTRE À JOUR L'ADRESSE",
+    "@updateAddressInCapitalLetters": {
         "description": "Bezeichnung für die Schaltfläche 'ADRESSE AKTUALISIEREN' in Großbuchstaben"
     },
-    "updateAddress": "Adresse aktualisieren",
-    "@updateAddress": { 
+    "updateAddress": "Mettre à jour l'adresse",
+    "@updateAddress": {
         "description": "Titel für den Bildschirm 'Adresse aktualisieren'"
     },
-    "userProfile": "Benutzerprofil",
-    "@userProfile": { 
+    "userProfile": "Profil de l'utilisateur",
+    "@userProfile": {
         "description": "Titel für den Bildschirm 'Benutzerprofil'"
     },
-    "name": "Name",
-    "@name": { 
+    "name": "Nom",
+    "@name": {
         "description": "Bezeichnung für das Namensfeld"
     },
-    "country": "Land",
-    "@country": { 
+    "country": "Pays",
+    "@country": {
         "description": "Bezeichnung für das Land Feld"
     },
-    "logout": "Abmelden",
-    "@logout": { 
+    "logout": "Deconnexion",
+    "@logout": {
         "description": "Bezeichnung für die Schaltfläche 'Abmelden'"
     },
-    "cart": "Warenkorb",
-    "@cart": { 
+    "cart": "Panier",
+    "@cart": {
         "description": "Bezeichnung für den Warenkorb Abschnitt"
     },
-    "wishlist": "Wunschzettel",
-    "@wishlist": { 
+    "wishlist": "Liste de souhaits",
+    "@wishlist": {
         "description": "Bezeichnung für den Wunschzettel Abschnitt"
+    },
+    "itemAddedToCart": "Article ajouté au panier",
+    "@itemAddedToCart": {
+        "description": "Message affiché lorsqu'un article est ajouté au panier"
     }
 }

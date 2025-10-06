@@ -9,28 +9,28 @@ class AppLocalizationsFr extends AppLocalizations {
   AppLocalizationsFr([String locale = 'fr']) : super(locale);
 
   @override
-  String get home => 'Maison';
+  String get home => 'Accueil';
 
   @override
-  String get guest => 'Invité';
+  String get guest => 'Anonyme';
 
   @override
-  String get orders => 'Ordres';
+  String get orders => 'Commandes';
 
   @override
-  String get myOrders => 'Mes ordres';
+  String get myOrders => 'Mes commandes';
 
   @override
   String get settings => 'Paramètres';
 
   @override
-  String get language => 'Lingua';
+  String get language => 'Langue';
 
   @override
-  String get theme => 'Thema';
+  String get theme => 'Thème';
 
   @override
-  String get signOut => 'Se déconnecter';
+  String get signOut => 'Déconnexion';
 
   @override
   String get version => 'Version';
@@ -48,269 +48,274 @@ class AppLocalizationsFr extends AppLocalizations {
   String get cards => 'Cartes';
 
   @override
-  String get addressBook => 'Adressbuch';
+  String get addressBook => 'Mes Adresses';
 
   @override
-  String get profile => 'Profil';
+  String get profile => 'Options du profil';
 
   @override
-  String get wishlistScreenTitle => 'Wunschzettel';
+  String get wishlistScreenTitle => 'Liste de souhaits';
 
   @override
-  String get cartScreenTitle => 'Warenkorb';
+  String get cartScreenTitle => 'Panier';
 
   @override
-  String get addressWithColon => 'Adresse:';
+  String get addressWithColon => 'Adresse :';
 
   @override
-  String get addAddress => 'Adresse hinzufügen';
+  String get addAddress => 'Ajouter une adresse';
 
   @override
-  String get cartEmptyMessage => 'Ihr Warenkorb ist leer';
+  String get cartEmptyMessage => 'Votre panier est vide';
 
   @override
-  String get categoriesScreenTitle => 'Kategorien';
+  String get categoriesScreenTitle => 'Catégorie';
 
   @override
-  String get noCategoriesFound => 'Keine Kategorien gefunden';
+  String get noCategoriesFound => 'Aucune catégorie trouvée';
 
   @override
-  String get checkoutScreenTitle => 'Kasse';
+  String get checkoutScreenTitle => 'Commander';
 
   @override
-  String get shippingAddress => 'Lieferadresse';
+  String get shippingAddress => 'Adresse de livraison';
 
   @override
-  String get totalWithColon => 'Total:';
+  String get totalWithColon => 'Total :';
 
   @override
-  String get enterCouponCode => 'Gutscheincode eingeben';
+  String get enterCouponCode => 'avez-vous un code promo?';
 
   @override
-  String get apply => 'Anwenden';
+  String get apply => 'Appliquer';
 
   @override
-  String get orderSummary => 'Bestellübersicht';
+  String get orderSummary => 'Récapitulatif de la commande';
 
   @override
-  String get subtotal => 'Zwischensumme';
+  String get subtotal => 'Sous-total';
 
   @override
-  String get items => 'Artikel';
+  String get items => 'articles';
 
   @override
-  String get shippingFee => 'Versandkosten';
+  String get shippingFee => 'Frais d\'expédition';
 
   @override
-  String get coupon => 'Gutschein';
+  String get coupon => 'Coupon';
 
   @override
-  String get total => 'Gesamt';
+  String get total => 'Total';
 
   @override
   String get addAddressBeforeCheckout =>
-      'Bitte Adresse hinzufügen, bevor Sie zur Kasse gehen';
+      'Veuillez ajouter l\'adresse avant de passer à la caisse';
 
   @override
-  String get confirmAndPay => 'Bestätigen & Bezahlen';
+  String get confirmAndPay => 'Confirmer & payer';
 
   @override
-  String get countryRegion => 'Land/Region';
+  String get countryRegion => 'Pays/Région';
 
   @override
-  String get firstName => 'Vorname';
+  String get firstName => 'Prénom';
 
   @override
-  String get firstNameHint => 'Geben Sie den Vornamen ein';
+  String get firstNameHint => 'Tapez votre prénom';
 
   @override
-  String get firstNameRequired => 'Vorname ist erforderlich';
+  String get firstNameRequired => 'Le prénom est requis';
 
   @override
-  String get lastName => 'Nachname';
+  String get lastName => 'Nom de famille';
 
   @override
-  String get lastNameHint => 'Geben Sie den Nachnamen ein';
+  String get lastNameHint => 'Tapez votre nom de famille';
 
   @override
-  String get lastNameRequired => 'Nachname ist erforderlich';
+  String get lastNameRequired => 'Le nom de famille est requis';
 
   @override
-  String get companyName => 'Firmenname';
+  String get companyName => 'Nom de la société';
 
   @override
-  String get companyNameHint => 'Geben Sie den Firmennamen ein';
+  String get companyNameHint => 'Tapez le nom de l\'entreprise';
 
   @override
-  String get companyNameRequired => 'Firmenname ist erforderlich';
+  String get companyNameRequired => 'Le nom de l\'entreprise est requis';
 
   @override
-  String get phone => 'Telefon';
+  String get phone => 'Téléphone';
 
   @override
-  String get phoneHint => 'Geben Sie die Telefonnummer ein';
+  String get phoneHint => 'Tapez votre numéro de téléphone';
 
   @override
-  String get phoneRequired => 'Telefonnummer ist erforderlich';
+  String get phoneRequired => 'Numéro de téléphone requis';
 
   @override
   String get address1 => 'Adresse 1';
 
   @override
-  String get address1Hint => 'Geben Sie Adresse 1 ein';
+  String get address1Hint => 'Type d\'adresse 1';
 
   @override
-  String get address1Required => 'Adresse 1 ist erforderlich';
+  String get address1Required => 'L’adresse 1 est requise';
 
   @override
   String get address2 => 'Adresse 2';
 
   @override
-  String get address2Hint => 'Geben Sie Adresse 2 ein';
+  String get address2Hint => 'Tapez l\'adresse 2';
 
   @override
-  String get address2Required => 'Adresse 2 ist erforderlich';
+  String get address2Required => 'L\'adresse 2 est requise';
 
   @override
-  String get city => 'Stadt';
+  String get city => 'Ville';
 
   @override
-  String get cityHint => 'Geben Sie die Stadt ein';
+  String get cityHint => 'Type ville';
 
   @override
-  String get cityRequired => 'Stadt ist erforderlich';
+  String get cityRequired => 'La ville est obligatoire';
 
   @override
-  String get state => 'Bundesland';
+  String get state => 'État';
 
   @override
-  String get stateHint => 'Geben Sie das Bundesland ein';
+  String get stateHint => 'Type d\'état';
 
   @override
-  String get stateRequired => 'Bundesland ist erforderlich';
+  String get stateRequired => 'La région est obligatoire';
 
   @override
-  String get zipCode => 'Postleitzahl';
+  String get zipCode => 'Code postal';
 
   @override
-  String get zipCodeHint => 'Geben Sie die Postleitzahl ein';
+  String get zipCodeHint => 'Saisissez le code postal';
 
   @override
-  String get zipCodeRequired => 'Postleitzahl ist erforderlich';
+  String get zipCodeRequired => 'Code postal requis';
 
   @override
-  String get email => 'E-Mail';
+  String get email => 'Email';
 
   @override
-  String get emailHint => 'Geben Sie die E-Mail ein';
+  String get emailHint => 'Type d\'email';
 
   @override
-  String get emailRequired => 'E-Mail ist erforderlich';
+  String get emailRequired => 'Une adresse est requise';
 
   @override
-  String get anErrorOccurred => 'Ein Fehler ist aufgetreten';
+  String get anErrorOccurred => 'Une erreur est survenue';
 
   @override
-  String get okay => 'Okay';
+  String get okay => 'Ok';
 
   @override
-  String get couldNotAddAddress => 'Adresse konnte nicht hinzugefügt werden';
+  String get couldNotAddAddress =>
+      'Impossible d\'ajouter une adresse. Veuillez réessayer.';
 
   @override
-  String get addAddressInCapital => 'ADRESSE HINZUFÜGEN';
+  String get addAddressInCapital => 'ADD ADDRESS';
 
   @override
-  String get searchTheEntireShop => 'Durchsuchen Sie den gesamten Shop';
+  String get searchTheEntireShop =>
+      'Rechercher dans l\'ensemble de la boutique';
 
   @override
-  String get categories => 'Kategorien';
+  String get categories => 'Catégorie';
 
   @override
-  String get seeAll => 'Alle ansehen';
+  String get seeAll => 'Tout afficher';
 
   @override
-  String get popularProducts => 'Beliebte Produkte';
+  String get popularProducts => 'Produits Populaires';
 
   @override
-  String get noProductsFound => 'Keine Produkte gefunden';
+  String get noProductsFound => 'Aucun produit trouvé';
 
   @override
-  String get unknownError => 'Unbekannter Fehler';
+  String get unknownError => 'Erreur inconnue';
 
   @override
-  String get selectPaymentMethod => 'Zahlungsmethode auswählen';
+  String get selectPaymentMethod => 'Sélectionnez un moyen de paiement';
 
   @override
-  String get pay => 'Bezahlen';
+  String get pay => 'Payer';
 
   @override
-  String get products => 'Produkte';
+  String get products => 'Produits';
 
   @override
-  String get orderConfirmed => 'Bestellung bestätigt';
+  String get orderConfirmed => 'Commande confirmée';
 
   @override
-  String get confirmed => 'Bestätigt';
+  String get confirmed => 'Confirmée';
 
   @override
   String get thankYouForOrdering =>
-      'Vielen Dank für Ihre Bestellung. Sie erhalten in Kürze eine Bestätigungs-E-Mail.';
+      'Nous vous remercions pour votre commande. Vous recevrez un courriel de confirmation dans les plus brefs délais.';
 
   @override
-  String get orderNotFound => 'Bestellung nicht gefunden';
+  String get orderNotFound => 'Commande introuvable';
 
   @override
-  String get backToHome => 'Zurück zur Startseite';
+  String get backToHome => 'Retour à l\'accueil';
 
   @override
-  String get searchOrders => 'Bestellungen suchen';
+  String get searchOrders => 'Rechercher des commandes...';
 
   @override
-  String get noOrdersFound => 'Keine Bestellungen gefunden';
+  String get noOrdersFound => 'Pas de commandes trouvées';
 
   @override
-  String get noProductFound => 'Kein Produkt gefunden';
+  String get noProductFound => 'Aucun produit trouvé';
 
   @override
-  String get addToCart => 'In den Warenkorb';
+  String get addToCart => 'Ajouter au panier';
 
   @override
-  String get searchProducts => 'Produkte suchen';
+  String get searchProducts => 'Recherche de produits...';
 
   @override
-  String get defaultLabel => 'Standard';
+  String get defaultLabel => 'Défaut';
 
   @override
-  String get noAddressFound => 'Keine Adressen gefunden';
+  String get noAddressFound => 'Aucune adresse trouvée';
 
   @override
-  String get setAsDefaultAddress => 'Als Standardadresse festlegen';
+  String get setAsDefaultAddress => 'Définir comme adresse par défaut';
 
   @override
   String get couldNotUpdateAddress =>
-      'Adresse konnte nicht aktualisiert werden';
+      'Impossible de mettre à jour l\'adresse. Veuillez réessayer.';
 
   @override
-  String get updateAddressInCapitalLetters => 'ADRESSE AKTUALISIEREN';
+  String get updateAddressInCapitalLetters => 'METTRE À JOUR L\'ADRESSE';
 
   @override
-  String get updateAddress => 'Adresse aktualisieren';
+  String get updateAddress => 'Mettre à jour l\'adresse';
 
   @override
-  String get userProfile => 'Benutzerprofil';
+  String get userProfile => 'Profil de l\'utilisateur';
 
   @override
-  String get name => 'Name';
+  String get name => 'Nom';
 
   @override
-  String get country => 'Land';
+  String get country => 'Pays';
 
   @override
-  String get logout => 'Abmelden';
+  String get logout => 'Deconnexion';
 
   @override
-  String get cart => 'Warenkorb';
+  String get cart => 'Panier';
 
   @override
-  String get wishlist => 'Wunschzettel';
+  String get wishlist => 'Liste de souhaits';
+
+  @override
+  String get itemAddedToCart => 'Article ajouté au panier';
 }

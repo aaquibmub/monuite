@@ -9,7 +9,7 @@ class AppLocalizationsDe extends AppLocalizations {
   AppLocalizationsDe([String locale = 'de']) : super(locale);
 
   @override
-  String get home => 'heim';
+  String get home => 'Startseite';
 
   @override
   String get guest => 'Gast';
@@ -30,7 +30,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get theme => 'Thema';
 
   @override
-  String get signOut => 'Abmelden';
+  String get signOut => 'Ausloggen';
 
   @override
   String get version => 'Ausführung';
@@ -81,16 +81,16 @@ class AppLocalizationsDe extends AppLocalizations {
   String get shippingAddress => 'Lieferadresse';
 
   @override
-  String get totalWithColon => 'Total:';
+  String get totalWithColon => 'Gesamt:';
 
   @override
-  String get enterCouponCode => 'Gutscheincode eingeben';
+  String get enterCouponCode => 'haben Sie einen Coupon?';
 
   @override
-  String get apply => 'Anwenden';
+  String get apply => 'Übernehmen';
 
   @override
-  String get orderSummary => 'Bestellübersicht';
+  String get orderSummary => 'Bestellsumme';
 
   @override
   String get subtotal => 'Zwischensumme';
@@ -99,7 +99,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get items => 'Artikel';
 
   @override
-  String get shippingFee => 'Versandkosten';
+  String get shippingFee => 'Versandgebühren';
 
   @override
   String get coupon => 'Gutschein';
@@ -109,10 +109,10 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get addAddressBeforeCheckout =>
-      'Bitte Adresse hinzufügen, bevor Sie zur Kasse gehen';
+      'Bitte fügen Sie die Adresse vor dem Kauf hinzu';
 
   @override
-  String get confirmAndPay => 'Bestätigen & Bezahlen';
+  String get confirmAndPay => 'Bestätigen & bezahlen';
 
   @override
   String get countryRegion => 'Land/Region';
@@ -121,16 +121,16 @@ class AppLocalizationsDe extends AppLocalizations {
   String get firstName => 'Vorname';
 
   @override
-  String get firstNameHint => 'Geben Sie den Vornamen ein';
+  String get firstNameHint => 'Vornamen eingeben';
 
   @override
-  String get firstNameRequired => 'Vorname ist erforderlich';
+  String get firstNameRequired => 'Vorname erforderlich';
 
   @override
   String get lastName => 'Nachname';
 
   @override
-  String get lastNameHint => 'Geben Sie den Nachnamen ein';
+  String get lastNameHint => 'Nachname eingeben';
 
   @override
   String get lastNameRequired => 'Nachname ist erforderlich';
@@ -300,7 +300,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get userProfile => 'Benutzerprofil';
 
   @override
-  String get name => 'Name';
+  String get name => 'Nachname';
 
   @override
   String get country => 'Land';
@@ -313,4 +313,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get wishlist => 'Wunschzettel';
+
+  @override
+  String get itemAddedToCart => 'Artikel zum Warenkorb hinzugefügt';
 }
