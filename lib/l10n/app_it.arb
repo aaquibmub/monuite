@@ -407,5 +407,13 @@
     "itemAddedToCart": "Articolo aggiunto al carrello",
     "@itemAddedToCart": {
         "description": "Messaggio visualizzato quando un articolo viene aggiunto al carrello"
+    },
+    "login": "Accedi",
+    "@login": {
+        "description": "Bezeichnung für die Schaltfläche 'Anmelden'"
+    },
+    "notifications": "Notifiche",
+    "@notifications": {
+        "description": "Bezeichnung für den Benachrichtigungsabschnitt"
     }
 }

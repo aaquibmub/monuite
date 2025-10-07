@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:monuite/helpers/common/constants.dart';
-import 'package:monuite/helpers/common/routes.dart';
+import 'package:monuite/helpers/common/utility.dart';
 import 'package:monuite/l10n/app_localizations.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 
 class VersionScreen extends StatelessWidget {
   const VersionScreen({Key? key}) : super(key: key);
@@ -14,42 +14,7 @@ class VersionScreen extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           // Header
-          Container(
-            width: double.infinity,
-            padding: EdgeInsets.symmetric(
-              vertical: 32,
-              horizontal: 8,
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Container(
-                  child: InkWell(
-                    onTap: () {
-                      Navigator.of(context).pop(Routes.profileScreen);
-                    },
-                    child: Container(
-                      width: 30,
-                      height: 30,
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: Constants.colorGrey,
-                      ),
-                      child: Icon(Icons.arrow_back),
-                    ),
-                  ),
-                ),
-                Text(
-                  AppLocalizations.of(context)!.version,
-                  style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                Text(''),
-              ],
-            ),
-          ),
+          Utility.screenHeader(context, AppLocalizations.of(context)!.version),
           // Body
           Expanded(
             child: Container(
@@ -59,7 +24,19 @@ class VersionScreen extends StatelessWidget {
                 horizontal: 16,
               ),
               child: Center(
-                child: Text('Version 1.0.0'),
+                child: FutureBuilder<PackageInfo>(
+                  future: PackageInfo.fromPlatform(),
+                  builder: (context, snapshot) {
+                    if (snapshot.hasData) {
+                      final packageInfo = snapshot.data!;
+                      return Text(
+                        'Version: ${packageInfo.version}',
+                        style: const TextStyle(fontSize: 18),
+                      );
+                    }
+                    return const CircularProgressIndicator();
+                  },
+                ),
               ),
             ),
           ),

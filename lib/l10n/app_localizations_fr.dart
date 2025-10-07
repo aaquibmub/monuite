@@ -318,4 +318,10 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get itemAddedToCart => 'Article ajouté au panier';
+
+  @override
+  String get login => 'Connexion';
+
+  @override
+  String get notifications => 'Notifications';
 }

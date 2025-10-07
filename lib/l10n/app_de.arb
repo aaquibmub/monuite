@@ -407,5 +407,13 @@
     "itemAddedToCart": "Artikel zum Warenkorb hinzugefügt",
     "@itemAddedToCart": {
         "description": "Nachricht, die angezeigt wird, wenn ein Artikel zum Warenkorb hinzugefügt wird"
+    },
+    "login": "Anmelden",
+    "@login": {
+        "description": "Bezeichnung für die Schaltfläche 'Anmelden'"
+    },
+    "notifications": "Benachrichtigungen",
+    "@notifications": {
+        "description": "Bezeichnung für den Benachrichtigungsabschnitt"
     }
 }

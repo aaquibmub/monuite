@@ -7,7 +7,6 @@ import 'package:monuite/providers/order_provider.dart';
 import 'package:monuite/providers/product_provider.dart';
 import 'package:monuite/screens/home/home_screen.dart';
 import 'package:monuite/screens/home/profile_screen.dart';
-import 'package:monuite/screens/loading_screen.dart';
 import 'package:monuite/screens/login_screen.dart';
 import 'package:monuite/screens/orders/order_list_screen.dart';
 import 'package:monuite/screens/products/product_list_screen.dart';
@@ -129,19 +128,20 @@ class MyApp extends StatelessWidget {
                   color: Constants.primaryColor,
                 ),
               )),
-          home: authData.isAuth
-              ? HomeScreen()
-              : FutureBuilder(
-                  future: authData.tryAutoLogin(),
-                  builder: (ctx, snapshot) =>
-                      snapshot.connectionState == ConnectionState.waiting
-                          ? LoadingScreen()
-                          : ((snapshot.data != null
-                                  ? (snapshot.data as bool)
-                                  : false)
-                              ? HomeScreen()
-                              : LoginScreen()),
-                ),
+          home: HomeScreen(),
+          // authData.isAuth
+          //     ? HomeScreen()
+          //     : FutureBuilder(
+          //         future: authData.tryAutoLogin(),
+          //         builder: (ctx, snapshot) =>
+          //             snapshot.connectionState == ConnectionState.waiting
+          //                 ? LoadingScreen()
+          //                 : ((snapshot.data != null
+          //                         ? (snapshot.data as bool)
+          //                         : false)
+          //                     ? HomeScreen()
+          //                     : LoginScreen()),
+          //       ),
           routes: {
             Routes.loginScreen: (ctx) => LoginScreen(),
             Routes.registerPrivateScreen: (ctx) => RegisterPrivateScreen(),

@@ -176,34 +176,36 @@ class Utility {
             child: Container(
               width: double.infinity,
               padding: EdgeInsets.all(16),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  // Hello
-                  Container(
-                    child: Text(
-                      'Hello!',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 18,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                  ),
-                  // Name
-                  Container(
-                    child: Text(
-                      (_currentuser != null ? _currentuser.email : ''),
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 18,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
+              child: _currentuser != null
+                  ? Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        // Hello
+                        Container(
+                          child: Text(
+                            'Hello!',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 18,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                        ),
+                        // Name
+                        Container(
+                          child: Text(
+                            _currentuser.userName,
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 18,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                        ),
+                      ],
+                    )
+                  : Text(''),
             ),
           ),
           Expanded(
@@ -226,36 +228,36 @@ class Utility {
                           );
                         },
                       ),
-                      // My Orders
-                      buildMenuItem(
-                        context,
-                        AppLocalizations.of(context)!.myOrders,
-                        () {
-                          Navigator.of(context).pushNamed(
-                            Routes.ordersScreen,
-                          );
-                        },
-                      ),
-                      // Address Book
-                      buildMenuItem(
-                        context,
-                        AppLocalizations.of(context)!.addressBook,
-                        () {
-                          Navigator.of(context).pushNamed(
-                            Routes.addressBookScreen,
-                          );
-                        },
-                      ),
-                      // Cards
-                      buildMenuItem(
-                        context,
-                        AppLocalizations.of(context)!.cards,
-                        () {
-                          Navigator.of(context).pushNamed(
-                            Routes.cardsScreen,
-                          );
-                        },
-                      ),
+                      // // My Orders
+                      // buildMenuItem(
+                      //   context,
+                      //   AppLocalizations.of(context)!.myOrders,
+                      //   () {
+                      //     Navigator.of(context).pushNamed(
+                      //       Routes.ordersScreen,
+                      //     );
+                      //   },
+                      // ),
+                      // // Address Book
+                      // buildMenuItem(
+                      //   context,
+                      //   AppLocalizations.of(context)!.addressBook,
+                      //   () {
+                      //     Navigator.of(context).pushNamed(
+                      //       Routes.addressBookScreen,
+                      //     );
+                      //   },
+                      // ),
+                      // // Cards
+                      // buildMenuItem(
+                      //   context,
+                      //   AppLocalizations.of(context)!.cards,
+                      //   () {
+                      //     Navigator.of(context).pushNamed(
+                      //       Routes.cardsScreen,
+                      //     );
+                      //   },
+                      // ),
                       // Language
                       buildMenuItem(
                         context,
@@ -293,16 +295,6 @@ class Utility {
                         () {
                           Navigator.of(context).pushNamed(
                             Routes.aboutScreen,
-                          );
-                        },
-                      ),
-                      // Version
-                      buildMenuItem(
-                        context,
-                        AppLocalizations.of(context)!.version,
-                        () {
-                          Navigator.of(context).pushNamed(
-                            Routes.versionScreen,
                           );
                         },
                       ),
@@ -358,22 +350,38 @@ class Utility {
                     ],
                   ),
                 ),
+                // Version
+                buildMenuItem(
+                  context,
+                  AppLocalizations.of(context)!.version,
+                  () {
+                    Navigator.of(context).pushNamed(
+                      Routes.versionScreen,
+                    );
+                  },
+                ),
                 Container(
                   margin: EdgeInsets.only(
                     bottom: 16,
                   ),
-                  child: buildMenuItem(
-                    context,
-                    AppLocalizations.of(context)!.logout,
-                    () {
-                      Navigator.of(context)
-                          .pushReplacementNamed(Routes.loginScreen);
-                      Provider.of<Auth>(
-                        context,
-                        listen: false,
-                      ).logout();
-                    },
-                  ),
+                  child: _currentuser != null
+                      ? buildMenuItem(
+                          context,
+                          AppLocalizations.of(context)!.logout,
+                          () {
+                            Navigator.of(context)
+                                .pushReplacementNamed(Routes.loginScreen);
+                            Provider.of<Auth>(
+                              context,
+                              listen: false,
+                            ).logout();
+                          },
+                        )
+                      : buildMenuItem(
+                          context, AppLocalizations.of(context)!.login, () {
+                          Navigator.of(context)
+                              .pushReplacementNamed(Routes.loginScreen);
+                        }),
                 ),
               ],
             ),
@@ -436,7 +444,7 @@ class Utility {
     return Container(
       width: double.infinity,
       padding: EdgeInsets.symmetric(
-        vertical: 32,
+        vertical: 48,
         horizontal: 8,
       ),
       child: Row(

@@ -316,4 +316,10 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get itemAddedToCart => 'Artikel zum Warenkorb hinzugefügt';
+
+  @override
+  String get login => 'Anmelden';
+
+  @override
+  String get notifications => 'Benachrichtigungen';
 }

@@ -7,7 +7,7 @@ import 'package:monuite/screens/loading_screen.dart';
 import 'package:provider/provider.dart';
 
 class ProductListScreen extends StatefulWidget {
-  final String _query;
+  String _query;
 
   ProductListScreen(
     this._query,
@@ -46,16 +46,16 @@ class _ProductListScreenState extends State<ProductListScreen> {
                 suffixIcon: Icon(Icons.search),
               ),
               onChanged: (value) {
-                // setState(() {
-                //   widget._query = value;
-                // });
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => ProductListScreen(
-                            value,
-                          )),
-                );
+                setState(() {
+                  widget._query = value;
+                });
+                // Navigator.pushReplacement(
+                //   context,
+                //   MaterialPageRoute(
+                //       builder: (context) => ProductListScreen(
+                //             value,
+                //           )),
+                // );
               },
             ),
           ),

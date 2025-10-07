@@ -315,4 +315,10 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get itemAddedToCart => 'Item added to cart';
+
+  @override
+  String get login => 'Login';
+
+  @override
+  String get notifications => 'Notifications';
 }

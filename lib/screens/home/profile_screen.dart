@@ -178,7 +178,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               )),
           // SETTINGS - Push Notifications
           buildItem(CustomIcons.pushNotificationsIcon,
-              AppLocalizations.of(context)!.pushNotifications, () {
+              AppLocalizations.of(context)!.notifications, () {
             Navigator.of(context).pushNamed(Routes.pushNotificationScreen);
           }),
           // SETTINGS - Privacy Policy

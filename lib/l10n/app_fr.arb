@@ -407,5 +407,13 @@
     "itemAddedToCart": "Article ajouté au panier",
     "@itemAddedToCart": {
         "description": "Message affiché lorsqu'un article est ajouté au panier"
+    },
+    "login": "Connexion",
+    "@login": {
+        "description": "Bezeichnung für die Schaltfläche 'Anmelden'"
+    },
+    "notifications": "Notifications",
+    "@notifications": {
+        "description": "Bezeichnung für den Benachrichtigungsabschnitt"
     }
 }

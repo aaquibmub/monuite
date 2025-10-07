@@ -407,5 +407,13 @@
   "itemAddedToCart": "Item added to cart",
   "@itemAddedToCart": {
     "description": "Message displayed when an item is added to the cart"
+  },
+  "login": "Login",
+  "@login": {
+    "description": "Label for login button"
+  },
+  "notifications": "Notifications",
+  "@notifications": {
+    "description": "Label for notifications section"
   }
 }

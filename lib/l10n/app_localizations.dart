@@ -713,6 +713,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Item added to cart'**
   String get itemAddedToCart;
+
+  /// Label for login button
+  ///
+  /// In en, this message translates to:
+  /// **'Login'**
+  String get login;
+
+  /// Label for notifications section
+  ///
+  /// In en, this message translates to:
+  /// **'Notifications'**
+  String get notifications;
 }
 
 class _AppLocalizationsDelegate
