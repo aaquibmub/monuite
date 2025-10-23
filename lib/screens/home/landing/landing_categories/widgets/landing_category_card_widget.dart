@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import 'package:flutter/material.dart';
@@ -51,8 +52,12 @@ class LandingCategoryCardWidget extends StatelessWidget {
                             _catgory.imageUrl!,
                             fit: BoxFit.fill,
                           )
-                        : Image.network(
-                            _catgory.imageUrl!,
+                        : CachedNetworkImage(
+                            imageUrl: _catgory.imageUrl!,
+                            progressIndicatorBuilder:
+                                (context, url, progress) =>
+                                    CircularProgressIndicator(
+                                        value: progress.progress),
                             fit: BoxFit.fill,
                           ))
                     : Text('N/A'),

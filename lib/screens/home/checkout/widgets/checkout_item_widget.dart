@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:monuite/helpers/common/utility.dart';
@@ -38,8 +39,12 @@ class CheckoutItemWidget extends StatelessWidget {
                               height: 150,
                               width: 150,
                             )
-                          : Image.network(
-                              _model.imageUrl!,
+                          : CachedNetworkImage(
+                              imageUrl: _model.imageUrl!,
+                              progressIndicatorBuilder:
+                                  (context, url, progress) =>
+                                      CircularProgressIndicator(
+                                          value: progress.progress),
                               fit: BoxFit.fill,
                               height: 150,
                               width: 200,

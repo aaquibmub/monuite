@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:monuite/helpers/models/orders/order_list_model.dart';
 
@@ -44,8 +45,12 @@ class OrderListCardWidget extends StatelessWidget {
               children: [
                 ...order.items
                     .map((item) => item.imageUrl != null
-                        ? Image.network(
-                            item.imageUrl!,
+                        ? CachedNetworkImage(
+                            imageUrl: item.imageUrl!,
+                            progressIndicatorBuilder:
+                                (context, url, progress) =>
+                                    CircularProgressIndicator(
+                                        value: progress.progress),
                             width: 50,
                             height: 50,
                             fit: BoxFit.cover,

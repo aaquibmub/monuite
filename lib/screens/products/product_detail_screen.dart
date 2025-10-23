@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -62,34 +63,40 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                                             options: CarouselOptions(
                                               height: 500,
                                             ),
-                                            items: provider.productDetail!
-                                                        .imageUrls !=
-                                                    null
-                                                ? provider
-                                                    .productDetail!.imageUrls!
-                                                    .map((i) {
-                                                    return Builder(
-                                                      builder: (BuildContext
-                                                          context) {
-                                                        return i != null
-                                                            ? (i.endsWith(
-                                                                    '.svg')
-                                                                ? SvgPicture
-                                                                    .network(
-                                                                    i,
-                                                                    fit: BoxFit
-                                                                        .fill,
-                                                                  )
-                                                                : Image.network(
-                                                                    i,
-                                                                    fit: BoxFit
-                                                                        .fill,
-                                                                  ))
-                                                            : Text('N/A');
-                                                      },
-                                                    );
-                                                  }).toList()
-                                                : [],
+                                            items:
+                                                provider.productDetail!
+                                                            .imageUrls !=
+                                                        null
+                                                    ? provider.productDetail!
+                                                        .imageUrls!
+                                                        .map((i) {
+                                                        return Builder(
+                                                          builder: (BuildContext
+                                                              context) {
+                                                            return i != null
+                                                                ? (i.endsWith(
+                                                                        '.svg')
+                                                                    ? SvgPicture
+                                                                        .network(
+                                                                        i,
+                                                                        fit: BoxFit
+                                                                            .fill,
+                                                                      )
+                                                                    : CachedNetworkImage(
+                                                                        imageUrl:
+                                                                            i,
+                                                                        progressIndicatorBuilder: (context,
+                                                                                url,
+                                                                                progress) =>
+                                                                            CircularProgressIndicator(value: progress.progress),
+                                                                        fit: BoxFit
+                                                                            .fill,
+                                                                      ))
+                                                                : Text('N/A');
+                                                          },
+                                                        );
+                                                      }).toList()
+                                                    : [],
                                           ),
                                           // Name
                                           Container(

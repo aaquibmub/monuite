@@ -191,12 +191,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
               () {
             Navigator.of(context).pushNamed(Routes.aboutScreen);
           }),
-          // SETTINGS - Version
-          buildItem(
-              CustomIcons.VersionIcon, AppLocalizations.of(context)!.version,
-              () {
-            Navigator.of(context).pushNamed(Routes.versionScreen);
-          }),
+          // // SETTINGS - Version
+          // buildItem(
+          //     CustomIcons.VersionIcon, AppLocalizations.of(context)!.version,
+          //     () {
+          //   Navigator.of(context).pushNamed(Routes.versionScreen);
+          // }),
           // SETTINGS - Sign out
           buildItem(
               CustomIcons.signOutIcon, AppLocalizations.of(context)!.signOut,

@@ -84,13 +84,12 @@ class _CartScreenState extends State<CartScreen> {
                                             ),
                                           ),
                                           Container(
+                                            width: 30,
+                                            height: 30,
                                             decoration: BoxDecoration(
                                               color: Colors.white54,
                                               borderRadius:
                                                   BorderRadius.circular(50),
-                                            ),
-                                            margin: EdgeInsets.only(
-                                              right: 10,
                                             ),
                                             child: IconButton(
                                               icon: Icon(Icons.clear),
