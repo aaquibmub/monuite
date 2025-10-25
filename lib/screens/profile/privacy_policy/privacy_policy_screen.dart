@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:monuite/helpers/common/utility.dart';
 import 'package:monuite/l10n/app_localizations.dart';
 
 class PrivacyPolicyScreen extends StatelessWidget {
@@ -8,13 +7,15 @@ class PrivacyPolicyScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          AppLocalizations.of(context)!.privacyPolicy,
+        ),
+      ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Header
-          Utility.screenHeader(
-              context, AppLocalizations.of(context)!.privacyPolicy),
           // Body
           Expanded(
             child: Container(

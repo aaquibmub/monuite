@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:monuite/helpers/common/utility.dart';
 import 'package:monuite/helpers/models/user.dart';
 import 'package:monuite/l10n/app_localizations.dart';
 import 'package:monuite/providers/auth.dart';
@@ -33,13 +32,15 @@ class UserProfileScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final User? _currentuser = Provider.of<Auth>(context).currentUser;
     return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          AppLocalizations.of(context)!.userProfile,
+        ),
+      ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Header
-          Utility.screenHeader(
-              context, AppLocalizations.of(context)!.userProfile),
           // Body
           Expanded(
             child: Container(

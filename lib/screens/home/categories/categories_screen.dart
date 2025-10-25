@@ -22,20 +22,20 @@ class CategoriesScreen extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Container(
-            margin: EdgeInsets.symmetric(
-              vertical: 20,
-              horizontal: 10,
-            ),
-            child: Row(mainAxisAlignment: MainAxisAlignment.start, children: [
-              Text(
-                AppLocalizations.of(context)!.categoriesScreenTitle,
-                style: TextStyle(
-                  fontSize: 20,
-                ),
-              ),
-            ]),
-          ),
+          // Container(
+          //   margin: EdgeInsets.symmetric(
+          //     vertical: 20,
+          //     horizontal: 10,
+          //   ),
+          //   child: Row(mainAxisAlignment: MainAxisAlignment.start, children: [
+          //     Text(
+          //       AppLocalizations.of(context)!.categoriesScreenTitle,
+          //       style: TextStyle(
+          //         fontSize: 20,
+          //       ),
+          //     ),
+          //   ]),
+          // ),
           Expanded(
             child: SingleChildScrollView(
               child: FutureBuilder(

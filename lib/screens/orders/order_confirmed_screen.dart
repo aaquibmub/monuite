@@ -20,6 +20,11 @@ class _OrderConfirmedScreenState extends State<OrderConfirmedScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          AppLocalizations.of(context)!.orderConfirmed,
+        ),
+      ),
       body: FutureBuilder(
           future: Provider.of<OrderProvider>(context, listen: false)
               .getOrderModel(widget._orderId),
@@ -43,52 +48,6 @@ class _OrderConfirmedScreenState extends State<OrderConfirmedScreen> {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   children: <Widget>[
-                                    // Row(
-                                    //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                    //   children: [
-                                    //     Container(
-                                    //       child: InkWell(
-                                    //         onTap: () {
-                                    //           Navigator.push(
-                                    //             context,
-                                    //             MaterialPageRoute(
-                                    //                 builder: (context) =>
-                                    //                     PaymentScreen()),
-                                    //           );
-                                    //         },
-                                    //         child: Container(
-                                    //           width: 30,
-                                    //           height: 30,
-                                    //           decoration: BoxDecoration(
-                                    //             shape: BoxShape.circle,
-                                    //             color: Constants.colorGrey,
-                                    //           ),
-                                    //           child: Icon(Icons.arrow_back),
-                                    //         ),
-                                    //       ),
-                                    //     ),
-                                    //   ],
-                                    // ),
-                                    // Top Bar
-                                    Container(
-                                      margin: EdgeInsets.symmetric(
-                                        vertical: 10,
-                                      ),
-                                      child: Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          Text(
-                                            AppLocalizations.of(context)!
-                                                .orderConfirmed,
-                                            style: TextStyle(
-                                              fontSize: 20,
-                                              fontWeight: FontWeight.bold,
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
                                     // Confirmation Message
                                     Container(
                                       margin: EdgeInsets.symmetric(

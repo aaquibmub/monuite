@@ -9,7 +9,6 @@ import '../../../providers/cart_provider.dart';
 import '../../../providers/order_provider.dart';
 import '../../loading_screen.dart';
 import '../../orders/order_confirmed_screen.dart';
-import '../checkout/checkout_screen.dart';
 
 class PaymentScreen extends StatefulWidget {
   @override
@@ -94,6 +93,15 @@ class _PaymentScreenState extends State<PaymentScreen> {
     }
 
     return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          AppLocalizations.of(context)!.selectPaymentMethod,
+          style: TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+      ),
       body: FutureBuilder(
           future: Provider.of<CartProvider>(context, listen: false).get(),
           builder: (ctx, data) {
@@ -115,56 +123,6 @@ class _PaymentScreenState extends State<PaymentScreen> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 children: <Widget>[
-                                  SizedBox(height: 16),
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Container(
-                                        child: InkWell(
-                                          onTap: () {
-                                            Navigator.push(
-                                              context,
-                                              MaterialPageRoute(
-                                                  builder: (context) =>
-                                                      CheckoutScreen()),
-                                            );
-                                          },
-                                          child: Container(
-                                            width: 30,
-                                            height: 30,
-                                            decoration: BoxDecoration(
-                                              shape: BoxShape.circle,
-                                              color: Constants.colorGrey,
-                                            ),
-                                            child: Icon(Icons.arrow_back),
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-
-                                  SizedBox(height: 16),
-                                  // Top Bar
-                                  Container(
-                                    margin: EdgeInsets.symmetric(
-                                      vertical: 10,
-                                    ),
-                                    child: Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        Text(
-                                          AppLocalizations.of(context)!
-                                              .selectPaymentMethod,
-                                          style: TextStyle(
-                                            fontSize: 20,
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
                                   // Payment Method List
                                   Expanded(
                                     child: SingleChildScrollView(

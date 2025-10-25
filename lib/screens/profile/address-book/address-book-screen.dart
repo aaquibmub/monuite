@@ -158,6 +158,9 @@ class AddressBookScreen extends StatelessWidget {
     }
 
     return Scaffold(
+        appBar: AppBar(
+          title: Text(AppLocalizations.of(context)!.addressBook),
+        ),
         body: FutureBuilder<List<AddressBookModel>>(
             future: Utility.getAddressBook(),
             builder: (ctx, data) {
@@ -168,9 +171,6 @@ class AddressBookScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  // Header
-                  Utility.screenHeader(
-                      context, AppLocalizations.of(context)!.addressBook),
                   // Body
                   Expanded(
                     child: data.data != null && data.data!.isNotEmpty

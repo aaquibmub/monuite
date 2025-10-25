@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:monuite/helpers/common/constants.dart';
 import 'package:monuite/helpers/common/custom_icons.dart';
-import 'package:monuite/helpers/common/utility.dart';
 import 'package:monuite/l10n/app_localizations.dart';
 import 'package:monuite/providers/auth.dart';
 import 'package:provider/provider.dart';
@@ -69,12 +68,15 @@ class _LanguageScreenState extends State<LanguageScreen> {
     }
 
     return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          AppLocalizations.of(context)!.language,
+        ),
+      ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Header
-          Utility.screenHeader(context, AppLocalizations.of(context)!.language),
           // Body
           Expanded(
             child: Container(

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:monuite/helpers/common/utility.dart';
 import 'package:monuite/l10n/app_localizations.dart';
 
 class PushNotificationScreen extends StatelessWidget {
@@ -8,13 +7,15 @@ class PushNotificationScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          AppLocalizations.of(context)!.notifications,
+        ),
+      ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Header
-          Utility.screenHeader(
-              context, AppLocalizations.of(context)!.notifications),
           // Body
           Expanded(
             child: Container(

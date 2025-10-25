@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:monuite/helpers/common/constants.dart';
-import 'package:monuite/helpers/common/routes.dart';
 import 'package:monuite/l10n/app_localizations.dart';
 import 'package:monuite/providers/order_provider.dart';
 import 'package:monuite/screens/loading_screen.dart';
@@ -25,47 +23,15 @@ class _OrderListScreenState extends State<OrderListScreen> {
     TextEditingController _myController =
         TextEditingController(text: widget._query);
     return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          AppLocalizations.of(context)!.orders,
+        ),
+      ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Header
-          Container(
-            width: double.infinity,
-            padding: EdgeInsets.symmetric(
-              vertical: 32,
-              horizontal: 8,
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Container(
-                  child: InkWell(
-                    onTap: () {
-                      Navigator.of(context).pop(Routes.profileScreen);
-                    },
-                    child: Container(
-                      width: 30,
-                      height: 30,
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: Constants.colorGrey,
-                      ),
-                      child: Icon(Icons.arrow_back),
-                    ),
-                  ),
-                ),
-                Text(
-                  AppLocalizations.of(context)!.orders,
-                  style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                Text(''),
-              ],
-            ),
-          ),
           // Body
           Container(
             width: double.infinity,

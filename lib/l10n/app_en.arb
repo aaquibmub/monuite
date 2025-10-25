@@ -415,5 +415,9 @@
   "notifications": "Notifications",
   "@notifications": {
     "description": "Label for notifications section"
+  },
+  "productDetailScreenTitle": "Product Detail",
+  "@productDetailScreenTitle": {
+    "description": "Title for the product detail screen"
   }
 }

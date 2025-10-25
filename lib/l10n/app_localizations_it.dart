@@ -323,4 +323,7 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get notifications => 'Notifiche';
+
+  @override
+  String get productDetailScreenTitle => 'Dettaglio Prodotto';
 }

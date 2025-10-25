@@ -5,6 +5,7 @@ import 'package:monuite/providers/cart_provider.dart';
 import 'package:monuite/providers/common_provider.dart';
 import 'package:monuite/providers/order_provider.dart';
 import 'package:monuite/providers/product_provider.dart';
+import 'package:monuite/screens/home/cart/cart_screen.dart';
 import 'package:monuite/screens/home/home_screen.dart';
 import 'package:monuite/screens/home/profile_screen.dart';
 import 'package:monuite/screens/login_screen.dart';
@@ -147,6 +148,7 @@ class MyApp extends StatelessWidget {
             Routes.registerPrivateScreen: (ctx) => RegisterPrivateScreen(),
             Routes.registerCorporateScreen: (ctx) => RegisterCorporateScreen(),
             Routes.homeScreen: (ctx) => HomeScreen(),
+            Routes.cartScreen: (ctx) => CartScreen(),
             Routes.ordersScreen: (ctx) => OrderListScreen(''),
             Routes.productsScreen: (ctx) => ProductListScreen(''),
             Routes.profileScreen: (ctx) => ProfileScreen(),

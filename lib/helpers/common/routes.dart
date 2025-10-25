@@ -3,6 +3,7 @@ class Routes {
   static const String registerPrivateScreen = '\register-private';
   static const String registerCorporateScreen = '\register-corporate';
   static const String homeScreen = '\home';
+  static const String cartScreen = '\cart';
   static const String supportScreen = 'support';
   static const String ordersScreen = '\orders';
   static const String productsScreen = '\products';

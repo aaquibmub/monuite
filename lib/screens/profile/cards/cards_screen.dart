@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:monuite/helpers/common/utility.dart';
 import 'package:monuite/l10n/app_localizations.dart';
 
 class CardsScreen extends StatelessWidget {
@@ -8,12 +7,15 @@ class CardsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          AppLocalizations.of(context)!.cards,
+        ),
+      ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Header
-          Utility.screenHeader(context, AppLocalizations.of(context)!.cards),
           // Body
           Expanded(
             child: Container(

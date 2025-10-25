@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:monuite/helpers/common/utility.dart';
 import 'package:monuite/l10n/app_localizations.dart';
-import 'package:monuite/screens/home/cart/cart_screen.dart';
 import 'package:monuite/screens/home/checkout/address/add_new_address_screen.dart';
 import 'package:monuite/screens/home/checkout/widgets/checkout_item_widget.dart';
 import 'package:monuite/screens/home/payment/payment_screen.dart';
@@ -22,6 +21,43 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
     final deviceSize = MediaQuery.of(context).size;
 
     return Scaffold(
+      appBar: AppBar(
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            // Container(
+            //   child: InkWell(
+            //     onTap: () {
+            //       Navigator.push(
+            //         context,
+            //         MaterialPageRoute(builder: (context) => CartScreen()),
+            //       );
+            //     },
+            //     child: Container(
+            //       width: 30,
+            //       height: 30,
+            //       decoration: BoxDecoration(
+            //         shape: BoxShape.circle,
+            //         color: Constants.colorGrey,
+            //       ),
+            //       child: Icon(Icons.arrow_back),
+            //     ),
+            //   ),
+            // ),
+            Text(
+              AppLocalizations.of(context)!.checkoutScreenTitle,
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            Container(
+              width: 30,
+              height: 30,
+            ),
+          ],
+        ),
+      ),
       body: FutureBuilder(
           future: Provider.of<CartProvider>(context, listen: false).get(),
           builder: (ctx, data) {
@@ -40,59 +76,15 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: <Widget>[
-                            SizedBox(height: 16),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Container(
-                                  child: InkWell(
-                                    onTap: () {
-                                      Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) => CartScreen()),
-                                      );
-                                    },
-                                    child: Container(
-                                      width: 30,
-                                      height: 30,
-                                      decoration: BoxDecoration(
-                                        shape: BoxShape.circle,
-                                        color: Constants.colorGrey,
-                                      ),
-                                      child: Icon(Icons.arrow_back),
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                            SizedBox(height: 16),
-                            // Top Bar
-                            Container(
-                              margin: EdgeInsets.symmetric(
-                                vertical: 10,
-                              ),
-                              child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Text(
-                                    AppLocalizations.of(context)!
-                                        .checkoutScreenTitle,
-                                    style: TextStyle(
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
                             // Address
                             Container(
                               margin: EdgeInsets.symmetric(
                                 vertical: 10,
                               ),
-                              child: provider.cartModel!.address != null
+                              child: provider.cartModel!.address != null &&
+                                      provider.cartModel!.address!.fullAddress
+                                              .trim() !=
+                                          ''
                                   ? Container(
                                       padding: EdgeInsets.all(20),
                                       decoration: BoxDecoration(
@@ -154,7 +146,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                                         ),
                                       ),
                                       onTap: () => {
-                                        Navigator.pushReplacement(
+                                        Navigator.push(
                                           context,
                                           MaterialPageRoute(
                                               builder: (context) =>

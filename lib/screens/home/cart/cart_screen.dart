@@ -24,6 +24,65 @@ class _CartScreenState extends State<CartScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
+        title: Container(
+          margin: EdgeInsets.symmetric(
+            vertical: 10,
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              // Back Button
+              Container(
+                child: InkWell(
+                  onTap: () {
+                    Navigator.of(context).pushReplacementNamed(
+                      Routes.homeScreen,
+                    );
+                  },
+                  child: Container(
+                    width: 30,
+                    height: 30,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: Constants.colorGrey,
+                    ),
+                    child: Icon(Icons.home),
+                  ),
+                ),
+              ),
+              Text(
+                AppLocalizations.of(context)!.cartScreenTitle,
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              Container(
+                width: 30,
+                height: 30,
+                decoration: BoxDecoration(
+                  color: Colors.white54,
+                  borderRadius: BorderRadius.circular(50),
+                ),
+                child: IconButton(
+                  icon: Icon(Icons.clear),
+                  // icon: Icon(Icons.more_horiz_rounded),
+                  onPressed: () {
+                    // provider.clear();
+                    Provider.of<CartProvider>(context, listen: false)
+                        .clear()
+                        .then((value) {
+                      _updateState();
+                    });
+                  },
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
       body: FutureBuilder(
           future: Provider.of<CartProvider>(context, listen: false).get(),
           builder: (ctx, data) {
@@ -31,10 +90,6 @@ class _CartScreenState extends State<CartScreen> {
               return LoadingScreen();
             }
             return Container(
-              margin: EdgeInsets.symmetric(
-                vertical: 32,
-                horizontal: 8,
-              ),
               child: Consumer<CartProvider>(
                 builder: (ctx, provider, _) {
                   return provider.cartModel != null
@@ -46,68 +101,17 @@ class _CartScreenState extends State<CartScreen> {
                               child: SingleChildScrollView(
                                 child: Column(
                                   children: [
-                                    // Top Bar
-                                    Container(
-                                      margin: EdgeInsets.symmetric(
-                                        vertical: 10,
-                                      ),
-                                      child: Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          // Back Button
-                                          Container(
-                                            child: InkWell(
-                                              onTap: () {
-                                                Navigator.of(context)
-                                                    .pushReplacementNamed(
-                                                  Routes.homeScreen,
-                                                );
-                                              },
-                                              child: Container(
-                                                width: 30,
-                                                height: 30,
-                                                decoration: BoxDecoration(
-                                                  shape: BoxShape.circle,
-                                                  color: Constants.colorGrey,
-                                                ),
-                                                child: Icon(Icons.home),
-                                              ),
-                                            ),
-                                          ),
-                                          Text(
-                                            AppLocalizations.of(context)!
-                                                .cartScreenTitle,
-                                            style: TextStyle(
-                                              fontSize: 20,
-                                              fontWeight: FontWeight.bold,
-                                            ),
-                                          ),
-                                          Container(
-                                            width: 30,
-                                            height: 30,
-                                            decoration: BoxDecoration(
-                                              color: Colors.white54,
-                                              borderRadius:
-                                                  BorderRadius.circular(50),
-                                            ),
-                                            child: IconButton(
-                                              icon: Icon(Icons.clear),
-                                              // icon: Icon(Icons.more_horiz_rounded),
-                                              onPressed: () {
-                                                provider.clear();
-                                              },
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
                                     // Address
                                     Container(
                                       margin: EdgeInsets.symmetric(
                                         vertical: 10,
                                       ),
-                                      child: provider.cartModel!.address != null
+                                      child: provider.cartModel!.address !=
+                                                  null &&
+                                              provider.cartModel!.address!
+                                                      .fullAddress
+                                                      .trim() !=
+                                                  ''
                                           ? Text(
                                               AppLocalizations.of(context)!
                                                       .addressWithColon +
@@ -145,7 +149,7 @@ class _CartScreenState extends State<CartScreen> {
                                                 ),
                                               ),
                                               onTap: () => {
-                                                Navigator.pushReplacement(
+                                                Navigator.push(
                                                   context,
                                                   MaterialPageRoute(
                                                       builder: (context) =>

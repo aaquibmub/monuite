@@ -415,5 +415,9 @@
     "notifications": "Benachrichtigungen",
     "@notifications": {
         "description": "Bezeichnung für den Benachrichtigungsabschnitt"
+    },
+    "productDetailScreenTitle": "Produktdetails",
+    "@productDetailScreenTitle": {
+        "description": "Titel für den Produktdetailbildschirm"
     }
 }

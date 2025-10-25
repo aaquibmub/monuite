@@ -725,6 +725,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Notifications'**
   String get notifications;
+
+  /// Title for the product detail screen
+  ///
+  /// In en, this message translates to:
+  /// **'Product Detail'**
+  String get productDetailScreenTitle;
 }
 
 class _AppLocalizationsDelegate

@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:monuite/l10n/app_localizations.dart';
+import 'package:monuite/providers/cart_provider.dart';
 import 'package:monuite/screens/home/cart/cart_screen.dart';
 import 'package:monuite/screens/home/categories/categories_screen.dart';
 import 'package:monuite/screens/home/landing/landing_screen.dart';
 import 'package:monuite/screens/home/profile_screen.dart';
 import 'package:monuite/screens/home/wishlist_screen.dart';
+import 'package:provider/provider.dart';
 
 import '../../helpers/common/constants.dart';
 import '../../helpers/common/custom_icons.dart';
@@ -77,9 +79,17 @@ class _TabsScreenState extends State<TabsScreen> {
           ),
           BottomNavigationBarItem(
             // backgroundColor: Theme.of(context).backgroundColor,
-            icon: ImageIcon(
-              AssetImage(CustomIcons.cartIconDisabled),
-            ),
+            icon: Consumer<CartProvider>(builder: (ctx, provider, _) {
+              return Badge.count(
+                // Using Badge.count for a numerical badge
+                count: provider.cartModel != null
+                    ? provider.cartModel!.items.length
+                    : 0,
+                child: ImageIcon(
+                  AssetImage(CustomIcons.cartIconDisabled),
+                ),
+              );
+            }),
             activeIcon: ImageIcon(
               AssetImage(CustomIcons.cartIconActive),
             ),

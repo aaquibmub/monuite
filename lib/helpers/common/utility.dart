@@ -6,6 +6,7 @@ import 'package:monuite/helpers/common/constants.dart';
 import 'package:monuite/helpers/common/routes.dart';
 import 'package:monuite/helpers/models/addresses/address_book_nodel.dart';
 import 'package:monuite/l10n/app_localizations.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -145,6 +146,7 @@ class Utility {
     ) {
       return InkWell(
         child: Container(
+          width: double.infinity,
           padding: EdgeInsets.symmetric(
             vertical: 8,
             horizontal: 16,
@@ -350,17 +352,8 @@ class Utility {
                     ],
                   ),
                 ),
-                // Version
-                buildMenuItem(
-                  context,
-                  AppLocalizations.of(context)!.version,
-                  () {
-                    Navigator.of(context).pushNamed(
-                      Routes.versionScreen,
-                    );
-                  },
-                ),
                 Container(
+                  width: double.infinity,
                   margin: EdgeInsets.only(
                     bottom: 16,
                   ),
@@ -382,6 +375,29 @@ class Utility {
                           Navigator.of(context)
                               .pushReplacementNamed(Routes.loginScreen);
                         }),
+                ),
+                Container(
+                  width: double.infinity,
+                  margin: EdgeInsets.symmetric(
+                    vertical: 10,
+                    horizontal: 16,
+                  ),
+                  child: Center(
+                    child: FutureBuilder<PackageInfo>(
+                      future: PackageInfo.fromPlatform(),
+                      builder: (context, snapshot) {
+                        if (snapshot.hasData) {
+                          final packageInfo = snapshot.data!;
+                          return Text(
+                            'Version: ${packageInfo.version}',
+                            style: const TextStyle(
+                                fontSize: 12, color: Colors.grey),
+                          );
+                        }
+                        return const CircularProgressIndicator();
+                      },
+                    ),
+                  ),
                 ),
               ],
             ),

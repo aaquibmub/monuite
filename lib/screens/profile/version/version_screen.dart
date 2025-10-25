@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:monuite/helpers/common/utility.dart';
 import 'package:monuite/l10n/app_localizations.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 
@@ -9,12 +8,15 @@ class VersionScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          AppLocalizations.of(context)!.version,
+        ),
+      ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Header
-          Utility.screenHeader(context, AppLocalizations.of(context)!.version),
           // Body
           Expanded(
             child: Container(
