@@ -6,7 +6,7 @@ import 'package:monuite/screens/orders/widgets/order_list_card_widget.dart';
 import 'package:provider/provider.dart';
 
 class OrderListScreen extends StatefulWidget {
-  final String _query;
+  String _query;
 
   OrderListScreen(
     this._query,
@@ -20,8 +20,6 @@ class _OrderListScreenState extends State<OrderListScreen> {
   @override
   Widget build(BuildContext context) {
     var deviceSize = MediaQuery.of(context).size;
-    TextEditingController _myController =
-        TextEditingController(text: widget._query);
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -41,23 +39,15 @@ class _OrderListScreenState extends State<OrderListScreen> {
             ),
             child: TextField(
               autofocus: true,
-              controller: _myController,
               decoration: InputDecoration(
                 hintText: AppLocalizations.of(context)!.searchOrders,
                 border: OutlineInputBorder(),
                 suffixIcon: Icon(Icons.search),
               ),
               onChanged: (value) {
-                // setState(() {
-                //   widget._query = value;
-                // });
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => OrderListScreen(
-                            value,
-                          )),
-                );
+                setState(() {
+                  widget._query = value;
+                });
               },
             ),
           ),

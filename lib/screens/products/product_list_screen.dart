@@ -21,15 +21,16 @@ class _ProductListScreenState extends State<ProductListScreen> {
   @override
   Widget build(BuildContext context) {
     var deviceSize = MediaQuery.of(context).size;
-    TextEditingController _myController =
-        TextEditingController(text: widget._query);
     return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          AppLocalizations.of(context)!.products,
+        ),
+      ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Header
-          Utility.screenHeader(context, AppLocalizations.of(context)!.products),
           // Body
           Container(
             width: double.infinity,
@@ -39,7 +40,6 @@ class _ProductListScreenState extends State<ProductListScreen> {
             ),
             child: TextField(
               autofocus: true,
-              controller: _myController,
               decoration: InputDecoration(
                 hintText: AppLocalizations.of(context)!.searchProducts,
                 border: OutlineInputBorder(),

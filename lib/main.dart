@@ -64,10 +64,10 @@ class MyApp extends StatelessWidget {
         ),
         ChangeNotifierProxyProvider<Auth, ProductProvider>(
           update: (ctx, auth, _) {
-            return ProductProvider(auth.token, auth.currentUser);
+            return ProductProvider(auth.token, auth.currentUser, auth.locale);
           },
           create: (ctx) {
-            return ProductProvider(null, null);
+            return ProductProvider(null, null, null);
           },
         ),
       ],

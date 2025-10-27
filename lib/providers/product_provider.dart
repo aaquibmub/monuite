@@ -13,8 +13,9 @@ import '../helpers/models/products/product_list_model.dart';
 class ProductProvider with ChangeNotifier {
   final String? authToken;
   final User? user;
+  final Locale? locale;
 
-  ProductProvider(this.authToken, this.user);
+  ProductProvider(this.authToken, this.user, this.locale);
 
   List<CategoryListModel> _categories = [];
 
@@ -29,9 +30,10 @@ class ProductProvider with ChangeNotifier {
   }
 
   Future<void> populateCategoryList({int? take = 0}) async {
-    var urlString = '${Constants.baseUrl}product/get-categories-list';
+    var urlString =
+        '${Constants.baseUrl}product/get-categories-list?lang=${locale?.languageCode}';
     if (take != null && take > 0) {
-      urlString = '${urlString}?take=$take';
+      urlString = '${urlString}&take=$take';
     }
 
     var url = Uri.parse(urlString);
@@ -79,7 +81,7 @@ class ProductProvider with ChangeNotifier {
 
   Future<void> populatePopularProductList({int take = 0}) async {
     var url = Uri.parse(
-        '${Constants.baseUrl}product/get-popular-product-list?take=${take}');
+        '${Constants.baseUrl}product/get-popular-product-list?take=${take}&lang=${locale?.languageCode}');
     try {
       final response = await http.get(
         url,
@@ -119,8 +121,8 @@ class ProductProvider with ChangeNotifier {
   }
 
   Future<void> populateProductList(String query) async {
-    var url =
-        Uri.parse('${Constants.baseUrl}product/get-product-list?query=$query');
+    var url = Uri.parse(
+        '${Constants.baseUrl}product/get-product-list?query=$query&lang=${locale?.languageCode}');
     try {
       final response = await http.get(
         url,
@@ -161,7 +163,7 @@ class ProductProvider with ChangeNotifier {
   Future<void> populateProductByCategoryList(String categoryId,
       {int take = 0}) async {
     var url = Uri.parse(
-        '${Constants.baseUrl}product/get-product-by-category-list?categoryId=$categoryId&take=${take}');
+        '${Constants.baseUrl}product/get-product-by-category-list?categoryId=$categoryId&take=${take}&lang=${locale?.languageCode}');
     try {
       final response = await http.get(
         url,

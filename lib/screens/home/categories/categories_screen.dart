@@ -46,7 +46,7 @@ class CategoriesScreen extends StatelessWidget {
                       return LoadingScreen();
                     }
                     return Container(
-                      height: deviceSize.height,
+                      height: deviceSize.height - 200,
                       width: deviceSize.width,
                       child: Consumer<ProductProvider>(
                         builder: (ctx, provider, _) {
