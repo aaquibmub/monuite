@@ -17,19 +17,21 @@ class LandingScreen extends StatelessWidget {
       ),
       drawer: Utility.buildDrawer(context),
       body: SingleChildScrollView(
-        child: Container(
-          margin: EdgeInsets.symmetric(
-            vertical: 20,
-            horizontal: 10,
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: <Widget>[
-              LandingGlobalSearchButtonWidget(),
-              LandingCategories(),
-              PopularProducts()
-            ],
+        child: Center(
+          child: Container(
+            margin: EdgeInsets.symmetric(
+              vertical: 20,
+              horizontal: 10,
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: <Widget>[
+                LandingGlobalSearchButtonWidget(),
+                LandingCategories(),
+                PopularProducts()
+              ],
+            ),
           ),
         ),
       ),

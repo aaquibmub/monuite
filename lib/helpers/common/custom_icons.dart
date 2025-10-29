@@ -61,6 +61,11 @@ class CustomIcons {
   static const String wishlistIconDisabled =
       'assets/icons/bottom-navbar/wishlist-ico-dis.png';
 
+  // Others
+
+  static const String othersCartActive2x =
+      'assets/icons/others/cart-active@2x.png';
+
   // Payment Icons
 
   static const String paymentMethodCreditCard =

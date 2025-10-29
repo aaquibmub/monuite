@@ -99,6 +99,15 @@ class OrderProvider with ChangeNotifier {
         return ResponseModel(null, 'Cart is empty', true);
       }
 
+      if (cartModel.items.isEmpty) {
+        return ResponseModel(null, 'Cart is empty', true);
+      }
+
+      if (cartModel.address == null ||
+          cartModel.address!.fullAddress.trim() == '') {
+        return ResponseModel(null, 'Address is required', true);
+      }
+
       var orderModel = OrderModel(
         cartModel.address!,
         cartModel.items
@@ -112,7 +121,7 @@ class OrderProvider with ChangeNotifier {
                   e.quantity,
                 ))
             .toList(),
-        user?.wpId,
+        user?.wpId ?? 0,
         cartModel.shippingCost,
         cartModel.couponDiscount,
         paymentMethod,

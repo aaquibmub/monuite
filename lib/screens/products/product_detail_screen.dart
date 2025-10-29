@@ -54,8 +54,8 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                           ),
                         ),
                         Container(
-                          width: 30,
-                          height: 30,
+                          width: 40,
+                          height: 40,
                           decoration: BoxDecoration(
                             color: Colors.white54,
                             borderRadius: BorderRadius.circular(50),
@@ -68,8 +68,9 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                                   ? provider.cartModel!.items.length
                                   : 0,
                               child: IconButton(
+                                padding: EdgeInsets.zero,
                                 icon: ImageIcon(
-                                  AssetImage(CustomIcons.cartIconActive),
+                                  AssetImage(CustomIcons.othersCartActive2x),
                                 ),
 
                                 // icon: Icon(Icons.more_horiz_rounded),
