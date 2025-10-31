@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:monuite/helpers/common/utility.dart';
 import 'package:monuite/l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 
@@ -405,6 +406,9 @@ class _AddNewAddressFormState extends State<AddNewAddressForm> {
               validatorFn: (value) {
                 if (value!.isEmpty) {
                   return AppLocalizations.of(context)!.emailRequired;
+                }
+                if (Utility.validateEmail(value) == false) {
+                  return AppLocalizations.of(context)!.emailInvalid;
                 }
                 return null;
               },

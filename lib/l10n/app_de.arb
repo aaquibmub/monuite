@@ -419,5 +419,9 @@
     "productDetailScreenTitle": "Produktdetails",
     "@productDetailScreenTitle": {
         "description": "Titel für den Produktdetailbildschirm"
+    },
+    "emailInvalid": "Bitte geben Sie eine gültige E-Mail-Adresse ein",
+    "@emailInvalid": {
+        "description": "Validierungsnachricht, die angezeigt wird, wenn das E-Mail-Format ungültig ist"
     }
 }

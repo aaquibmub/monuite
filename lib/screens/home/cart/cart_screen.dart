@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:monuite/helpers/common/routes.dart';
 import 'package:monuite/helpers/common/utility.dart';
+import 'package:monuite/helpers/models/addresses/address_model.dart';
 import 'package:monuite/l10n/app_localizations.dart';
 import 'package:monuite/screens/home/cart/widgets/cart_item_widget.dart';
+import 'package:monuite/screens/home/checkout/address/edit_address_screen.dart';
 import 'package:monuite/screens/home/checkout/checkout_screen.dart';
 import 'package:provider/provider.dart';
 
@@ -112,18 +114,194 @@ class _CartScreenState extends State<CartScreen> {
                                                       .fullAddress
                                                       .trim() !=
                                                   ''
-                                          ? Text(
-                                              AppLocalizations.of(context)!
-                                                      .addressWithColon +
-                                                  ' ' +
-                                                  (provider.cartModel!.address!
-                                                      .fullAddress),
-                                              style: TextStyle(
-                                                fontSize: 20,
-                                                fontWeight: FontWeight.bold,
-                                                color: Colors.black,
+                                          ? Container(
+                                              width: double.infinity,
+                                              height: 140,
+                                              decoration: BoxDecoration(
+                                                border: Border.all(
+                                                  width: 1,
+                                                  color: Color.fromRGBO(
+                                                      0, 0, 0, 0.2),
+                                                ),
+                                                borderRadius:
+                                                    BorderRadius.circular(8),
+                                              ),
+                                              margin: EdgeInsets.symmetric(
+                                                vertical: 10,
+                                                horizontal: 16,
+                                              ),
+                                              child: Column(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.start,
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                children: [
+                                                  Container(
+                                                    padding:
+                                                        EdgeInsets.symmetric(
+                                                      vertical: 42,
+                                                    ),
+                                                    child: Row(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .spaceBetween,
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .center,
+                                                      children: [
+                                                        // Address
+                                                        Expanded(
+                                                          child: Column(
+                                                            mainAxisAlignment:
+                                                                MainAxisAlignment
+                                                                    .start,
+                                                            crossAxisAlignment:
+                                                                CrossAxisAlignment
+                                                                    .start,
+                                                            children: [
+                                                              Container(
+                                                                padding: EdgeInsets
+                                                                    .symmetric(
+                                                                  horizontal:
+                                                                      16,
+                                                                ),
+                                                                child: Text(
+                                                                  provider
+                                                                          .cartModel!
+                                                                          .address!
+                                                                          .city +
+                                                                      ', ' +
+                                                                      provider
+                                                                          .cartModel!
+                                                                          .address!
+                                                                          .state +
+                                                                      ', ' +
+                                                                      provider
+                                                                          .cartModel!
+                                                                          .address!
+                                                                          .country,
+                                                                  style:
+                                                                      TextStyle(
+                                                                    fontSize:
+                                                                        16,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .bold,
+                                                                  ),
+                                                                ),
+                                                              ),
+                                                              // Address 1 + Address 2
+                                                              Container(
+                                                                padding: EdgeInsets
+                                                                    .symmetric(
+                                                                  horizontal:
+                                                                      16,
+                                                                ),
+                                                                child: Text(
+                                                                  provider
+                                                                          .cartModel!
+                                                                          .address!
+                                                                          .address_1 +
+                                                                      ' ' +
+                                                                      provider
+                                                                          .cartModel!
+                                                                          .address!
+                                                                          .address_2,
+                                                                  style:
+                                                                      TextStyle(
+                                                                    fontSize:
+                                                                        12,
+                                                                  ),
+                                                                ),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        ),
+                                                        // Edit Button
+                                                        Container(
+                                                          padding: EdgeInsets
+                                                              .symmetric(
+                                                            horizontal: 16,
+                                                          ),
+                                                          child: InkWell(
+                                                            onTap: () {
+                                                              // Navigate to Edit Address Screen
+                                                              Navigator.push(
+                                                                context,
+                                                                MaterialPageRoute(
+                                                                  builder: (context) =>
+                                                                      EditAddressScreen(
+                                                                          AddressModel(
+                                                                    provider
+                                                                        .cartModel!
+                                                                        .address!
+                                                                        .country,
+                                                                    provider
+                                                                        .cartModel!
+                                                                        .address!
+                                                                        .first_name,
+                                                                    provider
+                                                                        .cartModel!
+                                                                        .address!
+                                                                        .last_name,
+                                                                    provider
+                                                                        .cartModel!
+                                                                        .address!
+                                                                        .company,
+                                                                    provider
+                                                                        .cartModel!
+                                                                        .address!
+                                                                        .address_1,
+                                                                    provider
+                                                                        .cartModel!
+                                                                        .address!
+                                                                        .address_2,
+                                                                    provider
+                                                                        .cartModel!
+                                                                        .address!
+                                                                        .city,
+                                                                    provider
+                                                                        .cartModel!
+                                                                        .address!
+                                                                        .state,
+                                                                    provider
+                                                                        .cartModel!
+                                                                        .address!
+                                                                        .postcode,
+                                                                    provider
+                                                                        .cartModel!
+                                                                        .address!
+                                                                        .phone,
+                                                                    provider
+                                                                        .cartModel!
+                                                                        .address!
+                                                                        .email
+                                                                  )),
+                                                                ),
+                                                              );
+                                                            },
+                                                            child: Icon(
+                                                                Icons.edit),
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                ],
                                               ),
                                             )
+                                          //  Text(
+                                          //                                         AppLocalizations.of(context)!
+                                          //                                                 .addressWithColon +
+                                          //                                             ' ' +
+                                          //                                             (provider.cartModel!.address!
+                                          //                                                 .fullAddress),
+                                          //                                         style: TextStyle(
+                                          //                                           fontSize: 20,
+                                          //                                           fontWeight: FontWeight.bold,
+                                          //                                           color: Colors.black,
+                                          //                                         ),
+                                          //                                       )
                                           : InkWell(
                                               child: Container(
                                                 decoration: BoxDecoration(

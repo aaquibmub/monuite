@@ -6,6 +6,7 @@ import 'package:monuite/screens/home/categories/categories_screen.dart';
 import 'package:monuite/screens/home/landing/landing_screen.dart';
 import 'package:monuite/screens/home/profile_screen.dart';
 import 'package:monuite/screens/home/wishlist_screen.dart';
+import 'package:monuite/screens/loading_screen.dart';
 import 'package:provider/provider.dart';
 
 import '../../helpers/common/constants.dart';
@@ -79,17 +80,24 @@ class _TabsScreenState extends State<TabsScreen> {
           ),
           BottomNavigationBarItem(
             // backgroundColor: Theme.of(context).backgroundColor,
-            icon: Consumer<CartProvider>(builder: (ctx, provider, _) {
-              return Badge.count(
-                // Using Badge.count for a numerical badge
-                count: provider.cartModel != null
-                    ? provider.cartModel!.items.length
-                    : 0,
-                child: ImageIcon(
-                  AssetImage(CustomIcons.cartIconDisabled),
-                ),
-              );
-            }),
+            icon: FutureBuilder(
+                future: Provider.of<CartProvider>(context, listen: false).get(),
+                builder: (ctx, data) {
+                  if (data.connectionState == ConnectionState.waiting) {
+                    return LoadingScreen();
+                  }
+                  return Consumer<CartProvider>(builder: (ctx, provider, _) {
+                    return Badge.count(
+                      // Using Badge.count for a numerical badge
+                      count: provider.cartModel != null
+                          ? provider.cartModel!.items.length
+                          : 0,
+                      child: ImageIcon(
+                        AssetImage(CustomIcons.cartIconDisabled),
+                      ),
+                    );
+                  });
+                }),
             activeIcon: ImageIcon(
               AssetImage(CustomIcons.cartIconActive),
             ),

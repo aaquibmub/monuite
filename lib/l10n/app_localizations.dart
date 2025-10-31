@@ -731,6 +731,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Product Detail'**
   String get productDetailScreenTitle;
+
+  /// Validation message when email format is invalid
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter a valid email address'**
+  String get emailInvalid;
 }
 
 class _AppLocalizationsDelegate

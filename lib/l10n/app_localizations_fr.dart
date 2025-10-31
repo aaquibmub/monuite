@@ -327,4 +327,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get productDetailScreenTitle => 'Détail du produit';
+
+  @override
+  String get emailInvalid => 'Veuillez entrer une adresse e-mail valide';
 }

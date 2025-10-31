@@ -419,5 +419,9 @@
   "productDetailScreenTitle": "Product Detail",
   "@productDetailScreenTitle": {
     "description": "Title for the product detail screen"
+  },
+  "emailInvalid": "Please enter a valid email address",
+  "@emailInvalid": {
+    "description": "Validation message when email format is invalid"
   }
 }

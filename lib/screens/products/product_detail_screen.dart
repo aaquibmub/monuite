@@ -60,27 +60,38 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                             color: Colors.white54,
                             borderRadius: BorderRadius.circular(50),
                           ),
-                          child: Consumer<CartProvider>(
-                              builder: (ctx, provider, _) {
-                            return Badge.count(
-                              // Using Badge.count for a numerical badge
-                              count: provider.cartModel != null
-                                  ? provider.cartModel!.items.length
-                                  : 0,
-                              child: IconButton(
-                                padding: EdgeInsets.zero,
-                                icon: ImageIcon(
-                                  AssetImage(CustomIcons.othersCartActive2x),
-                                ),
+                          child: FutureBuilder(
+                              future: Provider.of<CartProvider>(context,
+                                      listen: false)
+                                  .get(),
+                              builder: (ctx, data) {
+                                if (data.connectionState ==
+                                    ConnectionState.waiting) {
+                                  return LoadingScreen();
+                                }
+                                return Consumer<CartProvider>(
+                                    builder: (ctx, provider, _) {
+                                  return Badge.count(
+                                    // Using Badge.count for a numerical badge
+                                    count: provider.cartModel != null
+                                        ? provider.cartModel!.items.length
+                                        : 0,
+                                    child: IconButton(
+                                      padding: EdgeInsets.zero,
+                                      icon: ImageIcon(
+                                        AssetImage(
+                                            CustomIcons.othersCartActive2x),
+                                      ),
 
-                                // icon: Icon(Icons.more_horiz_rounded),
-                                onPressed: () {
-                                  Navigator.pushNamed(
-                                      context, Routes.cartScreen);
-                                },
-                              ),
-                            );
-                          }),
+                                      // icon: Icon(Icons.more_horiz_rounded),
+                                      onPressed: () {
+                                        Navigator.pushNamed(
+                                            context, Routes.cartScreen);
+                                      },
+                                    ),
+                                  );
+                                });
+                              }),
                         ),
                       ],
                     ),

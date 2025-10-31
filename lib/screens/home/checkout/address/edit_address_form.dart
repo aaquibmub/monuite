@@ -1,18 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:monuite/helpers/common/utility.dart';
-import 'package:monuite/helpers/models/addresses/address_book_nodel.dart';
+import 'package:monuite/helpers/models/addresses/address_model.dart';
 import 'package:monuite/helpers/models/common/dropdown_item.dart';
 import 'package:monuite/l10n/app_localizations.dart';
 import 'package:monuite/providers/common_provider.dart';
 import 'package:monuite/widgets/form/form_text_field.dart';
 import 'package:provider/provider.dart';
 
-class EditAddressBookEntryForm extends StatefulWidget {
+class EditAddressForm extends StatefulWidget {
   final GlobalKey<FormState> formKey;
-
-  final void Function(
-    bool isDefault,
-  ) setIsDefaultFn;
 
   final void Function(
     String country,
@@ -63,11 +59,10 @@ class EditAddressBookEntryForm extends StatefulWidget {
   ) submitFormFn;
   final BuildContext parentContext;
 
-  final AddressBookModel addressBookModel;
+  final AddressModel addressModel;
 
-  EditAddressBookEntryForm(
+  EditAddressForm(
     this.formKey,
-    this.setIsDefaultFn,
     this.setCountryFn,
     this.setFirstNameFn,
     this.setLastNameFn,
@@ -80,16 +75,15 @@ class EditAddressBookEntryForm extends StatefulWidget {
     this.setZipCodeFn,
     this.setEmailFn,
     this.submitFormFn,
-    this.addressBookModel,
+    this.addressModel,
     this.parentContext,
   );
 
   @override
-  State<EditAddressBookEntryForm> createState() =>
-      _EditAddressBookEntryFormState();
+  State<EditAddressForm> createState() => _EditAddressFormState();
 }
 
-class _EditAddressBookEntryFormState extends State<EditAddressBookEntryForm> {
+class _EditAddressFormState extends State<EditAddressForm> {
   // final _passwordFocusNode = FocusNode();
   DropdownItem<String>? _selectedCountry;
 
@@ -130,50 +124,43 @@ class _EditAddressBookEntryFormState extends State<EditAddressBookEntryForm> {
 
   @override
   Widget build(BuildContext context) {
-    // _selectedCountry = DropdownItem(
-    //   widget.addressBookModel.address.country,
-    //   widget.addressBookModel.address.country,
-    // );
-    bool isDefault = widget.addressBookModel.isDefault;
-    widget.setIsDefaultFn(isDefault);
-
-    String firstName = widget.addressBookModel.address.first_name;
+    String firstName = widget.addressModel.first_name;
     _firstNameController.text = firstName;
     widget.setFirstNameFn(firstName);
 
-    String lastName = widget.addressBookModel.address.last_name;
+    String lastName = widget.addressModel.last_name;
     _lastNameController.text = lastName;
     widget.setLastNameFn(lastName);
 
-    String company = widget.addressBookModel.address.company;
+    String company = widget.addressModel.company;
     _companyNameController.text = company;
     widget.setCompanyNameFn(company);
 
-    String phone = widget.addressBookModel.address.phone;
+    String phone = widget.addressModel.phone;
     _phoneController.text = phone;
     widget.setPhoneFn(phone);
 
-    String address1 = widget.addressBookModel.address.address_1;
+    String address1 = widget.addressModel.address_1;
     _address1Controller.text = address1;
     widget.setAddress1Fn(address1);
 
-    String address2 = widget.addressBookModel.address.address_2;
+    String address2 = widget.addressModel.address_2;
     _address2Controller.text = address2;
     widget.setAddress2Fn(address2);
 
-    String city = widget.addressBookModel.address.city;
+    String city = widget.addressModel.city;
     _cityController.text = city;
     widget.setCityFn(city);
 
-    String zipCode = widget.addressBookModel.address.postcode;
+    String zipCode = widget.addressModel.postcode;
     _zipCodeController.text = zipCode;
     widget.setZipCodeFn(zipCode);
 
-    String state = widget.addressBookModel.address.state;
+    String state = widget.addressModel.state;
     _stateController.text = state;
     widget.setStateFn(state);
 
-    String email = widget.addressBookModel.address.email;
+    String email = widget.addressModel.email;
     _emailController.text = email;
     widget.setEmailFn(email);
 
@@ -192,21 +179,6 @@ class _EditAddressBookEntryFormState extends State<EditAddressBookEntryForm> {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            // Is Default Checkbox
-            CheckboxListTile(
-              contentPadding: EdgeInsets.all(0),
-              title: Text(AppLocalizations.of(context)!.setAsDefaultAddress),
-              value: widget.addressBookModel.isDefault,
-              onChanged: (bool? value) {
-                setState(() {
-                  widget.setIsDefaultFn(value ?? false);
-                });
-              },
-              controlAffinity: ListTileControlAffinity.leading,
-            ),
-            SizedBox(
-              height: 30,
-            ),
             // Country/Region
             Text(
               AppLocalizations.of(context)!.countryRegion,

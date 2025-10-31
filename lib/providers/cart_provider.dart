@@ -215,4 +215,41 @@ class CartProvider with ChangeNotifier {
       throw error;
     }
   }
+
+  Future<AddressModel?> getAddress() async {
+    try {
+      final prefs = await SharedPreferences.getInstance();
+      final cartModelStr = prefs.getString('cartModel');
+      if (cartModelStr == null || cartModelStr.isEmpty) {
+        return null;
+      }
+      _cartModel = CartModel.fromJson(json.decode(cartModelStr));
+      notifyListeners();
+      return _cartModel!.address;
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  Future<void> updateAddress(AddressModel address) async {
+    try {
+      final prefs = await SharedPreferences.getInstance();
+      final cartModelStr = prefs.getString('cartModel');
+      if (cartModelStr == null || cartModelStr.isEmpty) {
+        final List<AddressBookModel> addressBook =
+            await Utility.getAddressBook();
+        final defaultAddress = addressBook.isEmpty
+            ? null
+            : addressBook.where((element) => element.isDefault).first.address;
+        _cartModel = CartModel(defaultAddress, [], 0, 0);
+      }
+      _cartModel!.address = address;
+      final cartModelJson = _cartModel!.toJson();
+      final userData = json.encode(cartModelJson);
+      prefs.setString('cartModel', userData);
+      notifyListeners();
+    } catch (error) {
+      throw error;
+    }
+  }
 }
