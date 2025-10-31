@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:monuite/helpers/common/custom_icons.dart';
 import 'package:monuite/helpers/common/routes.dart';
 import 'package:monuite/helpers/common/utility.dart';
 import 'package:monuite/helpers/models/addresses/address_model.dart';
@@ -62,14 +63,14 @@ class _CartScreenState extends State<CartScreen> {
                 ),
               ),
               Container(
-                width: 30,
-                height: 30,
+                width: 50,
+                height: 50,
                 decoration: BoxDecoration(
                   color: Colors.white54,
                   borderRadius: BorderRadius.circular(50),
                 ),
                 child: IconButton(
-                  icon: Icon(Icons.clear),
+                  icon: ImageIcon(AssetImage(CustomIcons.othersCartRemove2x)),
                   // icon: Icon(Icons.more_horiz_rounded),
                   onPressed: () {
                     // provider.clear();
@@ -229,54 +230,51 @@ class _CartScreenState extends State<CartScreen> {
                                                               Navigator.push(
                                                                 context,
                                                                 MaterialPageRoute(
-                                                                  builder: (context) =>
-                                                                      EditAddressScreen(
-                                                                          AddressModel(
-                                                                    provider
-                                                                        .cartModel!
-                                                                        .address!
-                                                                        .country,
-                                                                    provider
-                                                                        .cartModel!
-                                                                        .address!
-                                                                        .first_name,
-                                                                    provider
-                                                                        .cartModel!
-                                                                        .address!
-                                                                        .last_name,
-                                                                    provider
-                                                                        .cartModel!
-                                                                        .address!
-                                                                        .company,
-                                                                    provider
-                                                                        .cartModel!
-                                                                        .address!
-                                                                        .address_1,
-                                                                    provider
-                                                                        .cartModel!
-                                                                        .address!
-                                                                        .address_2,
-                                                                    provider
-                                                                        .cartModel!
-                                                                        .address!
-                                                                        .city,
-                                                                    provider
-                                                                        .cartModel!
-                                                                        .address!
-                                                                        .state,
-                                                                    provider
-                                                                        .cartModel!
-                                                                        .address!
-                                                                        .postcode,
-                                                                    provider
-                                                                        .cartModel!
-                                                                        .address!
-                                                                        .phone,
-                                                                    provider
-                                                                        .cartModel!
-                                                                        .address!
-                                                                        .email
-                                                                  )),
+                                                                  builder: (context) => EditAddressScreen(AddressModel(
+                                                                      provider
+                                                                          .cartModel!
+                                                                          .address!
+                                                                          .country,
+                                                                      provider
+                                                                          .cartModel!
+                                                                          .address!
+                                                                          .first_name,
+                                                                      provider
+                                                                          .cartModel!
+                                                                          .address!
+                                                                          .last_name,
+                                                                      provider
+                                                                          .cartModel!
+                                                                          .address!
+                                                                          .company,
+                                                                      provider
+                                                                          .cartModel!
+                                                                          .address!
+                                                                          .address_1,
+                                                                      provider
+                                                                          .cartModel!
+                                                                          .address!
+                                                                          .address_2,
+                                                                      provider
+                                                                          .cartModel!
+                                                                          .address!
+                                                                          .city,
+                                                                      provider
+                                                                          .cartModel!
+                                                                          .address!
+                                                                          .state,
+                                                                      provider
+                                                                          .cartModel!
+                                                                          .address!
+                                                                          .postcode,
+                                                                      provider
+                                                                          .cartModel!
+                                                                          .address!
+                                                                          .phone,
+                                                                      provider
+                                                                          .cartModel!
+                                                                          .address!
+                                                                          .email)),
                                                                 ),
                                                               );
                                                             },

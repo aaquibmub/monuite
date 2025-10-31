@@ -65,6 +65,8 @@ class CustomIcons {
 
   static const String othersCartActive2x =
       'assets/icons/others/cart-active@2x.png';
+  static const String othersCartRemove2x =
+      'assets/icons/others/cart-remove@2x.png';
 
   // Payment Icons
 

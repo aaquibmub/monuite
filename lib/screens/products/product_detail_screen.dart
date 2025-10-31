@@ -54,8 +54,8 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                           ),
                         ),
                         Container(
-                          width: 40,
-                          height: 40,
+                          width: 50,
+                          height: 50,
                           decoration: BoxDecoration(
                             color: Colors.white54,
                             borderRadius: BorderRadius.circular(50),

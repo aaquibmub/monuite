@@ -114,6 +114,7 @@ flutter:
     - assets/icons/bottom-navbar/wishlist-ico-act.png
     - assets/icons/bottom-navbar/wishlist-ico-dis.png
     - assets/icons/others/cart-active@2x.png
+    - assets/icons/others/cart-remove@2x.png
     - assets/icons/payment-methods/credit_card.png
     - assets/icons/payment-methods/invoice.png
     - assets/icons/payment-methods/PayPal-logo.png
