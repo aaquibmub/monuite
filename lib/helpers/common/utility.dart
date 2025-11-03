@@ -230,6 +230,17 @@ class Utility {
                           );
                         },
                       ),
+                      if (_currentuser != null)
+                        // Profile
+                        buildMenuItem(
+                          context,
+                          AppLocalizations.of(context)!.profile,
+                          () {
+                            Navigator.of(context).pushNamed(
+                              Routes.profileScreen,
+                            );
+                          },
+                        ),
                       // // My Orders
                       // buildMenuItem(
                       //   context,

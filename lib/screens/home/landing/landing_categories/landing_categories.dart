@@ -52,7 +52,7 @@ class _LandingCategoriesState extends State<LandingCategories> {
         Center(
           child: FutureBuilder(
               future: Provider.of<ProductProvider>(context, listen: false)
-                  .populateCategoryList(take: 5),
+                  .populateCategoryList('', take: 5),
               builder: (ctx, data) {
                 if (data.connectionState == ConnectionState.waiting) {
                   return LoadingScreen();

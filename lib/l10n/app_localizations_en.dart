@@ -327,4 +327,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get emailInvalid => 'Please enter a valid email address';
+
+  @override
+  String get reorder => 'Reorder';
 }

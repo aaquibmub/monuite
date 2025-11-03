@@ -737,6 +737,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Please enter a valid email address'**
   String get emailInvalid;
+
+  /// Label for reorder button
+  ///
+  /// In en, this message translates to:
+  /// **'Reorder'**
+  String get reorder;
 }
 
 class _AppLocalizationsDelegate
@@ -772,6 +778,4 @@ AppLocalizations lookupAppLocalizations(Locale locale) {
   throw FlutterError(
       'AppLocalizations.delegate failed to load unsupported locale "$locale". This is likely '
       'an issue with the localizations generation tool. Please file an issue '
-      'on GitHub with a reproducible sample app and the gen-l10n configuration '
-      'that was used.');
-}
+      'on GitHub with a reproducible sample app an

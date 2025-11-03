@@ -111,6 +111,8 @@ flutter:
     - assets/icons/bottom-navbar/home-ico-dis.png
     - assets/icons/bottom-navbar/profile-ico-act.png
     - assets/icons/bottom-navbar/profile-ico-dis.png
+    - assets/icons/bottom-navbar/reorder-ico-active.png
+    - assets/icons/bottom-navbar/reorder-ico-disabled.png
     - assets/icons/bottom-navbar/wishlist-ico-act.png
     - assets/icons/bottom-navbar/wishlist-ico-dis.png
     - assets/icons/others/cart-active@2x.png

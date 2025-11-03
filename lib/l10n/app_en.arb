@@ -423,5 +423,9 @@
   "emailInvalid": "Please enter a valid email address",
   "@emailInvalid": {
     "description": "Validation message when email format is invalid"
+  },
+  "reorder": "Reorder",
+  "@reorder": {
+    "description": "Label for reorder button"
   }
 }

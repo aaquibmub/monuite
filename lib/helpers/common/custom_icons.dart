@@ -56,6 +56,10 @@ class CustomIcons {
       'assets/icons/bottom-navbar/profile-ico-act.png';
   static const String profileIconDisabled =
       'assets/icons/bottom-navbar/profile-ico-dis.png';
+  static const String reorderIconActive =
+      'assets/icons/bottom-navbar/reorder-ico-active.png';
+  static const String reorderIconDisabled =
+      'assets/icons/bottom-navbar/reorder-ico-disabled.png';
   static const String wishlistIconActive =
       'assets/icons/bottom-navbar/wishlist-ico-act.png';
   static const String wishlistIconDisabled =

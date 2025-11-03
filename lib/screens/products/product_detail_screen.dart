@@ -122,6 +122,9 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                                             CarouselSlider(
                                               options: CarouselOptions(
                                                 height: 500,
+                                                clipBehavior: Clip.hardEdge,
+                                                enableInfiniteScroll: false,
+                                                enlargeCenterPage: true,
                                               ),
                                               items:
                                                   provider.productDetail!

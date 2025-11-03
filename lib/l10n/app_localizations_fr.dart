@@ -330,4 +330,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get emailInvalid => 'Veuillez entrer une adresse e-mail valide';
+
+  @override
+  String get reorder => 'Commander à nouveau';
 }

@@ -7,7 +7,14 @@ import '../../../helpers/common/utility.dart';
 import '../../../providers/product_provider.dart';
 import '../../loading_screen.dart';
 
-class CategoriesScreen extends StatelessWidget {
+class CategoriesScreen extends StatefulWidget {
+  String _query;
+  CategoriesScreen(this._query);
+  @override
+  State<CategoriesScreen> createState() => _CategoriesScreenState();
+}
+
+class _CategoriesScreenState extends State<CategoriesScreen> {
   @override
   Widget build(BuildContext context) {
     var deviceSize = MediaQuery.of(context).size;
@@ -22,31 +29,37 @@ class CategoriesScreen extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Container(
-          //   margin: EdgeInsets.symmetric(
-          //     vertical: 20,
-          //     horizontal: 10,
-          //   ),
-          //   child: Row(mainAxisAlignment: MainAxisAlignment.start, children: [
-          //     Text(
-          //       AppLocalizations.of(context)!.categoriesScreenTitle,
-          //       style: TextStyle(
-          //         fontSize: 20,
-          //       ),
-          //     ),
-          //   ]),
-          // ),
+          Container(
+            width: double.infinity,
+            margin: EdgeInsets.symmetric(
+              vertical: 20,
+              horizontal: 10,
+            ),
+            child: TextField(
+              autofocus: true,
+              decoration: InputDecoration(
+                hintText: AppLocalizations.of(context)!.searchProducts,
+                border: OutlineInputBorder(),
+                suffixIcon: Icon(Icons.search),
+              ),
+              onChanged: (value) {
+                setState(() {
+                  widget._query = value;
+                });
+              },
+            ),
+          ),
           Expanded(
             child: SingleChildScrollView(
               child: FutureBuilder(
                   future: Provider.of<ProductProvider>(context, listen: false)
-                      .populateCategoryList(),
+                      .populateCategoryList(widget._query),
                   builder: (ctx, data) {
                     if (data.connectionState == ConnectionState.waiting) {
                       return LoadingScreen();
                     }
                     return Container(
-                      height: deviceSize.height - 200,
+                      height: deviceSize.height - 300,
                       width: deviceSize.width,
                       child: Consumer<ProductProvider>(
                         builder: (ctx, provider, _) {

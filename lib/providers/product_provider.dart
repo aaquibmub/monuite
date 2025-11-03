@@ -29,9 +29,9 @@ class ProductProvider with ChangeNotifier {
     return [..._allCategories];
   }
 
-  Future<void> populateCategoryList({int? take = 0}) async {
+  Future<void> populateCategoryList(String query, {int? take = 0}) async {
     var urlString =
-        '${Constants.baseUrl}product/get-categories-list?lang=${locale?.languageCode}';
+        '${Constants.baseUrl}product/get-categories-list?lang=${locale?.languageCode}&query=$query';
     if (take != null && take > 0) {
       urlString = '${urlString}&take=$take';
     }

@@ -423,5 +423,9 @@
     "emailInvalid": "Per favore inserisca un indirizzo email valido",
     "@emailInvalid": {
         "description": "Messaggio di validazione quando il formato email non è valido"
+    },
+    "reorder": "Riordina",
+    "@reorder": {
+        "description": "Bezeichnung für die Schaltfläche 'Erneut bestellen'"
     }
 }

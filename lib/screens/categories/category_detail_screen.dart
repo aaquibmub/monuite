@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:monuite/helpers/common/constants.dart';
 import 'package:monuite/l10n/app_localizations.dart';
 import 'package:monuite/providers/product_provider.dart';
 import 'package:monuite/screens/categories/product_by_category_card_widget.dart';
+import 'package:monuite/screens/home/tabs_screen.dart';
 import 'package:monuite/screens/loading_screen.dart';
 import 'package:provider/provider.dart';
 
@@ -21,10 +23,8 @@ class CategoryDetailScreen extends StatelessWidget {
     var deviceSize = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
-        title: Center(
-          child: Text(
-            _name,
-          ),
+        title: Text(
+          _name,
         ),
       ),
       // drawer: Utility.buildDrawer(context),
@@ -56,7 +56,7 @@ class CategoryDetailScreen extends StatelessWidget {
                       return LoadingScreen();
                     }
                     return Container(
-                      height: deviceSize.height,
+                      height: deviceSize.height - 200,
                       width: deviceSize.width,
                       child: Consumer<ProductProvider>(
                         builder: (ctx, provider, _) {
@@ -106,6 +106,34 @@ class CategoryDetailScreen extends StatelessWidget {
                   }),
             ),
           ),
+          Container(
+            margin: EdgeInsets.symmetric(
+              vertical: 10,
+            ),
+            child: Container(
+              width: double.infinity,
+              height: 60,
+              child: ElevatedButton(
+                style: ButtonStyle(
+                    backgroundColor: WidgetStateProperty.all<Color>(
+                        Theme.of(context).primaryColor)),
+                onPressed: () async {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => TabsScreen(0)),
+                  );
+                },
+                child: Text(
+                  AppLocalizations.of(context)!.backToHome,
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                    color: Constants.backgroundColor,
+                  ),
+                ),
+              ),
+            ),
+          )
         ],
       ),
     );

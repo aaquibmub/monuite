@@ -329,4 +329,7 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get emailInvalid => 'Per favore inserisca un indirizzo email valido';
+
+  @override
+  String get reorder => 'Riordina';
 }

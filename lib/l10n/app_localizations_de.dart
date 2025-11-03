@@ -328,4 +328,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get emailInvalid => 'Bitte geben Sie eine gültige E-Mail-Adresse ein';
+
+  @override
+  String get reorder => 'Erneut bestellen';
 }

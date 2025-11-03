@@ -4,9 +4,8 @@ import 'package:monuite/providers/cart_provider.dart';
 import 'package:monuite/screens/home/cart/cart_screen.dart';
 import 'package:monuite/screens/home/categories/categories_screen.dart';
 import 'package:monuite/screens/home/landing/landing_screen.dart';
-import 'package:monuite/screens/home/profile_screen.dart';
-import 'package:monuite/screens/home/wishlist_screen.dart';
 import 'package:monuite/screens/loading_screen.dart';
+import 'package:monuite/screens/orders/order_list_screen.dart';
 import 'package:provider/provider.dart';
 
 import '../../helpers/common/constants.dart';
@@ -37,10 +36,10 @@ class _TabsScreenState extends State<TabsScreen> {
   void initState() {
     _pages = [
       {'page': LandingScreen()},
-      {'page': CategoriesScreen()},
+      {'page': CategoriesScreen('')},
       {'page': CartScreen()},
-      {'page': WishlistScreen()},
-      {'page': ProfileScreen()},
+      {'page': OrderListScreen('')},
+      // {'page': ProfileScreen()},
     ];
 
     _selectedPageIndex = widget.index;
@@ -106,23 +105,23 @@ class _TabsScreenState extends State<TabsScreen> {
           BottomNavigationBarItem(
             // backgroundColor: Theme.of(context).backgroundColor,
             icon: ImageIcon(
-              AssetImage(CustomIcons.wishlistIconDisabled),
+              AssetImage(CustomIcons.reorderIconDisabled),
             ),
             activeIcon: ImageIcon(
-              AssetImage(CustomIcons.wishlistIconActive),
+              AssetImage(CustomIcons.reorderIconActive),
             ),
-            label: AppLocalizations.of(context)!.wishlist,
+            label: AppLocalizations.of(context)!.reorder,
           ),
-          BottomNavigationBarItem(
-            // backgroundColor: Theme.of(context).backgroundColor,
-            icon: ImageIcon(
-              AssetImage(CustomIcons.profileIconDisabled),
-            ),
-            activeIcon: ImageIcon(
-              AssetImage(CustomIcons.profileIconActive),
-            ),
-            label: AppLocalizations.of(context)!.profile,
-          ),
+          // BottomNavigationBarItem(
+          //   // backgroundColor: Theme.of(context).backgroundColor,
+          //   icon: ImageIcon(
+          //     AssetImage(CustomIcons.profileIconDisabled),
+          //   ),
+          //   activeIcon: ImageIcon(
+          //     AssetImage(CustomIcons.profileIconActive),
+          //   ),
+          //   label: AppLocalizations.of(context)!.profile,
+          // ),
         ],
       ),
     );
