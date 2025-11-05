@@ -130,7 +130,8 @@ class _PaymentScreenState extends State<PaymentScreen> {
                                         children: [
                                           _buildPaymentMethod(
                                               CustomIcons.paymentMethodInvoice,
-                                              'Bank Transfer', () {
+                                              Constants.paymentMethodInvoice,
+                                              () {
                                             setState(() {
                                               _isLoading = true;
                                             });
