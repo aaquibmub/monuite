@@ -129,7 +129,7 @@ class MyApp extends StatelessWidget {
                   color: Constants.primaryColor,
                 ),
               )),
-          home: HomeScreen(),
+          home: LoginScreen(),
           // authData.isAuth
           //     ? HomeScreen()
           //     : FutureBuilder(
