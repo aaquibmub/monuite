@@ -427,5 +427,13 @@
     "reorder": "Commander à nouveau",
     "@reorder": {
         "description": "Bezeichnung für die Schaltfläche 'Erneut bestellen'"
+    },
+    "popularCategories": "Catégories populaires",
+    "@popularCategories": {
+        "description": "Bezeichnung für den Abschnitt 'Beliebte Kategorien'"
+    },
+    "dataProtection": "Protection des données",
+    "@dataProtection": {
+        "description": "Bezeichnung für den Abschnitt 'Datenschutz'"
     }
 }

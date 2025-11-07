@@ -427,5 +427,13 @@
   "reorder": "Reorder",
   "@reorder": {
     "description": "Label for reorder button"
+  },
+  "popularCategories": "Popular Categories",
+  "@popularCategories": {
+    "description": "Label for popular categories section"
+  },
+  "dataProtection": "Data Protection",
+  "@dataProtection": {
+    "description": "Label for data protection section"
   }
 }

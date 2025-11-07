@@ -333,4 +333,10 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get reorder => 'Commander à nouveau';
+
+  @override
+  String get popularCategories => 'Catégories populaires';
+
+  @override
+  String get dataProtection => 'Protection des données';
 }

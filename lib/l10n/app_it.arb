@@ -427,5 +427,13 @@
     "reorder": "Riordina",
     "@reorder": {
         "description": "Bezeichnung für die Schaltfläche 'Erneut bestellen'"
+    },
+    "popularCategories": "Categorie popolari",
+    "@popularCategories": {
+        "description": "Bezeichnung für den Abschnitt 'Beliebte Kategorien'"
+    },
+    "dataProtection": "Protezione dei dati",
+    "@dataProtection": {
+        "description": "Bezeichnung für den Abschnitt 'Datenschutz'"
     }
 }

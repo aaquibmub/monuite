@@ -330,4 +330,10 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get reorder => 'Reorder';
+
+  @override
+  String get popularCategories => 'Popular Categories';
+
+  @override
+  String get dataProtection => 'Data Protection';
 }

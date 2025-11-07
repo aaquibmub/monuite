@@ -294,7 +294,7 @@ class Utility {
                       // Privacy Policy
                       buildMenuItem(
                         context,
-                        AppLocalizations.of(context)!.privacyPolicy,
+                        AppLocalizations.of(context)!.dataProtection,
                         () {
                           Navigator.of(context).pushNamed(
                             Routes.privacyPolicyScreen,

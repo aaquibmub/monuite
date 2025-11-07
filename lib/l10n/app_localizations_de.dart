@@ -331,4 +331,10 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get reorder => 'Erneut bestellen';
+
+  @override
+  String get popularCategories => 'Beliebte Kategorien';
+
+  @override
+  String get dataProtection => 'Datenschutz';
 }

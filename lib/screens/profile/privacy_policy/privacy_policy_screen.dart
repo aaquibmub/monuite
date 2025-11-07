@@ -9,7 +9,7 @@ class PrivacyPolicyScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          AppLocalizations.of(context)!.privacyPolicy,
+          AppLocalizations.of(context)!.dataProtection,
         ),
       ),
       body: Column(

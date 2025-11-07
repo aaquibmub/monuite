@@ -74,7 +74,7 @@ class MyApp extends StatelessWidget {
       child: Consumer<Auth>(builder: (ctx, authData, child) {
         // authData.refreshAddressBook();
         return MaterialApp(
-          title: 'motorpool',
+          title: 'monuite',
           locale: authData.locale,
           supportedLocales: AppLocalizations.supportedLocales,
           localizationsDelegates: AppLocalizations.localizationsDelegates,

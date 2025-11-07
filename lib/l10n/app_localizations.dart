@@ -743,6 +743,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Reorder'**
   String get reorder;
+
+  /// Label for popular categories section
+  ///
+  /// In en, this message translates to:
+  /// **'Popular Categories'**
+  String get popularCategories;
+
+  /// Label for data protection section
+  ///
+  /// In en, this message translates to:
+  /// **'Data Protection'**
+  String get dataProtection;
 }
 
 class _AppLocalizationsDelegate
