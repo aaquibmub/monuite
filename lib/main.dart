@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_stripe/flutter_stripe.dart';
 import 'package:monuite/l10n/app_localizations.dart';
 import 'package:monuite/providers/auth.dart';
 import 'package:monuite/providers/cart_provider.dart';
@@ -27,6 +28,7 @@ import 'helpers/common/constants.dart';
 import 'helpers/common/routes.dart';
 
 void main() {
+  Stripe.publishableKey = Constants.stripePublishableKey;
   runApp(MyApp());
 }
 

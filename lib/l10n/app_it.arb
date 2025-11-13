@@ -435,5 +435,57 @@
     "dataProtection": "Protezione dei dati",
     "@dataProtection": {
         "description": "Bezeichnung für den Abschnitt 'Datenschutz'"
+    },
+    "creditDebitCardPayment": "Pagamento con carta di credito/debito",
+    "@creditDebitCardPayment": {
+        "description": "Titolo per lo schermo di pagamento con carta di credito/debito"
+    },
+    "number": "Numero",
+    "@number": {
+        "description": "Bezeichnung für das Kartennummernfeld"
+    },
+    "numberHint": "Inserisci il numero della carta",
+    "@numberHint": {
+        "description": "Platzhaltertext für das Kartennummernfeld"
+    },
+    "numberRequired": "Numero di carta richiesto",
+    "@numberRequired": {
+        "description": "Validierungsnachricht, die angezeigt wird, wenn die Kartennummer nicht angegeben ist"
+    },
+    "expYear": "AA",
+    "@expYear": {
+        "description": "Bezeichnung für das Ablaufjahr Feld"
+    },
+    "expYearHint": "Anno di scadenza",
+    "@expYearHint": {
+        "description": "Platzhaltertext für das Ablaufjahr Feld"
+    },
+    "expYearRequired": "Anno di scadenza richiesto",
+    "@expYearRequired": {
+        "description": "Validierungsnachricht, die angezeigt wird, wenn das Ablaufjahr nicht angegeben ist"
+    },
+    "expMonth": "MM",
+    "@expMonth": {
+        "description": "Bezeichnung für das Ablaufmonat Feld"
+    },
+    "expMonthHint": "Mese di scadenza",
+    "@expMonthHint": {
+        "description": "Platzhaltertext für das Ablaufmonat Feld"
+    },
+    "expMonthRequired": "Mese di scadenza richiesto",
+    "@expMonthRequired": {
+        "description": "Validierungsnachricht, die angezeigt wird, wenn das Ablaufmonat nicht angegeben ist"
+    },
+    "cvc": "CVC",
+    "@cvc": {
+        "description": "Bezeichnung für das CVC Feld"
+    },
+    "cvcHint": "Tapez le CVC",
+    "@cvcHint": {
+        "description": "Platzhaltertext für das CVC Feld"
+    },
+    "cvcRequired": "CVC requis",
+    "@cvcRequired": {
+        "description": "Message de validation lorsque le CVC n'est pas fourni"
     }
 }

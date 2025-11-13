@@ -4,6 +4,9 @@ class Constants {
   static const String baseUrl = 'http://135.125.212.109:8080/api/';
   //static const String baseUrl = 'http://10.0.2.2:5000/api/';
 
+  static const String stripePublishableKey =
+      'pk_test_51RKxtRPDbpae7EfxL6RQVjBBCkz4wzjFxevAwobQGjelI1IuCrTvdCoslTjfRgyheFHZSVChQ6I2Ihp225PQDZYS00249qliga';
+
   static const String clientID = '6a582387-93d6-4b35-8ab6-ce888083c804';
   static const String clientSecret = 'abc';
 

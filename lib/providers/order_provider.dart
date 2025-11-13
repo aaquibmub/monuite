@@ -1,8 +1,10 @@
 import 'dart:convert';
+import 'dart:developer';
 import 'dart:io';
 
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
+import 'package:monuite/helpers/models/orders/order_create_response_model.dart';
 import 'package:monuite/helpers/models/orders/order_item_model.dart';
 import 'package:monuite/helpers/models/orders/order_list_model.dart';
 import 'package:monuite/helpers/models/user.dart';
@@ -90,7 +92,7 @@ class OrderProvider with ChangeNotifier {
     }
   }
 
-  Future<ResponseModel<String>> createOrder(
+  Future<ResponseModel<OrderCreateResponseModel>> createOrder(
     CartModel? cartModel,
     String paymentMethod,
   ) async {
@@ -142,12 +144,13 @@ class OrderProvider with ChangeNotifier {
       )
           .then((response) {
         if (response.statusCode == HttpStatus.forbidden) {
-          return ResponseModel<String>(null, 'Operation not allowed', true);
+          return ResponseModel<OrderCreateResponseModel>(
+              null, 'Operation not allowed', true);
         }
         final responseData = json.decode(response.body);
         print(responseData);
-        ResponseModel<String> result =
-            ResponseModel<String>.fromJson(responseData);
+        ResponseModel<OrderCreateResponseModel> result =
+            ResponseModel<OrderCreateResponseModel>.fromJson(responseData);
         return result;
       }).onError((error, stackTrace) {
         throw error!;

@@ -337,4 +337,43 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get dataProtection => 'Datenschutz';
+
+  @override
+  String get creditDebitCardPayment => 'Kredit-/Debitkartenzahlung';
+
+  @override
+  String get number => 'Kartennummer';
+
+  @override
+  String get numberHint => 'Kartennummer eingeben';
+
+  @override
+  String get numberRequired => 'Kartennummer ist erforderlich';
+
+  @override
+  String get expYear => 'Ablaufdatum (MM/JJ)';
+
+  @override
+  String get expYearHint => 'Geben Sie das Ablaufdatum ein';
+
+  @override
+  String get expYearRequired => 'Ablaufdatum ist erforderlich';
+
+  @override
+  String get expMonth => 'Ablaufmonat (MM)';
+
+  @override
+  String get expMonthHint => 'Geben Sie den Ablaufmonat ein';
+
+  @override
+  String get expMonthRequired => 'Ablaufmonat ist erforderlich';
+
+  @override
+  String get cvc => 'CVC';
+
+  @override
+  String get cvcHint => 'Geben Sie den CVC ein';
+
+  @override
+  String get cvcRequired => 'CVC ist erforderlich';
 }

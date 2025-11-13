@@ -435,5 +435,57 @@
   "dataProtection": "Data Protection",
   "@dataProtection": {
     "description": "Label for data protection section"
+  },
+  "creditDebitCardPayment": "Credit/Debit Card Payment",
+  "@creditDebitCardPayment": {
+    "description": "Title for credit/debit card payment screen"
+  },
+  "number": "Card Number",
+  "@number": {
+    "description": "Label for card number field"
+  },
+  "numberHint": "Type card number",
+  "@numberHint": {
+    "description": "Hint text for card number field"
+  },
+  "numberRequired": "Card number is required",
+  "@numberRequired": {
+    "description": "Validation message when card number is not provided"
+  },
+  "expYear": "Expiry Year",
+  "@expYear": {
+    "description": "Label for expiry year field"
+  },
+  "expYearHint": "Type expiry year",
+  "@expYearHint": {
+    "description": "Hint text for expiry year field"
+  },
+  "expYearRequired": "Expiry year is required",
+  "@expYearRequired": {
+    "description": "Validation message when expiry year is not provided"
+  },
+  "expMonth": "Expiry Month",
+  "@expMonth": {
+    "description": "Label for expiry month field"
+  },
+  "expMonthHint": "Type expiry month",
+  "@expMonthHint": {
+    "description": "Hint text for expiry month field"
+  },
+  "expMonthRequired": "Expiry month is required",
+  "@expMonthRequired": {
+    "description": "Validation message when expiry month is not provided"
+  },
+  "cvc": "CVC",
+  "@cvc": {
+    "description": "Label for CVC field"
+  },
+  "cvcHint": "Type CVC",
+  "@cvcHint": {
+    "description": "Hint text for CVC field"
+  },
+  "cvcRequired": "CVC is required",
+  "@cvcRequired": {
+    "description": "Validation message when CVC is not provided"
   }
 }

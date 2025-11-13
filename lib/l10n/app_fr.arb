@@ -435,5 +435,57 @@
     "dataProtection": "Protection des données",
     "@dataProtection": {
         "description": "Bezeichnung für den Abschnitt 'Datenschutz'"
+    },
+    "creditDebitCardPayment": "Paiement par carte de crédit/débit",
+    "@creditDebitCardPayment": {
+        "description": "Titre de l'écran de paiement par carte de crédit/débit"
+    },
+    "number": "Numéro",
+    "@number": {
+        "description": "Bezeichnung für das Kartennummernfeld"
+    },
+    "numberHint": "Tapez le numéro de la carte",
+    "@numberHint": {
+        "description": "Platzhaltertext für das Kartennummernfeld"
+    },
+    "numberRequired": "Numéro de carte requis",
+    "@numberRequired": {
+        "description": "Message de validation lorsque le numéro de carte n'est pas fourni"
+    },
+    "expYear": "MM/AA",
+    "@expYear": {
+        "description": "Bezeichnung für das Ablaufdatum Feld"
+    },
+    "expYearHint": "Geben Sie das Ablaufdatum ein",
+    "@expYearHint": {
+        "description": "Platzhaltertext für das Feld 'Ablaufdatum (MM/AA)'"
+    },
+    "expYearRequired": "Ablaufdatum ist erforderlich",
+    "@expYearRequired": {
+        "description": "Validierungsnachricht, die angezeigt wird, wenn das Ablaufdatum nicht angegeben ist"
+    },
+    "expMonth": "MM/AA",
+    "@expMonth": {
+        "description": "Bezeichnung für das Ablaufdatum Feld"
+    },
+    "expMonthHint": "Geben Sie das Ablaufdatum ein",
+    "@expMonthHint": {
+        "description": "Platzhaltertext für das Feld 'Ablaufdatum (MM/AA)'"
+    },
+    "expMonthRequired": "Ablaufdatum ist erforderlich",
+    "@expMonthRequired": {
+        "description": "Validierungsnachricht, die angezeigt wird, wenn das Ablaufdatum nicht angegeben ist"
+    },
+    "cvc": "CVC",
+    "@cvc": {
+        "description": "Bezeichnung für das CVC Feld"
+    },
+    "cvcHint": "Tapez le CVC",
+    "@cvcHint": {
+        "description": "Platzhaltertext für das CVC Feld"
+    },
+    "cvcRequired": "CVC requis",
+    "@cvcRequired": {
+        "description": "Message de validation lorsque le CVC n'est pas fourni"
     }
 }

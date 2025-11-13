@@ -1,7 +1,10 @@
+import 'package:monuite/helpers/models/cart/card_information_model.dart';
+
 import '../addresses/address_model.dart';
 import 'order_item_model.dart';
 
 class OrderModel {
+  CardInformationModel? card;
   AddressModel address;
   final List<OrderItemModel> items;
   int? customerId;
@@ -13,15 +16,9 @@ class OrderModel {
     return (total ?? 0) + shippingCost - (couponDiscount ?? 0);
   }
 
-  OrderModel(
-    this.address,
-    this.items,
-    this.customerId,
-    this.shippingCost,
-    this.couponDiscount,
-    this.paymentMethod,
-    this.total,
-  );
+  OrderModel(this.address, this.items, this.customerId, this.shippingCost,
+      this.couponDiscount, this.paymentMethod, this.total,
+      {this.card});
 
   factory OrderModel.fromJson(dynamic json) {
     final List<OrderItemModel> items = [];
@@ -42,6 +39,9 @@ class OrderModel {
       json['couponDiscount'] as double,
       json['paymentMethod'] as String,
       json['total'] as double,
+      card: json['card'] != null
+          ? CardInformationModel.fromJson(json['card'])
+          : null,
     );
   }
 
@@ -55,6 +55,7 @@ class OrderModel {
       'paymentMethod': paymentMethod,
       'total': total,
       'grandTotal': grandTotal,
+      'card': card?.toJson(),
     };
   }
 }

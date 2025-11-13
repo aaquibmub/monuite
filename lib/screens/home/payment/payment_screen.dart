@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_stripe/flutter_stripe.dart';
 import 'package:monuite/helpers/common/utility.dart';
+import 'package:monuite/helpers/models/orders/order_create_response_model.dart';
 import 'package:monuite/l10n/app_localizations.dart';
+import 'package:monuite/screens/home/payment/credit_debit_card/credit_debit_card_payment_screen.dart';
 import 'package:provider/provider.dart';
 
 import '../../../helpers/common/constants.dart';
@@ -92,6 +95,80 @@ class _PaymentScreenState extends State<PaymentScreen> {
           });
     }
 
+    Future<void> initPaymentSheet(OrderCreateResponseModel data) async {
+      try {
+        // 2. initialize the payment sheet
+        await Stripe.instance.initPaymentSheet(
+          paymentSheetParameters: SetupPaymentSheetParameters(
+            // Set to true for custom flow
+            customFlow: false,
+            // Main params
+            merchantDisplayName: 'Flutter Stripe Store Demo',
+            paymentIntentClientSecret: data.paymentIntentSecret,
+
+            // Customer keys
+            // customerEphemeralKeySecret: data['ephemeralKey'],
+            // customerId: data['customer'],
+            // Extra options
+            // applePay: const PaymentSheetApplePay(
+            //   merchantCountryCode: 'US',
+            // ),
+            // googlePay: const PaymentSheetGooglePay(
+            //   merchantCountryCode: 'US',
+            //   testEnv: true,
+            // ),
+            style: ThemeMode.dark,
+          ),
+        );
+        // setState(() {
+        //   _ready = true;
+        // });
+      } catch (e) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Error: $e')),
+        );
+        rethrow;
+      }
+    }
+
+    Future<void> displayPaymentSheet(OrderCreateResponseModel data) async {
+      try {
+        await Stripe.instance.presentPaymentSheet().then((value) {
+          Provider.of<CartProvider>(context, listen: false).clear().then((_) {
+            Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => OrderConfirmedScreen(
+                        data.orderId,
+                      )),
+            );
+          });
+        }).onError((error, stackTrace) {
+          throw Exception(error);
+        });
+      } on StripeException catch (e) {
+        print('Error is:---> $e');
+        AlertDialog(
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Row(
+                children: const [
+                  Icon(
+                    Icons.cancel,
+                    color: Colors.red,
+                  ),
+                  Text("Payment Failed"),
+                ],
+              ),
+            ],
+          ),
+        );
+      } catch (e) {
+        print('$e');
+      }
+    }
+
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -128,6 +205,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
                                     child: SingleChildScrollView(
                                       child: Column(
                                         children: [
+                                          // Invoice
                                           _buildPaymentMethod(
                                               CustomIcons.paymentMethodInvoice,
                                               Constants.paymentMethodInvoice,
@@ -159,13 +237,16 @@ class _PaymentScreenState extends State<PaymentScreen> {
                                                     MaterialPageRoute(
                                                         builder: (context) =>
                                                             OrderConfirmedScreen(
-                                                              value.result!,
+                                                              value.result
+                                                                      ?.orderId ??
+                                                                  '',
                                                             )),
                                                   );
                                                 });
                                               }
                                             });
                                           }),
+                                          // PayPal
                                           _buildPaymentMethod(
                                               CustomIcons.paymentMethodPayPal,
                                               Constants.paymentMethodPaypal,
@@ -197,13 +278,16 @@ class _PaymentScreenState extends State<PaymentScreen> {
                                                     MaterialPageRoute(
                                                         builder: (context) =>
                                                             OrderConfirmedScreen(
-                                                              value.result!,
+                                                              value.result
+                                                                      ?.orderId ??
+                                                                  '',
                                                             )),
                                                   );
                                                 });
                                               }
                                             });
                                           }),
+                                          // TWINT
                                           _buildPaymentMethod(
                                               CustomIcons.paymentMethodTwint,
                                               Constants.paymentMethodTwint, () {
@@ -224,23 +308,15 @@ class _PaymentScreenState extends State<PaymentScreen> {
                                                 _showErrorDialogue(
                                                     context, value.msg);
                                               } else {
-                                                Provider.of<CartProvider>(
-                                                        context,
-                                                        listen: false)
-                                                    .clear()
+                                                initPaymentSheet(value.result!)
                                                     .then((_) {
-                                                  Navigator.pushReplacement(
-                                                    context,
-                                                    MaterialPageRoute(
-                                                        builder: (context) =>
-                                                            OrderConfirmedScreen(
-                                                              value.result!,
-                                                            )),
-                                                  );
+                                                  displayPaymentSheet(
+                                                      value.result!);
                                                 });
                                               }
                                             });
                                           }),
+                                          // Credit / Debit Card
                                           _buildPaymentMethod(
                                               CustomIcons
                                                   .paymentMethodCreditCard,
@@ -263,19 +339,10 @@ class _PaymentScreenState extends State<PaymentScreen> {
                                                 _showErrorDialogue(
                                                     context, value.msg);
                                               } else {
-                                                Provider.of<CartProvider>(
-                                                        context,
-                                                        listen: false)
-                                                    .clear()
+                                                initPaymentSheet(value.result!)
                                                     .then((_) {
-                                                  Navigator.pushReplacement(
-                                                    context,
-                                                    MaterialPageRoute(
-                                                        builder: (context) =>
-                                                            OrderConfirmedScreen(
-                                                              value.result!,
-                                                            )),
-                                                  );
+                                                  displayPaymentSheet(
+                                                      value.result!);
                                                 });
                                               }
                                             });

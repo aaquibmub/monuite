@@ -336,4 +336,43 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get dataProtection => 'Data Protection';
+
+  @override
+  String get creditDebitCardPayment => 'Credit/Debit Card Payment';
+
+  @override
+  String get number => 'Card Number';
+
+  @override
+  String get numberHint => 'Type card number';
+
+  @override
+  String get numberRequired => 'Card number is required';
+
+  @override
+  String get expYear => 'Expiry Year';
+
+  @override
+  String get expYearHint => 'Type expiry year';
+
+  @override
+  String get expYearRequired => 'Expiry year is required';
+
+  @override
+  String get expMonth => 'Expiry Month';
+
+  @override
+  String get expMonthHint => 'Type expiry month';
+
+  @override
+  String get expMonthRequired => 'Expiry month is required';
+
+  @override
+  String get cvc => 'CVC';
+
+  @override
+  String get cvcHint => 'Type CVC';
+
+  @override
+  String get cvcRequired => 'CVC is required';
 }

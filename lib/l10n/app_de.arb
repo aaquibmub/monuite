@@ -435,5 +435,57 @@
     "dataProtection": "Datenschutz",
     "@dataProtection": {
         "description": "Bezeichnung für den Abschnitt 'Datenschutz'"
+    },
+    "creditDebitCardPayment": "Kredit-/Debitkartenzahlung",
+    "@creditDebitCardPayment": {
+        "description": "Titel für den Bildschirm 'Kredit-/Debitkartenzahlung'"
+    },
+    "number": "Kartennummer",
+    "@number": {
+        "description": "Bezeichnung für das Feld 'Kartennummer'"
+    },
+    "numberHint": "Kartennummer eingeben",
+    "@numberHint": {
+        "description": "Platzhaltertext für das Feld 'Kartennummer'"
+    },
+    "numberRequired": "Kartennummer ist erforderlich",
+    "@numberRequired": {
+        "description": "Validierungsnachricht, die angezeigt wird, wenn die Kartennummer nicht angegeben ist"
+    },
+    "expYear": "Ablaufdatum (MM/JJ)",
+    "@expYear": {
+        "description": "Bezeichnung für das Feld 'Ablaufdatum (MM/JJ)'"
+    },
+    "expYearHint": "Geben Sie das Ablaufdatum ein",
+    "@expYearHint": {
+        "description": "Platzhaltertext für das Feld 'Ablaufdatum (MM/JJ)'"
+    },
+    "expYearRequired": "Ablaufdatum ist erforderlich",
+    "@expYearRequired": {
+        "description": "Validierungsnachricht, die angezeigt wird, wenn das Ablaufdatum nicht angegeben ist"
+    },
+    "expMonth": "Ablaufmonat (MM)",
+    "@expMonth": {
+        "description": "Bezeichnung für das Feld 'Ablaufmonat (MM)'"
+    },
+    "expMonthHint": "Geben Sie den Ablaufmonat ein",
+    "@expMonthHint": {
+        "description": "Platzhaltertext für das Feld 'Ablaufmonat (MM)'"
+    },
+    "expMonthRequired": "Ablaufmonat ist erforderlich",
+    "@expMonthRequired": {
+        "description": "Validierungsnachricht, die angezeigt wird, wenn der Ablaufmonat nicht angegeben ist"
+    },
+    "cvc": "CVC",
+    "@cvc": {
+        "description": "Bezeichnung für das Feld 'CVC'"
+    },
+    "cvcHint": "Geben Sie den CVC ein",
+    "@cvcHint": {
+        "description": "Platzhaltertext für das Feld 'CVC'"
+    },
+    "cvcRequired": "CVC ist erforderlich",
+    "@cvcRequired": {
+        "description": "Validierungsnachricht, die angezeigt wird, wenn der CVC nicht angegeben ist"
     }
 }

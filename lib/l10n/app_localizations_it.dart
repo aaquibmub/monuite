@@ -338,4 +338,43 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get dataProtection => 'Protezione dei dati';
+
+  @override
+  String get creditDebitCardPayment => 'Pagamento con carta di credito/debito';
+
+  @override
+  String get number => 'Numero';
+
+  @override
+  String get numberHint => 'Inserisci il numero della carta';
+
+  @override
+  String get numberRequired => 'Numero di carta richiesto';
+
+  @override
+  String get expYear => 'AA';
+
+  @override
+  String get expYearHint => 'Anno di scadenza';
+
+  @override
+  String get expYearRequired => 'Anno di scadenza richiesto';
+
+  @override
+  String get expMonth => 'MM';
+
+  @override
+  String get expMonthHint => 'Mese di scadenza';
+
+  @override
+  String get expMonthRequired => 'Mese di scadenza richiesto';
+
+  @override
+  String get cvc => 'CVC';
+
+  @override
+  String get cvcHint => 'Tapez le CVC';
+
+  @override
+  String get cvcRequired => 'CVC requis';
 }

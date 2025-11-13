@@ -755,6 +755,84 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Data Protection'**
   String get dataProtection;
+
+  /// Title for credit/debit card payment screen
+  ///
+  /// In en, this message translates to:
+  /// **'Credit/Debit Card Payment'**
+  String get creditDebitCardPayment;
+
+  /// Label for card number field
+  ///
+  /// In en, this message translates to:
+  /// **'Card Number'**
+  String get number;
+
+  /// Hint text for card number field
+  ///
+  /// In en, this message translates to:
+  /// **'Type card number'**
+  String get numberHint;
+
+  /// Validation message when card number is not provided
+  ///
+  /// In en, this message translates to:
+  /// **'Card number is required'**
+  String get numberRequired;
+
+  /// Label for expiry year field
+  ///
+  /// In en, this message translates to:
+  /// **'Expiry Year'**
+  String get expYear;
+
+  /// Hint text for expiry year field
+  ///
+  /// In en, this message translates to:
+  /// **'Type expiry year'**
+  String get expYearHint;
+
+  /// Validation message when expiry year is not provided
+  ///
+  /// In en, this message translates to:
+  /// **'Expiry year is required'**
+  String get expYearRequired;
+
+  /// Label for expiry month field
+  ///
+  /// In en, this message translates to:
+  /// **'Expiry Month'**
+  String get expMonth;
+
+  /// Hint text for expiry month field
+  ///
+  /// In en, this message translates to:
+  /// **'Type expiry month'**
+  String get expMonthHint;
+
+  /// Validation message when expiry month is not provided
+  ///
+  /// In en, this message translates to:
+  /// **'Expiry month is required'**
+  String get expMonthRequired;
+
+  /// Label for CVC field
+  ///
+  /// In en, this message translates to:
+  /// **'CVC'**
+  String get cvc;
+
+  /// Hint text for CVC field
+  ///
+  /// In en, this message translates to:
+  /// **'Type CVC'**
+  String get cvcHint;
+
+  /// Validation message when CVC is not provided
+  ///
+  /// In en, this message translates to:
+  /// **'CVC is required'**
+  String get cvcRequired;
 }
 
 class _AppLocalizationsDelegate
