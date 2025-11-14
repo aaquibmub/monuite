@@ -487,5 +487,13 @@
   "cvcRequired": "CVC is required",
   "@cvcRequired": {
     "description": "Validation message when CVC is not provided"
+  },
+  "stripe": "Stripe",
+  "@stripe": {
+    "description": "Label for Stripe payment method"
+  },
+  "paymentOnAmount": "Payment on Amount",
+  "@paymentOnAmount": {
+    "description": "Label for payment on amount method"
   }
 }

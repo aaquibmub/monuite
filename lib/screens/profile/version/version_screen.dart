@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:monuite/helpers/common/utility.dart';
 import 'package:monuite/l10n/app_localizations.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 
@@ -44,6 +45,7 @@ class VersionScreen extends StatelessWidget {
           ),
         ],
       ),
+      bottomNavigationBar: Utility.buildBottomNavigationBar(context, 0),
     );
   }
 }

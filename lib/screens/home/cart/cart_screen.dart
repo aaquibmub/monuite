@@ -403,7 +403,7 @@ class _CartScreenState extends State<CartScreen> {
                                     // });
                                   },
                                   child: Text(
-                                    "CHF ${Utility.formatNumber(provider.cartModel!.total)}",
+                                    "Checkout - CHF ${Utility.formatNumber(provider.cartModel!.total)}",
                                     style: TextStyle(
                                       fontSize: 16,
                                       fontWeight: FontWeight.bold,
@@ -423,6 +423,7 @@ class _CartScreenState extends State<CartScreen> {
               ),
             );
           }),
+      // bottomNavigationBar: Utility.buildBottomNavigationBar(context, 2),
     );
   }
 }

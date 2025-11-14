@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:monuite/helpers/common/utility.dart';
 import 'package:monuite/helpers/models/addresses/address_book_nodel.dart';
 import 'package:monuite/helpers/models/addresses/address_model.dart';
 import 'package:monuite/l10n/app_localizations.dart';
@@ -252,6 +253,7 @@ class _EditAddressBookEntryScreenState
                 ],
               ),
             ),
+      bottomNavigationBar: Utility.buildBottomNavigationBar(context, 0),
     );
   }
 }

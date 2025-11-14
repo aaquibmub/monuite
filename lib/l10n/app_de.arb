@@ -487,5 +487,13 @@
     "cvcRequired": "CVC ist erforderlich",
     "@cvcRequired": {
         "description": "Validierungsnachricht, die angezeigt wird, wenn der CVC nicht angegeben ist"
+    },
+    "stripe": "Stripe",
+    "@stripe": {
+        "description": "Bezeichnung für die Stripe-Zahlungsmethode"
+    },
+    "paymentOnAmount": "Zahlung bei Betrag",
+    "@paymentOnAmount": {
+        "description": "Bezeichnung für die Zahlungsmethode 'Zahlung bei Betrag'"
     }
 }

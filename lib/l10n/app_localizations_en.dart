@@ -375,4 +375,10 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get cvcRequired => 'CVC is required';
+
+  @override
+  String get stripe => 'Stripe';
+
+  @override
+  String get paymentOnAmount => 'Payment on Amount';
 }

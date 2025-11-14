@@ -158,47 +158,49 @@ class AddressBookScreen extends StatelessWidget {
     }
 
     return Scaffold(
-        appBar: AppBar(
-          title: Text(AppLocalizations.of(context)!.addressBook),
-        ),
-        body: FutureBuilder<List<AddressBookModel>>(
-            future: Utility.getAddressBook(),
-            builder: (ctx, data) {
-              if (data.connectionState == ConnectionState.waiting) {
-                return LoadingScreen();
-              }
-              return Column(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  // Body
-                  Expanded(
-                    child: data.data != null && data.data!.isNotEmpty
-                        ? Column(
-                            children: [
-                              ...data.data!.map((e) => buildItem(
-                                    e.id,
-                                    e.address,
-                                    isDefault: e.isDefault,
-                                  )),
-                            ],
-                          )
-                        : Center(
-                            child: Text(
-                                AppLocalizations.of(context)!.noAddressFound),
-                          ),
+      appBar: AppBar(
+        title: Text(AppLocalizations.of(context)!.addressBook),
+      ),
+      body: FutureBuilder<List<AddressBookModel>>(
+          future: Utility.getAddressBook(),
+          builder: (ctx, data) {
+            if (data.connectionState == ConnectionState.waiting) {
+              return LoadingScreen();
+            }
+            return Column(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                // Body
+                Expanded(
+                  child: data.data != null && data.data!.isNotEmpty
+                      ? Column(
+                          children: [
+                            ...data.data!.map((e) => buildItem(
+                                  e.id,
+                                  e.address,
+                                  isDefault: e.isDefault,
+                                )),
+                          ],
+                        )
+                      : Center(
+                          child: Text(
+                              AppLocalizations.of(context)!.noAddressFound),
+                        ),
+                ),
+                Container(
+                  width: double.infinity,
+                  height: 50,
+                  margin: EdgeInsets.symmetric(
+                    horizontal: 20,
+                    vertical: 20,
                   ),
-                  Container(
-                    width: double.infinity,
-                    height: 50,
-                    margin: EdgeInsets.symmetric(
-                      horizontal: 20,
-                      vertical: 20,
-                    ),
-                    child: buildAddButton(),
-                  ),
-                ],
-              );
-            }));
+                  child: buildAddButton(),
+                ),
+              ],
+            );
+          }),
+      bottomNavigationBar: Utility.buildBottomNavigationBar(context, 0),
+    );
   }
 }

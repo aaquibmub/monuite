@@ -3,6 +3,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:monuite/helpers/models/products/category_product_list_model.dart';
 import 'package:monuite/helpers/models/user.dart';
 
 import '../helpers/common/constants.dart';
@@ -59,6 +60,7 @@ class ProductProvider with ChangeNotifier {
           }
           if (take == null || take == 0) {
             _allCategories = loadedProducts;
+            _categories = loadedProducts;
           } else {
             _categories = loadedProducts;
           }
@@ -114,9 +116,9 @@ class ProductProvider with ChangeNotifier {
     }
   }
 
-  List<ProductListModel> _popularCategoryProducts = [];
+  List<CategoryProductListModel> _popularCategoryProducts = [];
 
-  List<ProductListModel> get popularCategoryProducts {
+  List<CategoryProductListModel> get popularCategoryProducts {
     return [..._popularCategoryProducts];
   }
 
@@ -136,10 +138,11 @@ class ProductProvider with ChangeNotifier {
         case HttpStatus.ok:
           final List<dynamic>? extractedData =
               json.decode(response.body) as List<dynamic>;
-          final List<ProductListModel> loadedProducts = [];
+          final List<CategoryProductListModel> loadedProducts = [];
           if (extractedData != null) {
             extractedData.forEach((value) {
-              ProductListModel prod = ProductListModel.fromJson((value));
+              CategoryProductListModel prod =
+                  CategoryProductListModel.fromJson((value));
               loadedProducts.add(prod);
             });
           }

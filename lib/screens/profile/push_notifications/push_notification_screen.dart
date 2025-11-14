@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:monuite/helpers/common/utility.dart';
 import 'package:monuite/l10n/app_localizations.dart';
 
 class PushNotificationScreen extends StatelessWidget {
@@ -31,6 +32,7 @@ class PushNotificationScreen extends StatelessWidget {
           ),
         ],
       ),
+      bottomNavigationBar: Utility.buildBottomNavigationBar(context, 0),
     );
   }
 }

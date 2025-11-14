@@ -3,9 +3,12 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:monuite/helpers/common/constants.dart';
+import 'package:monuite/helpers/common/custom_icons.dart';
 import 'package:monuite/helpers/common/routes.dart';
 import 'package:monuite/helpers/models/addresses/address_book_nodel.dart';
 import 'package:monuite/l10n/app_localizations.dart';
+import 'package:monuite/providers/cart_provider.dart';
+import 'package:monuite/screens/loading_screen.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -510,5 +513,80 @@ class Utility {
     RegExp regex = RegExp(
         r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+");
     return regex.hasMatch(email);
+  }
+
+  static BottomNavigationBar buildBottomNavigationBar(
+    BuildContext context,
+    int selectedIndex,
+  ) {
+    return BottomNavigationBar(
+      onTap: (index) {
+        Navigator.of(context).pushReplacementNamed(
+          Routes.tabsScreen,
+          arguments: index,
+        );
+      },
+      selectedItemColor: Constants.primaryColor,
+      unselectedItemColor: Constants.textColorLight,
+      showUnselectedLabels: true,
+      currentIndex: selectedIndex,
+      items: [
+        BottomNavigationBarItem(
+          // backgroundColor: Theme.of(context).backgroundColor,
+          icon: ImageIcon(
+            AssetImage(CustomIcons.homeIconDisabled),
+          ),
+          activeIcon: ImageIcon(
+            AssetImage(CustomIcons.homeIconActive),
+          ),
+          label: AppLocalizations.of(context)!.home,
+        ),
+        BottomNavigationBarItem(
+          // backgroundColor: Theme.of(context).backgroundColor,
+          icon: ImageIcon(
+            AssetImage(CustomIcons.catgIconDisabled),
+          ),
+          activeIcon: ImageIcon(
+            AssetImage(CustomIcons.catgIconActive),
+          ),
+          label: AppLocalizations.of(context)!.categories,
+        ),
+        BottomNavigationBarItem(
+          // backgroundColor: Theme.of(context).backgroundColor,
+          icon: FutureBuilder(
+              future: Provider.of<CartProvider>(context, listen: false).get(),
+              builder: (ctx, data) {
+                if (data.connectionState == ConnectionState.waiting) {
+                  return LoadingScreen();
+                }
+                return Consumer<CartProvider>(builder: (ctx, provider, _) {
+                  return Badge.count(
+                    // Using Badge.count for a numerical badge
+                    count: provider.cartModel != null
+                        ? provider.cartModel!.items.length
+                        : 0,
+                    child: ImageIcon(
+                      AssetImage(CustomIcons.cartIconDisabled),
+                    ),
+                  );
+                });
+              }),
+          activeIcon: ImageIcon(
+            AssetImage(CustomIcons.cartIconActive),
+          ),
+          label: AppLocalizations.of(context)!.cart,
+        ),
+        BottomNavigationBarItem(
+          // backgroundColor: Theme.of(context).backgroundColor,
+          icon: ImageIcon(
+            AssetImage(CustomIcons.reorderIconDisabled),
+          ),
+          activeIcon: ImageIcon(
+            AssetImage(CustomIcons.reorderIconActive),
+          ),
+          label: AppLocalizations.of(context)!.reorder,
+        ),
+      ],
+    );
   }
 }

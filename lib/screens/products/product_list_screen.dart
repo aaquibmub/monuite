@@ -121,6 +121,7 @@ class _ProductListScreenState extends State<ProductListScreen> {
           ),
         ],
       ),
+      bottomNavigationBar: Utility.buildBottomNavigationBar(context, 1),
     );
   }
 }

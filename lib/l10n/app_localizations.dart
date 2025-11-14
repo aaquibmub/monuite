@@ -833,6 +833,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'CVC is required'**
   String get cvcRequired;
+
+  /// Label for Stripe payment method
+  ///
+  /// In en, this message translates to:
+  /// **'Stripe'**
+  String get stripe;
+
+  /// Label for payment on amount method
+  ///
+  /// In en, this message translates to:
+  /// **'Payment on Amount'**
+  String get paymentOnAmount;
 }
 
 class _AppLocalizationsDelegate

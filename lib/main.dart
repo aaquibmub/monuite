@@ -9,6 +9,7 @@ import 'package:monuite/providers/product_provider.dart';
 import 'package:monuite/screens/home/cart/cart_screen.dart';
 import 'package:monuite/screens/home/home_screen.dart';
 import 'package:monuite/screens/home/profile_screen.dart';
+import 'package:monuite/screens/home/tabs_screen.dart';
 import 'package:monuite/screens/login_screen.dart';
 import 'package:monuite/screens/orders/order_list_screen.dart';
 import 'package:monuite/screens/products/product_list_screen.dart';
@@ -149,6 +150,8 @@ class MyApp extends StatelessWidget {
             Routes.loginScreen: (ctx) => LoginScreen(),
             Routes.registerPrivateScreen: (ctx) => RegisterPrivateScreen(),
             Routes.registerCorporateScreen: (ctx) => RegisterCorporateScreen(),
+            Routes.tabsScreen: (ctx) =>
+                TabsScreen(ModalRoute.of(ctx)!.settings.arguments as int? ?? 0),
             Routes.homeScreen: (ctx) => HomeScreen(),
             Routes.cartScreen: (ctx) => CartScreen(),
             Routes.ordersScreen: (ctx) => OrderListScreen(''),

@@ -487,5 +487,13 @@
     "cvcRequired": "CVC requis",
     "@cvcRequired": {
         "description": "Message de validation lorsque le CVC n'est pas fourni"
+    },
+    "stripe": "Stripe",
+    "@stripe": {
+        "description": "Label pour la méthode de paiement Stripe"
+    },
+    "paymentOnAmount": "Paiement sur montant",
+    "@paymentOnAmount": {
+        "description": "Label pour la méthode de paiement sur montant"
     }
 }

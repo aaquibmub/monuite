@@ -3,7 +3,6 @@ import 'package:flutter_stripe/flutter_stripe.dart';
 import 'package:monuite/helpers/common/utility.dart';
 import 'package:monuite/helpers/models/orders/order_create_response_model.dart';
 import 'package:monuite/l10n/app_localizations.dart';
-import 'package:monuite/screens/home/payment/credit_debit_card/credit_debit_card_payment_screen.dart';
 import 'package:provider/provider.dart';
 
 import '../../../helpers/common/constants.dart';
@@ -208,8 +207,8 @@ class _PaymentScreenState extends State<PaymentScreen> {
                                           // Invoice
                                           _buildPaymentMethod(
                                               CustomIcons.paymentMethodInvoice,
-                                              Constants.paymentMethodInvoice,
-                                              () {
+                                              AppLocalizations.of(context)!
+                                                  .paymentOnAmount, () {
                                             setState(() {
                                               _isLoading = true;
                                             });
@@ -320,8 +319,8 @@ class _PaymentScreenState extends State<PaymentScreen> {
                                           _buildPaymentMethod(
                                               CustomIcons
                                                   .paymentMethodCreditCard,
-                                              Constants.paymentMethodCreditCard,
-                                              () {
+                                              AppLocalizations.of(context)!
+                                                  .stripe, () {
                                             setState(() {
                                               _isLoading = true;
                                             });

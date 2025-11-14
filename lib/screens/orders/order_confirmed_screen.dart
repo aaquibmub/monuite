@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:monuite/helpers/common/utility.dart';
 import 'package:monuite/l10n/app_localizations.dart';
 import 'package:monuite/screens/orders/widgets/order_item_widget.dart';
 import 'package:provider/provider.dart';
 
 import '../../helpers/common/constants.dart';
 import '../../providers/order_provider.dart';
-import '../home/tabs_screen.dart';
 import '../loading_screen.dart';
 
 class OrderConfirmedScreen extends StatefulWidget {
@@ -311,38 +311,39 @@ class _OrderConfirmedScreenState extends State<OrderConfirmedScreen> {
                       ),
                     ),
                     // Confirm & Pay Button
-                    Container(
-                      margin: EdgeInsets.symmetric(
-                        vertical: 10,
-                      ),
-                      child: Container(
-                        width: double.infinity,
-                        height: 60,
-                        child: ElevatedButton(
-                          style: ButtonStyle(
-                              backgroundColor: WidgetStateProperty.all<Color>(
-                                  Theme.of(context).primaryColor)),
-                          onPressed: () async {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => TabsScreen(0)),
-                            );
-                          },
-                          child: Text(
-                            AppLocalizations.of(context)!.backToHome,
-                            style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold,
-                              color: Constants.backgroundColor,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
+                    // Container(
+                    //   margin: EdgeInsets.symmetric(
+                    //     vertical: 10,
+                    //   ),
+                    //   child: Container(
+                    //     width: double.infinity,
+                    //     height: 60,
+                    //     child: ElevatedButton(
+                    //       style: ButtonStyle(
+                    //           backgroundColor: WidgetStateProperty.all<Color>(
+                    //               Theme.of(context).primaryColor)),
+                    //       onPressed: () async {
+                    //         Navigator.push(
+                    //           context,
+                    //           MaterialPageRoute(
+                    //               builder: (context) => TabsScreen(0)),
+                    //         );
+                    //       },
+                    //       child: Text(
+                    //         AppLocalizations.of(context)!.backToHome,
+                    //         style: TextStyle(
+                    //           fontSize: 16,
+                    //           fontWeight: FontWeight.bold,
+                    //           color: Constants.backgroundColor,
+                    //         ),
+                    //       ),
+                    //     ),
+                    //   ),
+                    // ),
                   ],
                 ));
           }),
+      bottomNavigationBar: Utility.buildBottomNavigationBar(context, 0),
     );
   }
 }

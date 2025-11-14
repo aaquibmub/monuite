@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:monuite/helpers/common/constants.dart';
 import 'package:monuite/helpers/common/custom_icons.dart';
+import 'package:monuite/helpers/common/utility.dart';
 import 'package:monuite/l10n/app_localizations.dart';
 import 'package:monuite/providers/auth.dart';
 import 'package:provider/provider.dart';
@@ -133,6 +134,7 @@ class _LanguageScreenState extends State<LanguageScreen> {
           ),
         ],
       ),
+      bottomNavigationBar: Utility.buildBottomNavigationBar(context, 0),
     );
   }
 }

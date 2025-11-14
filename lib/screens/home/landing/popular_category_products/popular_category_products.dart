@@ -19,21 +19,6 @@ class _PopularCategoryProductsState extends State<PopularCategoryProducts> {
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
-        Container(
-          margin: EdgeInsets.symmetric(
-            vertical: 20,
-            horizontal: 10,
-          ),
-          child:
-              Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-            Text(
-              AppLocalizations.of(context)!.popularCategories,
-              style: TextStyle(
-                fontSize: 20,
-              ),
-            ),
-          ]),
-        ),
         Center(
           child: FutureBuilder(
               future: Provider.of<ProductProvider>(context, listen: false)
@@ -48,10 +33,41 @@ class _PopularCategoryProductsState extends State<PopularCategoryProducts> {
                     builder: (ctx, provider, _) {
                       return provider.popularCategoryProducts.length > 0
                           ? SingleChildScrollView(
-                              scrollDirection: Axis.horizontal,
-                              child: Row(children: <Widget>[
+                              scrollDirection: Axis.vertical,
+                              child: Column(children: <Widget>[
                                 ...provider.popularCategoryProducts.map(
-                                  (e) => PopularProductCardWidget(e),
+                                  (e) => Column(children: [
+                                    Container(
+                                      margin: EdgeInsets.symmetric(
+                                        vertical: 20,
+                                        horizontal: 10,
+                                      ),
+                                      child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Text(
+                                              e.category,
+                                              style: TextStyle(
+                                                fontSize: 20,
+                                              ),
+                                            ),
+                                          ]),
+                                    ),
+                                    Container(
+                                      width: double.infinity,
+                                      margin: EdgeInsets.symmetric(
+                                        horizontal: 10,
+                                      ),
+                                      child: SingleChildScrollView(
+                                        scrollDirection: Axis.horizontal,
+                                        child: Row(children: <Widget>[
+                                          ...e.products.map((p) =>
+                                              PopularProductCardWidget(p))
+                                        ]),
+                                      ),
+                                    )
+                                  ]),
                                 ),
                               ]),
                             )

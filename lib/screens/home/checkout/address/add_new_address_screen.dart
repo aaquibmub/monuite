@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:monuite/helpers/common/utility.dart';
 import 'package:monuite/helpers/models/addresses/address_model.dart';
 import 'package:monuite/l10n/app_localizations.dart';
 import 'package:monuite/providers/auth.dart';
@@ -225,7 +226,7 @@ class _AddNewAddressScreenState extends State<AddNewAddressScreen> {
               height: deviceSize.height,
               width: 500,
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Expanded(
@@ -234,15 +235,15 @@ class _AddNewAddressScreenState extends State<AddNewAddressScreen> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: <Widget>[
-                          SizedBox(
-                            height: 20,
-                          ),
-                          Text(
-                            AppLocalizations.of(context)!.addAddress,
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
+                          // SizedBox(
+                          //   height: 20,
+                          // ),
+                          // Text(
+                          //   AppLocalizations.of(context)!.addAddress,
+                          //   style: TextStyle(
+                          //     fontWeight: FontWeight.bold,
+                          //   ),
+                          // ),
                           SizedBox(
                             height: 30,
                           ),
@@ -281,6 +282,7 @@ class _AddNewAddressScreenState extends State<AddNewAddressScreen> {
                 ],
               ),
             ),
+      bottomNavigationBar: Utility.buildBottomNavigationBar(context, 2),
     );
   }
 }

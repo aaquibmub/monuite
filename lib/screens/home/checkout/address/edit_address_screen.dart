@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:monuite/helpers/common/utility.dart';
 import 'package:monuite/helpers/models/addresses/address_model.dart';
 import 'package:monuite/l10n/app_localizations.dart';
 import 'package:monuite/providers/cart_provider.dart';
@@ -188,7 +189,7 @@ class _EditAddressScreenState extends State<EditAddressScreen> {
               height: deviceSize.height,
               width: 500,
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Expanded(
@@ -236,6 +237,7 @@ class _EditAddressScreenState extends State<EditAddressScreen> {
                 ],
               ),
             ),
+      bottomNavigationBar: Utility.buildBottomNavigationBar(context, 2),
     );
   }
 }

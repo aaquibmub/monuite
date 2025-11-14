@@ -2,6 +2,7 @@ class Routes {
   static const String loginScreen = '\login';
   static const String registerPrivateScreen = '\register-private';
   static const String registerCorporateScreen = '\register-corporate';
+  static const String tabsScreen = '\tabs';
   static const String homeScreen = '\home';
   static const String cartScreen = '\cart';
   static const String supportScreen = 'support';
