@@ -1,5 +1,13 @@
 import 'package:flutter/material.dart';
 
+class PaypalEnvironment {
+  static const bool Sandbox = true;
+  static const String ClientId =
+      'AUEUf0sNUGd1bRkMiK5n9kqrRvLS0ZRjNnbWGgYRJDo3UZ4VJUlN4t9tlY_sHa5WuIZzTtyeIEerdl3P';
+  static const String Secret =
+      'EDNf2umAgM2pPLg0TiKDySRiDyaUQ74v56uglX-Q8fQXkqdCR-jjLhNdVPEeXiqfSbNy02nzY9BIsdTS';
+}
+
 class Constants {
   static const String baseUrl = 'http://135.125.212.109:8080/api/';
   //static const String baseUrl = 'http://10.0.2.2:5000/api/';

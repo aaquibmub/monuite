@@ -36,7 +36,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
               horizontal: 10,
             ),
             child: TextField(
-              autofocus: true,
+              autofocus: false,
               decoration: InputDecoration(
                 hintText: AppLocalizations.of(context)!.searchProducts,
                 border: OutlineInputBorder(),

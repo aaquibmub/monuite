@@ -205,9 +205,9 @@ class ProductProvider with ChangeNotifier {
   }
 
   Future<void> populateProductByCategoryList(String categoryId,
-      {int take = 0}) async {
+      {int take = 0, String query = ''}) async {
     var url = Uri.parse(
-        '${Constants.baseUrl}product/get-product-by-category-list?categoryId=$categoryId&take=${take}&lang=${locale?.languageCode}');
+        '${Constants.baseUrl}product/get-product-by-category-list?categoryId=$categoryId&take=${take}&query=$query&lang=${locale?.languageCode}');
     try {
       final response = await http.get(
         url,

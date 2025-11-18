@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:monuite/helpers/common/utility.dart';
 import 'package:monuite/l10n/app_localizations.dart';
 import 'package:monuite/providers/order_provider.dart';
 import 'package:monuite/screens/loading_screen.dart';
@@ -39,7 +38,7 @@ class _OrderListScreenState extends State<OrderListScreen> {
               horizontal: 10,
             ),
             child: TextField(
-              autofocus: true,
+              autofocus: false,
               decoration: InputDecoration(
                 hintText: AppLocalizations.of(context)!.searchOrders,
                 border: OutlineInputBorder(),
@@ -86,7 +85,7 @@ class _OrderListScreenState extends State<OrderListScreen> {
           ),
         ],
       ),
-      bottomNavigationBar: Utility.buildBottomNavigationBar(context, 0),
+      // bottomNavigationBar: Utility.buildBottomNavigationBar(context, 0),
     );
   }
 }

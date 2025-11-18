@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_paypal_payment/flutter_paypal_payment.dart';
 import 'package:flutter_stripe/flutter_stripe.dart';
 import 'package:monuite/helpers/common/utility.dart';
 import 'package:monuite/helpers/models/orders/order_create_response_model.dart';
@@ -267,22 +268,102 @@ class _PaymentScreenState extends State<PaymentScreen> {
                                                 _showErrorDialogue(
                                                     context, value.msg);
                                               } else {
-                                                Provider.of<CartProvider>(
-                                                        context,
-                                                        listen: false)
-                                                    .clear()
-                                                    .then((_) {
-                                                  Navigator.pushReplacement(
-                                                    context,
-                                                    MaterialPageRoute(
-                                                        builder: (context) =>
-                                                            OrderConfirmedScreen(
-                                                              value.result
-                                                                      ?.orderId ??
-                                                                  '',
-                                                            )),
-                                                  );
-                                                });
+                                                Navigator.of(context)
+                                                    .push(MaterialPageRoute(
+                                                  builder:
+                                                      (BuildContext context) =>
+                                                          PaypalCheckoutView(
+                                                    sandboxMode:
+                                                        PaypalEnvironment
+                                                            .Sandbox,
+                                                    clientId: PaypalEnvironment
+                                                        .ClientId,
+                                                    secretKey: PaypalEnvironment
+                                                        .Secret,
+                                                    transactions: const [
+                                                      {
+                                                        "amount": {
+                                                          "total": '100',
+                                                          "currency": "USD",
+                                                          "details": {
+                                                            "subtotal": '100',
+                                                            "shipping": '0',
+                                                            "shipping_discount":
+                                                                0
+                                                          }
+                                                        },
+                                                        "description":
+                                                            "The payment transaction description.",
+                                                      }
+                                                    ],
+                                                    note:
+                                                        "Contact us for any questions on your order.",
+                                                    onSuccess:
+                                                        (Map params) async {
+                                                      Provider.of<CartProvider>(
+                                                              context,
+                                                              listen: false)
+                                                          .clear()
+                                                          .then((_) {
+                                                        Navigator
+                                                            .pushReplacement(
+                                                          context,
+                                                          MaterialPageRoute(
+                                                              builder: (context) =>
+                                                                  OrderConfirmedScreen(
+                                                                    value.result
+                                                                            ?.orderId ??
+                                                                        '',
+                                                                  )),
+                                                        );
+                                                      });
+                                                    },
+                                                    onError: (error) {
+                                                      AlertDialog(
+                                                        content: Column(
+                                                          mainAxisSize:
+                                                              MainAxisSize.min,
+                                                          children: [
+                                                            Row(
+                                                              children: const [
+                                                                Icon(
+                                                                  Icons.cancel,
+                                                                  color: Colors
+                                                                      .red,
+                                                                ),
+                                                                Text(
+                                                                    "Payment Failed"),
+                                                              ],
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      );
+                                                      Navigator.pop(context);
+                                                    },
+                                                    onCancel: () {
+                                                      AlertDialog(
+                                                        content: Column(
+                                                          mainAxisSize:
+                                                              MainAxisSize.min,
+                                                          children: [
+                                                            Row(
+                                                              children: const [
+                                                                Icon(
+                                                                  Icons.cancel,
+                                                                  color: Colors
+                                                                      .red,
+                                                                ),
+                                                                Text(
+                                                                    "Payment Cancelled"),
+                                                              ],
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      );
+                                                      Navigator.pop(context);
+                                                    },
+                                                  ),
+                                                ));
                                               }
                                             });
                                           }),

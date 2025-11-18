@@ -7,22 +7,25 @@ import 'package:provider/provider.dart';
 
 import '../../helpers/common/utility.dart';
 
-class CategoryDetailScreen extends StatelessWidget {
+class CategoryDetailScreen extends StatefulWidget {
   final String _id;
   final String _name;
+  String? query;
 
-  CategoryDetailScreen(
-    this._id,
-    this._name,
-  );
+  CategoryDetailScreen(this._id, this._name, {this.query});
 
+  @override
+  State<CategoryDetailScreen> createState() => _CategoryDetailScreenState();
+}
+
+class _CategoryDetailScreenState extends State<CategoryDetailScreen> {
   @override
   Widget build(BuildContext context) {
     var deviceSize = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          _name,
+          widget._name,
         ),
       ),
       // drawer: Utility.buildDrawer(context),
@@ -31,24 +34,31 @@ class CategoryDetailScreen extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
+            width: double.infinity,
             margin: EdgeInsets.symmetric(
               vertical: 20,
               horizontal: 10,
             ),
-            child: Row(mainAxisAlignment: MainAxisAlignment.start, children: [
-              Text(
-                AppLocalizations.of(context)!.products,
-                style: TextStyle(
-                  fontSize: 20,
-                ),
+            child: TextField(
+              autofocus: false,
+              decoration: InputDecoration(
+                hintText: AppLocalizations.of(context)!.searchProducts,
+                border: OutlineInputBorder(),
+                suffixIcon: Icon(Icons.search),
               ),
-            ]),
+              onChanged: (value) {
+                setState(() {
+                  widget.query = value;
+                });
+              },
+            ),
           ),
           Expanded(
             child: SingleChildScrollView(
               child: FutureBuilder(
                   future: Provider.of<ProductProvider>(context, listen: false)
-                      .populateProductByCategoryList(_id),
+                      .populateProductByCategoryList(widget._id,
+                          query: widget.query ?? ''),
                   builder: (ctx, data) {
                     if (data.connectionState == ConnectionState.waiting) {
                       return LoadingScreen();
