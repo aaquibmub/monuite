@@ -845,6 +845,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Payment on Amount'**
   String get paymentOnAmount;
+
+  /// Label for VAT amount
+  ///
+  /// In en, this message translates to:
+  /// **'VAT'**
+  String get vat;
 }
 
 class _AppLocalizationsDelegate

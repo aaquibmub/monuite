@@ -8,9 +8,11 @@ class OrderModel {
   String paymentMethod;
   double? total;
   double shippingCost;
+  // double taxRate;
+  double taxAmount;
   double? couponDiscount;
   double get grandTotal {
-    return (total ?? 0) + shippingCost - (couponDiscount ?? 0);
+    return (total ?? 0) + shippingCost + taxAmount - (couponDiscount ?? 0);
   }
 
   OrderModel(
@@ -18,6 +20,8 @@ class OrderModel {
     this.items,
     this.customerId,
     this.shippingCost,
+    // this.taxRate,
+    this.taxAmount,
     this.couponDiscount,
     this.paymentMethod,
     this.total,
@@ -39,6 +43,8 @@ class OrderModel {
       items,
       json['customerId'] as int?,
       json['shippingCost'] as double,
+      // json['taxRate'] as double,
+      json['taxAmount'] as double,
       json['couponDiscount'] as double,
       json['paymentMethod'] as String,
       json['total'] as double,
@@ -51,6 +57,8 @@ class OrderModel {
       'items': items.map((item) => item.toJson()).toList(),
       'customerId': customerId,
       'shippingCost': shippingCost,
+      // 'taxRate': taxRate,
+      'taxAmount': taxAmount,
       'couponDiscount': couponDiscount ?? 0,
       'paymentMethod': paymentMethod,
       'total': total,

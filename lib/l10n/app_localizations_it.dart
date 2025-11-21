@@ -383,4 +383,7 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get paymentOnAmount => 'Paiement sur montant';
+
+  @override
+  String get vat => 'IVA';
 }

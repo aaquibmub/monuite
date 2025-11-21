@@ -225,6 +225,37 @@ class _OrderConfirmedScreenState extends State<OrderConfirmedScreen> {
                                                   ],
                                                 ),
                                               ),
+                                              // VAT
+                                              Container(
+                                                margin: EdgeInsets.symmetric(
+                                                  vertical: 10,
+                                                ),
+                                                child: Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceBetween,
+                                                  children: [
+                                                    Text(
+                                                      AppLocalizations.of(
+                                                              context)!
+                                                          .vat,
+                                                      style: TextStyle(
+                                                        fontSize: 20,
+                                                      ),
+                                                    ),
+                                                    Text(
+                                                      "CHF ${provider.orderModel!.taxAmount}",
+                                                      style: TextStyle(
+                                                        fontSize: 20,
+                                                        fontWeight:
+                                                            FontWeight.bold,
+                                                        color:
+                                                            Constants.colorGrey,
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
                                               // Coupon Discount
                                               Container(
                                                 margin: EdgeInsets.symmetric(

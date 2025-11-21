@@ -495,5 +495,9 @@
     "paymentOnAmount": "Paiement sur montant",
     "@paymentOnAmount": {
         "description": "Label pour la méthode de paiement sur montant"
+    },
+    "vat": "IVA",
+    "@vat": {
+        "description": "Etichetta per l'importo IVA"
     }
 }

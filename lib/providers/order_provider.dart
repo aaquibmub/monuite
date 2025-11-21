@@ -124,6 +124,8 @@ class OrderProvider with ChangeNotifier {
             .toList(),
         user?.wpId ?? 0,
         cartModel.shippingCost,
+        // cartModel.taxRate,
+        cartModel.taxAmount,
         cartModel.couponDiscount,
         paymentMethod,
         cartModel.total,

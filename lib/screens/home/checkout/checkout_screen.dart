@@ -59,7 +59,8 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
         ),
       ),
       body: FutureBuilder(
-          future: Provider.of<CartProvider>(context, listen: false).get(),
+          future:
+              Provider.of<CartProvider>(context, listen: false).getFromServer(),
           builder: (ctx, data) {
             if (data.connectionState == ConnectionState.waiting) {
               return LoadingScreen();
@@ -339,6 +340,32 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                                             ),
                                             Text(
                                               "CHF ${Utility.formatNumber(provider.cartModel!.shippingCost)}",
+                                              style: TextStyle(
+                                                fontSize: 20,
+                                                fontWeight: FontWeight.bold,
+                                                color: Constants.colorGrey,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                      // VAT
+                                      Container(
+                                        margin: EdgeInsets.symmetric(
+                                          vertical: 10,
+                                        ),
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Text(
+                                              AppLocalizations.of(context)!.vat,
+                                              style: TextStyle(
+                                                fontSize: 20,
+                                              ),
+                                            ),
+                                            Text(
+                                              "CHF ${Utility.formatNumber(provider.cartModel!.taxAmount)}",
                                               style: TextStyle(
                                                 fontSize: 20,
                                                 fontWeight: FontWeight.bold,

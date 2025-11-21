@@ -6,15 +6,21 @@ class CartModel {
   final List<CartItemModel?> items;
   double? total;
   double shippingCost;
+  double taxRate;
   double? couponDiscount;
   double get grandTotal {
-    return (total ?? 0) + shippingCost - (couponDiscount ?? 0);
+    return (total ?? 0) + shippingCost + taxAmount - (couponDiscount ?? 0);
+  }
+
+  double get taxAmount {
+    return (taxRate / 100) * (total ?? 0);
   }
 
   CartModel(
     this.address,
     this.items,
     this.shippingCost,
+    this.taxRate,
     this.total,
   );
 
@@ -34,6 +40,7 @@ class CartModel {
       address,
       items,
       json['shippingCost'] as double,
+      json['taxRate'] as double,
       json['price'] as double,
     );
   }
@@ -43,6 +50,7 @@ class CartModel {
       'address': address?.toJson(),
       'items': items.map((item) => item!.toJson()).toList(),
       'shippingCost': shippingCost,
+      'taxRate': taxRate,
       'price': total,
     };
   }

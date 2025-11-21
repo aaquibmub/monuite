@@ -495,5 +495,9 @@
   "paymentOnAmount": "Payment on Amount",
   "@paymentOnAmount": {
     "description": "Label for payment on amount method"
+  },
+  "vat": "VAT",
+  "@vat": {
+    "description": "Label for VAT amount"
   }
 }

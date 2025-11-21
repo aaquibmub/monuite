@@ -382,4 +382,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get paymentOnAmount => 'Zahlung bei Betrag';
+
+  @override
+  String get vat => 'MwSt';
 }

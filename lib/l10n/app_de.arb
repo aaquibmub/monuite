@@ -495,5 +495,9 @@
     "paymentOnAmount": "Zahlung bei Betrag",
     "@paymentOnAmount": {
         "description": "Bezeichnung für die Zahlungsmethode 'Zahlung bei Betrag'"
+    },
+    "vat": "MwSt",
+    "@vat": {
+        "description": "Bezeichnung für den MwSt-Betrag"
     }
 }
