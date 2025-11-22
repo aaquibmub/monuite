@@ -19,7 +19,7 @@ class ResponseModel<T> {
   });
 
   factory ResponseModel.fromJson(dynamic json) {
-    if (T == OrderCreateResponseModel) {
+    if (T == OrderCreateResponseModel && json['result'] != null) {
       OrderCreateResponseModel result =
           OrderCreateResponseModel.fromJson(json['result']);
       return ResponseModel<T>(
@@ -33,7 +33,7 @@ class ResponseModel<T> {
     }
 
     return ResponseModel<T>(
-      json['result'] as T,
+      json['result'] != null ? json['result'] as T : null,
       json['msg'] as String?,
       json['hasError'] as bool,
       errorAction: json['errorAction'] as int?,
