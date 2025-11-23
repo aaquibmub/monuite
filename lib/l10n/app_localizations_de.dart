@@ -385,4 +385,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get vat => 'MwSt';
+
+  @override
+  String get shippingTax => 'Versandsteuer';
 }

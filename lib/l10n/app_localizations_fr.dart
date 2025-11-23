@@ -387,4 +387,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get vat => 'TVA';
+
+  @override
+  String get shippingTax => 'Taxe d\'expédition';
 }

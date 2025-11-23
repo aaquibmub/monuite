@@ -9,11 +9,19 @@ class CartModel {
   double taxRate;
   double? couponDiscount;
   double get grandTotal {
-    return (total ?? 0) + shippingCost + taxAmount - (couponDiscount ?? 0);
+    return (total ?? 0) +
+        shippingCost +
+        shippingTax +
+        taxAmount -
+        (couponDiscount ?? 0);
   }
 
   double get taxAmount {
     return (taxRate / 100) * (total ?? 0);
+  }
+
+  double get shippingTax {
+    return (taxRate / 100) * shippingCost;
   }
 
   CartModel(

@@ -499,5 +499,9 @@
   "vat": "VAT",
   "@vat": {
     "description": "Label for VAT amount"
+  },
+  "shippingTax": "Shipping Tax",
+  "@shippingTax": {
+    "description": "Label for shipping tax amount"
   }
 }

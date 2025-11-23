@@ -851,6 +851,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'VAT'**
   String get vat;
+
+  /// Label for shipping tax amount
+  ///
+  /// In en, this message translates to:
+  /// **'Shipping Tax'**
+  String get shippingTax;
 }
 
 class _AppLocalizationsDelegate

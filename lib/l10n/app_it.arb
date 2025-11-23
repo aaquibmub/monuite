@@ -499,5 +499,9 @@
     "vat": "IVA",
     "@vat": {
         "description": "Etichetta per l'importo IVA"
+    },
+    "shippingTax": "Tassa di spedizione",
+    "@shippingTax": {
+        "description": "Etichetta per l'importo della tassa di spedizione"
     }
 }

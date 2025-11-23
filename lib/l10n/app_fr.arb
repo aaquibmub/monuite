@@ -499,5 +499,9 @@
     "vat": "TVA",
     "@vat": {
         "description": "Label pour le montant de la TVA"
+    },
+    "shippingTax": "Taxe d'expédition",
+    "@shippingTax": {
+        "description": "Label pour le montant de la taxe d'expédition"
     }
 }
