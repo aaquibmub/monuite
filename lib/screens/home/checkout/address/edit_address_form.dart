@@ -1,9 +1,12 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:monuite/helpers/common/utility.dart';
 import 'package:monuite/helpers/models/addresses/address_model.dart';
 import 'package:monuite/helpers/models/common/dropdown_item.dart';
 import 'package:monuite/l10n/app_localizations.dart';
 import 'package:monuite/providers/common_provider.dart';
+import 'package:monuite/screens/loading_screen.dart';
 import 'package:monuite/widgets/form/form_text_field.dart';
 import 'package:provider/provider.dart';
 
@@ -124,11 +127,6 @@ class _EditAddressFormState extends State<EditAddressForm> {
 
   @override
   Widget build(BuildContext context) {
-    // _selectedCountry = DropdownItem(
-    //   widget.addressModel.country,
-    //   widget.addressModel.country,
-    // );
-
     String firstName = widget.addressModel.first_name;
     _firstNameController.text = firstName;
     widget.setFirstNameFn(firstName);
@@ -192,57 +190,69 @@ class _EditAddressFormState extends State<EditAddressForm> {
             Container(
               width: double.infinity,
               child: Consumer<CommonProvider>(builder: (ctx, provider, _) {
-                return DropdownButton<String>(
-                  isExpanded: true,
-                  value: _selectedCountry?.value,
-                  elevation: 16,
-                  style: const TextStyle(color: Colors.deepPurple),
-                  underline: Container(
-                    height: 2,
-                    color: Colors.deepPurpleAccent,
-                  ),
-                  onChanged: (String? value) {
-                    // This is called when the user selects an item.
-                    setState(() {
-                      final DropdownItem<String>? item = provider.countryList
-                          .where((element) => element.value == value)
-                          .first;
-                      if (item != null) {
-                        String? text = item.text;
-                        _selectedCountry = DropdownItem(
-                          value,
-                          text,
-                        );
-                        widget.setCountryFn(
-                          _selectedCountry!.text!,
-                        );
-                      }
-                    });
-                  },
-                  selectedItemBuilder: (BuildContext context) {
-                    return provider.countryList
-                        .map<Widget>((DropdownItem<String> item) {
-                      return Container(
-                        alignment: Alignment.centerLeft,
-                        constraints: const BoxConstraints(
-                          maxWidth: double.infinity,
+                if (provider.countryList.length > 0 &&
+                    _selectedCountry == null) {
+                  _selectedCountry = provider.countryList
+                      .where((element) =>
+                          element.text == widget.addressModel.country)
+                      .firstOrNull;
+                }
+                return provider.countryList.length > 0
+                    ? DropdownButton<String>(
+                        isExpanded: true,
+                        value: _selectedCountry?.value,
+                        elevation: 16,
+                        style: const TextStyle(color: Colors.deepPurple),
+                        underline: Container(
+                          height: 2,
+                          color: Colors.deepPurpleAccent,
                         ),
-                        child: Text(
-                          item.text!,
-                          style: const TextStyle(
-                              color: Colors.blue, fontWeight: FontWeight.w600),
-                        ),
-                      );
-                    }).toList();
-                  },
-                  items: provider.countryList.map<DropdownMenuItem<String>>(
-                      (DropdownItem<String> value) {
-                    return DropdownMenuItem<String>(
-                      value: value.value,
-                      child: Text(value.text!),
-                    );
-                  }).toList(),
-                );
+                        onChanged: (String? value) {
+                          // This is called when the user selects an item.
+                          setState(() {
+                            final DropdownItem<String>? item = provider
+                                .countryList
+                                .where((element) => element.value == value)
+                                .first;
+                            if (item != null) {
+                              String? text = item.text;
+                              _selectedCountry = DropdownItem(
+                                value,
+                                text,
+                              );
+                              widget.setCountryFn(
+                                _selectedCountry!.text!,
+                              );
+                            }
+                          });
+                        },
+                        selectedItemBuilder: (BuildContext context) {
+                          return provider.countryList
+                              .map<Widget>((DropdownItem<String> item) {
+                            return Container(
+                              alignment: Alignment.centerLeft,
+                              constraints: const BoxConstraints(
+                                maxWidth: double.infinity,
+                              ),
+                              child: Text(
+                                item.text!,
+                                style: const TextStyle(
+                                    color: Colors.blue,
+                                    fontWeight: FontWeight.w600),
+                              ),
+                            );
+                          }).toList();
+                        },
+                        items: provider.countryList
+                            .map<DropdownMenuItem<String>>(
+                                (DropdownItem<String> value) {
+                          return DropdownMenuItem<String>(
+                            value: value.value,
+                            child: Text(value.text!),
+                          );
+                        }).toList(),
+                      )
+                    : LoadingScreen();
               }),
             ),
             SizedBox(

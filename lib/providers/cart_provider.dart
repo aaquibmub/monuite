@@ -91,11 +91,10 @@ class CartProvider with ChangeNotifier {
 
   Future<void> get() async {
     try {
+      final List<AddressBookModel> addressBook = await Utility.getAddressBook();
       final prefs = await SharedPreferences.getInstance();
       final cartModelStr = prefs.getString('cartModel');
       if (cartModelStr == null || cartModelStr.isEmpty) {
-        final List<AddressBookModel> addressBook =
-            await Utility.getAddressBook();
         final defaultAddress = addressBook.isEmpty
             ? null
             : addressBook.where((element) => element.isDefault).first.address;
@@ -103,6 +102,14 @@ class CartProvider with ChangeNotifier {
         return;
       }
       _cartModel = CartModel.fromJson(json.decode(cartModelStr));
+
+      if (_cartModel!.address == null) {
+        final defaultAddress = addressBook.isEmpty
+            ? null
+            : addressBook.where((element) => element.isDefault).first.address;
+        _cartModel!.address = defaultAddress;
+      }
+
       notifyListeners();
     } catch (error) {
       throw error;

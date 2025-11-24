@@ -503,5 +503,9 @@
     "shippingTax": "Taxe d'expédition",
     "@shippingTax": {
         "description": "Label pour le montant de la taxe d'expédition"
+    },
+    "switzerland": "Suisse",
+    "@switzerland": {
+        "description": "Bezeichnung für das Land Schweiz"
     }
 }

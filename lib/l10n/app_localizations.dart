@@ -857,6 +857,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Shipping Tax'**
   String get shippingTax;
+
+  /// Name of the country Switzerland
+  ///
+  /// In en, this message translates to:
+  /// **'Switzerland'**
+  String get switzerland;
 }
 
 class _AppLocalizationsDelegate

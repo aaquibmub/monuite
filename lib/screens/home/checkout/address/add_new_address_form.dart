@@ -144,6 +144,9 @@ class _AddNewAddressFormState extends State<AddNewAddressForm> {
             Container(
               width: double.infinity,
               child: Consumer<CommonProvider>(builder: (ctx, provider, _) {
+                _selectedCountry = provider.countryList
+                    .where((element) => element.text == 'Schweiz')
+                    .first;
                 return DropdownButton<String>(
                   isExpanded: true,
                   value: _selectedCountry?.value,

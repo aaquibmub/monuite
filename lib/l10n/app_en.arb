@@ -503,5 +503,9 @@
   "shippingTax": "Shipping Tax",
   "@shippingTax": {
     "description": "Label for shipping tax amount"
+  },
+  "switzerland": "Switzerland",
+  "@switzerland": {
+    "description": "Name of the country Switzerland"
   }
 }

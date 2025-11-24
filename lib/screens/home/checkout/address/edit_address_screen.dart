@@ -21,7 +21,7 @@ class _EditAddressScreenState extends State<EditAddressScreen> {
 
   bool _isLoading = false;
 
-  String _country = 'Switzerland'; // Default country
+  String _country = '';
   String _firstName = '';
   String _lastName = '';
   String _companyName = '';
