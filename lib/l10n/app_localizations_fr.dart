@@ -393,4 +393,86 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get switzerland => 'Suisse';
+
+  @override
+  String get signInToYourAccount => 'Connectez-vous à votre compte';
+
+  @override
+  String get forgotPassword => 'Mot de passe oublié';
+
+  @override
+  String get registerAsPrivateCustomer =>
+      'Inscrivez-vous en tant que client privé';
+
+  @override
+  String get registerAsCorporateCustomer =>
+      'Inscrivez-vous en tant que client d\'entreprise';
+
+  @override
+  String get continueAsGuest => 'Commander sans compte';
+
+  @override
+  String get signIn => 'Se connecter';
+
+  @override
+  String get emailUsername => 'Email/Nom d\'utilisateur';
+
+  @override
+  String get typeEmailUsername => 'Tapez email ou nom d\'utilisateur';
+
+  @override
+  String get pleaseEnterYourEmailUsername =>
+      'Veuillez entrer votre email/nom d\'utilisateur';
+
+  @override
+  String get password => 'Mot de passe';
+
+  @override
+  String get typePassword => 'Tapez le mot de passe';
+
+  @override
+  String get passwordMustBeAtLeast5CharactersLong =>
+      'Le mot de passe doit comporter au moins 5 caractères';
+
+  @override
+  String get passwordMustBeAtLeast6Characters =>
+      'Le mot de passe doit comporter au moins 6 caractères';
+
+  @override
+  String get createAnAccount => 'Créer un compte';
+
+  @override
+  String get typeYourEmail => 'Tapez votre email';
+
+  @override
+  String get emailIsRequired => 'Email requis';
+
+  @override
+  String get typeYourPassword => 'Tapez votre mot de passe';
+
+  @override
+  String get telephone => 'Téléphone';
+
+  @override
+  String get typeYourTelephone => 'Tapez votre téléphone';
+
+  @override
+  String get telephoneIsRequired => 'Téléphone requis';
+
+  @override
+  String get anErrorOccurredPleaseTryAgainLater =>
+      'Une erreur est survenue. Veuillez réessayer plus tard.';
+
+  @override
+  String get message => 'Message';
+
+  @override
+  String get typeYourMessageHere => 'Tapez votre message ici';
+
+  @override
+  String get messageIsRequired => 'Message requis';
+
+  @override
+  String get couldNotAuthenticateYou =>
+      'Impossible de vous authentifier. Veuillez réessayer.';
 }

@@ -863,6 +863,156 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Switzerland'**
   String get switzerland;
+
+  /// Prompt for user to sign in to their account
+  ///
+  /// In en, this message translates to:
+  /// **'Sign in to your account'**
+  String get signInToYourAccount;
+
+  /// Label for forgot password link
+  ///
+  /// In en, this message translates to:
+  /// **'Forgot Password?'**
+  String get forgotPassword;
+
+  /// Label for registering as a private customer
+  ///
+  /// In en, this message translates to:
+  /// **'Register as private customer'**
+  String get registerAsPrivateCustomer;
+
+  /// Label for registering as a corporate customer
+  ///
+  /// In en, this message translates to:
+  /// **'Register as corporate customer'**
+  String get registerAsCorporateCustomer;
+
+  /// Label for continuing as a guest user
+  ///
+  /// In en, this message translates to:
+  /// **'Order without an account'**
+  String get continueAsGuest;
+
+  /// Label for sign in button
+  ///
+  /// In en, this message translates to:
+  /// **'Sign in'**
+  String get signIn;
+
+  /// Label for email or username field
+  ///
+  /// In en, this message translates to:
+  /// **'Email / Username'**
+  String get emailUsername;
+
+  /// Hint text for email or username field
+  ///
+  /// In en, this message translates to:
+  /// **'Type email or username'**
+  String get typeEmailUsername;
+
+  /// Validation message when email or username is not provided
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter your email or username'**
+  String get pleaseEnterYourEmailUsername;
+
+  /// Label for password field
+  ///
+  /// In en, this message translates to:
+  /// **'Password'**
+  String get password;
+
+  /// Hint text for password field
+  ///
+  /// In en, this message translates to:
+  /// **'Type password'**
+  String get typePassword;
+
+  /// Validation message when password is too short
+  ///
+  /// In en, this message translates to:
+  /// **'Password must be at least 5 characters long'**
+  String get passwordMustBeAtLeast5CharactersLong;
+
+  /// Validation message when password is too short
+  ///
+  /// In en, this message translates to:
+  /// **'Password must be at least 6 characters'**
+  String get passwordMustBeAtLeast6Characters;
+
+  /// Label for create an account button
+  ///
+  /// In en, this message translates to:
+  /// **'Create an Account'**
+  String get createAnAccount;
+
+  /// Hint text for email field
+  ///
+  /// In en, this message translates to:
+  /// **'Type your email'**
+  String get typeYourEmail;
+
+  /// Validation message when email is not provided
+  ///
+  /// In en, this message translates to:
+  /// **'Email is required'**
+  String get emailIsRequired;
+
+  /// Hint text for password field
+  ///
+  /// In en, this message translates to:
+  /// **'Type your password'**
+  String get typeYourPassword;
+
+  /// Label for telephone field
+  ///
+  /// In en, this message translates to:
+  /// **'Telephone'**
+  String get telephone;
+
+  /// Hint text for telephone field
+  ///
+  /// In en, this message translates to:
+  /// **'Type your telephone'**
+  String get typeYourTelephone;
+
+  /// Validation message when telephone is not provided
+  ///
+  /// In en, this message translates to:
+  /// **'Telephone is required'**
+  String get telephoneIsRequired;
+
+  /// Generic error message to prompt the user to try again later
+  ///
+  /// In en, this message translates to:
+  /// **'An error occurred. Please try again later.'**
+  String get anErrorOccurredPleaseTryAgainLater;
+
+  /// Label for message field
+  ///
+  /// In en, this message translates to:
+  /// **'Message'**
+  String get message;
+
+  /// Hint text for message field
+  ///
+  /// In en, this message translates to:
+  /// **'Type your message here'**
+  String get typeYourMessageHere;
+
+  /// Validation message when message is not provided
+  ///
+  /// In en, this message translates to:
+  /// **'Message is required'**
+  String get messageIsRequired;
+
+  /// Error message displayed when authentication fails
+  ///
+  /// In en, this message translates to:
+  /// **'Could not authenticate you. Please check your credentials and try again.'**
+  String get couldNotAuthenticateYou;
 }
 
 class _AppLocalizationsDelegate

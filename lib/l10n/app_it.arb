@@ -507,5 +507,105 @@
     "switzerland": "Svizzera",
     "@switzerland": {
         "description": "Nome del paese Svizzera"
+    },
+    "signInToYourAccount": "Accedi al tuo account",
+    "@signInToYourAccount": {
+        "description": "Bezeichnung für die Überschrift 'Melden Sie sich bei Ihrem Konto an'"
+    },
+    "forgotPassword": "Ha dimenticato la password",
+    "@forgotPassword": {
+        "description": "Bezeichnung für die Schaltfläche 'Passwort vergessen'"
+    },
+    "registerAsPrivateCustomer": "Registrati come cliente privato",
+    "@registerAsPrivateCustomer": {
+        "description": "Bezeichnung für die Schaltfläche 'Als Privatkunde registrieren'"
+    },
+    "registerAsCorporateCustomer": "Registrati come cliente aziendale",
+    "@registerAsCorporateCustomer": {
+        "description": "Bezeichnung für die Schaltfläche 'Als Firmenkunde registrieren'"
+    },
+    "continueAsGuest": "Continua come ospite",
+    "@continueAsGuest": {
+        "description": "Bezeichnung für die Schaltfläche 'Als Gast fortfahren'"
+    },
+    "signIn": "Accedi",
+    "@signIn": {
+        "description": "Bezeichnung für die Schaltfläche 'Anmelden'"
+    },
+    "emailUsername": "Email/Username",
+    "@emailUsername": {
+        "description": "Bezeichnung für das E-Mail/Benutzername Feld"
+    },
+    "typeEmailUsername": "Digiti email o username",
+    "@typeEmailUsername": {
+        "description": "Platzhaltertext für das E-Mail/Benutzername Feld"
+    },
+    "pleaseEnterYourEmailUsername": "Per favore inserisca il suo email o username",
+    "@pleaseEnterYourEmailUsername": {
+        "description": "Validierungsnachricht, die angezeigt wird, wenn das E-Mail/Benutzername Feld leer ist"
+    },
+    "password": "Password",
+    "@password": {
+        "description": "Bezeichnung für das Passwort Feld"
+    },
+    "typePassword": "Digiti la password",
+    "@typePassword": {
+        "description": "Platzhaltertext für das Passwort Feld"
+    },
+    "passwordMustBeAtLeast5CharactersLong": "La password deve essere di almeno 5 caratteri",
+    "@passwordMustBeAtLeast5CharactersLong": {
+        "description": "Validierungsnachricht, die angezeigt wird, wenn das Passwort zu kurz ist"
+    },
+    "passwordMustBeAtLeast6Characters": "La password deve essere di almeno 6 caratteri",
+    "@passwordMustBeAtLeast6Characters": {
+        "description": "Validierungsnachricht, die angezeigt wird, wenn das Passwort zu kurz ist"
+    },
+    "createAnAccount": "Crea un account",
+    "@createAnAccount": {
+        "description": "Bezeichnung für die Schaltfläche 'Ein Konto erstellen'"
+    },
+    "typeYourEmail": "Digiti la sua email",
+    "@typeYourEmail": {
+        "description": "Platzhaltertext für das E-Mail Feld"
+    },
+    "emailIsRequired": "Email richiesta",
+    "@emailIsRequired": {
+        "description": "Messaggio di convalida quando l'email non è fornita"
+    },
+    "typeYourPassword": "Digiti la sua password",
+    "@typeYourPassword": {
+        "description": "Platzhaltertext für das Passwort Feld"
+    },
+    "telephone": "Telefono",
+    "@telephone": {
+        "description": "Bezeichnung für das Telefon Feld"
+    },
+    "typeYourTelephone": "Digiti il suo numero di telefono",
+    "@typeYourTelephone": {
+        "description": "Platzhaltertext für das Telefon Feld"
+    },
+    "telephoneIsRequired": "Telefono richiesto",
+    "@telephoneIsRequired": {
+        "description": "Messaggio di convalida quando il telefono non è fornito"
+    },
+    "anErrorOccurredPleaseTryAgainLater": "Si è verificato un errore. La preghiamo di riprovare più tardi.",
+    "@anErrorOccurredPleaseTryAgainLater": {
+        "description": "Messaggio di errore generico"
+    },
+    "message": "Messaggio",
+    "@message": {
+        "description": "Bezeichnung für das Nachrichtenfeld"
+    },
+    "typeYourMessageHere": "Digiti il suo messaggio qui",
+    "@typeYourMessageHere": {
+        "description": "Platzhaltertext für das Nachrichtenfeld"
+    },
+    "messageIsRequired": "Messaggio richiesto",
+    "@messageIsRequired": {
+        "description": "Messaggio di convalida quando il messaggio non è fornito"
+    },
+    "couldNotAuthenticateYou": "Impossibile autenticarti. La preghiamo di riprovare.",
+    "@couldNotAuthenticateYou": {
+        "description": "Messaggio di errore visualizzato quando l'autenticazione fallisce"
     }
 }

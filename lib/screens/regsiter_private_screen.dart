@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:monuite/l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 
 import '../helpers/common/routes.dart';
@@ -82,7 +83,7 @@ class _RegisterPrivateScreenState extends State<RegisterPrivateScreen> {
                 WidgetStateProperty.all<Color>(Theme.of(context).primaryColor)),
         onPressed: () => _submit(context),
         child: Text(
-          'Create an account',
+          AppLocalizations.of(context)!.createAnAccount,
           style: Theme.of(context).primaryTextTheme.labelLarge,
         ),
         // elevation: 0,
@@ -122,7 +123,8 @@ class _RegisterPrivateScreenState extends State<RegisterPrivateScreen> {
                                     horizontal: 20,
                                   ),
                                   child: Text(
-                                    'Create an account',
+                                    AppLocalizations.of(context)!
+                                        .createAnAccount,
                                     style:
                                         Theme.of(context).textTheme.bodyLarge,
                                   ),
@@ -135,7 +137,8 @@ class _RegisterPrivateScreenState extends State<RegisterPrivateScreen> {
                                     horizontal: 20,
                                   ),
                                   child: Text(
-                                    'Register as a private customer',
+                                    AppLocalizations.of(context)!
+                                        .registerAsPrivateCustomer,
                                     style: Theme.of(context)
                                         .textTheme
                                         .displayMedium,

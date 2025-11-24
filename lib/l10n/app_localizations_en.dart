@@ -390,4 +390,84 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get switzerland => 'Switzerland';
+
+  @override
+  String get signInToYourAccount => 'Sign in to your account';
+
+  @override
+  String get forgotPassword => 'Forgot Password?';
+
+  @override
+  String get registerAsPrivateCustomer => 'Register as private customer';
+
+  @override
+  String get registerAsCorporateCustomer => 'Register as corporate customer';
+
+  @override
+  String get continueAsGuest => 'Order without an account';
+
+  @override
+  String get signIn => 'Sign in';
+
+  @override
+  String get emailUsername => 'Email / Username';
+
+  @override
+  String get typeEmailUsername => 'Type email or username';
+
+  @override
+  String get pleaseEnterYourEmailUsername =>
+      'Please enter your email or username';
+
+  @override
+  String get password => 'Password';
+
+  @override
+  String get typePassword => 'Type password';
+
+  @override
+  String get passwordMustBeAtLeast5CharactersLong =>
+      'Password must be at least 5 characters long';
+
+  @override
+  String get passwordMustBeAtLeast6Characters =>
+      'Password must be at least 6 characters';
+
+  @override
+  String get createAnAccount => 'Create an Account';
+
+  @override
+  String get typeYourEmail => 'Type your email';
+
+  @override
+  String get emailIsRequired => 'Email is required';
+
+  @override
+  String get typeYourPassword => 'Type your password';
+
+  @override
+  String get telephone => 'Telephone';
+
+  @override
+  String get typeYourTelephone => 'Type your telephone';
+
+  @override
+  String get telephoneIsRequired => 'Telephone is required';
+
+  @override
+  String get anErrorOccurredPleaseTryAgainLater =>
+      'An error occurred. Please try again later.';
+
+  @override
+  String get message => 'Message';
+
+  @override
+  String get typeYourMessageHere => 'Type your message here';
+
+  @override
+  String get messageIsRequired => 'Message is required';
+
+  @override
+  String get couldNotAuthenticateYou =>
+      'Could not authenticate you. Please check your credentials and try again.';
 }

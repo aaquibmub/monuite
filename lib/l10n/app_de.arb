@@ -507,5 +507,105 @@
     "switzerland": "Schweiz",
     "@switzerland": {
         "description": "Bezeichnung für das Land Schweiz"
+    },
+    "signInToYourAccount": "Melden Sie sich bei Ihrem Konto an",
+    "@signInToYourAccount": {
+        "description": "Bezeichnung für die Aufforderung zur Anmeldung im Konto"
+    },
+    "forgotPassword": "Passwort vergessen",
+    "@forgotPassword": {
+        "description": "Bezeichnung für die Schaltfläche 'Passwort vergessen'"
+    },
+    "registerAsPrivateCustomer": "Als Privatkunde registrieren",
+    "@registerAsPrivateCustomer": {
+        "description": "Bezeichnung für die Schaltfläche 'Als Privatkunde registrieren'"
+    },
+    "registerAsCorporateCustomer": "Als Firmenkunde registrieren",
+    "@registerAsCorporateCustomer": {
+        "description": "Bezeichnung für die Schaltfläche 'Als Firmenkunde registrieren'"
+    },
+    "continueAsGuest": "Ohne Konto bestellen",
+    "@continueAsGuest": {
+        "description": "Bezeichnung für die Schaltfläche 'Ohne Konto bestellen'"
+    },
+    "signIn": "Anmelden",
+    "@signIn": {
+        "description": "Bezeichnung für die Schaltfläche 'Anmelden'"
+    },
+    "emailUsername": "E-Mail / Benutzername",
+    "@emailUsername": {
+        "description": "Bezeichnung für das Feld 'E-Mail / Benutzername'"
+    },
+    "typeEmailUsername": "E-Mail oder Benutzernamen eingeben",
+    "@typeEmailUsername": {
+        "description": "Platzhaltertext für das Feld 'E-Mail oder Benutzernamen eingeben'"
+    },
+    "pleaseEnterYourEmailUsername": "Bitte geben Sie Ihre E-Mail oder Ihren Benutzernamen ein",
+    "@pleaseEnterYourEmailUsername": {
+        "description": "Validierungsnachricht, die angezeigt wird, wenn das E-Mail/Benutzername Feld leer ist"
+    },
+    "password": "Passwort",
+    "@password": {
+        "description": "Bezeichnung für das Passwortfeld"
+    },
+    "typePassword": "Passwort eingeben",
+    "@typePassword": {
+        "description": "Platzhaltertext für das Passwortfeld"
+    },
+    "passwordMustBeAtLeast5CharactersLong": "Das Passwort muss mindestens 5 Zeichen lang sein",
+    "@passwordMustBeAtLeast5CharactersLong": {
+        "description": "Validierungsnachricht, die angezeigt wird, wenn das Passwort zu kurz ist"
+    },
+    "passwordMustBeAtLeast6Characters": "Das Passwort muss mindestens 6 Zeichen lang sein",
+    "@passwordMustBeAtLeast6Characters": {
+        "description": "Validierungsnachricht, die angezeigt wird, wenn das Passwort zu kurz ist"
+    },
+    "createAnAccount": "Ein Konto erstellen",
+    "@createAnAccount": {
+        "description": "Bezeichnung für die Schaltfläche 'Ein Konto erstellen'"
+    },
+    "typeYourEmail": "Geben Sie die E-Mail ein",
+    "@typeYourEmail": {
+        "description": "Platzhaltertext für das E-Mail Feld"
+    },
+    "emailIsRequired": "E-Mail ist erforderlich",
+    "@emailIsRequired": {
+        "description": "Validierungsnachricht, die angezeigt wird, wenn das E-Mail Feld leer ist"
+    },
+    "typeYourPassword": "Geben Sie das Passwort ein",
+    "@typeYourPassword": {
+        "description": "Platzhaltertext für das Passwortfeld"
+    },
+    "telephone": "Telefon",
+    "@telephone": {
+        "description": "Bezeichnung für das Telefonfeld"
+    },
+    "typeYourTelephone": "Geben Sie die Telefonnummer ein",
+    "@typeYourTelephone": {
+        "description": "Platzhaltertext für das Telefonfeld"
+    },
+    "telephoneIsRequired": "Telefonnummer ist erforderlich",
+    "@telephoneIsRequired": {
+        "description": "Validierungsnachricht, die angezeigt wird, wenn das Telefonfeld leer ist"
+    },
+    "anErrorOccurredPleaseTryAgainLater": "Ein Fehler ist aufgetreten. Bitte versuchen Sie es später erneut.",
+    "@anErrorOccurredPleaseTryAgainLater": {
+        "description": "Fehlermeldung, die angezeigt wird, wenn ein unerwarteter Fehler auftritt und der Benutzer aufgefordert wird, es später erneut zu versuchen"
+    },
+    "message": "Nachricht",
+    "@message": {
+        "description": "Bezeichnung für das Nachrichtenfeld"
+    },
+    "typeYourMessageHere": "Geben Sie hier Ihre Nachricht ein",
+    "@typeYourMessageHere": {
+        "description": "Platzhaltertext für das Nachrichtenfeld"
+    },
+    "messageIsRequired": "Nachricht ist erforderlich",
+    "@messageIsRequired": {
+        "description": "Validierungsnachricht, die angezeigt wird, wenn das Nachrichtenfeld leer ist"
+    },
+    "couldNotAuthenticateYou": "Authentifizierung fehlgeschlagen. Bitte überprüfen Sie Ihre Anmeldedaten und versuchen Sie es erneut.",
+    "@couldNotAuthenticateYou": {
+        "description": "Fehlermeldung, die angezeigt wird, wenn die Authentifizierung fehlschlägt"
     }
 }

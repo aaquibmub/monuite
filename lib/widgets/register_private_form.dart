@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:monuite/l10n/app_localizations.dart';
 
 import './form/form_text_field.dart';
 
@@ -49,11 +50,11 @@ class _RegisterPrivateFormState extends State<RegisterPrivateForm> {
           child: Column(
             children: <Widget>[
               FormTextField(
-                fieldLabel: 'Email',
-                hintLabel: 'Type email',
+                fieldLabel: AppLocalizations.of(context)!.email,
+                hintLabel: AppLocalizations.of(context)!.typeYourEmail,
                 validatorFn: (value) {
                   if (value!.isEmpty) {
-                    return 'Email is required';
+                    return AppLocalizations.of(context)!.emailIsRequired;
                   }
                   return null;
                 },
@@ -69,8 +70,8 @@ class _RegisterPrivateFormState extends State<RegisterPrivateForm> {
                 height: 30,
               ),
               FormTextField(
-                fieldLabel: 'Password',
-                hintLabel: 'Type password',
+                fieldLabel: AppLocalizations.of(context)!.password,
+                hintLabel: AppLocalizations.of(context)!.typeYourPassword,
                 obscureText: true,
                 controller: _passwordController,
                 focusNode: _passwordFocusNode,
@@ -79,8 +80,9 @@ class _RegisterPrivateFormState extends State<RegisterPrivateForm> {
                   FocusScope.of(context).requestFocus(_telephoneFocusNode);
                 },
                 validatorFn: (value) {
-                  if (value!.isEmpty || value.length < 5) {
-                    return 'Password is too short!';
+                  if (value!.isEmpty || value.length < 6) {
+                    return AppLocalizations.of(context)!
+                        .passwordMustBeAtLeast6Characters;
                   }
                   return null;
                 },
@@ -92,13 +94,13 @@ class _RegisterPrivateFormState extends State<RegisterPrivateForm> {
                 height: 30,
               ),
               FormTextField(
-                fieldLabel: 'Telephone',
-                hintLabel: 'Type telephone',
+                fieldLabel: AppLocalizations.of(context)!.telephone,
+                hintLabel: AppLocalizations.of(context)!.typeYourTelephone,
                 controller: _telephoneController,
                 focusNode: _telephoneFocusNode,
                 validatorFn: (value) {
                   if (value!.isEmpty) {
-                    return 'Telephone is required';
+                    return AppLocalizations.of(context)!.telephoneIsRequired;
                   }
                   return null;
                 },

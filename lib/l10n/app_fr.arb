@@ -507,5 +507,105 @@
     "switzerland": "Suisse",
     "@switzerland": {
         "description": "Bezeichnung für das Land Schweiz"
+    },
+    "signInToYourAccount": "Connectez-vous à votre compte",
+    "@signInToYourAccount": {
+        "description": "Invite pour que l'utilisateur se connecte à son compte"
+    },
+    "forgotPassword": "Mot de passe oublié",
+    "@forgotPassword": {
+        "description": "Label pour le lien mot de passe oublié"
+    },
+    "registerAsPrivateCustomer": "Inscrivez-vous en tant que client privé",
+    "@registerAsPrivateCustomer": {
+        "description": "Label pour le lien d'inscription en tant que client privé"
+    },
+    "registerAsCorporateCustomer": "Inscrivez-vous en tant que client d'entreprise",
+    "@registerAsCorporateCustomer": {
+        "description": "Label pour le lien d'inscription en tant que client d'entreprise"
+    },
+    "continueAsGuest": "Commander sans compte",
+    "@continueAsGuest": {
+        "description": "Label pour le lien continuer en tant qu'invité"
+    },
+    "signIn": "Se connecter",
+    "@signIn": {
+        "description": "Label pour le bouton de connexion"
+    },
+    "emailUsername": "Email/Nom d'utilisateur",
+    "@emailUsername": {
+        "description": "Label pour le champ email/nom d'utilisateur"
+    },
+    "typeEmailUsername": "Tapez email ou nom d'utilisateur",
+    "@typeEmailUsername": {
+        "description": "Texte d'espace réservé pour le champ email/nom d'utilisateur"
+    },
+    "pleaseEnterYourEmailUsername": "Veuillez entrer votre email/nom d'utilisateur",
+    "@pleaseEnterYourEmailUsername": {
+        "description": "Message de validation lorsque le champ email/nom d'utilisateur est vide"
+    },
+    "password": "Mot de passe",
+    "@password": {
+        "description": "Label pour le champ mot de passe"
+    },
+    "typePassword": "Tapez le mot de passe",
+    "@typePassword": {
+        "description": "Texte d'espace réservé pour le champ mot de passe"
+    },
+    "passwordMustBeAtLeast5CharactersLong": "Le mot de passe doit comporter au moins 5 caractères",
+    "@passwordMustBeAtLeast5CharactersLong": {
+        "description": "Message de validation lorsque le mot de passe est trop court"
+    },
+    "passwordMustBeAtLeast6Characters": "Le mot de passe doit comporter au moins 6 caractères",
+    "@passwordMustBeAtLeast6Characters": {
+        "description": "Message de validation lorsque le mot de passe est trop court"
+    },
+    "createAnAccount": "Créer un compte",
+    "@createAnAccount": {
+        "description": "Label pour le bouton créer un compte"
+    },
+    "typeYourEmail": "Tapez votre email",
+    "@typeYourEmail": {
+        "description": "Texte d'espace réservé pour le champ email"
+    },
+    "emailIsRequired": "Email requis",
+    "@emailIsRequired": {
+        "description": "Message de validation lorsque l'email n'est pas fourni"
+    },
+    "typeYourPassword": "Tapez votre mot de passe",
+    "@typeYourPassword": {
+        "description": "Texte d'espace réservé pour le champ mot de passe"
+    },
+    "telephone": "Téléphone",
+    "@telephone": {
+        "description": "Label pour le champ téléphone"
+    },
+    "typeYourTelephone": "Tapez votre téléphone",
+    "@typeYourTelephone": {
+        "description": "Texte d'espace réservé pour le champ téléphone"
+    },
+    "telephoneIsRequired": "Téléphone requis",
+    "@telephoneIsRequired": {
+        "description": "Message de validation lorsque le téléphone n'est pas fourni"
+    },
+    "anErrorOccurredPleaseTryAgainLater": "Une erreur est survenue. Veuillez réessayer plus tard.",
+    "@anErrorOccurredPleaseTryAgainLater": {
+        "description": "Message d'erreur générique pour les erreurs inattendues"
+    },
+    "message": "Message",
+    "@message": {
+        "description": "Label pour le champ message"
+    },
+    "typeYourMessageHere": "Tapez votre message ici",
+    "@typeYourMessageHere": {
+        "description": "Texte d'espace réservé pour le champ message"
+    },
+    "messageIsRequired": "Message requis",
+    "@messageIsRequired": {
+        "description": "Message de validation lorsque le message n'est pas fourni"
+    },
+    "couldNotAuthenticateYou": "Impossible de vous authentifier. Veuillez réessayer.",
+    "@couldNotAuthenticateYou": {
+        "description": "Message d'erreur lorsque l'authentification échoue"
     }
 }

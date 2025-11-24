@@ -392,4 +392,84 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get switzerland => 'Svizzera';
+
+  @override
+  String get signInToYourAccount => 'Accedi al tuo account';
+
+  @override
+  String get forgotPassword => 'Ha dimenticato la password';
+
+  @override
+  String get registerAsPrivateCustomer => 'Registrati come cliente privato';
+
+  @override
+  String get registerAsCorporateCustomer => 'Registrati come cliente aziendale';
+
+  @override
+  String get continueAsGuest => 'Continua come ospite';
+
+  @override
+  String get signIn => 'Accedi';
+
+  @override
+  String get emailUsername => 'Email/Username';
+
+  @override
+  String get typeEmailUsername => 'Digiti email o username';
+
+  @override
+  String get pleaseEnterYourEmailUsername =>
+      'Per favore inserisca il suo email o username';
+
+  @override
+  String get password => 'Password';
+
+  @override
+  String get typePassword => 'Digiti la password';
+
+  @override
+  String get passwordMustBeAtLeast5CharactersLong =>
+      'La password deve essere di almeno 5 caratteri';
+
+  @override
+  String get passwordMustBeAtLeast6Characters =>
+      'La password deve essere di almeno 6 caratteri';
+
+  @override
+  String get createAnAccount => 'Crea un account';
+
+  @override
+  String get typeYourEmail => 'Digiti la sua email';
+
+  @override
+  String get emailIsRequired => 'Email richiesta';
+
+  @override
+  String get typeYourPassword => 'Digiti la sua password';
+
+  @override
+  String get telephone => 'Telefono';
+
+  @override
+  String get typeYourTelephone => 'Digiti il suo numero di telefono';
+
+  @override
+  String get telephoneIsRequired => 'Telefono richiesto';
+
+  @override
+  String get anErrorOccurredPleaseTryAgainLater =>
+      'Si è verificato un errore. La preghiamo di riprovare più tardi.';
+
+  @override
+  String get message => 'Messaggio';
+
+  @override
+  String get typeYourMessageHere => 'Digiti il suo messaggio qui';
+
+  @override
+  String get messageIsRequired => 'Messaggio richiesto';
+
+  @override
+  String get couldNotAuthenticateYou =>
+      'Impossibile autenticarti. La preghiamo di riprovare.';
 }

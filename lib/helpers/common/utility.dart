@@ -589,4 +589,30 @@ class Utility {
       ],
     );
   }
+
+  static String getLanguageIcon(BuildContext context) {
+    final langcode = Provider.of<Auth>(context).locale!.languageCode;
+    if (langcode == 'fr') {
+      return CustomIcons.franceFlagIcon;
+    } else if (langcode == 'it') {
+      return CustomIcons.italyFlagIcon;
+    } else if (langcode == 'de') {
+      return CustomIcons.germanyFlagIcon;
+    } else {
+      return CustomIcons.englishFlagIcon;
+    }
+  }
+
+  static String getLanguageTitle(BuildContext context) {
+    final langcode = Provider.of<Auth>(context).locale!.languageCode;
+    if (langcode == 'de') {
+      return 'Deutsch';
+    } else if (langcode == 'fr') {
+      return 'Français';
+    } else if (langcode == 'it') {
+      return 'Italiano';
+    } else {
+      return 'English';
+    }
+  }
 }

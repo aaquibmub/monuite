@@ -507,5 +507,105 @@
   "switzerland": "Switzerland",
   "@switzerland": {
     "description": "Name of the country Switzerland"
+  },
+  "signInToYourAccount": "Sign in to your account",
+  "@signInToYourAccount": {
+    "description": "Prompt for user to sign in to their account"
+  },
+  "forgotPassword": "Forgot Password?",
+  "@forgotPassword": {
+    "description": "Label for forgot password link"
+  },
+  "registerAsPrivateCustomer": "Register as private customer",
+  "@registerAsPrivateCustomer": {
+    "description": "Label for registering as a private customer"
+  },
+  "registerAsCorporateCustomer": "Register as corporate customer",
+  "@registerAsCorporateCustomer": {
+    "description": "Label for registering as a corporate customer"
+  },
+  "continueAsGuest": "Order without an account",
+  "@continueAsGuest": {
+    "description": "Label for continuing as a guest user"
+  },
+  "signIn": "Sign in",
+  "@signIn": {
+    "description": "Label for sign in button"
+  },
+  "emailUsername": "Email / Username",
+  "@emailUsername": {
+    "description": "Label for email or username field"
+  },
+  "typeEmailUsername": "Type email or username",
+  "@typeEmailUsername": {
+    "description": "Hint text for email or username field"
+  },
+  "pleaseEnterYourEmailUsername": "Please enter your email or username",
+  "@pleaseEnterYourEmailUsername": {
+    "description": "Validation message when email or username is not provided"
+  },
+  "password": "Password",
+  "@password": {
+    "description": "Label for password field"
+  },
+  "typePassword": "Type password",
+  "@typePassword": {
+    "description": "Hint text for password field"
+  },
+  "passwordMustBeAtLeast5CharactersLong": "Password must be at least 5 characters long",
+  "@passwordMustBeAtLeast5CharactersLong": {
+    "description": "Validation message when password is too short"
+  },
+  "passwordMustBeAtLeast6Characters": "Password must be at least 6 characters",
+  "@passwordMustBeAtLeast6Characters": {
+    "description": "Validation message when password is too short"
+  },
+  "createAnAccount": "Create an Account",
+  "@createAnAccount": {
+    "description": "Label for create an account button"
+  },
+  "typeYourEmail": "Type your email",
+  "@typeYourEmail": {
+    "description": "Hint text for email field"
+  },
+  "emailIsRequired": "Email is required",
+  "@emailIsRequired": {
+    "description": "Validation message when email is not provided"
+  },
+  "typeYourPassword": "Type your password",
+  "@typeYourPassword": {
+    "description": "Hint text for password field"
+  },
+  "telephone": "Telephone",
+  "@telephone": {
+    "description": "Label for telephone field"
+  },
+  "typeYourTelephone": "Type your telephone",
+  "@typeYourTelephone": {
+    "description": "Hint text for telephone field"
+  },
+  "telephoneIsRequired": "Telephone is required",
+  "@telephoneIsRequired": {
+    "description": "Validation message when telephone is not provided"
+  },
+  "anErrorOccurredPleaseTryAgainLater": "An error occurred. Please try again later.",
+  "@anErrorOccurredPleaseTryAgainLater": {
+    "description": "Generic error message to prompt the user to try again later"
+  },
+  "message": "Message",
+  "@message": {
+    "description": "Label for message field"
+  },
+  "typeYourMessageHere": "Type your message here",
+  "@typeYourMessageHere": {
+    "description": "Hint text for message field"
+  },
+  "messageIsRequired": "Message is required",
+  "@messageIsRequired": {
+    "description": "Validation message when message is not provided"
+  },
+  "couldNotAuthenticateYou": "Could not authenticate you. Please check your credentials and try again.",
+  "@couldNotAuthenticateYou": {
+    "description": "Error message displayed when authentication fails"
   }
 }

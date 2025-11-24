@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:monuite/l10n/app_localizations.dart';
 
 import './form/form_text_field.dart';
 
@@ -42,11 +43,12 @@ class _LoginFormState extends State<LoginForm> {
           child: Column(
             children: <Widget>[
               FormTextField(
-                fieldLabel: 'Email',
-                hintLabel: 'Type email',
+                fieldLabel: AppLocalizations.of(context)!.emailUsername,
+                hintLabel: AppLocalizations.of(context)!.typeEmailUsername,
                 validatorFn: (value) {
                   if (value!.isEmpty) {
-                    return 'Email is required';
+                    return AppLocalizations.of(context)!
+                        .pleaseEnterYourEmailUsername;
                   }
                   return null;
                 },
@@ -62,8 +64,8 @@ class _LoginFormState extends State<LoginForm> {
                 height: 30,
               ),
               FormTextField(
-                fieldLabel: 'Password',
-                hintLabel: 'Type password',
+                fieldLabel: AppLocalizations.of(context)!.password,
+                hintLabel: AppLocalizations.of(context)!.typePassword,
                 obscureText: true,
                 controller: _passwordController,
                 textInputAction: TextInputAction.done,
@@ -72,8 +74,9 @@ class _LoginFormState extends State<LoginForm> {
                   widget.submitFormFn(widget.parentContext);
                 },
                 validatorFn: (value) {
-                  if (value!.isEmpty || value.length < 5) {
-                    return 'Password is too short!';
+                  if (value!.isEmpty || value.length < 6) {
+                    return AppLocalizations.of(context)!
+                        .passwordMustBeAtLeast6Characters;
                   }
                   return null;
                 },

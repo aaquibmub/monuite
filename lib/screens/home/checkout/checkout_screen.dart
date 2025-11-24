@@ -67,7 +67,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
             }
             return Container(
               margin: EdgeInsets.symmetric(
-                vertical: 32,
+                vertical: 8,
                 horizontal: 8,
               ),
               child: Consumer<CartProvider>(
@@ -457,9 +457,6 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                                       ),
                                     ],
                                   ),
-                                ),
-                                SizedBox(
-                                  height: 50,
                                 ),
                                 // Confirm & Pay Button
                                 Container(

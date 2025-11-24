@@ -391,4 +391,84 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get switzerland => 'Schweiz';
+
+  @override
+  String get signInToYourAccount => 'Melden Sie sich bei Ihrem Konto an';
+
+  @override
+  String get forgotPassword => 'Passwort vergessen';
+
+  @override
+  String get registerAsPrivateCustomer => 'Als Privatkunde registrieren';
+
+  @override
+  String get registerAsCorporateCustomer => 'Als Firmenkunde registrieren';
+
+  @override
+  String get continueAsGuest => 'Ohne Konto bestellen';
+
+  @override
+  String get signIn => 'Anmelden';
+
+  @override
+  String get emailUsername => 'E-Mail / Benutzername';
+
+  @override
+  String get typeEmailUsername => 'E-Mail oder Benutzernamen eingeben';
+
+  @override
+  String get pleaseEnterYourEmailUsername =>
+      'Bitte geben Sie Ihre E-Mail oder Ihren Benutzernamen ein';
+
+  @override
+  String get password => 'Passwort';
+
+  @override
+  String get typePassword => 'Passwort eingeben';
+
+  @override
+  String get passwordMustBeAtLeast5CharactersLong =>
+      'Das Passwort muss mindestens 5 Zeichen lang sein';
+
+  @override
+  String get passwordMustBeAtLeast6Characters =>
+      'Das Passwort muss mindestens 6 Zeichen lang sein';
+
+  @override
+  String get createAnAccount => 'Ein Konto erstellen';
+
+  @override
+  String get typeYourEmail => 'Geben Sie die E-Mail ein';
+
+  @override
+  String get emailIsRequired => 'E-Mail ist erforderlich';
+
+  @override
+  String get typeYourPassword => 'Geben Sie das Passwort ein';
+
+  @override
+  String get telephone => 'Telefon';
+
+  @override
+  String get typeYourTelephone => 'Geben Sie die Telefonnummer ein';
+
+  @override
+  String get telephoneIsRequired => 'Telefonnummer ist erforderlich';
+
+  @override
+  String get anErrorOccurredPleaseTryAgainLater =>
+      'Ein Fehler ist aufgetreten. Bitte versuchen Sie es später erneut.';
+
+  @override
+  String get message => 'Nachricht';
+
+  @override
+  String get typeYourMessageHere => 'Geben Sie hier Ihre Nachricht ein';
+
+  @override
+  String get messageIsRequired => 'Nachricht ist erforderlich';
+
+  @override
+  String get couldNotAuthenticateYou =>
+      'Authentifizierung fehlgeschlagen. Bitte überprüfen Sie Ihre Anmeldedaten und versuchen Sie es erneut.';
 }

@@ -1,4 +1,9 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
+import 'package:monuite/helpers/common/constants.dart';
+import 'package:monuite/helpers/common/custom_icons.dart';
+import 'package:monuite/l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 
 import '../helpers/common/routes.dart';
@@ -49,7 +54,7 @@ class _LoginScreenState extends State<LoginScreen> {
       setState(() {
         _isLoading = false;
       });
-
+      debugger();
       if (error != '') {
         Utility.showErrorDialogue(context, error);
       } else {
@@ -59,7 +64,8 @@ class _LoginScreenState extends State<LoginScreen> {
       setState(() {
         _isLoading = false;
       });
-      const errorMessage = 'Could not authenticate';
+      final errorMessage =
+          AppLocalizations.of(context)!.couldNotAuthenticateYou;
       Utility.showErrorDialogue(context, errorMessage);
     }
   }
@@ -75,7 +81,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 WidgetStateProperty.all<Color>(Theme.of(context).primaryColor)),
         onPressed: () => _submit(context),
         child: Text(
-          'Sign in',
+          AppLocalizations.of(context)!.signIn,
           style: Theme.of(context).primaryTextTheme.labelLarge,
         ),
         // elevation: 0,
@@ -94,7 +100,7 @@ class _LoginScreenState extends State<LoginScreen> {
           )
         },
         child: Text(
-          'Register as private customer',
+          AppLocalizations.of(context)!.registerAsPrivateCustomer,
           style: Theme.of(context).primaryTextTheme.labelLarge,
         ),
         // elevation: 0,
@@ -113,7 +119,7 @@ class _LoginScreenState extends State<LoginScreen> {
           )
         },
         child: Text(
-          'Register as corporate customer',
+          AppLocalizations.of(context)!.registerAsCorporateCustomer,
           style: Theme.of(context).primaryTextTheme.labelLarge,
         ),
         // elevation: 0,
@@ -132,7 +138,7 @@ class _LoginScreenState extends State<LoginScreen> {
           )
         },
         child: Text(
-          'Order without an account',
+          AppLocalizations.of(context)!.continueAsGuest,
           style: Theme.of(context).primaryTextTheme.labelLarge,
         ),
         // elevation: 0,
@@ -141,6 +147,42 @@ class _LoginScreenState extends State<LoginScreen> {
     }
 
     return Scaffold(
+      appBar: AppBar(
+        title: Container(
+          alignment: Alignment.topRight,
+          child: InkWell(
+            onTap: () => {
+              Navigator.of(context).pushNamed(
+                Routes.languageScreen,
+              )
+            },
+            child: Container(
+              padding: EdgeInsets.all(8),
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Container(
+                    child: Image.asset(
+                      Utility.getLanguageIcon(context),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(16),
+                    child: Text(
+                      Utility.getLanguageTitle(context),
+                      style: TextStyle(
+                        fontSize: 16,
+                        color: Constants.textColorLight,
+                      ),
+                    ),
+                  )
+                ],
+              ),
+            ),
+          ),
+        ),
+      ),
       backgroundColor: Colors.white,
       body: _isLoading
           ? LoadingScreen()
@@ -148,7 +190,9 @@ class _LoginScreenState extends State<LoginScreen> {
               child: Center(
                 child: Container(
                   height: deviceSize.height,
-                  width: 500,
+                  width: deviceSize.width < Constants.deviceTypeTabletMaxWidth
+                      ? deviceSize.width
+                      : Constants.deviceTypeTabletMaxWidth,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
@@ -168,7 +212,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                     horizontal: 20,
                                   ),
                                   child: Text(
-                                    'Sign in to your account',
+                                    AppLocalizations.of(context)!
+                                        .signInToYourAccount,
                                     style: Theme.of(context)
                                         .textTheme
                                         .displayMedium,
@@ -188,7 +233,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                   alignment: Alignment.topRight,
                                   child: TextButton(
                                     onPressed: () {},
-                                    child: Text('Forgot Password?'),
+                                    child: Text(AppLocalizations.of(context)!
+                                        .forgotPassword),
                                   ),
                                 ),
                                 SizedBox(

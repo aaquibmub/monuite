@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:monuite/l10n/app_localizations.dart';
 
 import './form/form_text_field.dart';
 
@@ -77,11 +78,11 @@ class _RegisterCorporateFormState extends State<RegisterCorporateForm> {
           child: Column(
             children: <Widget>[
               FormTextField(
-                fieldLabel: 'First Name',
-                hintLabel: 'Type first name',
+                fieldLabel: AppLocalizations.of(context)!.firstName,
+                hintLabel: AppLocalizations.of(context)!.firstNameHint,
                 validatorFn: (value) {
                   if (value!.isEmpty) {
-                    return 'First name is required';
+                    return AppLocalizations.of(context)!.firstNameRequired;
                   }
                   return null;
                 },
@@ -97,8 +98,8 @@ class _RegisterCorporateFormState extends State<RegisterCorporateForm> {
                 height: 30,
               ),
               FormTextField(
-                fieldLabel: 'Last Name',
-                hintLabel: 'Type last name',
+                fieldLabel: AppLocalizations.of(context)!.lastName,
+                hintLabel: AppLocalizations.of(context)!.lastNameHint,
                 validatorFn: (value) {
                   return null;
                 },
@@ -116,11 +117,11 @@ class _RegisterCorporateFormState extends State<RegisterCorporateForm> {
                 height: 30,
               ),
               FormTextField(
-                fieldLabel: 'Company Name',
-                hintLabel: 'Type company name',
+                fieldLabel: AppLocalizations.of(context)!.companyName,
+                hintLabel: AppLocalizations.of(context)!.companyNameHint,
                 validatorFn: (value) {
                   if (value!.isEmpty) {
-                    return 'Company name is required';
+                    return AppLocalizations.of(context)!.companyNameRequired;
                   }
                   return null;
                 },
@@ -138,11 +139,11 @@ class _RegisterCorporateFormState extends State<RegisterCorporateForm> {
                 height: 30,
               ),
               FormTextField(
-                fieldLabel: 'Email',
-                hintLabel: 'Type email',
+                fieldLabel: AppLocalizations.of(context)!.email,
+                hintLabel: AppLocalizations.of(context)!.emailHint,
                 validatorFn: (value) {
                   if (value!.isEmpty) {
-                    return 'Email is required';
+                    return AppLocalizations.of(context)!.emailRequired;
                   }
                   return null;
                 },
@@ -160,8 +161,8 @@ class _RegisterCorporateFormState extends State<RegisterCorporateForm> {
                 height: 30,
               ),
               FormTextField(
-                fieldLabel: 'Password',
-                hintLabel: 'Type password',
+                fieldLabel: AppLocalizations.of(context)!.password,
+                hintLabel: AppLocalizations.of(context)!.typePassword,
                 obscureText: true,
                 controller: _passwordController,
                 focusNode: _passwordFocusNode,
@@ -170,8 +171,9 @@ class _RegisterCorporateFormState extends State<RegisterCorporateForm> {
                   FocusScope.of(context).requestFocus(_telephoneFocusNode);
                 },
                 validatorFn: (value) {
-                  if (value!.isEmpty || value.length < 5) {
-                    return 'Password is too short!';
+                  if (value!.isEmpty || value.length < 6) {
+                    return AppLocalizations.of(context)!
+                        .passwordMustBeAtLeast6Characters;
                   }
                   return null;
                 },
@@ -183,11 +185,11 @@ class _RegisterCorporateFormState extends State<RegisterCorporateForm> {
                 height: 30,
               ),
               FormTextField(
-                fieldLabel: 'Telephone',
-                hintLabel: 'Type telephone',
+                fieldLabel: AppLocalizations.of(context)!.telephone,
+                hintLabel: AppLocalizations.of(context)!.typeYourTelephone,
                 validatorFn: (value) {
                   if (value!.isEmpty) {
-                    return 'Telephone is required';
+                    return AppLocalizations.of(context)!.telephoneIsRequired;
                   }
                   return null;
                 },
@@ -205,8 +207,8 @@ class _RegisterCorporateFormState extends State<RegisterCorporateForm> {
                 height: 30,
               ),
               FormTextField(
-                fieldLabel: 'Message',
-                hintLabel: 'Type message',
+                fieldLabel: AppLocalizations.of(context)!.message,
+                hintLabel: AppLocalizations.of(context)!.typeYourMessageHere,
                 validatorFn: (value) {
                   return null;
                 },

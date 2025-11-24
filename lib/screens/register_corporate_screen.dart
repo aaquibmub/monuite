@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:monuite/l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 
 import '../helpers/common/routes.dart';
@@ -103,7 +104,8 @@ class _RegisterCorporateScreenState extends State<RegisterCorporateScreen> {
       setState(() {
         _isLoading = false;
       });
-      const errorMessage = 'Could not authenticate';
+      final errorMessage =
+          AppLocalizations.of(context)!.anErrorOccurredPleaseTryAgainLater;
       Utility.showErrorDialogue(context, errorMessage);
     }
   }
@@ -119,7 +121,7 @@ class _RegisterCorporateScreenState extends State<RegisterCorporateScreen> {
                 WidgetStateProperty.all<Color>(Theme.of(context).primaryColor)),
         onPressed: () => _submit(context),
         child: Text(
-          'Create an account',
+          AppLocalizations.of(context)!.createAnAccount,
           style: Theme.of(context).primaryTextTheme.labelLarge,
         ),
         // elevation: 0,
@@ -135,82 +137,82 @@ class _RegisterCorporateScreenState extends State<RegisterCorporateScreen> {
       backgroundColor: Colors.white,
       body: _isLoading
           ? LoadingScreen()
-          : SingleChildScrollView(
-              child: Center(
-                child: Container(
-                  height: deviceSize.height,
-                  width: 500,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Expanded(
-                        child: Container(
-                          child: SingleChildScrollView(
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: <Widget>[
-                                SizedBox(
-                                  height: 20,
+          : Center(
+              child: Container(
+                height: deviceSize.height,
+                width: 500,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Expanded(
+                      child: Container(
+                        child: SingleChildScrollView(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              SizedBox(
+                                height: 20,
+                              ),
+                              Container(
+                                margin: EdgeInsets.symmetric(
+                                  horizontal: 20,
                                 ),
-                                Container(
-                                  margin: EdgeInsets.symmetric(
-                                    horizontal: 20,
-                                  ),
-                                  child: Text(
-                                    'Create an account',
-                                    style:
-                                        Theme.of(context).textTheme.bodyLarge,
-                                  ),
+                                child: Text(
+                                  AppLocalizations.of(context)!.createAnAccount,
+                                  style: Theme.of(context).textTheme.bodyLarge,
                                 ),
-                                SizedBox(
-                                  height: 20,
+                              ),
+                              SizedBox(
+                                height: 20,
+                              ),
+                              Container(
+                                margin: EdgeInsets.symmetric(
+                                  horizontal: 20,
                                 ),
-                                Container(
-                                  margin: EdgeInsets.symmetric(
-                                    horizontal: 20,
-                                  ),
-                                  child: Text(
-                                    'Register as a corporate customer',
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .displayMedium,
-                                  ),
+                                child: Text(
+                                  AppLocalizations.of(context)!
+                                      .registerAsCorporateCustomer,
+                                  style:
+                                      Theme.of(context).textTheme.displayMedium,
                                 ),
-                                SizedBox(
-                                  height: 20,
+                              ),
+                              SizedBox(
+                                height: 20,
+                              ),
+                              RegisterCorporateForm(
+                                _formKey,
+                                _setFistName,
+                                _setLastName,
+                                _setCompanyName,
+                                _setEmail,
+                                _setPassword,
+                                _setTelephone,
+                                _setMessage,
+                                _submit,
+                                context,
+                              ),
+                              SizedBox(
+                                height: 10,
+                              ),
+                              Container(
+                                width: double.infinity,
+                                margin: EdgeInsets.symmetric(
+                                  horizontal: 20,
                                 ),
-                                RegisterCorporateForm(
-                                  _formKey,
-                                  _setFistName,
-                                  _setLastName,
-                                  _setCompanyName,
-                                  _setEmail,
-                                  _setPassword,
-                                  _setTelephone,
-                                  _setMessage,
-                                  _submit,
-                                  context,
-                                ),
-                                SizedBox(
-                                  height: 10,
-                                ),
-                                Container(
-                                  width: double.infinity,
-                                  margin: EdgeInsets.symmetric(
-                                    horizontal: 20,
-                                  ),
-                                  height: 60,
-                                  child: buildSigninButton(),
-                                ),
-                              ],
-                            ),
+                                height: 60,
+                                child: buildSigninButton(),
+                              ),
+                              SizedBox(
+                                height: 50,
+                              ),
+                            ],
                           ),
                         ),
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
               ),
             ),

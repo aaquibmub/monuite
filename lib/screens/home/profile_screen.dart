@@ -57,31 +57,31 @@ class _ProfileScreenState extends State<ProfileScreen> {
   Widget build(BuildContext context) {
     final User? _currentuser = Provider.of<Auth>(context).currentUser;
 
-    String getLanguageIcon() {
-      final langcode = Provider.of<Auth>(context).locale!.languageCode;
-      if (langcode == 'fr') {
-        return CustomIcons.franceFlagIcon;
-      } else if (langcode == 'it') {
-        return CustomIcons.italyFlagIcon;
-      } else if (langcode == 'de') {
-        return CustomIcons.germanyFlagIcon;
-      } else {
-        return CustomIcons.englishFlagIcon;
-      }
-    }
+    // String getLanguageIcon() {
+    //   final langcode = Provider.of<Auth>(context).locale!.languageCode;
+    //   if (langcode == 'fr') {
+    //     return CustomIcons.franceFlagIcon;
+    //   } else if (langcode == 'it') {
+    //     return CustomIcons.italyFlagIcon;
+    //   } else if (langcode == 'de') {
+    //     return CustomIcons.germanyFlagIcon;
+    //   } else {
+    //     return CustomIcons.englishFlagIcon;
+    //   }
+    // }
 
-    String getLanguageTitle() {
-      final langcode = Provider.of<Auth>(context).locale!.languageCode;
-      if (langcode == 'de') {
-        return 'Deutsch';
-      } else if (langcode == 'fr') {
-        return 'Français';
-      } else if (langcode == 'it') {
-        return 'Italiano';
-      } else {
-        return 'English';
-      }
-    }
+    // String getLanguageTitle() {
+    //   final langcode = Provider.of<Auth>(context).locale!.languageCode;
+    //   if (langcode == 'de') {
+    //     return 'Deutsch';
+    //   } else if (langcode == 'fr') {
+    //     return 'Français';
+    //   } else if (langcode == 'it') {
+    //     return 'Italiano';
+    //   } else {
+    //     return 'English';
+    //   }
+    // }
 
     return Scaffold(
       body: SingleChildScrollView(
@@ -161,13 +161,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   children: [
                     Container(
                       child: Image.asset(
-                        getLanguageIcon(),
+                        Utility.getLanguageIcon(context),
                       ),
                     ),
                     Padding(
                       padding: const EdgeInsets.all(16),
                       child: Text(
-                        getLanguageTitle(),
+                        Utility.getLanguageTitle(context),
                         style: TextStyle(
                           fontSize: 16,
                           color: Constants.textColorLight,
