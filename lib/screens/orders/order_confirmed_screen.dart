@@ -225,37 +225,37 @@ class _OrderConfirmedScreenState extends State<OrderConfirmedScreen> {
                                                   ],
                                                 ),
                                               ),
-                                              // Shipping Tax
-                                              Container(
-                                                margin: EdgeInsets.symmetric(
-                                                  vertical: 10,
-                                                ),
-                                                child: Row(
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment
-                                                          .spaceBetween,
-                                                  children: [
-                                                    Text(
-                                                      AppLocalizations.of(
-                                                              context)!
-                                                          .shippingTax,
-                                                      style: TextStyle(
-                                                        fontSize: 20,
-                                                      ),
-                                                    ),
-                                                    Text(
-                                                      "CHF ${provider.orderModel!.shippingTax}",
-                                                      style: TextStyle(
-                                                        fontSize: 20,
-                                                        fontWeight:
-                                                            FontWeight.bold,
-                                                        color:
-                                                            Constants.colorGrey,
-                                                      ),
-                                                    ),
-                                                  ],
-                                                ),
-                                              ),
+                                              // // Shipping Tax
+                                              // Container(
+                                              //   margin: EdgeInsets.symmetric(
+                                              //     vertical: 10,
+                                              //   ),
+                                              //   child: Row(
+                                              //     mainAxisAlignment:
+                                              //         MainAxisAlignment
+                                              //             .spaceBetween,
+                                              //     children: [
+                                              //       Text(
+                                              //         AppLocalizations.of(
+                                              //                 context)!
+                                              //             .shippingTax,
+                                              //         style: TextStyle(
+                                              //           fontSize: 20,
+                                              //         ),
+                                              //       ),
+                                              //       Text(
+                                              //         "CHF ${provider.orderModel!.shippingTax}",
+                                              //         style: TextStyle(
+                                              //           fontSize: 20,
+                                              //           fontWeight:
+                                              //               FontWeight.bold,
+                                              //           color:
+                                              //               Constants.colorGrey,
+                                              //         ),
+                                              //       ),
+                                              //     ],
+                                              //   ),
+                                              // ),
                                               // VAT
                                               Container(
                                                 margin: EdgeInsets.symmetric(
@@ -275,7 +275,7 @@ class _OrderConfirmedScreenState extends State<OrderConfirmedScreen> {
                                                       ),
                                                     ),
                                                     Text(
-                                                      "CHF ${provider.orderModel!.cartTax}",
+                                                      "CHF ${provider.orderModel!.taxAmount}",
                                                       style: TextStyle(
                                                         fontSize: 20,
                                                         fontWeight:

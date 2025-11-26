@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_stripe/flutter_stripe.dart';
+import 'package:monuite/helpers/common/utility.dart';
 import 'package:monuite/l10n/app_localizations.dart';
 import 'package:monuite/providers/auth.dart';
 import 'package:monuite/providers/cart_provider.dart';
@@ -28,8 +29,10 @@ import 'package:provider/provider.dart';
 import 'helpers/common/constants.dart';
 import 'helpers/common/routes.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   Stripe.publishableKey = Constants.stripePublishableKey;
+  await Utility.refreshCart();
   runApp(MyApp());
 }
 

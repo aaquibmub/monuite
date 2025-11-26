@@ -615,4 +615,9 @@ class Utility {
       return 'English';
     }
   }
+
+  static Future<void> refreshCart() async {
+    final prefs = await SharedPreferences.getInstance();
+    prefs.setString('cartModel', '');
+  }
 }

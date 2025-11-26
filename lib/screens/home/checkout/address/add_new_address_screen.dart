@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:monuite/helpers/common/routes.dart';
 import 'package:monuite/helpers/common/utility.dart';
 import 'package:monuite/helpers/models/addresses/address_model.dart';
 import 'package:monuite/l10n/app_localizations.dart';
@@ -25,7 +26,7 @@ class _AddNewAddressScreenState extends State<AddNewAddressScreen> {
 
   bool _isLoading = false;
 
-  String _country = 'Switzerland'; // Default country
+  String _country = '';
   String _firstName = '';
   String _lastName = '';
   String _companyName = '';
@@ -176,10 +177,7 @@ class _AddNewAddressScreenState extends State<AddNewAddressScreen> {
         _isLoading = false;
       });
       if (widget._returnToScreen == 1) {
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => CartScreen()),
-        );
+        Navigator.pushNamed(context, Routes.cartScreen);
       } else if (widget._returnToScreen == 2) {
         Navigator.push(
           context,

@@ -146,7 +146,10 @@ class _AddNewAddressFormState extends State<AddNewAddressForm> {
               child: Consumer<CommonProvider>(builder: (ctx, provider, _) {
                 _selectedCountry = provider.countryList
                     .where((element) => element.text == 'Schweiz')
-                    .first;
+                    .firstOrNull;
+                widget.setCountryFn(
+                  _selectedCountry!.text!,
+                );
                 return DropdownButton<String>(
                   isExpanded: true,
                   value: _selectedCountry?.value,
