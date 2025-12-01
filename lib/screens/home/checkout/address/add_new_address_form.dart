@@ -148,7 +148,9 @@ class _AddNewAddressFormState extends State<AddNewAddressForm> {
                     .where((element) => element.text == 'Schweiz')
                     .firstOrNull;
                 widget.setCountryFn(
-                  _selectedCountry!.text!,
+                  _selectedCountry != null
+                      ? _selectedCountry!.text!
+                      : 'Schweiz',
                 );
                 return DropdownButton<String>(
                   isExpanded: true,

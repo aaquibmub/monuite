@@ -67,11 +67,14 @@ class CheckoutItemWidget extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            _model.name,
+                            _model.name +
+                                (_model.variantName != ''
+                                    ? ' (' + _model.variantName + ')'
+                                    : ''),
                             style: TextStyle(
                               fontSize: 16,
                               fontWeight: FontWeight.bold,
-                              overflow: TextOverflow.ellipsis,
+                              overflow: TextOverflow.fade,
                             ),
                           ),
                           SizedBox(

@@ -135,12 +135,18 @@ class CartProvider with ChangeNotifier {
       if (cartItem != null) {
         _cartModel!.items.forEach((element) {
           if (element!.id == item.id && element.variantId == item.variantId) {
-            element.quantity = cartItem.quantity + 1;
+            if (element.groupOfQuantity != null) {
+              element.quantity =
+                  element.quantity + element.groupOfQuantity!.toInt();
+            } else {
+              element.quantity = cartItem.quantity + 1;
+            }
             item.quantity = element.quantity;
           }
         });
       } else {
-        item.quantity = 1;
+        item.quantity =
+            item.groupOfQuantity != null ? item.groupOfQuantity!.toInt() : 1;
         _cartModel!.items.add(item);
       }
       _cartModel!.total = 0;
@@ -173,7 +179,10 @@ class CartProvider with ChangeNotifier {
       var cartItem = _cartModel!.items.firstWhereOrNull((element) =>
           element!.id == item.id && element.variantId == item.variantId);
       if (cartItem != null) {
-        if (cartItem.quantity <= 1) {
+        int groupQty = cartItem.groupOfQuantity != null
+            ? cartItem.groupOfQuantity!.toInt()
+            : 1;
+        if (cartItem.quantity <= groupQty) {
           _cartModel!.items.removeWhere(
             (element) =>
                 element!.id == item.id && element.variantId == item.variantId,
@@ -181,7 +190,7 @@ class CartProvider with ChangeNotifier {
         } else {
           _cartModel!.items.forEach((element) {
             if (element!.id == item.id && element.variantId == item.variantId) {
-              element.quantity = cartItem.quantity - 1;
+              element.quantity = cartItem.quantity - groupQty;
             }
           });
         }
@@ -215,9 +224,12 @@ class CartProvider with ChangeNotifier {
       var cartItem = _cartModel!.items.firstWhereOrNull((element) =>
           element!.id == item.id && element.variantId == item.variantId);
       if (cartItem != null) {
+        int groupQty = cartItem.groupOfQuantity != null
+            ? cartItem.groupOfQuantity!.toInt()
+            : 1;
         _cartModel!.items.forEach((element) {
           if (element!.id == item.id && element.variantId == item.variantId) {
-            element.quantity = cartItem.quantity + 1;
+            element.quantity = cartItem.quantity + groupQty;
           }
         });
       }

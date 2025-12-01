@@ -7,7 +7,9 @@ import 'package:monuite/helpers/common/custom_icons.dart';
 import 'package:monuite/helpers/common/routes.dart';
 import 'package:monuite/helpers/common/utility.dart';
 import 'package:monuite/helpers/models/cart/cart_item_model.dart';
+import 'package:monuite/helpers/models/products/attribute_model.dart';
 import 'package:monuite/helpers/models/products/product_detail_model.dart';
+import 'package:monuite/helpers/models/products/product_variation_list_model.dart';
 import 'package:monuite/l10n/app_localizations.dart';
 import 'package:monuite/providers/cart_provider.dart';
 import 'package:provider/provider.dart';
@@ -27,6 +29,8 @@ class ProductDetailScreen extends StatefulWidget {
 }
 
 class _ProductDetailScreenState extends State<ProductDetailScreen> {
+  // final _passwordFocusNode = FocusNode();
+  ProductVariationListModel? _selectedVariation;
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
@@ -37,6 +41,12 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
             return LoadingScreen();
           }
           return Consumer<ProductProvider>(builder: (ctx, provider, _) {
+            bool hasVariations = provider.productDetail != null &&
+                provider.productDetail!.variations != null &&
+                provider.productDetail!.variations!.isNotEmpty;
+            if (hasVariations && _selectedVariation == null) {
+              _selectedVariation = provider.productDetail!.variations![0];
+            }
             return Scaffold(
               appBar: AppBar(
                 title: Container(
@@ -174,13 +184,221 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                                               ),
                                             ),
                                           ),
+                                          // Quantity Selector
+                                          Container(
+                                            margin: EdgeInsets.symmetric(
+                                              vertical: 20,
+                                            ),
+                                            child: Consumer<CartProvider>(
+                                                builder:
+                                                    (ctx, cartProvider, _) {
+                                              var cartItem = cartProvider
+                                                          .cartModel !=
+                                                      null
+                                                  ? cartProvider
+                                                      .cartModel!.items
+                                                      .where((element) =>
+                                                          element!.id ==
+                                                          provider
+                                                              .productDetail!
+                                                              .id)
+                                                      .firstOrNull
+                                                  : null;
+                                              return Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.start,
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.start,
+                                                  children: [
+                                                    InkWell(
+                                                      child: Container(
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          border: Border.all(
+                                                            color: Constants
+                                                                .colorGrey,
+                                                          ),
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(8),
+                                                        ),
+                                                        height: 40,
+                                                        width: 40,
+                                                        margin: EdgeInsets.only(
+                                                          left: 20,
+                                                          right: 20,
+                                                        ),
+                                                        child: Center(
+                                                          child: Text(
+                                                            '-',
+                                                            style: TextStyle(
+                                                              fontSize: 30,
+                                                            ),
+                                                          ),
+                                                        ),
+                                                      ),
+                                                      // icon: Icon(Icons.more_horiz_rounded),
+                                                      onTap: cartItem != null
+                                                          ? () {
+                                                              Provider.of<CartProvider>(
+                                                                      context,
+                                                                      listen:
+                                                                          false)
+                                                                  .decreaseItemQuantity(
+                                                                      cartItem);
+                                                              // _updateState();
+                                                            }
+                                                          : null,
+                                                    ),
+                                                    Container(
+                                                      height: 40,
+                                                      width: 40,
+                                                      child: Center(
+                                                        child: Text(
+                                                          '${cartItem?.quantity ?? 0}',
+                                                          style: TextStyle(
+                                                            fontSize: 30,
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                    InkWell(
+                                                      child: Container(
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          border: Border.all(
+                                                            color: Constants
+                                                                .colorGrey,
+                                                          ),
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(8),
+                                                        ),
+                                                        height: 40,
+                                                        width: 40,
+                                                        margin: EdgeInsets.only(
+                                                          left: 10,
+                                                        ),
+                                                        child: Center(
+                                                          child: Text(
+                                                            '+',
+                                                            style: TextStyle(
+                                                              fontSize: 30,
+                                                            ),
+                                                          ),
+                                                        ),
+                                                      ),
+                                                      // icon: Icon(Icons.more_horiz_rounded),
+                                                      onTap: cartItem != null
+                                                          ? () {
+                                                              Provider.of<CartProvider>(
+                                                                      context,
+                                                                      listen:
+                                                                          false)
+                                                                  .increaseItemQuantity(
+                                                                      cartItem);
+                                                              // _updateState();
+                                                            }
+                                                          : null,
+                                                    )
+                                                  ]);
+                                            }),
+                                          ),
+                                          // Variantion
+                                          if (hasVariations)
+                                            Container(
+                                              width: double.infinity,
+                                              child: DropdownButton<String>(
+                                                  isExpanded: true,
+                                                  value: _selectedVariation?.id,
+                                                  elevation: 16,
+                                                  style: const TextStyle(
+                                                      color: Colors.deepPurple),
+                                                  underline: Container(
+                                                    height: 2,
+                                                    color:
+                                                        Colors.deepPurpleAccent,
+                                                  ),
+                                                  onChanged: (String? value) {
+                                                    // This is called when the user selects an item.
+                                                    setState(() {
+                                                      final ProductVariationListModel?
+                                                          item = provider
+                                                              .productDetail!
+                                                              .variations!
+                                                              .where(
+                                                                  (element) =>
+                                                                      element
+                                                                          .id ==
+                                                                      value)
+                                                              .first;
+                                                      if (item != null) {
+                                                        setState(() {
+                                                          _selectedVariation =
+                                                              item;
+                                                        });
+                                                      }
+                                                    });
+                                                  },
+                                                  selectedItemBuilder:
+                                                      (BuildContext context) {
+                                                    return provider
+                                                        .productDetail!
+                                                        .variations!
+                                                        .map<Widget>(
+                                                            (ProductVariationListModel
+                                                                item) {
+                                                      return Container(
+                                                        alignment: Alignment
+                                                            .centerLeft,
+                                                        constraints:
+                                                            const BoxConstraints(
+                                                          maxWidth:
+                                                              double.infinity,
+                                                        ),
+                                                        child: Text(
+                                                          item.options
+                                                              .map((option) =>
+                                                                  option.name +
+                                                                  ': ' +
+                                                                  option.option)
+                                                              .join(', '),
+                                                          style: const TextStyle(
+                                                              color:
+                                                                  Colors.blue,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w600),
+                                                        ),
+                                                      );
+                                                    }).toList();
+                                                  },
+                                                  items: provider.productDetail!
+                                                      .variations!
+                                                      .map<
+                                                              DropdownMenuItem<
+                                                                  String>>(
+                                                          (ProductVariationListModel
+                                                              att) {
+                                                    return DropdownMenuItem<
+                                                        String>(
+                                                      value: att.id,
+                                                      child: Text(att.options
+                                                          .map((option) =>
+                                                              option.name +
+                                                              ': ' +
+                                                              option.option)
+                                                          .join(', ')),
+                                                    );
+                                                  }).toList()),
+                                            ),
                                           // Price
                                           Container(
                                             margin: EdgeInsets.symmetric(
                                               vertical: 10,
                                             ),
                                             child: Text(
-                                              "CHF ${provider.productDetail!.price}",
+                                              "CHF ${_selectedVariation != null ? _selectedVariation!.price : provider.productDetail!.price}",
                                               style: TextStyle(
                                                 fontSize: 20,
                                                 fontWeight: FontWeight.bold,
@@ -222,12 +440,27 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                           Provider.of<CartProvider>(context, listen: false)
                               .addItem(CartItemModel(
                             product.id,
-                            '',
-                            product.imageUrls![0],
+                            _selectedVariation != null
+                                ? _selectedVariation!.id
+                                : '',
+                            product.imageUrls != null &&
+                                    product.imageUrls!.isNotEmpty
+                                ? product.imageUrls![0]
+                                : null,
                             product.name,
-                            '',
-                            product.price,
+                            _selectedVariation != null
+                                ? _selectedVariation!.options
+                                    .map((option) =>
+                                        option.name + ': ' + option.option)
+                                    .join(', ')
+                                : '',
+                            _selectedVariation != null
+                                ? _selectedVariation!.price
+                                : product.price,
                             1,
+                            product.groupOfQuantity,
+                            product.minAllowedQuantity,
+                            product.maxAllowedQuantity,
                           ))
                               .then((value) {
                             // Navigator.push(

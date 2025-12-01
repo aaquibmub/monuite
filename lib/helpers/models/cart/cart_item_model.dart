@@ -6,6 +6,9 @@ class CartItemModel {
   final String variantName;
   final double price;
   int quantity;
+  final double? groupOfQuantity;
+  final double? minAllowedQuantity;
+  final double? maxAllowedQuantity;
 
   CartItemModel(
     this.id,
@@ -15,6 +18,9 @@ class CartItemModel {
     this.variantName,
     this.price,
     this.quantity,
+    this.groupOfQuantity,
+    this.minAllowedQuantity,
+    this.maxAllowedQuantity,
   );
 
   double get totalPrice => price * quantity;
@@ -23,11 +29,20 @@ class CartItemModel {
     return CartItemModel(
       json['id'] as String,
       json['variantId'] as String,
-      json['imageUrl'] as String,
+      json['imageUrl'] as String?,
       json['name'] as String,
       json['variantName'] as String,
       json['price'] as double,
       json['quantity'] as int,
+      json['groupOfQuantity'] != null
+          ? (json['groupOfQuantity'] as num).toDouble()
+          : null,
+      json['minAllowedQuantity'] != null
+          ? (json['minAllowedQuantity'] as num).toDouble()
+          : null,
+      json['maxAllowedQuantity'] != null
+          ? (json['maxAllowedQuantity'] as num).toDouble()
+          : null,
     );
   }
   Map<String, dynamic> toJson() {
@@ -39,6 +54,9 @@ class CartItemModel {
       'variantName': variantName,
       'price': price,
       'quantity': quantity,
+      'groupOfQuantity': groupOfQuantity,
+      'minAllowedQuantity': minAllowedQuantity,
+      'maxAllowedQuantity': maxAllowedQuantity,
     };
   }
 }
