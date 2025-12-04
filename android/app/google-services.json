@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "223292591394",
-    "project_id": "monuite-cbde0",
-    "storage_bucket": "monuite-cbde0.appspot.com"
+    "project_number": "864021725788",
+    "project_id": "monuiteapp",
+    "storage_bucket": "monuiteapp.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:223292591394:android:af768315460e88c25d697b",
+        "mobilesdk_app_id": "1:864021725788:android:575864119608e3b99b5c99",
         "android_client_info": {
           "package_name": "com.example.monuite"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyAnjNFOLVNq03meWHhb3srDLgY7Qo-myPs"
+          "current_key": "AIzaSyBY9JRwY3CTTr-6j2PG6a8dGwIYZRZcay0"
         }
       ],
       "services": {

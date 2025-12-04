@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:monuite/helpers/models/orders/order_create_response_model.dart';
@@ -154,6 +155,13 @@ class OrderProvider with ChangeNotifier {
         print(responseData);
         ResponseModel<OrderCreateResponseModel> result =
             ResponseModel<OrderCreateResponseModel>.fromJson(responseData);
+
+        final fbm = FirebaseMessaging.instance;
+        WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+          fbm.subscribeToTopic(result.result!.orderId);
+          print('subscription id: ' + result.result!.orderId);
+        });
+
         return result;
       }).onError((error, stackTrace) {
         throw error!;

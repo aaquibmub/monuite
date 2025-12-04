@@ -1,3 +1,5 @@
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_stripe/flutter_stripe.dart';
 import 'package:monuite/helpers/common/utility.dart';
@@ -29,17 +31,129 @@ import 'package:provider/provider.dart';
 import 'helpers/common/constants.dart';
 import 'helpers/common/routes.dart';
 
+@pragma('vm:entry-point')
+Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
+  // If you're going to use other Firebase services in the background, such as Firestore,
+  // make sure you call `initializeApp` before using other Firebase services.
+  await Firebase.initializeApp();
+  if (message.notification != null) {
+    print('Message also contained a notification: ${message.notification}');
+  }
+
+  //showDialog(context: context, builder: builder);
+}
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   Stripe.publishableKey = Constants.stripePublishableKey;
+  await Firebase.initializeApp();
+  await FirebaseMessaging.instance.requestPermission();
+  WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+    FirebaseMessaging.instance.subscribeToTopic('admin-notifications');
+    print('subscription id: ' + 'admin-notifications');
+  });
   await Utility.refreshCart();
   runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
   // This widget is the root of your application.
+  Future<void> setupInteractedMessage(BuildContext context) async {
+    // Get any messages which caused the application to open from
+    // a terminated state.
+    RemoteMessage? initialMessage =
+        await FirebaseMessaging.instance.getInitialMessage();
+
+    // If the message also contains a data property with a "type" of "chat",
+    // navigate to a chat screen
+    if (initialMessage != null) {
+      _handleMessage(initialMessage, context);
+    }
+
+    // Also handle any interaction when the app is in the background using a
+    // Stream listener
+    FirebaseMessaging.onMessage.listen((RemoteMessage message) {
+      _handleMessage(message, context);
+    });
+    FirebaseMessaging.onMessageOpenedApp.listen((RemoteMessage message) {
+      _handleMessage(message, context);
+    });
+    FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
+  }
+
+  void _handleMessage(RemoteMessage message, BuildContext context) {
+    final title = message.notification?.title;
+    final body = message.notification?.body;
+    // final payload = jsonDecode(data.value['payload'] as String);
+    // NotificationPayloadModel payloadModel =
+    //     NotificationPayloadModel.fromJson(payload);
+    // if (payloadModel.EventId == Constants.notifyDriverDeallocatedVehicalID) {
+    //   final payload = jsonDecode(payloadModel.Data);
+    //   VehicalDeallocationPayloadModel vdPayload =
+    //       VehicalDeallocationPayloadModel.fromJson(payload);
+    //   Utility.showVehicalDeallocationDialogue(
+    //     context,
+    //     vdPayload.DeallocationId,
+    //     vdPayload.Vehical,
+    //   ).then((value) {
+    //     Utility.showMeterReadingDialogue(
+    //       context,
+    //       vdPayload.DeallocationId,
+    //       vdPayload.Vehical,
+    //     ).then((value) {
+    //       var route = ModalRoute.of(context);
+    //       if (route != null) {
+    //         if ((route.settings.name == "/" ||
+    //             route.settings.name == Routes.homeScreen)) {
+    //           Navigator.pushReplacement(
+    //             context,
+    //             MaterialPageRoute(
+    //               builder: (ctx) => TabsScreen(0), // Dashboard
+    //             ),
+    //           );
+    //         }
+    //         if (route.settings.name == Routes.vehicalsScreen) {
+    //           Navigator.pushReplacement(
+    //             context,
+    //             MaterialPageRoute(
+    //               builder: (ctx) => TabsScreen(2), // Vehicles
+    //             ),
+    //           );
+    //         }
+    //       }
+    //     });
+    //   });
+    //   return Future.value();
+    // }
+    Utility.notificationAlert(
+      navigatorKey.currentState!.context,
+      title,
+      body,
+    ).then((value) {
+      var route = ModalRoute.of(navigatorKey.currentState!.context);
+      if (route != null) {
+        if ((route.settings.name == "/" ||
+            route.settings.name == Routes.homeScreen)) {
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(
+              builder: (ctx) => TabsScreen(0), // Dashboard
+            ),
+          );
+        }
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
+    setupInteractedMessage(context);
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(
@@ -80,6 +194,7 @@ class MyApp extends StatelessWidget {
       child: Consumer<Auth>(builder: (ctx, authData, child) {
         // authData.refreshAddressBook();
         return MaterialApp(
+          navigatorKey: navigatorKey,
           title: 'monuite',
           locale: authData.locale,
           supportedLocales: AppLocalizations.supportedLocales,

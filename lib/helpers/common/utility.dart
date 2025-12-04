@@ -96,13 +96,13 @@ class Utility {
   }
 
   static Future notificationAlert(
-      BuildContext context, String? title, String msg) {
+      BuildContext context, String? title, String? msg) {
     return showDialog(
         context: context,
         builder: (ctx) {
           return AlertDialog(
             title: Text(title ?? "Notification!"),
-            content: Text(msg),
+            content: Text(msg ?? ""),
             actions: [
               TextButton(
                   onPressed: () {

@@ -1,5 +1,11 @@
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
+import 'package:monuite/helpers/common/routes.dart';
+import 'package:monuite/helpers/common/utility.dart';
+import 'package:monuite/helpers/models/user.dart';
+import 'package:monuite/providers/auth.dart';
 import 'package:monuite/screens/home/tabs_screen.dart';
+import 'package:provider/provider.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -7,94 +13,77 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  // Future<dynamic> onMessage(message) async {
-  //   // print('onMessage: ' + message);
-  //   await Provider.of<Auth>(context, listen: false).refreshUserData();
-  //   final notificationStr = message.entries.toList();
-  //   final notification = notificationStr.first;
-  //   // final data = notificationStr[1];
-  //   if (notification != null) {
-  //     final title = notification.value['title'];
-  //     final body = notification.value['body'];
-  //     // final payload = jsonDecode(data.value['payload'] as String);
-  //     // NotificationPayloadModel payloadModel =
-  //     //     NotificationPayloadModel.fromJson(payload);
-  //     // if (payloadModel.EventId == Constants.notifyDriverDeallocatedVehicalID) {
-  //     //   final payload = jsonDecode(payloadModel.Data);
-  //     //   VehicalDeallocationPayloadModel vdPayload =
-  //     //       VehicalDeallocationPayloadModel.fromJson(payload);
-  //     //   Utility.showVehicalDeallocationDialogue(
-  //     //     context,
-  //     //     vdPayload.DeallocationId,
-  //     //     vdPayload.Vehical,
-  //     //   ).then((value) {
-  //     //     Utility.showMeterReadingDialogue(
-  //     //       context,
-  //     //       vdPayload.DeallocationId,
-  //     //       vdPayload.Vehical,
-  //     //     ).then((value) {
-  //     //       var route = ModalRoute.of(context);
-  //     //       if (route != null) {
-  //     //         if ((route.settings.name == "/" ||
-  //     //             route.settings.name == Routes.homeScreen)) {
-  //     //           Navigator.pushReplacement(
-  //     //             context,
-  //     //             MaterialPageRoute(
-  //     //               builder: (ctx) => TabsScreen(0), // Dashboard
-  //     //             ),
-  //     //           );
-  //     //         }
-  //     //         if (route.settings.name == Routes.vehicalsScreen) {
-  //     //           Navigator.pushReplacement(
-  //     //             context,
-  //     //             MaterialPageRoute(
-  //     //               builder: (ctx) => TabsScreen(2), // Vehicles
-  //     //             ),
-  //     //           );
-  //     //         }
-  //     //       }
-  //     //     });
-  //     //   });
-  //     //   return Future.value();
-  //     // }
-  //     Utility.notificationAlert(
-  //       context,
-  //       title,
-  //       body,
-  //     ).then((value) {
-  //       var route = ModalRoute.of(context);
-  //       if (route != null) {
-  //         if ((route.settings.name == "/" ||
-  //             route.settings.name == Routes.homeScreen)) {
-  //           Navigator.pushReplacement(
-  //             context,
-  //             MaterialPageRoute(
-  //               builder: (ctx) => TabsScreen(0), // Dashboard
-  //             ),
-  //           );
-  //         }
-  //       }
-  //     });
-  //   }
-  //   return Future.value();
-  // }
-
-  // @override
-  // void initState() {
-  //   print('before firebase messaging');
-  //   final fbm = FirebaseMessaging();
-  //   WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-  //     User currentUser = Provider.of<Auth>(context, listen: false).currentUser;
-  //     fbm.subscribeToTopic(currentUser?.id);
-  //     print('subscription id: ' + currentUser?.id);
-  //   });
-  //   fbm.requestNotificationPermissions();
-  //   print('before firebase configuration');
-  //   fbm.configure(
-  //       onMessage: onMessage, onResume: onMessage, onLaunch: onMessage);
-  //   print('after firebase configuration');
-  //   super.initState();
-  // }
+  Future<dynamic> onMessage(message) async {
+    // print('onMessage: ' + message);
+    await Provider.of<Auth>(context, listen: false).refreshUserData();
+    final notificationStr = message.entries.toList();
+    final notification = notificationStr.first;
+    // final data = notificationStr[1];
+    if (notification != null) {
+      final title = notification.value['title'];
+      final body = notification.value['body'];
+      // final payload = jsonDecode(data.value['payload'] as String);
+      // NotificationPayloadModel payloadModel =
+      //     NotificationPayloadModel.fromJson(payload);
+      // if (payloadModel.EventId == Constants.notifyDriverDeallocatedVehicalID) {
+      //   final payload = jsonDecode(payloadModel.Data);
+      //   VehicalDeallocationPayloadModel vdPayload =
+      //       VehicalDeallocationPayloadModel.fromJson(payload);
+      //   Utility.showVehicalDeallocationDialogue(
+      //     context,
+      //     vdPayload.DeallocationId,
+      //     vdPayload.Vehical,
+      //   ).then((value) {
+      //     Utility.showMeterReadingDialogue(
+      //       context,
+      //       vdPayload.DeallocationId,
+      //       vdPayload.Vehical,
+      //     ).then((value) {
+      //       var route = ModalRoute.of(context);
+      //       if (route != null) {
+      //         if ((route.settings.name == "/" ||
+      //             route.settings.name == Routes.homeScreen)) {
+      //           Navigator.pushReplacement(
+      //             context,
+      //             MaterialPageRoute(
+      //               builder: (ctx) => TabsScreen(0), // Dashboard
+      //             ),
+      //           );
+      //         }
+      //         if (route.settings.name == Routes.vehicalsScreen) {
+      //           Navigator.pushReplacement(
+      //             context,
+      //             MaterialPageRoute(
+      //               builder: (ctx) => TabsScreen(2), // Vehicles
+      //             ),
+      //           );
+      //         }
+      //       }
+      //     });
+      //   });
+      //   return Future.value();
+      // }
+      Utility.notificationAlert(
+        context,
+        title,
+        body,
+      ).then((value) {
+        var route = ModalRoute.of(context);
+        if (route != null) {
+          if ((route.settings.name == "/" ||
+              route.settings.name == Routes.homeScreen)) {
+            Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(
+                builder: (ctx) => TabsScreen(0), // Dashboard
+              ),
+            );
+          }
+        }
+      });
+    }
+    return Future.value();
+  }
 
   @override
   Widget build(BuildContext context) {
