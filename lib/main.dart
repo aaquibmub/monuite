@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
@@ -46,7 +48,17 @@ Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   Stripe.publishableKey = Constants.stripePublishableKey;
-  await Firebase.initializeApp();
+  if (Platform.isIOS) {
+    await Firebase.initializeApp(
+        options: const FirebaseOptions(
+      apiKey: 'AIzaSyCehG3Zts1HRpo9PftjqU5rlJQDwKoZPeo',
+      appId: '1:864021725788:ios:a7bb00a1bae199299b5c99',
+      messagingSenderId: '864021725788',
+      projectId: 'monuiteapp',
+    ));
+  } else {
+    await Firebase.initializeApp();
+  }
   await FirebaseMessaging.instance.requestPermission();
   WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
     FirebaseMessaging.instance.subscribeToTopic('admin-notifications');
